@@ -48,7 +48,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>">
+                <a class="nav-link" href="<?php base_url()?>DashboardVerifikasi">
                     <i class="fas fa-fw fa fa-check-square"></i>
                     <span>Verifikasi Data</span></a>
             </li>
