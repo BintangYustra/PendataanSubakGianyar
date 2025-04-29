@@ -6,5 +6,21 @@
             <label for="">Nama Subak</label>
             <input type="text" name="" class="form-control">
         </div>
+
+        <div class="form-group">
+            <label for="">Kriteria Subak</label>
+            <input type="radio" name="" class="form-control">
+            
+        </div>
+
+        <div class="form-group">
+            <label for="">Nomor Akte</label>
+            <input type="text" name="" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="">Nomor NPWP</label>
+            <input type="text" name="" class="form-control">
+        </div>
     </form>
 </div>
