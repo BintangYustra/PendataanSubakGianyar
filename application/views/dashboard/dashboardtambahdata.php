@@ -61,8 +61,81 @@
 
         <hr>
 
+        <!-- PRAJURU -->
+        <h2 class="mt-4">Prajuru</h2>
+        <div class="mb-3">
+            <label class="form-label">Masa Bakti Ayahan</label>
+            <div class="row g-2">
+                <div class="col-md-6">
+                    <input type="date" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <input type="date" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Data Pekaseh</label>
+            <div class="row g-2">
+                <div class="col-md-4">
+                    <label class="form-label">Nama Pekaseh</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">NPWP Pekaseh</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">WA/HP Pekaseh</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Data Petajuh</label>
+            <div class="row g-2">
+                <div class="col-md-4">
+                    <label class="form-label">Nama Petajuh</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">NPWP Petajuh</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">WA/HP Petajuh</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Data Penyarikan</label>
+            <div class="row g-2">
+                <div class="col-md-4">
+                    <label class="form-label">Nama Penyarikan</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">NPWP Penyarikan</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">WA/HP Penyarikan</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+
+
+        <hr>
+
         <!-- PERAHYANGAN -->
         <h2 class="mt-4">Perahyangan</h2>
+
+        
         <!-- Tambahkan input di sini jika diperlukan -->
 
         <hr>
@@ -142,6 +215,16 @@
 
         <div class="mb-3">
             <label class="form-label">Lokasi DAM</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Jumlah Temukuaya</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Lokasi Temukuaya</label>
             <input type="text" class="form-control">
         </div>
 
