@@ -139,6 +139,7 @@
         <hr>
 
         <!-- PAWONGAN -->
+         <!-- PAWONGAN -->
         <h2 class="mt-4">Pawongan</h2>
 
         <div class="mb-3">
@@ -210,6 +211,7 @@
                 }
             </script>
             </div>
+            
         <hr>
 
         <!-- PALEMAHAN -->
