@@ -140,7 +140,43 @@
 
         <!-- PAWONGAN -->
         <h2 class="mt-4">Pawongan</h2>
-        <!-- Tambahkan input di sini jika diperlukan -->
+
+        <div class="mb-3">
+            <label class="form-label">Jumlah Krama Pemilik Lahan</label>
+            <input type="number" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Jumlah Krama Penyakap</label>
+            <input type="number" class="form-control">
+        </div>
+
+        <label class="form-label d-block">Tingkat Pendidikan Krama Penyakap</label>
+            <div id="penyakap-wrapper">
+                <div class="row g-2 align-items-center mb-2 bantuan-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" placeholder="No">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Nama Penyakap">
+                    </div>
+                    <div class="col-auto">
+                    <select class="form-control">
+                        <option value="">Tingkat Pendidikan</option>
+                        <option value="tidak_sekolah">Tidak Sekolah</option>
+                        <option value="sd">SD</option>
+                        <option value="smp">SMP</option>
+                        <option value="sma">SMA/SMK</option>
+                        <option value="d3">Diploma (D3)</option>
+                        <option value="s1">Sarjana (S1)</option>
+                        <option value="s2">Magister (S2)</option>
+                        <option value="s3">Doktor (S3)</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+
+
 
         <hr>
 
@@ -291,12 +327,58 @@
             </script>
         </div>
 
-
         <div class="mb-3">
-            <label class="form-label">Bantuan dari Pemerintah yang Pernah Diterima oleh Subak</label>
-            <input type="text" class="form-control">
-        </div>
+            <label class="form-label d-block">Bantuan yang Pernah Diterima</label>
+            <div id="bantuan-wrapper">
+                <div class="row g-2 align-items-center mb-2 bantuan-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" placeholder="No">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Nama Bantuan">
+                    </div>
+                    <div class="col-auto">
+                        <input type="number" class="form-control" placeholder="Tahun">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Nilai (Rp)">
+                    </div>
+                </div>
+            </div>
 
-        <button type="submit" class="btn btn-primary">Simpan</button>
+            <!-- Tombol tambah -->
+            <button type="button" class="btn btn-primary btn-sm" onclick="tambahBantuan()">Tambah Baris</button>
+            </div>
+
+            <script>
+                function tambahBantuan() {
+                    const wrapper = document.getElementById('bantuan-wrapper');
+
+                    // Membuat elemen div baru
+                    const newRow = document.createElement('div');
+                    newRow.className = 'row g-2 align-items-center mb-2 bantuan-row';
+
+                    // Isi HTML untuk 1 baris form
+                    newRow.innerHTML = `
+                        <div class="col-auto">
+                            <input type="text" class="form-control" placeholder="No">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Nama Bantuan">
+                        </div>
+                        <div class="col-auto">
+                            <input type="number" class="form-control" placeholder="Tahun">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Nilai (Rp)">
+                        </div>
+                    `;
+
+                    // Tambahkan ke dalam wrapper
+                    wrapper.appendChild(newRow);
+                }
+            </script>
+
     </form>
+    <button type="submit" class="btn btn-primary">Simpan</button>
 </div>
