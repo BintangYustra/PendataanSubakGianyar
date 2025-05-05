@@ -174,10 +174,42 @@
                     </select>
                     </div>
                 </div>
+                
+            <!-- Tombol tambah -->
+                <button type="button" class="btn btn-primary btn-sm" onclick="tambahPenyakap()">Tambah Baris</button>
+
+                <script>
+                function tambahPenyakap() {
+                    const wrapper = document.getElementById('penyakap-wrapper');
+
+                    const newRow = document.createElement('div');
+                    newRow.className = 'row g-2 align-items-center mb-2 bantuan-row';
+
+                    newRow.innerHTML = `
+                        <div class="col-auto">
+                            <input type="text" class="form-control" placeholder="No">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Nama Penyakap">
+                        </div>
+                        <div class="col-auto">
+                    <select class="form-control">
+                        <option value="">Tingkat Pendidikan</option>
+                        <option value="tidak_sekolah">Tidak Sekolah</option>
+                        <option value="sd">SD</option>
+                        <option value="smp">SMP</option>
+                        <option value="sma">SMA/SMK</option>
+                        <option value="d3">Diploma (D3)</option>
+                        <option value="s1">Sarjana (S1)</option>
+                        <option value="s2">Magister (S2)</option>
+                        <option value="s3">Doktor (S3)</option>
+                    </select>                        
+                    </div>
+                    `;
+                    wrapper.appendChild(newRow);
+                }
+            </script>
             </div>
-
-
-
         <hr>
 
         <!-- PALEMAHAN -->
@@ -354,11 +386,9 @@
                 function tambahBantuan() {
                     const wrapper = document.getElementById('bantuan-wrapper');
 
-                    // Membuat elemen div baru
                     const newRow = document.createElement('div');
                     newRow.className = 'row g-2 align-items-center mb-2 bantuan-row';
 
-                    // Isi HTML untuk 1 baris form
                     newRow.innerHTML = `
                         <div class="col-auto">
                             <input type="text" class="form-control" placeholder="No">
@@ -373,8 +403,6 @@
                             <input type="text" class="form-control" placeholder="Nilai (Rp)">
                         </div>
                     `;
-
-                    // Tambahkan ke dalam wrapper
                     wrapper.appendChild(newRow);
                 }
             </script>
