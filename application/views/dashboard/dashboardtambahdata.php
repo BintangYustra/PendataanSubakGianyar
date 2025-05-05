@@ -134,12 +134,66 @@
 
         <!-- PERAHYANGAN -->
         <h2 class="mt-4">Perahyangan</h2>        
-        <!-- Tambahkan input di sini jika diperlukan -->
+
+        <div class="mb-3">
+            <label class="form-label d-block">Pura Bedugul</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio">
+                <label class="form-check-label">Ada</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio">
+                <label class="form-check-label">Tidak Ada</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label d-block">Pura Bedugul Ini Disungsung Oleh</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="sungsung-subak">
+                <label class="form-check-label" for="sungsung-subak">Satu Subak</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="sungsung-subak">
+                <label class="form-check-label" for="sungsung-subak">Lebih Dari Satu Subak</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Alamat Pura Krama</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Piodalan/ Wali dalam Setahun</label>
+            <input type="number" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Hari Piodalan/ Wali</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Jumlah Pelinggih</label>
+            <input type="number" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Inventaris yang Dimiliki</label>
+            <input type="number" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Upload 3 Foto</label>
+            <input type="submit" class="form-control">
+        </div>
+        
+
 
         <hr>
 
         <!-- PAWONGAN -->
-         <!-- PAWONGAN -->
         <h2 class="mt-4">Pawongan</h2>
 
         <div class="mb-3">
@@ -211,7 +265,7 @@
                 }
             </script>
             </div>
-            
+
         <hr>
 
         <!-- PALEMAHAN -->
