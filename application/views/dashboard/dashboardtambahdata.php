@@ -133,9 +133,7 @@
         <hr>
 
         <!-- PERAHYANGAN -->
-        <h2 class="mt-4">Perahyangan</h2>
-
-        
+        <h2 class="mt-4">Perahyangan</h2>        
         <!-- Tambahkan input di sini jika diperlukan -->
 
         <hr>
@@ -256,27 +254,43 @@
 
         <div class="mb-3">
             <label class="form-label d-block">Hama</label>
+
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">Burung</label>
+                <input class="form-check-input" type="checkbox" id="hama-burung">
+                <label class="form-check-label" for="hama-burung">Burung</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">Tikus</label>
+                <input class="form-check-input" type="checkbox" id="hama-tikus">
+                <label class="form-check-label" for="hama-tikus">Tikus</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">Wereng</label>
+                <input class="form-check-input" type="checkbox" id="hama-wereng">
+                <label class="form-check-label" for="hama-wereng">Wereng</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">Walang Sangit</label>
+                <input class="form-check-input" type="checkbox" id="hama-walang">
+                <label class="form-check-label" for="hama-walang">Walang Sangit</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">Lain-Lain</label>
+                <input class="form-check-input" type="checkbox" id="hama-lain">
+                <label class="form-check-label" for="hama-lain">Lain-Lain</label>
             </div>
+
+            <!-- Input tambahan jika 'Lain-Lain' dicentang -->
+            <div class="mt-2" id="form-hama-lain" style="display: none;">
+                <label class="form-label">Sebutkan Hama Lain</label>
+                <input type="text" class="form-control" placeholder="Contoh: Belalang, Kumbang">
+            </div>
+            <script>
+                const checkboxHamaLain = document.getElementById('hama-lain');
+                const formHamaLain = document.getElementById('form-hama-lain');
+
+                checkboxHamaLain.addEventListener('change', function () {
+                formHamaLain.style.display = this.checked ? 'block' : 'none';
+                });
+            </script>
         </div>
+
 
         <div class="mb-3">
             <label class="form-label">Bantuan dari Pemerintah yang Pernah Diterima oleh Subak</label>
