@@ -1,5 +1,5 @@
 <div class="container mt-4">
-    <h1 class="mb-4">Tambah Data Baru</h1>
+    <h1 class="mb-4"><b>Tambah Data Baru</b></h1>
     <hr>
 
     <form action="">
