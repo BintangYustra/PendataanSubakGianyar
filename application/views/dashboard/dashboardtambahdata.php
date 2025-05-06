@@ -5,7 +5,7 @@
     <form action="">
 
         <!-- SUBAK -->
-        <h2 class="mt-4">Subak</h2>
+        <h2 class="mt-4"><b>Subak</b></h2>
         <div class="mb-3">
             <label class="form-label">Nama Subak</label>
             <input type="text" class="form-control">
@@ -14,11 +14,11 @@
         <div class="mb-3">
             <label class="form-label d-block">Kriteria Subak</label>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="pilihan">
                 <label class="form-check-label">Subak Basah</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="pilihan">
                 <label class="form-check-label">Subak Abian</label>
             </div>
         </div>
@@ -62,7 +62,7 @@
         <hr>
 
         <!-- PRAJURU -->
-        <h2 class="mt-4">Prajuru</h2>
+        <h2 class="mt-4"><b>Prajuru</b></h2>
         <div class="mb-3">
             <label class="form-label">Masa Bakti Ayahan</label>
             <div class="row g-2">
@@ -133,16 +133,16 @@
         <hr>
 
         <!-- PERAHYANGAN -->
-        <h2 class="mt-4">Perahyangan</h2>        
+        <h2 class="mt-4"><b>Perahyangan</b></h2>        
 
         <div class="mb-3">
             <label class="form-label d-block">Pura Bedugul</label>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="pilihan">
                 <label class="form-check-label">Ada</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="pilihan">
                 <label class="form-check-label">Tidak Ada</label>
             </div>
         </div>
@@ -248,7 +248,7 @@
         <hr>
 
         <!-- PAWONGAN -->
-        <h2 class="mt-4">Pawongan</h2>
+        <h2 class="mt-4"><b>Pawongan</b></h2>
 
         <div class="mb-3">
             <label class="form-label">Jumlah Krama Pemilik Lahan</label>
@@ -292,7 +292,7 @@
                     const wrapper = document.getElementById('penyakap-wrapper');
 
                     const newRow = document.createElement('div');
-                    newRow.className = 'row g-2 align-items-center mb-2 bantuan-row';
+                    newRow.className = 'row g-2 align-items-center mb-2 penyakap-row';
 
                     newRow.innerHTML = `
                         <div class="col-auto">
@@ -321,7 +321,7 @@
         <hr>
 
         <!-- PALEMAHAN -->
-        <h2 class="mt-4">Palemahan</h2>
+        <h2 class="mt-4"><b>Palemahan</b></h2>
 
         <div class="mb-3">
             <label class="form-label">Luas Lahan Awal (Ha)</label>
@@ -346,11 +346,11 @@
         <div class="mb-3">
             <label class="form-label d-block">Bale Timbang</label>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="pilihan">
                 <label class="form-check-label">Ada</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="pilihan">
                 <label class="form-check-label">Tidak Ada</label>
             </div>
         </div>
