@@ -16,7 +16,7 @@
         <div class="d-flex justify-content-center">
             <div class="card shadow-sm" style="width: 18rem; margin-left: 25px">
                 <div class="card-body">
-                    <h5 class="card-title" style="font-family: Boldonse, system-ui;">All About You!</h5>
+                    <h5 class="card-title" style="font-family: Boldonse, system-ui;">Jumlah Admin</h5>
                     <p class="card-text">Temukan yang terbaik untuk anda</p>
                 </div>
             </div>
@@ -25,7 +25,7 @@
         <div class="d-flex justify-content-center">
             <div class="card shadow-sm" style="width: 18rem; margin-left: 25px">
                 <div class="card-body">
-                    <h5 class="card-title" style="font-family: Boldonse, system-ui;">All About You!</h5>
+                    <h5 class="card-title" style="font-family: Boldonse, system-ui;">Jumlah Subak Terverifikasi</h5>
                     <p class="card-text">Temukan yang terbaik untuk anda</p>
                 </div>
             </div>
@@ -34,7 +34,7 @@
         <div class="d-flex justify-content-center">
             <div class="card shadow-sm" style="width: 18rem; margin-left: 25px">
                 <div class="card-body">
-                    <h5 class="card-title" style="font-family: Boldonse, system-ui;">All About You!</h5>
+                    <h5 class="card-title" style="font-family: Boldonse, system-ui;">Jumlah Subak Belum Terverifikasi</h5>
                     <p class="card-text">Temukan yang terbaik untuk anda</p>
                 </div>
             </div>
