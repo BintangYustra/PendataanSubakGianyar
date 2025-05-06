@@ -160,7 +160,7 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Alamat Pura Krama</label>
+            <label class="form-label">Alamat Pura Bedugul</label>
             <input type="text" class="form-control">
         </div>
 
@@ -180,16 +180,70 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Inventaris yang Dimiliki</label>
-            <input type="number" class="form-control">
+            <label class="form-label d-block">Inventaris yang Dimiliki</label>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inventaris-angklung">
+                <label class="form-check-label" for="inventaris-angklung">Angklung</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inventaris-gong">
+                <label class="form-check-label" for="inventaris-gong">Gong</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inventaris-baleganjur">
+                <label class="form-check-label" for="inventaris-baleganjur">Baleganjur</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inventaris-lain">
+                <label class="form-check-label" for="inventaris-lain">Lain-Lain</label>
+            </div>
+
+            <!-- Input tambahan jika 'Lain-Lain' dicentang -->
+            <div class="mt-2" id="form-inventaris-lain" style="display: none;">
+                <label class="form-label">Sebutkan Inventaris Lain</label>
+                <input type="text" class="form-control" placeholder="Contoh: A, B, C">
+            </div>
+            <script>
+                const checkboxHamaLain = document.getElementById('inventaris-lain');
+                const formHamaLain = document.getElementById('form-inventaris-lain');
+
+                checkboxHamaLain.addEventListener('change', function () {
+                formHamaLain.style.display = this.checked ? 'block' : 'none';
+                });
+            </script>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Upload 3 Foto</label>
-            <input type="submit" class="form-control">
+            <input type="file" class="form-control">
         </div>
-        
 
+        <div class="mb-3">
+            <div id="perahyangan-wrapper">
+            <label class="form-label">Aci-Aci yang Selalu Dilaksanakan di Pesubakan (Menurut Dresta)</label>
+            <input type="text" class="form-control">
+            </div>
+                <!-- Tombol tambah -->
+                <button type="button" class="btn btn-primary btn-sm" onclick="tambahPerahyagan()">Tambah Baris</button>
+
+                <script>
+                function tambahPerahyagan() {
+                const wrapper = document.getElementById('perahyangan-wrapper');
+
+                const newRow = document.createElement('div');
+                newRow.className = 'mb-3';
+
+                newRow.innerHTML = `            
+                <input type="text" class="form-control">
+                `;
+                wrapper.appendChild(newRow);
+                }
+                // $("#id").append('
+                // <input type="text" class="form-control">
+                // ')
+                </script>
+        </div>
 
         <hr>
 
@@ -229,8 +283,8 @@
                     </select>
                     </div>
                 </div>
-                
-            <!-- Tombol tambah -->
+            </div>
+                <!-- Tombol tambah -->
                 <button type="button" class="btn btn-primary btn-sm" onclick="tambahPenyakap()">Tambah Baris</button>
 
                 <script>
@@ -264,8 +318,6 @@
                     wrapper.appendChild(newRow);
                 }
             </script>
-            </div>
-
         <hr>
 
         <!-- PALEMAHAN -->
