@@ -38,10 +38,12 @@
                     <p class="card-text">Temukan yang terbaik untuk anda</p>
                 </div>
             </div>
-        </div>
-        
-
-        
+        </div>        
+    </div>
+    <div class="container">
+        <img src="assets\images\1.jpeg" alt="">
+        <img src="assets\images\2.jpeg" alt="">
+        <img src="assets\images\3.jpeg" alt="">
     </div>
 </div>
 
