@@ -129,7 +129,6 @@
             </div>
         </div>
 
-
         <hr>
 
         <!-- PERAHYANGAN -->
@@ -222,10 +221,35 @@
 
         <!-- Form jika "Tidak Ada" -->
         <div id="formTidakAda" style="display: none;">
-            <div class="alert alert-warning">Tidak ada data pura yang perlu diisi.</div>
+        <div class="mb-3">
+                <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="pilihan-disungsung" id="satuSubak" value="1">
+                    <label class="form-check-label" for="satuSubak">Satu Subak</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="pilihan-disungsung" id="lebihSubak" value="lebih">
+                    <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Alamat Pura Bedugul</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Piodalan/ Wali dalam Setahun</label>
+                <input type="number" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Hari Piodalan/ Wali</label>
+                <input type="text" class="form-control">
+            </div>
+
         </div>
 
-        <!-- JavaScript -->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const radioButtons = document.getElementsByName("pilihan-pura");
@@ -260,7 +284,6 @@
                 wrapper.appendChild(newRow);
             }
         </script>
-
 
         <hr>
 
