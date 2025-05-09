@@ -6,16 +6,17 @@
         <th>Id Subak</th>
         <th>Nama Subak</th>
         <th>Action</th>
-        <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td></td>
         <td></td>
-        <td><button type="button" class="btn btn-warning">Update</button></td>
-        <td><button type="button" class="btn btn-info">Info</button></td>
+        <td>
+        <button type="button" class="btn btn-info">Detail</button>
+        <button type="button" class="btn btn-warning">Update</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+        </td>
       </tr>
     </tbody>
 

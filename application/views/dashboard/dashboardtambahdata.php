@@ -360,6 +360,47 @@
                     wrapper.appendChild(newRow);
                 }
             </script>
+
+        <div class="mb-3">
+            <label class="form-label d-block">Awig-Awig</label>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pilihan-awig">
+                <label class="form-check-label">Ada</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pilihan-awig">
+                <label class="form-check-label">Tidak Ada</label>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label d-block">Perarem</label>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pilihan-perarem">
+                <label class="form-check-label">Ada</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pilihan-perarem">
+                <label class="form-check-label">Tidak Ada</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label d-block">Perarem Alih Fungsi Lahan</label>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pilihan-perarem">
+                <label class="form-check-label">Ada</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pilihan-perarem">
+                <label class="form-check-label">Tidak Ada</label>
+            </div>
+        </div>
+
+
         <hr>
 
         <!-- PALEMAHAN -->
