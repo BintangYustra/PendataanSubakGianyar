@@ -5,11 +5,13 @@
       <tr>
         <th>Id Subak</th>
         <th>Nama Subak</th>
+        <th>Alamat Subak</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+        <td></td>
         <td></td>
         <td></td>
         <td>
