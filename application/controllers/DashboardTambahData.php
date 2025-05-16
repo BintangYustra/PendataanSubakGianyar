@@ -20,4 +20,8 @@ class DashboardTambahData extends CI_Controller {
 		$this->load->view('dashboard/dashboardtambahdata');
 		$this->load->view('templates/dashboard/footerdashboard');
 	}
+
+	public function AddData(){
+		
+	}
 }

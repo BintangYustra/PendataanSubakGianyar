@@ -2,7 +2,7 @@
     <h1 class="mb-4"><b>Tambah Data Baru</b></h1>
     <hr>
 
-    <form action="">
+    <form action="<?php echo base_url()?>DashboardTambahData/AddData" method="post" enctype="multipart/form-data">
 
         <!-- SUBAK -->
         <h2 class="mt-4"><b>Data Subak</b></h2>
