@@ -47,9 +47,30 @@ class DashboardTambahData extends CI_Controller {
 		$petajuh_hp_wa = $this -> input -> post('petajuh_hp_wa');
 		$penyarikan_nama = $this -> input -> post('penyarikan_nama');
 		$penyarikan_npwp = $this -> input -> post('penyarikan_npwp');
-		$penyarikan_wa_hp = $this -> input -> post('penyarikan_wa_hp');
 
-		
-		$penyarikan_wa_hp = $this -> input -> post('penyarikan_wa_hp');
+		// perahyangan subak bedugul ada
+		$pura_bedugul_disungsung = $this -> input -> post('pura_bedugul_disungsung');
+		$alamat_pura_bedugul = $this -> input -> post('alamat_pura_bedugul');
+		$piodalan_wali_pertahun = $this -> input -> post('piodalan_wali_pertahun');
+		$hari_piodalan_wali = $this -> input -> post('hari_piodalan_wali');
+		$jumlah_pelinggih = $this -> input -> post('jumlah_pelinggih');
+		$foto_pura = $this -> input -> post('foto_pura');
+
+		// perahyangan subak bedugul tidak ada
+		$alamat_pura = $this -> input -> post('alamat_pura');
+		$piodalan_wali_pertahun = $this -> input -> post('piodalan_wali_pertahun');
+		$foto_pura = $this -> input -> post('foto_pura');
+
+		// perahyangan subak aci aci
+		$aci_aci = $this -> input -> post('aci_aci');
+
+		// perahyangan subak inventaris
+		$inventaris = $this -> input -> post('inventaris');
+
+		// perahyangan penyungsung lain
+		$penyungsung_lain = $this -> input -> post('penyungsung_lain');
+
+		// perahyangan penyungsung lain tidak ada bedugul
+		$penyungsung_lain_tidakada_bedugul = $this -> input -> post('penyungsung_lain_tidakada_bedugul');
 	}
 }
