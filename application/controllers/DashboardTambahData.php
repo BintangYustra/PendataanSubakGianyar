@@ -72,5 +72,47 @@ class DashboardTambahData extends CI_Controller {
 
 		// perahyangan penyungsung lain tidak ada bedugul
 		$penyungsung_lain_tidakada_bedugul = $this -> input -> post('penyungsung_lain_tidakada_bedugul');
+
+		// pawongan
+		$jumlah_krama_pemilik_lahan = $this -> input -> post('jumlah_krama_pemilik_lahan');
+		$jumlah_krama_penyakap = $this -> input -> post('jumlah_krama_penyakap');
+		$nama_penyakap = $this -> input -> post('nama_penyakap');
+		$tingkat_pendidikan_penyakap = $this -> input -> post('tingkat_pendidikan_penyakap');
+		$awig_awig = $this -> input -> post('awig_awig');
+		$perarem = $this -> input -> post('perarem');
+		$nama_perarem = $this -> input -> post('nama_perarem');
+
+		// palemahan
+		$luas_lahan_awal_ha = $this -> input -> post('luas_lahan_awal_ha');
+		$luas_lahan_sekarang_ha = $this -> input -> post('luas_lahan_sekarang_ha');
+		$panjang_saluran_irigasi_tersier_ml = $this -> input -> post('panjang_saluran_irigasi_tersier_ml');
+		$panjang_jalan_usaha_tani_ml = $this -> input -> post('panjang_jalan_usaha_tani_ml');
+		$bale_timbang = $this -> input -> post('bale_timbang');
+		$batas_wilayah_subak_utara = $this -> input -> post('batas_wilayah_subak_utara');
+		$batas_wilayah_subak_timur = $this -> input -> post('batas_wilayah_subak_timur');
+		$batas_wilayah_subak_selatan = $this -> input -> post('batas_wilayah_subak_selatan');
+		$batas_wilayah_subak_barat = $this -> input -> post('batas_wilayah_subak_barat');
+		$sumber_aliran_air_das = $this -> input -> post('sumber_aliran_air_das');
+		$jumlah_dam = $this -> input -> post('jumlah_dam');
+		$lokasi_dam = $this -> input -> post('lokasi_dam');
+		$jumlah_temukuaya = $this -> input -> post('jumlah_temukuaya');
+		$lokasi_temukuaya = $this -> input -> post('lokasi_temukuaya');
+		$lokasi_temukuaya = $this -> input -> post('lokasi_temukuaya');
+		$masa_musim_tanam_pertahun = $this -> input -> post('masa_musim_tanam_pertahun');
+		$tanaman_penyela = $this -> input -> post('tanaman_penyela');
+
+		// palemahan bantuan pemerintah
+		$nama_bantuan = $this -> input -> post('nama_bantuan');
+		$tahun = $this -> input -> post('tahun');
+		$nilai_rp = $this -> input -> post('nilai_rp');
+
+		// palemahan hama
+		$nama_hama = $this -> input -> post('nama_hama');
+
+		// palemahan tanaman pokok
+		$tanaman_pokok = $this -> input -> post('tanaman_pokok');
+
+		// palemahan jenis tanaman pokok
+		$jenis_tanaman_pokok = $this -> input -> post('jenis_tanaman_pokok');
 	}
 }

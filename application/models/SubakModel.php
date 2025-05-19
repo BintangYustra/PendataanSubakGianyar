@@ -6,6 +6,5 @@ class SubakModel extends CI_Model {
 
     public function insert($data) {
         $this->db->insert('tb_subak', $data);
-        return $this->db->insert_id(); 
     }
 }
