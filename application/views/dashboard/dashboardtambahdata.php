@@ -4,7 +4,6 @@
 
     <form action="<?php base_url()?>DashboardTambahData/AddData" method="post" enctype="multipart/form-data">
 
-
     <!-- SUBAK -->
     <div class="card mt-4">
         <div class="card-body">
@@ -147,11 +146,11 @@
                 <div class="mb-3">
                     <label class="form-label d-block">Pura Bedugul</label>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="id_perahyangan_ada_bedugul-pura" id="puraAda" value="ada">
+                        <input class="form-check-input" type="radio" name="pilihan-pura" id="puraAda" value="ada">
                         <label class="form-check-label" for="puraAda">Ada</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="iid_perahyangan_tidakada_bedugul" id="puraTidakAda" value="tidak">
+                        <input class="form-check-input" type="radio" name="pilihan-pura" id="puraTidakAda" value="tidak">
                         <label class="form-check-label" for="puraTidakAda">Tidak Ada</label>
                     </div>
                 </div>
@@ -168,6 +167,28 @@
                             <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="lebihSubak" value="lebih">
                             <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
                         </div>
+                    <div class="mt-3" id="form-subak-lainnya"></div>
+                        <script>
+
+                        const satuSubak = document.getElementById('satuSubak');
+                        const lebihSubak = document.getElementById('lebihSubak');
+                        const container = document.getElementById('form-subak-lainnya');
+
+                        satuSubak.addEventListener('change', function () {
+                        if (this.checked) {
+                            container.innerHTML = '';
+                        }
+                        });
+
+                        lebihSubak.addEventListener('change', function () {
+                        if (this.checked) {
+                            container.innerHTML = `
+                            <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
+                            <input type="text" name="nama_subak_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
+                                `;
+                            }
+                        });
+                        </script>
                     </div>
 
                     <div class="mb-3">
@@ -216,9 +237,40 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Upload 3 Foto</label>
-                        <input type="file" class="form-control" multiple name="foto_pura">
+                        <label class="form-label">Upload/Lampirkan 3 Foto</label>
+                        <input type="file" class="form-control" multiple name="foto_pura" id="foto_pura_input" accept="image/*">
                     </div>
+
+                    <div class="mb-3 d-flex flex-wrap gap-2" id="preview_foto"></div>
+
+                    <script>
+                        const inputFoto = document.getElementById('foto_pura_input');
+                        const previewContainer = document.getElementById('preview_foto');
+
+                        inputFoto.addEventListener('change', function () {
+                            previewContainer.innerHTML = '';
+
+                            const files = this.files;
+
+                            Array.from(files).forEach(file => {
+                                if (file.type.startsWith('image/')) {
+                                    const reader = new FileReader();
+
+                                    reader.onload = function (e) {
+                                        const img = document.createElement('img');
+                                        img.src = e.target.result;
+                                        img.className = 'img-thumbnail';
+                                        img.style.width = '120px';
+                                        img.style.height = '120px';
+                                        img.style.objectFit = 'cover';
+                                        previewContainer.appendChild(img);
+                                    };
+
+                                    reader.readAsDataURL(file);
+                                }
+                            });
+                        });
+                    </script>
 
                     <div class="mb-3">
                         <label class="form-label">Aci-Aci yang Selalu Dilaksanakan di Pesubakan (Menurut Dresta)</label>
@@ -232,6 +284,7 @@
                 <!-- Form jika "Tidak Ada" -->
                 <div id="formTidakAda" style="display: none;">
                     <div class="mb-3">
+                        
                         <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="pilihan-disungsung" id="satuSubak" value="1">
@@ -242,6 +295,7 @@
                             <input class="form-check-input" type="radio" name="pilihan-disungsung" id="lebihSubak" value="lebih">
                             <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
                         </div>
+
 
                         <div class="mb-3">
                             <label class="form-label">Alamat Pura Bedugul</label>
@@ -329,7 +383,11 @@
                                 <option value="tidak_sekolah">Tidak Sekolah</option>
                                 <option value="sd">SD</option>
                                 <option value="smp">SMP</option>
-                                <option value="sma">SMA/SMK</option>
+                                <option value="sma">SMA/SMK Sederajat</option>
+                                <option value="sma">D1</option>
+                                <option value="sma">D2</option>
+                                <option value="sma">D3</option>
+                                <option value="sma">D4</option>
                                 <option value="s1">Sarjana (S1)</option>
                                 <option value="s2">Magister (S2)</option>
                                 <option value="s3">Doktor (S3)</option>
@@ -357,7 +415,11 @@
                                 <option value="tidak_sekolah">Tidak Sekolah</option>
                                 <option value="sd">SD</option>
                                 <option value="smp">SMP</option>
-                                <option value="sma">SMA/SMK</option>
+                                <option value="sma">SMA/SMK Sederajat</option>
+                                <option value="sma">D1</option>
+                                <option value="sma">D2</option>
+                                <option value="sma">D3</option>
+                                <option value="sma">D4</option>
                                 <option value="s1">Sarjana (S1)</option>
                                 <option value="s2">Magister (S2)</option>
                                 <option value="s3">Doktor (S3)</option>
@@ -398,11 +460,11 @@
                     <label class="form-label d-block">Perarem Alih Fungsi Lahan</label>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pilihan-perarem">
+                        <input class="form-check-input" type="radio" name="pilihan-perarem-alih">
                         <label class="form-check-label">Ada</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pilihan-perarem">
+                        <input class="form-check-input" type="radio" name="pilihan-perarem-alih">
                         <label class="form-check-label">Tidak Ada</label>
                     </div>
                 </div>
@@ -497,18 +559,12 @@
 
             <div class="mb-3">
                 <label class="form-label">Tanaman Pokok</label>
-                <input type="text" class="form-control mb-1">
-                <input type="text" class="form-control mb-1">
-                <input type="text" class="form-control mb-1">
-                <input type="text" class="form-control mb-1">
+                <input type="text" class="form-control mb-1" placeholder="Contoh: Tanaman A, Tanaman B">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Jenis Tanaman Pokok</label>
-                <input type="text" class="form-control mb-1">
-                <input type="text" class="form-control mb-1">
-                <input type="text" class="form-control mb-1">
-                <input type="text" class="form-control mb-1">
+                <input type="text" class="form-control mb-1" placeholder="Contoh: Tanaman A, Tanaman B">
             </div>
 
             <div class="mb-3">
@@ -518,7 +574,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Tanaman Penyela</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" placeholder="Contoh: Tanaman A, Tanaman B">
             </div>
 
             <div class="mb-3">
@@ -564,9 +620,6 @@
                 <label class="form-label d-block">Bantuan yang Pernah Diterima</label>
                 <div id="bantuan-wrapper">
                     <div class="row g-2 align-items-center mb-2 bantuan-row">
-                        <div class="col-auto">
-                            <input type="text" class="form-control" placeholder="No">
-                        </div>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Nama Bantuan">
                         </div>
@@ -582,7 +635,6 @@
                 <!-- Tombol tambah -->
                 <button type="button" class="btn btn-primary btn-sm" onclick="tambahBantuan()">Tambah Baris</button>
                 </div>
-
                 <script>
                     function tambahBantuan() {
                         const wrapper = document.getElementById('bantuan-wrapper');
@@ -591,9 +643,6 @@
                         newRow.className = 'row g-2 align-items-center mb-2 bantuan-row';
 
                         newRow.innerHTML = `
-                            <div class="col-auto">
-                                <input type="text" class="form-control" placeholder="No">
-                            </div>
                             <div class="col">
                                 <input type="text" class="form-control" placeholder="Nama Bantuan">
                             </div>
