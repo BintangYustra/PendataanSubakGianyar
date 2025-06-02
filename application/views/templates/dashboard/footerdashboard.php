@@ -1,4 +1,4 @@
-    <footer class="sticky-footer bg-white shadow-sm mt-2">
+    <footer class="sticky-footer bg-white shadow-sm mt-2" >
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
                 <span>© DISKOMINFO GIANYAR 2025</span>

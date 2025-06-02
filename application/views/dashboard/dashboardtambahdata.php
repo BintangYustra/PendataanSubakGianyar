@@ -197,12 +197,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Piodalan/ Wali dalam Setahun</label>
+                        <label class="form-label">Piodalan/Wali dalam Setahun</label>
                         <input type="number" class="form-control" name="piodalan_wali_pertahun">
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Hari Piodalan/ Wali</label>
+                        <label class="form-label">Hari Piodalan/Wali</label>
                         <input type="text" class="form-control" name="hari_piodalan_wali">
                     </div>
 
@@ -243,7 +243,7 @@
 
                     <div class="mb-3 d-flex flex-wrap gap-2" id="preview_foto"></div>
 
-                    <script>
+                    <!-- <script>
                         const inputFoto = document.getElementById('foto_pura_input');
                         const previewContainer = document.getElementById('preview_foto');
 
@@ -270,7 +270,7 @@
                                 }
                             });
                         });
-                    </script>
+                    </script> -->
 
                     <div class="mb-3">
                         <label class="form-label">Aci-Aci yang Selalu Dilaksanakan di Pesubakan (Menurut Dresta)</label>
@@ -287,15 +287,82 @@
                         
                         <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pilihan-disungsung" id="satuSubak" value="1">
+                            <input class="form-check-input" type="radio" name="pilihan-disungsung" id="satuSubak2" value="1">
                             <label class="form-check-label" for="satuSubak">Satu Subak</label>
                         </div>
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pilihan-disungsung" id="lebihSubak" value="lebih">
+                            <input class="form-check-input" type="radio" name="pilihan-disungsung" id="lebihSubak2" value="lebih">
                             <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
                         </div>
 
+                        <div class="mt-3" id="form-subak-lainnya2"></div>
+                        <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const radioButtons = document.getElementsByName("pilihan-pura");
+                            const formAda = document.getElementById("formAda");
+                            const formTidakAda = document.getElementById("formTidakAda");
+
+                            radioButtons.forEach(radio => {
+                                radio.addEventListener("change", function () {
+                                    if (this.value === "ada") {
+                                        formAda.style.display = "block";
+                                        formTidakAda.style.display = "none";
+                                    } else if (this.value === "tidak") {
+                                        formAda.style.display = "none";
+                                        formTidakAda.style.display = "block";
+                                    }
+                                });
+                            });
+                            const checkboxLain = document.getElementById('inventaris-lain');
+                            const formLain = document.getElementById('form-inventaris-lain');
+                            checkboxLain.addEventListener('change', function () {
+                                formLain.style.display = this.checked ? 'block' : 'none';
+                            });
+
+                            const satuSubak = document.getElementById('satuSubak');
+                            const lebihSubak = document.getElementById('lebihSubak');
+                            const container = document.getElementById('form-subak-lainnya');
+
+                            satuSubak.addEventListener('change', function () {
+                                if (this.checked) container.innerHTML = '';
+                            });
+
+                            lebihSubak.addEventListener('change', function () {
+                                if (this.checked) {
+                                    container.innerHTML = `
+                                        <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
+                                        <input type="text" name="nama_subak_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
+                                    `;
+                                }
+                            });
+
+                            const satuSubak2 = document.getElementById('satuSubak2');
+                            const lebihSubak2 = document.getElementById('lebihSubak2');
+                            const container2 = document.getElementById('form-subak-lainnya2');
+
+                            satuSubak2.addEventListener('change', function () {
+                                if (this.checked) container2.innerHTML = '';
+                            });
+
+                            lebihSubak2.addEventListener('change', function () {
+                                if (this.checked) {
+                                    container2.innerHTML = `
+                                        <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
+                                        <input type="text" name="nama_subak_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
+                                    `;
+                                }
+                            });
+                        });
+
+                        function tambahPerahyangan() {
+                            const wrapper = document.getElementById('perahyangan-wrapper');
+                            const newRow = document.createElement('div');
+                            newRow.className = 'mb-2';
+                            newRow.innerHTML = `<input type="text" class="form-control mb-2" name="aci_aci">`;
+                            wrapper.appendChild(newRow);
+                        }
+                        </script>
 
                         <div class="mb-3">
                             <label class="form-label">Alamat Pura Bedugul</label>
@@ -303,12 +370,12 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Piodalan/ Wali dalam Setahun</label>
+                            <label class="form-label">Piodalan/Wali dalam Setahun</label>
                             <input type="number" class="form-control">
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Hari Piodalan/ Wali</label>
+                            <label class="form-label">Hari Piodalan/Wali</label>
                             <input type="text" class="form-control">
                         </div>
 
@@ -318,6 +385,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
                         const radioButtons = document.getElementsByName("pilihan-pura");
@@ -354,6 +424,8 @@
                 </script>
         </div>    
     </div>
+
+    
 
 <hr>
 
@@ -564,7 +636,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Jenis Tanaman Pokok</label>
-                <input type="text" class="form-control mb-1" placeholder="Contoh: Tanaman A, Tanaman B">
+                <input type="text" class="form-control mb-1" placeholder="Contoh: Jenis Tanaman A, Jenis Tanaman B">
             </div>
 
             <div class="mb-3">

@@ -1,5 +1,6 @@
 <div class="container mt-4">
   <div class="table" style="margin-left: 25px">
+    <h1>masih salah, nanti perbaiki</h1>
   <table class="table">
     <thead>
       <tr>
@@ -10,6 +11,9 @@
       </tr>
     </thead>
     <tbody>
+      <?php foreach ($pendataan as $key => $row) : ?>
+      <?php endforeach ?>
+
       <tr>
         <td></td>
         <td></td>

@@ -10,12 +10,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Charm:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+RO:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tangerine:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">    <!-- <style>body {background-image: url('IMG/background.3jpg.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; }</style> -->
+    <style>body{background-image: url('assets/images/Layer1.png'); background-size: cover;}</style>
 </head>
 <body>
 <div class="container">
     <div class="position-absolute top-50 start-50 translate-middle">
-            <h2 class="m-4 text-center" style="font-family: Roboto, sans-serif;">Login Pendataan Subak</h2>
             <div class="card container d-flex square-box text-center">
+            <h2 class="m-4 text-center" style="font-family: Roboto, sans-serif;">Login Pendataan Subak</h2>
             <form action="" method="">
                 <div class="mb-3 mt-3">
                     <label class="block text-gray-700">Username</label>
@@ -25,7 +26,7 @@
                     <label class="block text-gray-700">Password</label>
                     <input type="password" name="" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
-                <a href="<?php base_url()?>DashboardHome"><button type="button" class="btn btn-info mb-3">Login</button></a>
+                <a href="<?php base_url()?>DashboardHome"><button type="button" class="btn btn-primary  mb-3">Login</button></a>
             </div>
         </div>
 </div>
