@@ -282,10 +282,11 @@
                 </div>
 
                 <!-- Form jika "Tidak Ada" -->
-                <div id="formTidakAda" style="display: none;">
+<div id="formTidakAda" style="display: none;">
+    <div id="formTidakAdaContainer">
                     <div class="mb-3">
-                        
-                        <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
+                    <div class="card mt-5">
+                            <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="pilihan-disungsung" id="satuSubak2" value="1">
                             <label class="form-check-label" for="satuSubak">Satu Subak</label>
@@ -386,8 +387,6 @@
                     </div>
                 </div>
 
-
-
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
                         const radioButtons = document.getElementsByName("pilihan-pura");
@@ -422,6 +421,35 @@
                         wrapper.appendChild(newRow);
                     }
                 </script>
+                </div>
+                <button type="button" class="btn btn-primary mt-3" onclick="tambahFormTidakAda()">Tambah Form Baru</button>
+                </div> 
+                <script>
+                function tambahFormTidakAda() {
+                    const container = document.getElementById('formTidakAdaContainer');
+                    const forms = container.querySelectorAll('.card');
+                    const lastForm = forms[forms.length - 1];
+
+                    // Clone form terakhir
+                    const clonedForm = lastForm.cloneNode(true);
+                    container.appendChild(clonedForm);
+
+                    // Reset semua input di dalam clone
+                    const inputs = clonedForm.querySelectorAll('input');
+                    inputs.forEach(input => {
+                        if (input.type === 'radio' || input.type === 'checkbox') {
+                            input.checked = false;
+                        } else {
+                            input.value = '';
+                        }
+                    });
+
+                    // Hapus dynamic field seperti tambahan subak lain
+                    const subakLainnya = clonedForm.querySelector('#form-subak-lainnya2');
+                    if (subakLainnya) subakLainnya.innerHTML = '';
+                }
+                </script>
+                        
         </div>    
     </div>
 
