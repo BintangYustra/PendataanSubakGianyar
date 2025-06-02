@@ -142,318 +142,219 @@
     <!-- PERAHYANGAN -->
     <div class="card mt-4">
         <div class="card-body">
-            <h2 class="mt-4"><b>Data Perahyangan</b></h2>        
-                <div class="mb-3">
-                    <label class="form-label d-block">Pura Bedugul</label>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pilihan-pura" id="puraAda" value="ada">
-                        <label class="form-check-label" for="puraAda">Ada</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pilihan-pura" id="puraTidakAda" value="tidak">
-                        <label class="form-check-label" for="puraTidakAda">Tidak Ada</label>
-                    </div>
+            <h2 class="mt-4"><b>Data Perahyangan</b></h2>
+            <div class="mb-3">
+                <label class="form-label d-block">Pura Bedugul</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="pilihan-pura" id="puraAda" value="ada">
+                    <label class="form-check-label" for="puraAda">Ada</label>
                 </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="pilihan-pura" id="puraTidakAda" value="tidak">
+                    <label class="form-check-label" for="puraTidakAda">Tidak Ada</label>
+                </div>
+            </div>
 
-                <!-- Form jika "Ada" -->
-                <div id="formAda" style="display: none;">
-                    <div class="mb-3">
-                        <label class="form-label d-block">Pura Bedugul Ini Disungsung Oleh</label>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="satuSubak" value="1">
-                            <label class="form-check-label" for="satuSubak">Satu Subak</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="lebihSubak" value="lebih">
-                            <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
-                        </div>
+            <!-- Form jika "Ada" -->
+            <div id="formAda" style="display: none;">
+                <div class="mb-3">
+                    <label class="form-label d-block">Pura Bedugul Ini Disungsung Oleh</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="satuSubak" value="1">
+                        <label class="form-check-label" for="satuSubak">Satu Subak</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="lebihSubak" value="lebih">
+                        <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
+                    </div>
                     <div class="mt-3" id="form-subak-lainnya"></div>
-                        <script>
-
+                    <script>
                         const satuSubak = document.getElementById('satuSubak');
                         const lebihSubak = document.getElementById('lebihSubak');
                         const container = document.getElementById('form-subak-lainnya');
-
                         satuSubak.addEventListener('change', function () {
-                        if (this.checked) {
-                            container.innerHTML = '';
-                        }
+                            if (this.checked) container.innerHTML = '';
                         });
-
                         lebihSubak.addEventListener('change', function () {
-                        if (this.checked) {
-                            container.innerHTML = `
-                            <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
-                            <input type="text" name="nama_subak_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
+                            if (this.checked) {
+                                container.innerHTML = `
+                                    <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
+                                    <input type="text" name="nama_subak_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
                                 `;
                             }
                         });
-                        </script>
+                    </script>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Alamat Pura Bedugul</label>
+                    <input type="text" class="form-control" name="alamat_pura_bedugul">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Piodalan/Wali dalam Setahun</label>
+                    <input type="number" class="form-control" name="piodalan_wali_pertahun">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Hari Piodalan/Wali</label>
+                    <input type="text" class="form-control" name="hari_piodalan_wali">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Jumlah Pelinggih</label>
+                    <input type="number" class="form-control" name="jumlah_pelinggih">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label d-block">Inventaris yang Dimiliki</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inventaris-angklung" name="inventaris">
+                        <label class="form-check-label" for="inventaris-angklung">Angklung</label>
                     </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Alamat Pura Bedugul</label>
-                        <input type="text" class="form-control" name="alamat_pura_bedugul">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inventaris-gong" name="inventaris">
+                        <label class="form-check-label" for="inventaris-gong">Gong</label>
                     </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Piodalan/Wali dalam Setahun</label>
-                        <input type="number" class="form-control" name="piodalan_wali_pertahun">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inventaris-baleganjur" name="inventaris">
+                        <label class="form-check-label" for="inventaris-baleganjur">Baleganjur</label>
                     </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Hari Piodalan/Wali</label>
-                        <input type="text" class="form-control" name="hari_piodalan_wali">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inventaris-lain" name="inventaris">
+                        <label class="form-check-label" for="inventaris-lain">Lain-Lain</label>
                     </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Jumlah Pelinggih</label>
-                        <input type="number" class="form-control" name="jumlah_pelinggih">
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label d-block">Inventaris yang Dimiliki</label>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inventaris-angklung" name="inventaris">
-                            <label class="form-check-label" for="inventaris-angklung">Angklung</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inventaris-gong" name="inventaris">
-                            <label class="form-check-label" for="inventaris-gong">Gong</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inventaris-baleganjur" name="inventaris">
-                            <label class="form-check-label" for="inventaris-baleganjur">Baleganjur</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inventaris-lain" name="inventaris">
-                            <label class="form-check-label" for="inventaris-lain">Lain-Lain</label>
-                        </div>
-
-                        <div class="mt-2" id="form-inventaris-lain" style="display: none;" >
-                            <label class="form-label">Sebutkan Inventaris Lain</label>
-                            <input type="text" class="form-control" name="inventaris" placeholder="Contoh: A, B, C">
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Upload/Lampirkan 3 Foto</label>
-                        <input type="file" class="form-control" multiple name="foto_pura" id="foto_pura_input" accept="image/*">
-                    </div>
-
-                    <div class="mb-3 d-flex flex-wrap gap-2" id="preview_foto"></div>
-
-                    <!-- <script>
-                        const inputFoto = document.getElementById('foto_pura_input');
-                        const previewContainer = document.getElementById('preview_foto');
-
-                        inputFoto.addEventListener('change', function () {
-                            previewContainer.innerHTML = '';
-
-                            const files = this.files;
-
-                            Array.from(files).forEach(file => {
-                                if (file.type.startsWith('image/')) {
-                                    const reader = new FileReader();
-
-                                    reader.onload = function (e) {
-                                        const img = document.createElement('img');
-                                        img.src = e.target.result;
-                                        img.className = 'img-thumbnail';
-                                        img.style.width = '120px';
-                                        img.style.height = '120px';
-                                        img.style.objectFit = 'cover';
-                                        previewContainer.appendChild(img);
-                                    };
-
-                                    reader.readAsDataURL(file);
-                                }
-                            });
-                        });
-                    </script> -->
-
-                    <div class="mb-3">
-                        <label class="form-label">Aci-Aci yang Selalu Dilaksanakan di Pesubakan (Menurut Dresta)</label>
-                        <div id="perahyangan-wrapper">
-                            <input type="text" class="form-control mb-2" name="aci_aci">
-                        </div>
-                        <button type="button" class="btn btn-primary btn-sm" onclick="tambahPerahyangan()">Tambah Baris</button>
+                    <div class="mt-2" id="form-inventaris-lain" style="display: none;">
+                        <label class="form-label">Sebutkan Inventaris Lain</label>
+                        <input type="text" class="form-control" name="inventaris" placeholder="Contoh: A, B, C">
                     </div>
                 </div>
 
-                <!-- Form jika "Tidak Ada" -->
-<div id="formTidakAda" style="display: none;">
-    <div id="formTidakAdaContainer">
+                <div class="mb-3">
+                    <label class="form-label">Upload/Lampirkan 3 Foto</label>
+                    <input type="file" class="form-control" multiple name="foto_pura" id="foto_pura_input" accept="image/*">
+                </div>
+
+                <div class="mb-3 d-flex flex-wrap gap-2" id="preview_foto"></div>
+
+                <div class="mb-3">
+                    <label class="form-label">Aci-Aci yang Selalu Dilaksanakan di Pesubakan (Menurut Dresta)</label>
+                    <div id="perahyangan-wrapper">
+                        <input type="text" class="form-control mb-2" name="aci_aci">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="tambahPerahyangan()">Tambah Baris</button>
+                </div>
+            </div>
+
+            <!-- Form jika "Tidak Ada" -->
+            <div id="formTidakAda" style="display: none;">
+                <div id="formTidakAdaContainer">
                     <div class="mb-3">
-                    <div class="card mt-5">
+                        <div class="card mt-5">
                             <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pilihan-disungsung" id="satuSubak2" value="1">
-                            <label class="form-check-label" for="satuSubak">Satu Subak</label>
-                        </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan-disungsung" id="satuSubak2" value="1">
+                                <label class="form-check-label" for="satuSubak">Satu Subak</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan-disungsung" id="lebihSubak2" value="lebih">
+                                <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
+                            </div>
+                            <div class="mt-3" id="form-subak-lainnya2"></div>
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="pilihan-disungsung" id="lebihSubak2" value="lebih">
-                            <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
-                        </div>
-
-                        <div class="mt-3" id="form-subak-lainnya2"></div>
-                        <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            const radioButtons = document.getElementsByName("pilihan-pura");
-                            const formAda = document.getElementById("formAda");
-                            const formTidakAda = document.getElementById("formTidakAda");
-
-                            radioButtons.forEach(radio => {
-                                radio.addEventListener("change", function () {
-                                    if (this.value === "ada") {
-                                        formAda.style.display = "block";
-                                        formTidakAda.style.display = "none";
-                                    } else if (this.value === "tidak") {
-                                        formAda.style.display = "none";
-                                        formTidakAda.style.display = "block";
-                                    }
-                                });
-                            });
-                            const checkboxLain = document.getElementById('inventaris-lain');
-                            const formLain = document.getElementById('form-inventaris-lain');
-                            checkboxLain.addEventListener('change', function () {
-                                formLain.style.display = this.checked ? 'block' : 'none';
-                            });
-
-                            const satuSubak = document.getElementById('satuSubak');
-                            const lebihSubak = document.getElementById('lebihSubak');
-                            const container = document.getElementById('form-subak-lainnya');
-
-                            satuSubak.addEventListener('change', function () {
-                                if (this.checked) container.innerHTML = '';
-                            });
-
-                            lebihSubak.addEventListener('change', function () {
-                                if (this.checked) {
-                                    container.innerHTML = `
-                                        <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
-                                        <input type="text" name="nama_subak_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
-                                    `;
-                                }
-                            });
-
-                            const satuSubak2 = document.getElementById('satuSubak2');
-                            const lebihSubak2 = document.getElementById('lebihSubak2');
-                            const container2 = document.getElementById('form-subak-lainnya2');
-
-                            satuSubak2.addEventListener('change', function () {
-                                if (this.checked) container2.innerHTML = '';
-                            });
-
-                            lebihSubak2.addEventListener('change', function () {
-                                if (this.checked) {
-                                    container2.innerHTML = `
-                                        <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
-                                        <input type="text" name="nama_subak_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
-                                    `;
-                                }
-                            });
-                        });
-
-                        function tambahPerahyangan() {
-                            const wrapper = document.getElementById('perahyangan-wrapper');
-                            const newRow = document.createElement('div');
-                            newRow.className = 'mb-2';
-                            newRow.innerHTML = `<input type="text" class="form-control mb-2" name="aci_aci">`;
-                            wrapper.appendChild(newRow);
-                        }
-                        </script>
-
-                        <div class="mb-3">
-                            <label class="form-label">Alamat Pura Bedugul</label>
-                            <input type="text" class="form-control">
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Piodalan/Wali dalam Setahun</label>
-                            <input type="number" class="form-control">
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Hari Piodalan/Wali</label>
-                            <input type="text" class="form-control">
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Upload 3 Foto</label>
-                            <input type="file" class="form-control" multiple>
+                            <div class="mb-3">
+                                <label class="form-label">Alamat Pura Bedugul</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Piodalan/Wali dalam Setahun</label>
+                                <input type="number" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Hari Piodalan/Wali</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Upload 3 Foto</label>
+                                <input type="file" class="form-control" multiple>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const radioButtons = document.getElementsByName("pilihan-pura");
-                        const formAda = document.getElementById("formAda");
-                        const formTidakAda = document.getElementById("formTidakAda");
-
-                        radioButtons.forEach(radio => {
-                            radio.addEventListener("change", function () {
-                                if (this.value === "ada") {
-                                    formAda.style.display = "block";
-                                    formTidakAda.style.display = "none";
-                                } else if (this.value === "tidak") {
-                                    formAda.style.display = "none";
-                                    formTidakAda.style.display = "block";
-                                }
-                            });
-                        });
-
-                        const checkboxLain = document.getElementById('inventaris-lain');
-                        const formLain = document.getElementById('form-inventaris-lain');
-
-                        checkboxLain.addEventListener('change', function () {
-                            formLain.style.display = this.checked ? 'block' : 'none';
-                        });
-                    });
-
-                    function tambahPerahyangan() {
-                        const wrapper = document.getElementById('perahyangan-wrapper');
-                        const newRow = document.createElement('div');
-                        newRow.className = 'mb-2';
-                        newRow.innerHTML = `<input type="text" class="form-control">`;
-                        wrapper.appendChild(newRow);
-                    }
-                </script>
                 </div>
                 <button type="button" class="btn btn-primary mt-3" onclick="tambahFormTidakAda()">Tambah Form Baru</button>
-                </div> 
-                <script>
-                function tambahFormTidakAda() {
-                    const container = document.getElementById('formTidakAdaContainer');
-                    const forms = container.querySelectorAll('.card');
-                    const lastForm = forms[forms.length - 1];
-
-                    // Clone form terakhir
-                    const clonedForm = lastForm.cloneNode(true);
-                    container.appendChild(clonedForm);
-
-                    // Reset semua input di dalam clone
-                    const inputs = clonedForm.querySelectorAll('input');
-                    inputs.forEach(input => {
-                        if (input.type === 'radio' || input.type === 'checkbox') {
-                            input.checked = false;
-                        } else {
-                            input.value = '';
-                        }
-                    });
-
-                    // Hapus dynamic field seperti tambahan subak lain
-                    const subakLainnya = clonedForm.querySelector('#form-subak-lainnya2');
-                    if (subakLainnya) subakLainnya.innerHTML = '';
-                }
-                </script>
-                        
-        </div>    
+            </div>
+        </div>
     </div>
 
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const radioButtons = document.getElementsByName("pilihan-pura");
+            const formAda = document.getElementById("formAda");
+            const formTidakAda = document.getElementById("formTidakAda");
+
+            radioButtons.forEach(radio => {
+                radio.addEventListener("change", function () {
+                    if (this.value === "ada") {
+                        formAda.style.display = "block";
+                        formTidakAda.style.display = "none";
+                    } else if (this.value === "tidak") {
+                        formAda.style.display = "none";
+                        formTidakAda.style.display = "block";
+                    }
+                });
+            });
+
+            const checkboxLain = document.getElementById('inventaris-lain');
+            const formLain = document.getElementById('form-inventaris-lain');
+            checkboxLain.addEventListener('change', function () {
+                formLain.style.display = this.checked ? 'block' : 'none';
+            });
+
+            const satuSubak2 = document.getElementById('satuSubak2');
+            const lebihSubak2 = document.getElementById('lebihSubak2');
+            const container2 = document.getElementById('form-subak-lainnya2');
+            satuSubak2.addEventListener('change', function () {
+                if (this.checked) container2.innerHTML = '';
+            });
+            lebihSubak2.addEventListener('change', function () {
+                if (this.checked) {
+                    container2.innerHTML = `
+                        <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
+                        <input type="text" name="nama_subak_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
+                    `;
+                }
+            });
+        });
+
+        function tambahPerahyangan() {
+            const wrapper = document.getElementById('perahyangan-wrapper');
+            const newRow = document.createElement('div');
+            newRow.className = 'mb-2';
+            newRow.innerHTML = `<input type="text" class="form-control mb-2" name="aci_aci">`;
+            wrapper.appendChild(newRow);
+        }
+
+        function tambahFormTidakAda() {
+            const container = document.getElementById('formTidakAdaContainer');
+            const forms = container.querySelectorAll('.card');
+            const lastForm = forms[forms.length - 1];
+            const clonedForm = lastForm.cloneNode(true);
+            container.appendChild(clonedForm);
+
+            const inputs = clonedForm.querySelectorAll('input');
+            inputs.forEach(input => {
+                if (input.type === 'radio' || input.type === 'checkbox') {
+                    input.checked = false;
+                } else {
+                    input.value = '';
+                }
+            });
+
+            const subakLainnya = clonedForm.querySelector('#form-subak-lainnya2');
+            if (subakLainnya) subakLainnya.innerHTML = '';
+        }
+    </script>
+
 
 <hr>
 
@@ -463,22 +364,22 @@
             <h2 class="mt-4"><b>Data Pawongan</b></h2>
                 <div class="mb-3">
                     <label class="form-label">Jumlah Krama Pemilik Lahan</label>
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="jumlah_krama_pemilik_lahan">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Jumlah Krama Penyakap</label>
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="jumlah_krama_penyakap">
                 </div>
 
                 <label class="form-label d-block">Tingkat Pendidikan Krama Penyakap</label>
                     <div id="penyakap-wrapper">
                         <div class="row g-2 align-items-center mb-2 bantuan-row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Nama Penyakap">
+                                <input type="text" class="form-control" placeholder="Nama Penyakap" name="">
                             </div>
                             <div class="col-auto">
-                            <select class="form-control">
+                            <select class="form-control" name="">
                                 <option value="">Tingkat Pendidikan</option>
                                 <option value="tidak_sekolah">Tidak Sekolah</option>
                                 <option value="sd">SD</option>

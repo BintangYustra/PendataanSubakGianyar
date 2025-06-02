@@ -51,6 +51,7 @@ class DashboardTambahData extends CI_Controller {
 		//tb_perahyangan
 		$ketersediaan_pura_bedugul = $this -> input -> post('ketersediaan_pura_bedugul'),
 		// perahyangan subak bedugul ada
+		$nama_pura = $this -> input -> post('nama_pura'),
 		$pura_bedugul_disungsung = $this -> input -> post('pura_bedugul_disungsung'),
 		$pura_bedugul_disungsung_lain = $this -> input -> post('pura_bedugul_disungsung_lain'),
 		$alamat_pura_bedugul = $this -> input -> post('alamat_pura_bedugul'),
@@ -58,9 +59,11 @@ class DashboardTambahData extends CI_Controller {
 		$jumlah_pelinggih = $this -> input -> post('jumlah_pelinggih'),
 		$foto_pura = $this -> input -> post('foto_pura'),  /////////////////////////////
 		// perahyangan subak bedugul tidak ada
-		$alamat_pura = $this -> input -> post('alamat_pura'),
-		$piodalan_wali_pertahun = $this -> input -> post('piodalan_wali_pertahun'),
-		$foto_pura = $this -> input -> post('foto_pura'),
+		$pura_bedugul_disungsung2 = $this -> input -> post('pura_bedugul_disungsung2'),
+		$pura_bedugul_disungsung_lain2 = $this -> input -> post('pura_bedugul_disungsung_lain2'),
+		$alamat_pura_bedugul2 = $this -> input -> post('alamat_pura_bedugul2'),
+		$piodalan_wali_pertahun2 = $this -> input -> post('piodalan_wali_pertahun2'),
+		$foto_pura2 = $this -> input -> post('foto_pura2'),
 		// perahyangan subak aci aci
 		$aci_aci = $this -> input -> post('aci_aci'),
 		// perahyangan subak inventaris
