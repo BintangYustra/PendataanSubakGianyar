@@ -2,7 +2,7 @@
     <h1 class="mb-4"><b>Tambah Data Baru</b></h1>
     <hr>
 
-    <form action="<?php base_url()?>DashboardTambahData/AddData" method="post" enctype="multipart/form-data">
+    <form action="<?= base_url('DashboardTambahData/AddData') ?>" method="post" enctype="multipart/form-data">
 
     <!-- SUBAK -->
     <div class="card mt-4">
@@ -126,7 +126,7 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">NPWP Penyarikan</label>
-                        <input type="text" class="form-control" name="penyarikan_npwp ">
+                        <input type="text" class="form-control" name="penyarikan_npwp">
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">WA/HP Penyarikan</label>
@@ -158,6 +158,11 @@
             <!-- Form jika "Ada" -->
             <div id="formAda" style="display: none;">
                 <div class="mb-3">
+                    <div class="mt-3">
+                        <label class="form-label">Nama Pura</label>
+                        <input type="text" class="form-control" name="nama_pura">
+                    </div>
+
                     <label class="form-label d-block">Pura Bedugul Ini Disungsung Oleh</label>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="satuSubak" value="1">
@@ -179,7 +184,7 @@
                             if (this.checked) {
                                 container.innerHTML = `
                                     <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
-                                    <input type="text" name="nama_subak_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
+                                    <input type="text" name="pura_bedugul_disungsung_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
                                 `;
                             }
                         });
@@ -251,32 +256,36 @@
                 <div id="formTidakAdaContainer">
                     <div class="mb-3">
                         <div class="card mt-5">
+                            <div class="mt-3">
+                                <label class="form-label">Nama Pura</label>
+                                <input type="text" class="form-control" name="nama_pura2">
+                            </div>
                             <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="pilihan-disungsung" id="satuSubak2" value="1">
+                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung2" id="satuSubak2" value="1">
                                 <label class="form-check-label" for="satuSubak">Satu Subak</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="pilihan-disungsung" id="lebihSubak2" value="lebih">
+                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung_lain2" id="lebihSubak2" value="lebih">
                                 <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
                             </div>
                             <div class="mt-3" id="form-subak-lainnya2"></div>
 
                             <div class="mb-3">
                                 <label class="form-label">Alamat Pura Bedugul</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="alamat_pura_bedugul2">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Piodalan/Wali dalam Setahun</label>
-                                <input type="number" class="form-control">
+                                <input type="number" class="form-control" name="piodalan_wali_pertahun2">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Hari Piodalan/Wali</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="hari_piodalan_wali2">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Upload 3 Foto</label>
-                                <input type="file" class="form-control" multiple>
+                                <input type="file" class="form-control" name="foto_pura2" multiple>
                             </div>
                         </div>
                     </div>
@@ -376,10 +385,10 @@
                     <div id="penyakap-wrapper">
                         <div class="row g-2 align-items-center mb-2 bantuan-row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Nama Penyakap" name="">
+                                <input type="text" class="form-control" placeholder="Nama Penyakap" name="nama_penyakap">
                             </div>
                             <div class="col-auto">
-                            <select class="form-control" name="">
+                            <select class="form-control" name="tingkat_pendidikan_penyakap">
                                 <option value="">Tingkat Pendidikan</option>
                                 <option value="tidak_sekolah">Tidak Sekolah</option>
                                 <option value="sd">SD</option>
@@ -407,11 +416,8 @@
                             newRow.className = 'row g-2 align-items-center mb-2 penyakap-row';
 
                             newRow.innerHTML = `
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Nama Penyakap">
-                                </div>
-                                <div class="col-auto">
-                            <select class="form-control">
+                            <div class="col-auto">
+                            <select class="form-control" name="tingkat_pendidikan_penyakap">
                                 <option value="">Tingkat Pendidikan</option>
                                 <option value="tidak_sekolah">Tidak Sekolah</option>
                                 <option value="sd">SD</option>
@@ -424,9 +430,8 @@
                                 <option value="s1">Sarjana (S1)</option>
                                 <option value="s2">Magister (S2)</option>
                                 <option value="s3">Doktor (S3)</option>
-                            </select>                        
-                            </div>
-                            `;
+                            </select>
+                            </div>                            `;
                             wrapper.appendChild(newRow);
                         }
                     </script>
@@ -435,11 +440,11 @@
                     <label class="form-label d-block">Awig-Awig</label>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pilihan-awig">
+                        <input class="form-check-input" type="radio" name="awig_awig">
                         <label class="form-check-label">Ada</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pilihan-awig">
+                        <input class="form-check-input" type="radio" name="awig_awig">
                         <label class="form-check-label">Tidak Ada</label>
                     </div>
                 </div>
@@ -448,11 +453,11 @@
                     <label class="form-label d-block">Perarem</label>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pilihan-perarem">
+                        <input class="form-check-input" type="radio" name="perarem">
                         <label class="form-check-label">Ada</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pilihan-perarem">
+                        <input class="form-check-input" type="radio" name="perarem">
                         <label class="form-check-label">Tidak Ada</label>
                     </div>
                 </div>
@@ -461,11 +466,11 @@
                     <label class="form-label d-block">Perarem Alih Fungsi Lahan</label>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pilihan-perarem-alih">
+                        <input class="form-check-input" type="radio" name="perarem_alih_fungsi">
                         <label class="form-check-label">Ada</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pilihan-perarem-alih">
+                        <input class="form-check-input" type="radio" name="perarem_alih_fungsi">
                         <label class="form-check-label">Tidak Ada</label>
                     </div>
                 </div>
@@ -481,32 +486,32 @@
 
             <div class="mb-3">
                 <label class="form-label">Luas Lahan Awal (Ha)</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" name="luas_lahan_awal_ha">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Luas Lahan Sekarang (Sesuai LSD Dinas Pertanian) (Ha)</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" name="luas_lahan_sekarang_ha">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Panjang Saluran Irigasi Tersier (M1)</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" name="panjang_saluran_irigasi_tersier_ml">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Panjang Jalan Usaha Tani (M1)</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" name="panjang_jalan_usaha_tani_ml">
             </div>
 
             <div class="mb-3">
                 <label class="form-label d-block">Bale Timbang</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pilihan-timbang">
+                    <input class="form-check-input" type="radio" name="bale_timbang">
                     <label class="form-check-label">Ada</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pilihan-timbang">
+                    <input class="form-check-input" type="radio" name="bale_timbang">
                     <label class="form-check-label">Tidak Ada</label>
                 </div>
             </div>
@@ -516,89 +521,89 @@
                 <div class="row g-2">
                     <div class="col-md-6">
                         <label class="form-label">Utara</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="batas_wilayah_subak_utara">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Timur</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="batas_wilayah_subak_timur">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Selatan</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="batas_wilayah_subak_selatan">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Barat</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="batas_wilayah_subak_barat">
                     </div>
                 </div>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Sumber Aliran Air (DAS)</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="sumber_aliran_air_das">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Jumlah DAM</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" name="jumlah_dam">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Lokasi DAM</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="lokasi_dam">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Jumlah Temukuaya</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="jumlah_temukuaya">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Lokasi Temukuaya</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="lokasi_temukuaya">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Tanaman Pokok</label>
-                <input type="text" class="form-control mb-1" placeholder="Contoh: Tanaman A, Tanaman B">
+                <input type="text" class="form-control mb-1" name="tanaman_pokok" placeholder="Contoh: Tanaman A, Tanaman B">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Jenis Tanaman Pokok</label>
-                <input type="text" class="form-control mb-1" placeholder="Contoh: Jenis Tanaman A, Jenis Tanaman B">
+                <input type="text" class="form-control mb-1" name="jenis_tanaman_pokok" placeholder="Contoh: Jenis Tanaman A, Jenis Tanaman B">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Masa Musim Tanam Setiap Tahun</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" name="masa_musim_tanam_pertahun">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Tanaman Penyela</label>
-                <input type="text" class="form-control" placeholder="Contoh: Tanaman A, Tanaman B">
+                <input type="text" class="form-control" name="tanaman_penyela" placeholder="Contoh: Tanaman A, Tanaman B">
             </div>
 
             <div class="mb-3">
                 <label class="form-label d-block">Hama</label>
 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-burung">
+                    <input class="form-check-input" type="checkbox" id="hama-burung" name="nama_hama">
                     <label class="form-check-label" for="hama-burung">Burung</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-tikus">
+                    <input class="form-check-input" type="checkbox" id="hama-tikus" name="nama_hama">
                     <label class="form-check-label" for="hama-tikus">Tikus</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-wereng">
+                    <input class="form-check-input" type="checkbox" id="hama-wereng" name="nama_hama">
                     <label class="form-check-label" for="hama-wereng">Wereng</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-walang">
+                    <input class="form-check-input" type="checkbox" id="hama-walang" name="nama_hama">
                     <label class="form-check-label" for="hama-walang">Walang Sangit</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-lain">
+                    <input class="form-check-input" type="checkbox" id="hama-lain" name="nama_hama">
                     <label class="form-check-label" for="hama-lain">Lain-Lain</label>
                 </div>
 
@@ -622,13 +627,13 @@
                 <div id="bantuan-wrapper">
                     <div class="row g-2 align-items-center mb-2 bantuan-row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Nama Bantuan">
+                            <input type="text" class="form-control" name="nama_bantuan" placeholder="Nama Bantuan">
                         </div>
                         <div class="col-auto">
-                            <input type="number" class="form-control" placeholder="Tahun">
+                            <input type="number" class="form-control" name="tahun" placeholder="Tahun">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Nilai (Rp)">
+                            <input type="text" class="form-control" name="nilai_rp" placeholder="Nilai (Rp)">
                         </div>
                     </div>
                 </div>
@@ -645,13 +650,13 @@
 
                         newRow.innerHTML = `
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Nama Bantuan">
+                                <input type="text" class="form-control" name="nama_bantuan" placeholder="Nama Bantuan">
                             </div>
                             <div class="col-auto">
-                                <input type="number" class="form-control" placeholder="Tahun">
+                                <input type="number" class="form-control" name="tahun" placeholder="Tahun">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Nilai (Rp)">
+                                <input type="text" class="form-control" name="nilai_rp" placeholder="Nilai (Rp)">
                             </div>
                         `;
                         wrapper.appendChild(newRow);

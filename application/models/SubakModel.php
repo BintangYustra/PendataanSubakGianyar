@@ -1,37 +1,31 @@
 <?php
 class SubakModel extends CI_Model {
-    public function get_all() {
-        return $this->db->get('tb_subak')->result();
-    }
 
-    // insert data ke database
-    public function insert_subak($data) {
+    public function insert_tb_subak($data) {
         $this->db->insert('tb_subak', $data);
+        return $this->db->insert_id();
     }
 
-    public function insert_alamat_suba($data) {
+    public function insert_tb_alamat_subak($data) {
         $this->db->insert('tb_alamat_subak', $data);
     }
 
-    public function insert_prajuru($data) {
+    public function insert_tb_prajuru($data) {
         $this->db->insert('tb_prajuru', $data);
     }
 
-    public function insert_perahyangan($data) {
+    // Tambah fungsi serupa untuk tabel lain
+    public function insert_tb_perahyangan($data) {
         $this->db->insert('tb_perahyangan', $data);
     }
 
-    public function insert_perahyangan_ada_bedugu($data) {
-        $this->db->insert('tb_perahyangan_ada_bedugul', $data);
-    }
-
-    public function insert_pawongan($data) {
+    public function insert_tb_pawongan($data) {
         $this->db->insert('tb_pawongan', $data);
     }
 
-    public function insert_aci_aci($data) {
-        $this->db->insert('tb_aci_aci', $data);
+    public function insert_tb_palemahan($data) {
+        $this->db->insert('tb_palemahan', $data);
     }
-    // 
 
+    // dst...
 }
