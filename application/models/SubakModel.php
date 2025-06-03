@@ -14,7 +14,6 @@ class SubakModel extends CI_Model {
         $this->db->insert('tb_prajuru', $data);
     }
 
-    // Tambah fungsi serupa untuk tabel lain
     public function insert_tb_perahyangan($data) {
         $this->db->insert('tb_perahyangan', $data);
     }
@@ -27,5 +26,12 @@ class SubakModel extends CI_Model {
         $this->db->insert('tb_palemahan', $data);
     }
 
-    // dst...
+    public function insert_tb_palemahan_tanaman_pokok($data) {
+        $this->db->insert('tb_tanaman_pokok', $data);
+    }
+
+    public function insert_tb_palemahan_jenis_tanaman_pokok($data) {
+        $this->db->insert('tb_jenis_tanaman_pokok', $data);
+    }
+
 }
