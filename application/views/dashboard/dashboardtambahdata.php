@@ -12,15 +12,15 @@
                 <label class="form-label">Nama Subak</label>
                 <input type="text" class="form-control" name="nama_subak">
             </div>
-
+                <input type="hidden" name="verifikasi" value="Belum Terverifikasi">
             <div class="mb-3">
                 <label class="form-label d-block">Kriteria Subak</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="kriteria_subak">
+                    <input class="form-check-input" type="radio" name="kriteria_subak" value="Subak Basah">
                     <label class="form-check-label">Subak Basah</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="kriteria_subak">
+                    <input class="form-check-input" type="radio" name="kriteria_subak" value="Subak Abian">
                     <label class="form-check-label">Subak Abian</label>
                 </div>
             </div>
@@ -146,11 +146,11 @@
             <div class="mb-3">
                 <label class="form-label d-block">Pura Bedugul</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pilihan-pura" id="puraAda" value="ada">
+                    <input class="form-check-input" type="radio" name="ketersediaan_pura_bedugul" value="Ada">
                     <label class="form-check-label" for="puraAda">Ada</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="pilihan-pura" id="puraTidakAda" value="tidak">
+                    <input class="form-check-input" type="radio" name="ketersediaan_pura_bedugul" value="Tidak Ada">
                     <label class="form-check-label" for="puraTidakAda">Tidak Ada</label>
                 </div>
             </div>
@@ -297,16 +297,16 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const radioButtons = document.getElementsByName("pilihan-pura");
+            const radioButtons = document.getElementsByName("ketersediaan_pura_bedugul");
             const formAda = document.getElementById("formAda");
             const formTidakAda = document.getElementById("formTidakAda");
 
             radioButtons.forEach(radio => {
                 radio.addEventListener("change", function () {
-                    if (this.value === "ada") {
+                    if (this.value === "Ada") {
                         formAda.style.display = "block";
                         formTidakAda.style.display = "none";
-                    } else if (this.value === "tidak") {
+                    } else if (this.value === "Tidak Ada") {
                         formAda.style.display = "none";
                         formTidakAda.style.display = "block";
                     }
@@ -665,6 +665,9 @@
         </div>    
     </div>
     <button type="submit" class="btn btn-primary mt-2">Simpan</button>
+    <script>
+        
+    </script>
     </form>
 
 </div>

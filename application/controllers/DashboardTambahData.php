@@ -53,6 +53,13 @@ class DashboardTambahData extends CI_Controller {
         ];
         $this->SubakModel->insert_tb_prajuru($data_prajuru);
 
+        // PERAHYANGAN
+        $data_perahyangan = [
+            'id_subak' => $id_subak,
+            'ketersediaan_pura_bedugul' => $this->input->post('ketersediaan_pura_bedugul'),
+        ];
+        $this->SubakModel->insert_tb_perahyangan($data_perahyangan);
+
         // PAWONGAN
         $data_pawongan = [
             'id_subak' => $id_subak,
@@ -92,7 +99,6 @@ class DashboardTambahData extends CI_Controller {
 
         // PALEMAHAN TANAMAN POKOK
         $data_palemahan_tanaman_pokok = [
-
             'tanaman_pokok' => $this->input->post('tanaman_pokok'),
         ];
         $this->SubakModel->insert_tb_palemahan_tanaman_pokok($data_palemahan_tanaman_pokok);
@@ -110,6 +116,6 @@ class DashboardTambahData extends CI_Controller {
 
 
 
-        redirect('dashboardhome');
+        redirect(base_url('DashboardHome'));
     }
 }

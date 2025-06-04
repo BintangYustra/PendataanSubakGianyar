@@ -8,7 +8,7 @@
             <div class="card shadow-sm" style="width: 18rem; margin-left: 25px">
                 <div class="card-body">
                     <h5 class="card-title" style="font-family: Boldonse, system-ui;">Subak Terdaftar</h5>
-                    <p class="card-text">Total: </p>
+                    <p>Total Subak: <?= $jumlahsubak; ?></p>
                 </div>
             </div>
         </div>
