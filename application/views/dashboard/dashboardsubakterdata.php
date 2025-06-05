@@ -1,10 +1,7 @@
 <div class="container mt-4">
   <div class="table" style="margin-left: 25px">
     <h1>Subak Gianyar Terdaftar</h1>
-    <!-- debug data -->
-    <!-- <pre><?php print_r($totalsubak); ?></pre> -->
-
-    <h1>isi pagination woy!</h1>
+  <?php echo $link?>
   <table class="table">
     <thead>
       <tr>
@@ -33,5 +30,6 @@
     </tbody>
 
   </table>
+
   </div>
 </div>
