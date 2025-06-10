@@ -18,6 +18,22 @@ class SubakModel extends CI_Model {
         $this->db->insert('tb_perahyangan', $data);
     }
 
+    public function insert_tb_perahyangan_pura_bedugul_ada($data) {
+        $this->db->insert('tb_perahyangan_pura_bedugul_ada', $data);
+    }
+
+    public function insert_tb_perahyangan_pura_bedugul_tidakada($data) {
+        $this->db->insert('tb_perahyangan_pura_bedugul_tidakada', $data);
+    }
+
+    public function insert_tb_perahyangan_inventaris($data) {
+        $this->db->insert('tb_inventaris', $data);
+    }
+
+    public function insert_tb_perahyangan_aci_aci_subak($data) {
+        $this->db->insert('tb_aci_aci', $data);
+    }
+
     public function insert_tb_pawongan($data) {
         $this->db->insert('tb_pawongan', $data);
     }
@@ -32,6 +48,14 @@ class SubakModel extends CI_Model {
 
     public function insert_tb_palemahan_jenis_tanaman_pokok($data) {
         $this->db->insert('tb_jenis_tanaman_pokok', $data);
+    }
+
+    public function insert_tb_palemahan_hama($data) {
+        $this->db->insert('tb_hama', $data);
+    }
+
+    public function insert_tb_palemahan_bantuan_pemerintah($data) {
+        $this->db->insert('tb_bantuan_pemerintah', $data);
     }
 
 

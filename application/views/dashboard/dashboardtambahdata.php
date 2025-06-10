@@ -440,11 +440,11 @@
                     <label class="form-label d-block">Awig-Awig</label>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="awig_awig">
+                        <input class="form-check-input" type="radio" name="awig_awig" value="Ada">
                         <label class="form-check-label">Ada</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="awig_awig">
+                        <input class="form-check-input" type="radio" name="awig_awig" value="Tidak Ada">
                         <label class="form-check-label">Tidak Ada</label>
                     </div>
                 </div>
@@ -507,11 +507,11 @@
             <div class="mb-3">
                 <label class="form-label d-block">Bale Timbang</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="bale_timbang">
+                    <input class="form-check-input" type="radio" name="bale_timbang" value="Ada">
                     <label class="form-check-label">Ada</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="bale_timbang">
+                    <input class="form-check-input" type="radio" name="bale_timbang" value="Tidak Ada">
                     <label class="form-check-label">Tidak Ada</label>
                 </div>
             </div>
@@ -587,23 +587,23 @@
                 <label class="form-label d-block">Hama</label>
 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-burung" name="nama_hama">
+                    <input class="form-check-input" type="checkbox" id="hama-burung" name="nama_hama[]" value="Burung">
                     <label class="form-check-label" for="hama-burung">Burung</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-tikus" name="nama_hama">
+                    <input class="form-check-input" type="checkbox" id="hama-tikus" name="nama_hama[]" value="Tikus">
                     <label class="form-check-label" for="hama-tikus">Tikus</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-wereng" name="nama_hama">
+                    <input class="form-check-input" type="checkbox" id="hama-wereng" name="nama_hama[]" value="Wereng">
                     <label class="form-check-label" for="hama-wereng">Wereng</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-walang" name="nama_hama">
+                    <input class="form-check-input" type="checkbox" id="hama-walang" name="nama_hama[]" value="Walang Sangit">
                     <label class="form-check-label" for="hama-walang">Walang Sangit</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-lain" name="nama_hama">
+                    <input class="form-check-input" type="checkbox" id="hama-lain" name="nama_hama[]">
                     <label class="form-check-label" for="hama-lain">Lain-Lain</label>
                 </div>
 
@@ -627,13 +627,13 @@
                 <div id="bantuan-wrapper">
                     <div class="row g-2 align-items-center mb-2 bantuan-row">
                         <div class="col">
-                            <input type="text" class="form-control" name="nama_bantuan" placeholder="Nama Bantuan">
+                            <input type="text" class="form-control" name="nama_bantuan[]" placeholder="Nama Bantuan">
                         </div>
                         <div class="col-auto">
-                            <input type="number" class="form-control" name="tahun" placeholder="Tahun">
+                            <input type="date" class="form-control" name="tahun_bantuan[]" placeholder="Tahun">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" name="nilai_rp" placeholder="Nilai (Rp)">
+                            <input type="number" class="form-control" name="nilai_rp_bantuan[]" placeholder="Nilai (Rp)">
                         </div>
                     </div>
                 </div>
@@ -649,15 +649,15 @@
                         newRow.className = 'row g-2 align-items-center mb-2 bantuan-row';
 
                         newRow.innerHTML = `
-                            <div class="col">
-                                <input type="text" class="form-control" name="nama_bantuan" placeholder="Nama Bantuan">
-                            </div>
-                            <div class="col-auto">
-                                <input type="number" class="form-control" name="tahun" placeholder="Tahun">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" name="nilai_rp" placeholder="Nilai (Rp)">
-                            </div>
+                        <div class="col">
+                            <input type="text" class="form-control" name="nama_bantuan[]" placeholder="Nama Bantuan">
+                        </div>
+                        <div class="col-auto">
+                            <input type="date" class="form-control" name="tahun_bantuan[]" placeholder="Tahun">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" name="nilai_rp_bantuan[]" placeholder="Nilai (Rp)">
+                        </div>
                         `;
                         wrapper.appendChild(newRow);
                     }
@@ -665,9 +665,6 @@
         </div>    
     </div>
     <button type="submit" class="btn btn-primary mt-2">Simpan</button>
-    <script>
-        
-    </script>
     </form>
 
 </div>

@@ -58,7 +58,48 @@ class DashboardTambahData extends CI_Controller {
             'id_subak' => $id_subak,
             'ketersediaan_pura_bedugul' => $this->input->post('ketersediaan_pura_bedugul'),
         ];
+
+        //ID ANAKAN TABLE
         $this->SubakModel->insert_tb_perahyangan($data_perahyangan);
+        $id_perahyangan = $this->db->insert_id();
+
+        // PERAHYANGAN PURA BEDUGUL ADA
+        $data_perahyangan_pura_bedugul_ada = [
+            'id_perahyangan' => $id_perahyangan,
+            'nama_pura' => $this->input->post('nama_pura'),
+            'pura_bedugul_disungsung' => $this->input->post('pura_bedugul_disungsung'),
+            'pura_bedugul_disungsung_lain' => $this->input->post('pura_bedugul_disungsung_lain'),
+            'alamat_pura_bedugul' => $this->input->post('alamat_pura_bedugul'),
+            'piodalan_wali_pertahun' => $this->input->post('piodalan_wali_pertahun'),
+            'hari_piodalan_wali' => $this->input->post('hari_piodalan_wali'),
+            'jumlah_pelinggih' => $this->input->post('jumlah_pelinggih'),
+            'foto_pura' => $this->input->post('foto_pura'),
+        ];
+        $this->SubakModel->insert_tb_perahyangan_pura_bedugul_ada($data_perahyangan_pura_bedugul_ada);
+
+        // PERAHYANGAN PURA BEDUGUL TIDAK ADA
+        $data_perahyangan_pura_bedugul_tidakada = [
+            'id_perahyangan' => $id_perahyangan,
+            'pura_bedugul_disungsung2' => $this->input->post('pura_bedugul_disungsung2'),
+            'pura_bedugul_disungsung_lain2' => $this->input->post('pura_bedugul_disungsung_lain2'),
+            'alamat_pura_bedugul2' => $this->input->post('alamat_pura_bedugul2'),
+            'piodalan_wali_pertahun2' => $this->input->post('piodalan_wali_pertahun2'),
+            'hari_piodalan_wali2' => $this->input->post('hari_piodalan_wali2'),
+            'foto_pura2' => $this->input->post('foto_pura2'),
+        ];
+        $this->SubakModel->insert_tb_perahyangan_pura_bedugul_tidakada($data_perahyangan_pura_bedugul_tidakada);
+
+        // PERAHYANGAN INVENTARIS
+        $data_perahyangan_inventaris = [
+            'inventaris' => $this->input->post('inventaris2'),
+        ];
+        $this->SubakModel->insert_tb_perahyangan_inventaris($data_perahyangan_inventaris);
+
+        // PERAHYANGAN ACI-ACI
+        $data_perahyangan_aci_aci_subak = [
+            'aci_aci_subak' => $this->input->post('aci_aci_subak'),
+        ];
+        $this->SubakModel->insert_tb_perahyangan_aci_aci_subak($data_perahyangan_aci_aci_subak);
 
         // PAWONGAN
         $data_pawongan = [
@@ -95,21 +136,51 @@ class DashboardTambahData extends CI_Controller {
             'masa_musim_tanam_pertahun' => $this->input->post('masa_musim_tanam_pertahun'),
             'tanaman_penyela' => $this->input->post('tanaman_penyela'),
         ];
-        $this->SubakModel->insert_tb_palemahan($data_palemahan);
 
+        //ID ANAKAN TABLE
+        $this->SubakModel->insert_tb_palemahan($data_palemahan);
+        $id_palemahan = $this->db->insert_id();
+        
         // PALEMAHAN TANAMAN POKOK
         $data_palemahan_tanaman_pokok = [
+            'id_palemahan' => $id_palemahan,
             'tanaman_pokok' => $this->input->post('tanaman_pokok'),
         ];
         $this->SubakModel->insert_tb_palemahan_tanaman_pokok($data_palemahan_tanaman_pokok);
 
         // PALEMAHAN JENIS TANAMAN POKOK
         $data_palemahan_jenis_tanaman_pokok = [
+            'id_palemahan' => $id_palemahan,
             'jenis_tanaman_pokok' => $this->input->post('jenis_tanaman_pokok'),
         ];
         $this->SubakModel->insert_tb_palemahan_jenis_tanaman_pokok($data_palemahan_jenis_tanaman_pokok);
 
+        // PALEMAHAN HAMA
+        $nama_hama = $this->input->post('nama_hama');
+        if ($nama_hama) {
+            foreach ($nama_hama as $val) {
+                $this->SubakModel->insert_tb_palemahan_hama([
+                    'id_palemahan' => $id_palemahan,
+                    'nama_hama' => $val
+                ]);
+            }
+        }
 
+        // PALEMAHAN BANTUAN PEMERINTAH
+        $nama_bantuan     = $this->input->post('nama_bantuan');
+        $tahun_bantuan    = $this->input->post('tahun_bantuan');
+        $nilai_rp_bantuan = $this->input->post('nilai_rp_bantuan');
+        foreach ($nama_bantuan as $index => $nama) {
+            if (!empty($nama) || !empty($tahun_bantuan[$index]) || !empty($nilai_rp_bantuan[$index])) {
+                $data = [
+                    'id_palemahan'      => $id_palemahan,
+                    'nama_bantuan'      => $nama,
+                    'tahun_bantuan'     => $tahun_bantuan[$index],
+                    'nilai_rp_bantuan'  => $nilai_rp_bantuan[$index]
+                ];
+                $this->SubakModel->insert_tb_palemahan_bantuan_pemerintah($data);
+            }
+        }
 
 
 
