@@ -90,13 +90,19 @@ class DashboardTambahData extends CI_Controller {
         $this->SubakModel->insert_tb_perahyangan_pura_bedugul_tidakada($data_perahyangan_pura_bedugul_tidakada);
 
         // PERAHYANGAN INVENTARIS
-        $data_perahyangan_inventaris = [
-            'inventaris' => $this->input->post('inventaris2'),
-        ];
-        $this->SubakModel->insert_tb_perahyangan_inventaris($data_perahyangan_inventaris);
+        $inventaris = $this->input->post('inventaris');
+        if ($inventaris) {
+            foreach ($inventaris as $val) {
+                $this->SubakModel->insert_tb_perahyangan_inventaris($inventaris);([
+                    'id_pura_bedugul_ada' => $id_pura_bedugul_ada,
+                    'inventaris' => $val
+                ]);
+            }
+        }
 
         // PERAHYANGAN ACI-ACI
         $data_perahyangan_aci_aci_subak = [
+            'id_pura_bedugul_ada' => $id_pura_bedugul_ada,
             'aci_aci_subak' => $this->input->post('aci_aci_subak'),
         ];
         $this->SubakModel->insert_tb_perahyangan_aci_aci_subak($data_perahyangan_aci_aci_subak);

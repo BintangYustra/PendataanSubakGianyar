@@ -1,5 +1,5 @@
 <div class="" style="margin-left: 25px">
-    <h1>Welcome</h1>
+    <h1>Welcome (insert admin)</h1>
 </div>
 
 <div class="">

@@ -1,6 +1,7 @@
 <?php
 class SubakModel extends CI_Model {
 
+    //DATA MASUK KE DATABASE
     public function insert_tb_subak($data) {
         $this->db->insert('tb_subak', $data);
         return $this->db->insert_id();
@@ -60,27 +61,81 @@ class SubakModel extends CI_Model {
 
 
 
+    //UPDATE DATA DI DATABASE
 
 
 
+    //HAPUS DATA DI DATABASE
 
-
-
-
-
+    //MELIHAT DATA DI DATABASE
     public function get_all_subak() {
         return $this->db->get('tb_subak')->result();
-    }
-
-    public function get_total_subak() {
-    return $this->db->count_all('tb_subak');
     }
 
     public function get_all_subak_alamat() {
         return $this -> db -> get('tb_alamat_subak') -> result();
     }
 
+    public function get_all_prajuru() {
+        return $this -> db -> get('tb_prajuru') -> result();
+    }
 
+    public function get_all_perahyangan() {
+        return $this -> db -> get('tb_perahyangan') -> result();
+    }
+
+    public function get_all_subak_perahyangan_pura_bedugul_ada() {
+        return $this -> db -> get('tb_perahyangan_pura_bedugul_ada') -> result();
+    }
+
+    public function get_all_subak_perahyangan_pura_bedugul_tidakada() {
+        return $this -> db -> get('tb_perahyangan_pura_bedugul_tidakada') -> result();
+    }
+
+    public function get_all_subak_perahyangan_perahyangan_inventaris() {
+        return $this -> db -> get('tb_inventaris') -> result();
+    }
+
+    public function get_all_subak_perahyangan_aci_aci_subak() {
+        return $this -> db -> get('tb_aci_aci') -> result();
+    }
+
+    public function get_all_subak_pawongan() {
+        return $this -> db -> get('tb_pawongan') -> result();
+    }
+
+    public function get_all_subak_palemahan() {
+        return $this -> db -> get('tb_palemahan') -> result();
+    }
+
+    public function get_all_subak_palemahan_tanaman_pokok() {
+        return $this -> db -> get('tb_tanaman_pokok') -> result();
+    }
+
+    public function get_all_subak_palemahan_jenis_tanaman_pokok() {
+        return $this -> db -> get('tb_jenis_tanaman_pokok') -> result();
+    }
+
+    public function get_all_subak_palemahan_hama() {
+        return $this -> db -> get('tb_hama') -> result();
+    }
+
+    public function get_all_subak_palemahan_bantuan_pemerintah() {
+        return $this -> db -> get('tb_bantuan_pemerintah') -> result();
+    }
+
+
+
+
+
+
+
+
+
+
+    public function get_total_subak() {
+    return $this->db->count_all('tb_subak');
+    }
 
     public function pagination($limit, $start)
     {

@@ -20,9 +20,9 @@
         <td><?php echo $row->kriteria_subak; ?></td>
         <td><?php echo $row->verifikasi; ?></td>
         <td>
-          <button type="button" class="btn btn-info">Detail</button>
-          <button type="button" class="btn btn-warning">Update</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+          <a href="<?php echo site_url('DashboardSubakTerdata/detail/' . $row->id_subak); ?>" class="btn btn-info">Detail</a>
+          <a href="<?php echo site_url('DashboardSubakTerdata/edit/' . $row->id_subak); ?>" class="btn btn-warning">Update</a>
+          <a href="<?php echo site_url('DashboardSubakTerdata/delete/' . $row->id_subak); ?>" class="btn btn-danger" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')">Delete</a>
         </td>
       <?php endforeach ?>
 
@@ -33,3 +33,4 @@
 
   </div>
 </div>
+

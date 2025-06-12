@@ -1,5 +1,4 @@
 <?php
-
 class DashboardSubakTerdata	 extends CI_Controller {
 
 	public function __construct() {
@@ -20,11 +19,22 @@ class DashboardSubakTerdata	 extends CI_Controller {
         $this->pagination->initialize($config);
         $data['totalsubak'] = $this-> SubakModel -> pagination($config['per_page'] ,$data['start']);
 		$data['link'] =  $this->pagination->create_links();
-
+		echo $this->pagination->create_links();
 
 		$this->load->view('templates/dashboard/headerdashboard', $data);
 		$this->load->view('templates/dashboard/sidepaneldashboard');
 		$this->load->view('dashboard/dashboardsubakterdata',$data);
 		$this->load->view('templates/dashboard/footerdashboard');
 	}
+
+	public function updateData() {
+		$id_subak = $this->input->post('id_subak');
+		$data = [
+			'nama_subak' => $this->input->post('nama_subak'),
+			'kriteria_subak' => $this->input->post('kriteria_subak'),
+			'verifikasi' => $this->input->post('verifikasi'),
+		];
+		$this->SubakModel->update($id_subak, $data);
+	}
 }
+

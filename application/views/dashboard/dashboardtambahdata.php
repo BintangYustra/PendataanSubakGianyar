@@ -165,11 +165,11 @@
 
                     <label class="form-label d-block">Pura Bedugul Ini Disungsung Oleh</label>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="satuSubak" value="1">
+                        <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="satuSubak" value="Satu Subak">
                         <label class="form-check-label" for="satuSubak">Satu Subak</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="lebihSubak" value="lebih">
+                        <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="lebihSubak" value="Lebih dari Satu Subak">
                         <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
                     </div>
                     <div class="mt-3" id="form-subak-lainnya"></div>
@@ -262,11 +262,11 @@
                             </div>
                             <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung2" id="satuSubak2" value="1">
+                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung2" id="satuSubak2" value="Satu Subak">
                                 <label class="form-check-label" for="satuSubak">Satu Subak</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung_lain2" id="lebihSubak2" value="lebih">
+                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung_lain2" id="lebihSubak2" value="Lebih dari Satu Subak">
                                 <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
                             </div>
                             <div class="mt-3" id="form-subak-lainnya2"></div>
@@ -453,11 +453,11 @@
                     <label class="form-label d-block">Perarem</label>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="perarem">
+                        <input class="form-check-input" type="radio" name="perarem" value="Ada">
                         <label class="form-check-label">Ada</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="perarem">
+                        <input class="form-check-input" type="radio" name="perarem" value="Tidak Ada">
                         <label class="form-check-label">Tidak Ada</label>
                     </div>
                 </div>
@@ -466,11 +466,11 @@
                     <label class="form-label d-block">Perarem Alih Fungsi Lahan</label>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="perarem_alih_fungsi">
+                        <input class="form-check-input" type="radio" name="perarem_alih_fungsi" value="Ada">
                         <label class="form-check-label">Ada</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="perarem_alih_fungsi">
+                        <input class="form-check-input" type="radio" name="perarem_alih_fungsi" value="Tidak Ada">
                         <label class="form-check-label">Tidak Ada</label>
                     </div>
                 </div>

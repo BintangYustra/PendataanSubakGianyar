@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title><?php echo $judul?></title>
 
     <script
     src="https://code.jquery.com/jquery-3.7.1.js"
