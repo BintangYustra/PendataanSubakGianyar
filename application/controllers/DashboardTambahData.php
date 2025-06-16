@@ -14,7 +14,7 @@ class DashboardTambahData extends CI_Controller {
         $this->load->view('templates/dashboard/footerdashboard');
     }
 
-    public function AddData() {
+    public function add_data() {
         // SUBAK
         $data_subak = [
             'nama_subak' => $this->input->post('nama_subak'),
@@ -70,8 +70,7 @@ class DashboardTambahData extends CI_Controller {
             'alamat_pura_bedugul' => $this->input->post('alamat_pura_bedugul'),
             'piodalan_wali_pertahun' => $this->input->post('piodalan_wali_pertahun'),
             'hari_piodalan_wali' => $this->input->post('hari_piodalan_wali'),
-            'jumlah_pelinggih' => $this->input->post('jumlah_pelinggih'),
-            'foto_pura' => $this->input->post('foto_pura'),
+            'jumlah_pelinggih' => $this->input->post('jumlah_pelinggih'),        
         ];
         $this->SubakModel->insert_tb_perahyangan_pura_bedugul_ada($data_perahyangan_pura_bedugul_ada);
         $id_pura_bedugul_ada = $this->db->insert_id();
@@ -84,8 +83,7 @@ class DashboardTambahData extends CI_Controller {
             'pura_bedugul_disungsung_lain2' => $this->input->post('pura_bedugul_disungsung_lain2'),
             'alamat_pura_bedugul2' => $this->input->post('alamat_pura_bedugul2'),
             'piodalan_wali_pertahun2' => $this->input->post('piodalan_wali_pertahun2'),
-            'hari_piodalan_wali2' => $this->input->post('hari_piodalan_wali2'),
-            'foto_pura2' => $this->input->post('foto_pura2'),
+            'hari_piodalan_wali2' => $this->input->post('hari_piodalan_wali2'),        
         ];
         $this->SubakModel->insert_tb_perahyangan_pura_bedugul_tidakada($data_perahyangan_pura_bedugul_tidakada);
 
