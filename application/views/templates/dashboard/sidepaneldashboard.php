@@ -38,7 +38,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php base_url()?>DashboardSubakTerdata">
                     <i class="fas fa-fw fa fa-table"></i>
-                    <span>Subak Terdata</span></a>
+                    <span>Subak Terdata: <?=$data['jumlahsubak'] = $this->SubakModel->get_total_subak(); $jumlahsubak;?></span></a>
             </li>
 
             <li class="nav-item">

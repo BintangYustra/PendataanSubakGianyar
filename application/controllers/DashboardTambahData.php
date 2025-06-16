@@ -52,14 +52,12 @@ class DashboardTambahData extends CI_Controller {
             'penyarikan_hp_wa' => $this->input->post('penyarikan_hp_wa'),
         ];
         $this->SubakModel->insert_tb_prajuru($data_prajuru);
-
+                
         // PERAHYANGAN
         $data_perahyangan = [
             'id_subak' => $id_subak,
             'ketersediaan_pura_bedugul' => $this->input->post('ketersediaan_pura_bedugul'),
         ];
-
-        //ID ANAKAN TABLE
         $this->SubakModel->insert_tb_perahyangan($data_perahyangan);
         $id_perahyangan = $this->db->insert_id();
 
@@ -76,10 +74,12 @@ class DashboardTambahData extends CI_Controller {
             'foto_pura' => $this->input->post('foto_pura'),
         ];
         $this->SubakModel->insert_tb_perahyangan_pura_bedugul_ada($data_perahyangan_pura_bedugul_ada);
+        $id_pura_bedugul_ada = $this->db->insert_id();
 
         // PERAHYANGAN PURA BEDUGUL TIDAK ADA
         $data_perahyangan_pura_bedugul_tidakada = [
             'id_perahyangan' => $id_perahyangan,
+            'nama_pura2' => $this->input->post('nama_pura2'),
             'pura_bedugul_disungsung2' => $this->input->post('pura_bedugul_disungsung2'),
             'pura_bedugul_disungsung_lain2' => $this->input->post('pura_bedugul_disungsung_lain2'),
             'alamat_pura_bedugul2' => $this->input->post('alamat_pura_bedugul2'),
@@ -90,37 +90,99 @@ class DashboardTambahData extends CI_Controller {
         $this->SubakModel->insert_tb_perahyangan_pura_bedugul_tidakada($data_perahyangan_pura_bedugul_tidakada);
 
         // PERAHYANGAN INVENTARIS
-        $inventaris = $this->input->post('inventaris');
-        if ($inventaris) {
-            foreach ($inventaris as $val) {
-                $this->SubakModel->insert_tb_perahyangan_inventaris($inventaris);([
-                    'id_pura_bedugul_ada' => $id_pura_bedugul_ada,
-                    'inventaris' => $val
-                ]);
+        $inventaris_array = $this->input->post('inventaris');
+        $inventaris_lain = $this->input->post('inventaris_lain');
+        if ($inventaris_array) {
+            foreach ($inventaris_array as $val) {
+                if (!empty($val)) {
+                    $this->SubakModel->insert_tb_perahyangan_inventaris([
+                        'id_pura_bedugul_ada' => $id_pura_bedugul_ada,
+                        'inventaris' => $val
+                    ]);
+                }
             }
+        }
+        if (!empty($inventaris_lain)) {
+            $this->SubakModel->insert_tb_perahyangan_inventaris([
+                'id_pura_bedugul_ada' => $id_pura_bedugul_ada,
+                'inventaris' => $inventaris_lain
+            ]);
         }
 
         // PERAHYANGAN ACI-ACI
-        $data_perahyangan_aci_aci_subak = [
-            'id_pura_bedugul_ada' => $id_pura_bedugul_ada,
-            'aci_aci_subak' => $this->input->post('aci_aci_subak'),
-        ];
-        $this->SubakModel->insert_tb_perahyangan_aci_aci_subak($data_perahyangan_aci_aci_subak);
+        $aci_aci_subak = $this->input->post('aci_aci_subak');
+        foreach ($aci_aci_subak as $val) {
+            $this->SubakModel->insert_tb_perahyangan_aci_aci_subak([
+                'id_pura_bedugul_ada' => $id_pura_bedugul_ada,
+                'aci_aci_subak' => $val
+            ]);
+        }
+
+        // PERAHYANGAN FOTO PURA
+        $foto_pura = $this->input->post('foto_pura');
+        if (!empty($foto_pura)) {
+            foreach ($foto_pura as $foto) {
+                $data_perahyangan_pura_bedugul_ada_foto_pura = [
+                    'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
+                    'foto_pura' => $foto,
+                ];
+                $this->SubakModel->insert_tb_perahyangan_foto_pura($data_perahyangan_pura_bedugul_ada_foto_pura);
+            }
+        }
+
+        // PERAHYANGAN FOTO PURA2
+        $foto_pura2 = $this->input->post('foto_pura2');
+        if (!empty($foto_pura2)) {
+            foreach ($foto_pura2 as $foto2) {
+                $data_perahyangan_pura_bedugul_tidakada_foto_pura2 = [
+                    'id_perahyangan_pura_bedugul_tidakada' => $id_perahyangan_pura_bedugul_tidakada,
+                    'foto_pura2' => $foto2,
+                ];
+                $this->SubakModel->insert_tb_perahyangan_foto_pura2($data_perahyangan_pura_bedugul_tidakada_foto_pura2);
+            }
+        }
 
         // PAWONGAN
         $data_pawongan = [
             'id_subak' => $id_subak,
-            'jumlah_krama_pemilik_lahan' => $this->input->post('jumlah_krama_pemilik_lahan'),
+            'jumlah_krama_pemilik_lahan'=> $this->input->post('jumlah_krama_pemilik_lahan'),
             'jumlah_krama_penyakap' => $this->input->post('jumlah_krama_penyakap'),
-            'nama_penyakap' => $this->input->post('nama_penyakap'),
-            'tingkat_pendidikan_penyakap' => $this->input->post('tingkat_pendidikan_penyakap'),
             'awig_awig' => $this->input->post('awig_awig'),
             'perarem' => $this->input->post('perarem'),
             'perarem_alih_fungsi' => $this->input->post('perarem_alih_fungsi'),
-            'perarem_alih_fungsi' => $this->input->post('perarem_alih_fungsi'),
-
         ];
+
         $this->SubakModel->insert_tb_pawongan($data_pawongan);
+        $id_pawongan = $this->db->insert_id();
+
+        // PAWONGAN NAMA PERAREM
+        $data_pawongan_nama_perarem = $this->input->post('nama_perarem');
+        if (!empty($data_pawongan_nama_perarem)) {
+            foreach ($data_pawongan_nama_perarem as $val) {
+                if (!empty($val)) {
+                    $this->SubakModel->insert_tb_pawongan_nama_perarem([
+                        'id_pawongan'   => $id_pawongan,
+                        'nama_perarem'  => $val,
+                    ]);
+                }
+            }
+        }
+
+        // PAWONGAN NAMA PENYAKAP
+        $nama_penyakap_list = $this->input->post('nama_penyakap');
+        $pendidikan_penyakap_list = $this->input->post('tingkat_pendidikan_penyakap');
+
+        if (!empty($nama_penyakap_list) && is_array($nama_penyakap_list)) {
+            foreach ($nama_penyakap_list as $i => $nama_penyakap) {
+                if (!empty($nama_penyakap)) {
+                    $this->SubakModel->insert_tb_pawongan_nama_penyakap([
+                        'id_pawongan'                => $id_pawongan,
+                        'nama_penyakap'             => $nama_penyakap,
+                        'tingkat_pendidikan_penyakap' => $pendidikan_penyakap_list[$i] ?? null,
+                    ]);
+                }
+            }
+        }
 
         // PALEMAHAN
         $data_palemahan = [
@@ -143,7 +205,6 @@ class DashboardTambahData extends CI_Controller {
             'tanaman_penyela' => $this->input->post('tanaman_penyela'),
         ];
 
-        //ID ANAKAN TABLE
         $this->SubakModel->insert_tb_palemahan($data_palemahan);
         $id_palemahan = $this->db->insert_id();
         

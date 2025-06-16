@@ -1,7 +1,7 @@
 <?php
 class SubakModel extends CI_Model {
 
-    //DATA MASUK KE DATABASE
+    // DATA MASUK KE DATABASE
     public function insert_tb_subak($data) {
         $this->db->insert('tb_subak', $data);
         return $this->db->insert_id();
@@ -31,12 +31,28 @@ class SubakModel extends CI_Model {
         $this->db->insert('tb_inventaris', $data);
     }
 
+    public function insert_tb_perahyangan_foto_pura($data) {
+        $this->db->insert('tb_foto_pura', $data);
+    }
+
+    public function insert_tb_perahyangan_foto_pura2($data) {
+        $this->db->insert('tb_foto_pura2', $data);
+    }
+
     public function insert_tb_perahyangan_aci_aci_subak($data) {
         $this->db->insert('tb_aci_aci', $data);
     }
 
     public function insert_tb_pawongan($data) {
         $this->db->insert('tb_pawongan', $data);
+    }
+
+    public function insert_tb_pawongan_nama_perarem($data) {
+        $this->db->insert('tb_pawongan_nama_perarem', $data);
+    }
+    
+    public function insert_tb_pawongan_nama_penyakap($data) {
+        $this->db->insert('tb_pawongan_nama_penyakap', $data);
     }
 
     public function insert_tb_palemahan($data) {
@@ -59,15 +75,13 @@ class SubakModel extends CI_Model {
         $this->db->insert('tb_bantuan_pemerintah', $data);
     }
 
+    // UPDATE DATA DI DATABASE
+    public function update_tb_subak($data) {
+        return $this->db->get_where('tb_subak', ['id_subak' => $id_subak])->row_array();
+    }
+    // HAPUS DATA DI DATABASE
 
-
-    //UPDATE DATA DI DATABASE
-
-
-
-    //HAPUS DATA DI DATABASE
-
-    //MELIHAT DATA DI DATABASE
+    // MELIHAT DATA DI DATABASE
     public function get_all_subak() {
         return $this->db->get('tb_subak')->result();
     }
@@ -132,7 +146,7 @@ class SubakModel extends CI_Model {
 
 
 
-
+    // FUNGSI LAIN-LAIN
     public function get_total_subak() {
     return $this->db->count_all('tb_subak');
     }

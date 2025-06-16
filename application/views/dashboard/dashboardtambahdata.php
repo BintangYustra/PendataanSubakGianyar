@@ -12,7 +12,7 @@
                 <label class="form-label">Nama Subak</label>
                 <input type="text" class="form-control" name="nama_subak">
             </div>
-                <input type="hidden" name="verifikasi" value="Belum Terverifikasi">
+                <input type="hidden" name="verifikasi" value="Belum Terverifikasi"> <!--Memberi atribut 'Belum Terverifikasi' pada database saat pertama kali mengirim data  -->
             <div class="mb-3">
                 <label class="form-label d-block">Kriteria Subak</label>
                 <div class="form-check form-check-inline">
@@ -214,30 +214,31 @@
                 <div class="mb-3">
                     <label class="form-label d-block">Inventaris yang Dimiliki</label>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inventaris-angklung" name="inventaris">
+                        <input class="form-check-input" type="checkbox" id="inventaris-angklung" name="inventaris[]" value="Angklung">
                         <label class="form-check-label" for="inventaris-angklung">Angklung</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inventaris-gong" name="inventaris">
+                        <input class="form-check-input" type="checkbox" id="inventaris-gong" name="inventaris[]" value="Gong">
                         <label class="form-check-label" for="inventaris-gong">Gong</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inventaris-baleganjur" name="inventaris">
+                        <input class="form-check-input" type="checkbox" id="inventaris-baleganjur" name="inventaris[]" value="Baleganjur">
                         <label class="form-check-label" for="inventaris-baleganjur">Baleganjur</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inventaris-lain" name="inventaris">
+                        <input class="form-check-input" type="checkbox" id="inventaris-lain" name="inventaris[]" value="">
                         <label class="form-check-label" for="inventaris-lain">Lain-Lain</label>
                     </div>
                     <div class="mt-2" id="form-inventaris-lain" style="display: none;">
                         <label class="form-label">Sebutkan Inventaris Lain</label>
-                        <input type="text" class="form-control" name="inventaris" placeholder="Contoh: A, B, C">
+                        <input type="text" class="form-control" name="inventaris_lain" placeholder="Contoh: A, B, C">
                     </div>
                 </div>
 
+
                 <div class="mb-3">
                     <label class="form-label">Upload/Lampirkan 3 Foto</label>
-                    <input type="file" class="form-control" multiple name="foto_pura" id="foto_pura_input" accept="image/*">
+                    <input type="file" class="form-control" multiple name="foto_pura" id="foto_pura_input" accept="image/*" name="foto_pura[]">
                 </div>
 
                 <div class="mb-3 d-flex flex-wrap gap-2" id="preview_foto"></div>
@@ -285,7 +286,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Upload 3 Foto</label>
-                                <input type="file" class="form-control" name="foto_pura2" multiple>
+                                <input type="file" class="form-control" name="foto_pura2[]" multiple>
                             </div>
                         </div>
                     </div>
@@ -371,111 +372,129 @@
     <div class="card mt-4">
         <div class="card-body">
             <h2 class="mt-4"><b>Data Pawongan</b></h2>
-                <div class="mb-3">
-                    <label class="form-label">Jumlah Krama Pemilik Lahan</label>
-                    <input type="number" class="form-control" name="jumlah_krama_pemilik_lahan">
-                </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Jumlah Krama Penyakap</label>
-                    <input type="number" class="form-control" name="jumlah_krama_penyakap">
-                </div>
+            <div class="mb-3">
+                <label class="form-label">Jumlah Krama Pemilik Lahan</label>
+                <input type="number" class="form-control" name="jumlah_krama_pemilik_lahan">
+            </div>
 
-                <label class="form-label d-block">Tingkat Pendidikan Krama Penyakap</label>
-                    <div id="penyakap-wrapper">
-                        <div class="row g-2 align-items-center mb-2 bantuan-row">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Nama Penyakap" name="nama_penyakap">
-                            </div>
-                            <div class="col-auto">
-                            <select class="form-control" name="tingkat_pendidikan_penyakap">
-                                <option value="">Tingkat Pendidikan</option>
-                                <option value="tidak_sekolah">Tidak Sekolah</option>
-                                <option value="sd">SD</option>
-                                <option value="smp">SMP</option>
-                                <option value="sma">SMA/SMK Sederajat</option>
-                                <option value="sma">D1</option>
-                                <option value="sma">D2</option>
-                                <option value="sma">D3</option>
-                                <option value="sma">D4</option>
-                                <option value="s1">Sarjana (S1)</option>
-                                <option value="s2">Magister (S2)</option>
-                                <option value="s3">Doktor (S3)</option>
-                            </select>
-                            </div>
-                        </div>
+            <div class="mb-3">
+                <label class="form-label">Jumlah Krama Penyakap</label>
+                <input type="number" class="form-control" name="jumlah_krama_penyakap">
+            </div>
+
+            <label class="form-label d-block">Tingkat Pendidikan Krama Penyakap</label>
+            <div id="penyakap-wrapper">
+                <div class="row g-2 align-items-center mb-2 penyakap-row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Nama Penyakap" name="nama_penyakap[]">
                     </div>
-                        <!-- Tombol tambah -->
-                        <button type="button" class="btn btn-primary btn-sm" onclick="tambahPenyakap()">Tambah Baris</button>
-
-                        <script>
-                        function tambahPenyakap() {
-                            const wrapper = document.getElementById('penyakap-wrapper');
-
-                            const newRow = document.createElement('div');
-                            newRow.className = 'row g-2 align-items-center mb-2 penyakap-row';
-
-                            newRow.innerHTML = `
-                            <div class="col-auto">
-                            <select class="form-control" name="tingkat_pendidikan_penyakap">
-                                <option value="">Tingkat Pendidikan</option>
-                                <option value="tidak_sekolah">Tidak Sekolah</option>
-                                <option value="sd">SD</option>
-                                <option value="smp">SMP</option>
-                                <option value="sma">SMA/SMK Sederajat</option>
-                                <option value="sma">D1</option>
-                                <option value="sma">D2</option>
-                                <option value="sma">D3</option>
-                                <option value="sma">D4</option>
-                                <option value="s1">Sarjana (S1)</option>
-                                <option value="s2">Magister (S2)</option>
-                                <option value="s3">Doktor (S3)</option>
-                            </select>
-                            </div>                            `;
-                            wrapper.appendChild(newRow);
-                        }
-                    </script>
-
-                <div class="mb-3">
-                    <label class="form-label d-block">Awig-Awig</label>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="awig_awig" value="Ada">
-                        <label class="form-check-label">Ada</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="awig_awig" value="Tidak Ada">
-                        <label class="form-check-label">Tidak Ada</label>
+                    <div class="col-auto">
+                        <select class="form-control" name="tingkat_pendidikan_penyakap[]">
+                            <option value="">Tingkat Pendidikan</option>
+                            <option value="tidak_sekolah">Tidak Sekolah</option>
+                            <option value="sd">SD</option>
+                            <option value="smp">SMP</option>
+                            <option value="sma">SMA/SMK Sederajat</option>
+                            <option value="d1">D1</option>
+                            <option value="d2">D2</option>
+                            <option value="d3">D3</option>
+                            <option value="d4">D4</option>
+                            <option value="s1">Sarjana (S1)</option>
+                            <option value="s2">Magister (S2)</option>
+                            <option value="s3">Doktor (S3)</option>
+                        </select>
                     </div>
                 </div>
-                
-                <div class="mb-3">
-                    <label class="form-label d-block">Perarem</label>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm mb-3" onclick="tambahPenyakap()">Tambah Baris</button>
 
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="perarem" value="Ada">
-                        <label class="form-check-label">Ada</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="perarem" value="Tidak Ada">
-                        <label class="form-check-label">Tidak Ada</label>
-                    </div>
+            <div class="mb-3">
+                <label class="form-label d-block">Awig-Awig</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="awig_awig" value="Ada">
+                    <label class="form-check-label">Ada</label>
                 </div>
-
-                <div class="mb-3">
-                    <label class="form-label d-block">Perarem Alih Fungsi Lahan</label>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="perarem_alih_fungsi" value="Ada">
-                        <label class="form-check-label">Ada</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="perarem_alih_fungsi" value="Tidak Ada">
-                        <label class="form-check-label">Tidak Ada</label>
-                    </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="awig_awig" value="Tidak Ada">
+                    <label class="form-check-label">Tidak Ada</label>
                 </div>
-        </div>    
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label d-block">Perarem</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="perarem" value="Ada">
+                    <label class="form-check-label">Ada</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="perarem" value="Tidak Ada">
+                    <label class="form-check-label">Tidak Ada</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label d-block">Perarem Alih Fungsi Lahan</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="perarem_alih_fungsi" value="Ada">
+                    <label class="form-check-label">Ada</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="perarem_alih_fungsi" value="Tidak Ada">
+                    <label class="form-check-label">Tidak Ada</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Nama Perarem (Jika Ada)</label>
+                <div id="perarem-wrapper">
+                    <input type="text" class="form-control mb-2" name="nama_perarem[]">
+                </div>
+                <button type="button" class="btn btn-primary btn-sm" onclick="tambahPerarem()">Tambah Baris</button>
+            </div>
+        </div>
     </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function tambahPenyakap() {
+            const wrapper = document.getElementById('penyakap-wrapper');
+            const newRow = document.createElement('div');
+            newRow.className = 'row g-2 align-items-center mb-2 penyakap-row';
+            newRow.innerHTML = `
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Nama Penyakap" name="nama_penyakap[]">
+                </div>
+                <div class="col-auto">
+                    <select class="form-control" name="tingkat_pendidikan_penyakap[]">
+                        <option value="">Tingkat Pendidikan</option>
+                        <option value="tidak_sekolah">Tidak Sekolah</option>
+                        <option value="sd">SD</option>
+                        <option value="smp">SMP</option>
+                        <option value="sma">SMA/SMK Sederajat</option>
+                        <option value="d1">D1</option>
+                        <option value="d2">D2</option>
+                        <option value="d3">D3</option>
+                        <option value="d4">D4</option>
+                        <option value="s1">Sarjana (S1)</option>
+                        <option value="s2">Magister (S2)</option>
+                        <option value="s3">Doktor (S3)</option>
+                    </select>
+                </div>
+            `;
+            wrapper.appendChild(newRow);
+        }
+
+        function tambahPerarem() {
+            const wrapper = document.getElementById('perarem-wrapper');
+            const newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.className = 'form-control mb-2';
+            newInput.name = 'nama_perarem[]';
+            wrapper.appendChild(newInput);
+        }
+    </script>
+
 
 <hr>
 
@@ -603,21 +622,22 @@
                     <label class="form-check-label" for="hama-walang">Walang Sangit</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-lain" name="nama_hama[]">
+                    <input class="form-check-input" type="checkbox" id="hama-lain" name="nama_hama[]" value="Lain-Lain">
                     <label class="form-check-label" for="hama-lain">Lain-Lain</label>
                 </div>
 
                 <!-- Input tambahan jika 'Lain-Lain' dicentang -->
                 <div class="mt-2" id="form-hama-lain" style="display: none;">
                     <label class="form-label">Sebutkan Hama Lain</label>
-                    <input type="text" class="form-control" placeholder="Contoh: Belalang, Kumbang">
+                    <input type="text" class="form-control" name="hama_lain" placeholder="Contoh: Belalang, Kumbang">
                 </div>
+
                 <script>
                     const checkboxHamaLain = document.getElementById('hama-lain');
                     const formHamaLain = document.getElementById('form-hama-lain');
 
                     checkboxHamaLain.addEventListener('change', function () {
-                    formHamaLain.style.display = this.checked ? 'block' : 'none';
+                        formHamaLain.style.display = this.checked ? 'block' : 'none';
                     });
                 </script>
             </div>
