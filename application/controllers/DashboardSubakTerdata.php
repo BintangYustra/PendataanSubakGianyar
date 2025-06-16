@@ -90,7 +90,6 @@ class DashboardSubakTerdata	 extends CI_Controller {
         // PERAHYANGAN INVENTARIS
 		$id_inventaris_array = $this->input->post('id_inventaris');
 		$inventaris_array = $this->input->post('inventaris');
-
 		if ($id_inventaris_array && $inventaris_array) {
 			for ($i = 0; $i < count($inventaris_array); $i++) {
 				$id_inventaris = $id_inventaris_array[$i];
@@ -107,7 +106,6 @@ class DashboardSubakTerdata	 extends CI_Controller {
 		// PERAHYANGAN ACI-ACI
 		$id_aci_subak_array = $this->input->post('id_aci_subak');
 		$aci_aci_subak_array = $this->input->post('aci_aci_subak');
-
 		if ($aci_aci_subak_array && $id_aci_subak_array) {
 			for ($i = 0; $i < count($aci_aci_subak_array); $i++) {
 				$id_aci_subak = $id_aci_subak_array[$i];
@@ -124,7 +122,6 @@ class DashboardSubakTerdata	 extends CI_Controller {
         // PERAHYANGAN FOTO PURA
 		$id_foto_pura_array = $this->input->post('id_foto_pura');
 		$foto_pura_array = $this->input->post('foto_pura');
-
 		if ($id_foto_pura_array && $foto_pura_array) {
 			for ($i = 0; $i < count($foto_pura_array); $i++) {
 				$id_foto_pura = $id_foto_pura_array[$i];
@@ -141,7 +138,6 @@ class DashboardSubakTerdata	 extends CI_Controller {
         // PERAHYANGAN FOTO PURA2
 		$id_foto_pura_array2 = $this->input->post('id_foto_pura2');
 		$foto_pura_array2 = $this->input->post('foto_pura2');
-
 		if ($id_foto_pura_array2 && $foto_pura_array2) {
 			for ($i = 0; $i < count($foto_pura_array2); $i++) {
 				$id_foto_pura2 = $id_foto_pura_array2[$i];
@@ -169,7 +165,6 @@ class DashboardSubakTerdata	 extends CI_Controller {
         // PAWONGAN NAMA PERAREM
 		$id_nama_perarem_array = $this->input->post('id_nama_perarem');
 		$nama_perarem_array = $this->input->post('nama_perarem');
-
 		if ($id_nama_perarem_array && $nama_perarem_array) {
 			for ($i = 0; $i < count($nama_perarem_array); $i++) {
 				$id_nama_perarem = $id_nama_perarem_array[$i];
@@ -187,7 +182,6 @@ class DashboardSubakTerdata	 extends CI_Controller {
 		$id_nama_penyakap_list = $this->input->post('id_nama_penyakap');
 		$nama_penyakap_list = $this->input->post('nama_penyakap');
 		$pendidikan_penyakap_list = $this->input->post('tingkat_pendidikan_penyakap');
-
 		if (!empty($nama_penyakap_list) && is_array($nama_penyakap_list)) {
 			foreach ($nama_penyakap_list as $i => $nama_penyakap) {
 				if (!empty($nama_penyakap)) {
@@ -238,7 +232,6 @@ class DashboardSubakTerdata	 extends CI_Controller {
         // PALEMAHAN HAMA
 		$id_hama_list = $this->input->post('id_hama');
 		$nama_hama_list = $this->input->post('nama_hama');
-
 		foreach ($id_hama_list as $i => $id_hama) {
 			$data = [
 				'id_palemahan' => $id_palemahan,
@@ -252,7 +245,6 @@ class DashboardSubakTerdata	 extends CI_Controller {
 		$nama_bantuan        = $this->input->post('nama_bantuan');
 		$tahun_bantuan       = $this->input->post('tahun_bantuan');
 		$nilai_rp_bantuan    = $this->input->post('nilai_rp_bantuan');
-
 		foreach ($id_bantuan_list as $i => $id_bantuan) {
 			$data = [
 				'id_palemahan'      => $id_palemahan,
@@ -262,13 +254,25 @@ class DashboardSubakTerdata	 extends CI_Controller {
 			];
 			$this->SubakModel->update_tb_palemahan_bantuan_pemerintah($id_bantuan, $data);
 		}
-
-
-
-
-
-
         redirect(base_url('DashboardHome'));
     }
+
+	public function view_data($id_subak) 
+	{
+		// SUBAK
+		$data_subak =[
+            'nama_subak' => $this->input->post('nama_subak'),
+            'kriteria_subak' => $this->input->post('kriteria_subak'),
+            'nomor_akte_notaris' => $this->input->post('nomor_akte_notaris'),
+            'npwp' => $this->input->post('npwp'),
+            'verifikasi' => $this->input->post('verifikasi'),
+		];
+		$this->SubakModel->update_tb_subak($id_subak, $data);
+	}
+
+	public function delete_subak($id_subak)
+	{
+		// SUBAK
+	}
 }
 
