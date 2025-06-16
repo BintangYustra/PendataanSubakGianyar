@@ -245,11 +245,10 @@ class SubakModel extends CI_Model {
 
 
 
-
-
-
-
-
+    // TES VIEW
+    public function get_subak_by_id($id_subak) {
+        return $this->db->get_where('tb_subak', ['id_subak' => $id_subak])->row();
+    }
 
     // FUNGSI LAIN-LAIN
     public function get_total_subak() {

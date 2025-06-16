@@ -260,19 +260,24 @@ class DashboardSubakTerdata	 extends CI_Controller {
 	public function view_data($id_subak) 
 	{
 		// SUBAK
-		$data_subak =[
-            'nama_subak' => $this->input->post('nama_subak'),
-            'kriteria_subak' => $this->input->post('kriteria_subak'),
-            'nomor_akte_notaris' => $this->input->post('nomor_akte_notaris'),
-            'npwp' => $this->input->post('npwp'),
-            'verifikasi' => $this->input->post('verifikasi'),
-		];
-		$this->SubakModel->update_tb_subak($id_subak, $data);
 	}
 
 	public function delete_subak($id_subak)
 	{
 		// SUBAK
 	}
+
+	
+    public function DashboardViewData($id_subak) {
+        $data['subak'] = $this->SubakModel->get_subak_by_id($id_subak);
+
+        if (empty($data['subak'])) {
+            show_404(); // Jika data tidak ditemukan
+        }
+
+        $this->load->view('/dashboard/dashboardviewdata', $data);
+    }
 }
+
+
 
