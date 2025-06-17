@@ -13,5 +13,7 @@ class DashboardViewData extends CI_Controller {
 		$this->load->view('templates/dashboard/sidepaneldashboard');
 		$this->load->view('dashboard/dashboardviewdata');
 		$this->load->view('templates/dashboard/footerdashboard');
+
+
 	}
 }
