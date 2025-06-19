@@ -57,15 +57,38 @@ class DashboardSubakTerdata	 extends CI_Controller {
 
     public function DashboardUpdateDataSubak($id_subak)
     {
+	$id_subak = $this->input->post('id_subak');
+	$update_data_subak = [
+		'id_subak' => $id_subak,
+		'nama_subak' => $this->input->post('nama_subak'),
+		'kriteria_subak' => $this->input->post('kriteria_subak'),
+		'nomor_akte_notaris' => $this->input->post('nomor_akte_notaris'),
+		'npwp' => $this->input->post('npwp'),
+		'verifikasi' => $this->input->post('verifikasi'),
+	];
+
+	$this->SubakModel->update_tb_subak($id_subak, $update_data_subak);
+
+
+
+
+
+
+
+
+        $this->load->view('/dashboard/dashboardupdatedata');
+    }
+
+}
 		// // SUBAK
-		// $data_subak =[
+		// $update_data_subak =[
         //     'nama_subak' => $this->input->post('nama_subak'),
         //     'kriteria_subak' => $this->input->post('kriteria_subak'),
         //     'nomor_akte_notaris' => $this->input->post('nomor_akte_notaris'),
         //     'npwp' => $this->input->post('npwp'),
         //     'verifikasi' => $this->input->post('verifikasi'),
 		// ];
-		// $this->SubakModel->update_tb_subak($id_subak, $data_subak);
+		// $this->SubakModel->update_tb_subak($id_subak, $update_data_subak);
         
 		// // ALAMAT SUBAK
 		// $data_alamat = [
@@ -274,7 +297,7 @@ class DashboardSubakTerdata	 extends CI_Controller {
 		// $tahun_bantuan       = $this->input->post('tahun_bantuan');
 		// $nilai_rp_bantuan    = $this->input->post('nilai_rp_bantuan');
 		// foreach ($id_bantuan_list as $i => $id_bantuan) {
-		// 	$data = [
+		// $data = [
 		// 		'id_palemahan'      => $id_palemahan,
 		// 		'nama_bantuan'      => $nama_bantuan[$i] ?? null,
 		// 		'tahun_bantuan'     => $tahun_bantuan[$i] ?? null,
@@ -284,19 +307,3 @@ class DashboardSubakTerdata	 extends CI_Controller {
 		// }
 
 		// SUBAK
-
-
-
-
-		if (empty($data['subak'])) {
-            show_404();
-        }
-
-        $this->load->view('/dashboard/dashboardupdatedata', $data);
-
-    }
-
-}
-
-
-

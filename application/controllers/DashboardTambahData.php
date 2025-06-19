@@ -232,25 +232,20 @@ class DashboardTambahData extends CI_Controller {
         }
 
         // PALEMAHAN BANTUAN PEMERINTAH
-        $nama_bantuan     = $this->input->post('nama_bantuan');
-        $tahun_bantuan    = $this->input->post('tahun_bantuan');
+        $nama_bantuan = $this->input->post('nama_bantuan');
+        $tahun_bantuan = $this->input->post('tahun_bantuan');
         $nilai_rp_bantuan = $this->input->post('nilai_rp_bantuan');
         foreach ($nama_bantuan as $index => $nama) {
             if (!empty($nama) || !empty($tahun_bantuan[$index]) || !empty($nilai_rp_bantuan[$index])) {
                 $data = [
-                    'id_palemahan'      => $id_palemahan,
-                    'nama_bantuan'      => $nama,
-                    'tahun_bantuan'     => $tahun_bantuan[$index],
-                    'nilai_rp_bantuan'  => $nilai_rp_bantuan[$index]
+                    'id_palemahan' => $id_palemahan,
+                    'nama_bantuan' => $nama,
+                    'tahun_bantuan' => $tahun_bantuan[$index],
+                    'nilai_rp_bantuan' => $nilai_rp_bantuan[$index]
                 ];
                 $this->SubakModel->insert_tb_palemahan_bantuan_pemerintah($data);
             }
         }
-
-
-
-
-
 
         redirect(base_url('DashboardHome'));
     }

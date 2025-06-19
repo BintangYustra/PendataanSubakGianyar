@@ -165,8 +165,39 @@
                         <th>Ketersediaan Pura Bedugul</th>
                         <td><?php echo $perahyangan->ketersediaan_pura_bedugul; ?></td>
                     </tr>
+                    <tr>
+                        <th>Nama Pura Bedugul</th>
+                        <td><?php echo $perahyanganpurabedugulada->nama_pura; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Pura Ini Disungsung Oleh</th>
+                        <td><?php echo $perahyanganpurabedugulada->pura_bedugul_disungsung; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Nama Subak Penyungsung Lain</th>
+                        <td><?php echo $perahyanganpurabedugulada->pura_bedugul_disungsung_lain; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Alamat Pura Bedugul</th>
+                        <td><?php echo $perahyanganpurabedugulada->alamat_pura_bedugul; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Piodalan/Wali dalam Setahun</th>
+                        <td><?php echo $perahyanganpurabedugulada->piodalan_wali_pertahun; ?> Kali</td>
+                    </tr>
+                    <tr>
+                        <th>Hari Piodalan/Wali</th>
+                        <td><?php echo $perahyanganpurabedugulada->hari_piodalan_wali; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Jumlah Pelinggih</th>
+                        <td><?php echo $perahyanganpurabedugulada->jumlah_pelinggih; ?></td>
+                    </tr>
                 </tbody>
             </table>
+            <div>
+                <p><strong>Foto Pura</strong></p>
+            </div>
         </div>
     </div>
 
@@ -181,6 +212,29 @@
                     <tr>
                         <th>Ketersediaan Pura Bedugul</th>
                         <td><?php echo $perahyangan->ketersediaan_pura_bedugul; ?></td>
+                    </tr>
+                        <th>Nama Pura Bedugul</th>
+                        <td><?php echo $perahyanganpurabedugultidakada->nama_pura2; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Pura Ini Disungsung Oleh</th>
+                        <td><?php echo $perahyanganpurabedugultidakada->pura_bedugul_disungsung2; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Nama Subak Penyungsung Lain</th>
+                        <td><?php echo $perahyanganpurabedugultidakada->pura_bedugul_disungsung_lain2; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Alamat Pura Bedugul</th>
+                        <td><?php echo $perahyanganpurabedugultidakada->alamat_pura_bedugul2; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Piodalan/Wali dalam Setahun</th>
+                        <td><?php echo $perahyanganpurabedugultidakada->piodalan_wali_pertahun2; ?> Kali</td>
+                    </tr>
+                    <tr>
+                        <th>Hari Piodalan/Wali</th>
+                        <td><?php echo $perahyanganpurabedugultidakada->hari_piodalan_wali2; ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -335,11 +389,19 @@
             </tr>
             <tr>
                 <th>Tanaman Pokok</th>
-                <td><?php ?></td>
+                <td>
+                    <?php foreach ($palemahantanamanpokok as $row): ?>
+                        <?= $row->tanaman_pokok ?>,
+                    <?php endforeach; ?>
+                </td>
             </tr>
             <tr>
                 <th>Jenis Tanaman Pokok</th>
-                <td><?php ?></td>
+                <td>
+                    <?php foreach ($palemahanjenistanamanpokok as $row): ?>
+                        <?= $row->jenis_tanaman_pokok ?>,
+                    <?php endforeach; ?>
+                </td>
             </tr>
             <tr>
                 <th>Masa Musim Tanam Setiap Tahun</th>
@@ -352,11 +414,9 @@
             <tr>
                 <th>Hama</th>
                 <td>
-                    <ul>
-                        <!-- {% for h in hama %}
-                            <li>{{ h.nama_hama }}</li>
-                        {% endfor %} -->
-                    </ul>
+                    <?php foreach ($palemahanhama as $row): ?>
+                        <?= $row->nama_hama ?>,
+                    <?php endforeach; ?>
                 </td>
             </tr>
         </table>
@@ -370,24 +430,22 @@
                             <th>Nilai</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php if (!empty($palemahanbantaunpemerintah) && is_array($palemahanbantaunpemerintah)): ?>
-                            <?php foreach ($palemahanbantaunpemerintah as $palemahanbantaunpemerintah): ?>
-                                <?php if (is_object($palemahanbantaunpemerintah)): ?>
+                        <tbody>
+                            <?php if (!empty($palemahanbantaunpemerintah) && is_array($palemahanbantaunpemerintah)): ?>
+                                <?php foreach ($palemahanbantaunpemerintah as $bantuan): ?>
                                     <tr>
-                                        <td><?= $palemahanbantaunpemerintah->nama_bantuan; ?></td>
-                                        <td><?= $palemahanbantaunpemerintah->tahun_bantuan; ?></td>
-                                        <td><?= $palemahanbantaunpemerintah->nilai_rp_bantuan; ?></td>
+                                        <td><?= $bantuan->nama_bantuan; ?></td>
+                                        <td><?= $bantuan->tahun_bantuan; ?></td>
+                                        <td><?= $bantuan->nilai_rp_bantuan; ?></td>
                                     </tr>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr>
-                                <td colspan="2">Tidak ada data bantuan</td>
-                            </tr>
-                        <?php endif; ?>
-                    
-                    </tbody>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="3">Tidak ada data bantuan</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+
                 </table>
             </div>
 

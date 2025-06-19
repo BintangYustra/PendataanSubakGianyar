@@ -82,106 +82,107 @@ class SubakModel extends CI_Model {
         return $this->db->update('tb_subak', $data);
     }
 
+
     public function update_tb_alamat_subak($id_subak, $data)
     {
         $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_alamat_subak', $data);
+        return $this->db->replace('tb_alamat_subak', $data);
     }
 
     public function update_tb_prajuru($id_subak, $data)
     {
         $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_prajuru', $data);
+        return $this->db->replace('tb_prajuru', $data);
     }
 
     public function update_tb_perahyangan($id_subak, $data)
     {
         $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_prajuru', $data);
+        return $this->db->replace('tb_prajuru', $data);
     }
 
     public function update_tb_perahyangan_pura_bedugul_ada($id_subak, $data)
     {
         $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_perahyangan_pura_bedugul_ada', $data);
+        return $this->db->replace('tb_perahyangan_pura_bedugul_ada', $data);
     }
 
     public function update_tb_perahyangan_pura_bedugul_tidakada($id_subak, $data)
     {
         $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_perahyangan_pura_bedugul_tidakada', $data);
+        return $this->db->replace('tb_perahyangan_pura_bedugul_tidakada', $data);
     }
 
     public function update_tb_perahyangan_inventaris($id_subak, $data)
     {
         $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_inventaris', $data);
+        return $this->db->replace('tb_inventaris', $data);
     }
 
     public function update_tb_perahyangan_aci_aci_subak($id_aci_subak, $data)
     {
         $this->db->where('id_aci_subak', $id_aci_subak);
-        return $this->db->update('tb_perahyangan_aci_aci_subak', $data);
+        return $this->db->replace('tb_perahyangan_aci_aci_subak', $data);
     }
 
     public function update_tb_perahyangan_foto_pura($id_foto_pura, $data)
     {
         $this->db->where('id_foto_pura', $id_foto_pura);
-        return $this->db->update('tb_perahyangan_foto_pura', $data);
+        return $this->db->replace('tb_perahyangan_foto_pura', $data);
     }
 
     public function update_tb_perahyangan_foto_pura2($id_foto_pura2, $data)
     {
         $this->db->where('id_foto_pura2', $id_foto_pura2);
-        return $this->db->update('tb_perahyangan_foto_pura2', $data);
+        return $this->db->replace('tb_perahyangan_foto_pura2', $data);
     }
 
     public function update_tb_pawongan($id_subak, $data)
     {
         $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_pawongan', $data);
+        return $this->db->replace('tb_pawongan', $data);
     }
 
     public function update_tb_pawongan_nama_perarem($id_nama_perarem, $data)
     {
         $this->db->where('id_nama_perarem', $id_nama_perarem);
-        return $this->db->update('tb_pawongan_nama_perarem', $data);
+        return $this->db->replace('tb_pawongan_nama_perarem', $data);
     }
 
     public function update_tb_pawongan_nama_penyakap($id_nama_penyakap, $data)
     {
         $this->db->where('id_nama_penyakap', $id_nama_penyakap);
-        return $this->db->update('tb_pawongan_nama_penyakap', $data);
+        return $this->db->replace('tb_pawongan_nama_penyakap', $data);
     }
 
     public function update_tb_palemahan($id_subak, $data)
     {
         $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_palemahan', $data);
+        return $this->db->replace('tb_palemahan', $data);
     }
 
     public function update_tb_palemahan_tanaman_pokok($id_subak, $data)
     {
         $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_tanaman_pokok', $data);
+        return $this->db->replace('tb_tanaman_pokok', $data);
     }
 
     public function update_tb_palemahan_jenis_tanaman_pokok($id_subak, $data)
     {
         $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_jenis_tanaman_pokok', $data);
+        return $this->db->replace('tb_jenis_tanaman_pokok', $data);
     }
 
     public function update_tb_palemahan_hama($id_hama, $data)
     {
         $this->db->where('id_hama', $id_hama);
-        return $this->db->update('tb_palemahan_hama', $data);
+        return $this->db->replace('tb_palemahan_hama', $data);
     }
 
     public function update_tb_palemahan_bantuan_pemerintah($id_bantuan, $data)
     {
         $this->db->where('id_bantuan_pemerintah', $id_bantuan);
-        return $this->db->update('tb_palemahan_bantuan_pemerintah', $data);
+        return $this->db->replace('tb_palemahan_bantuan_pemerintah', $data);
     }
 
     // HAPUS DATA DI DATABASE

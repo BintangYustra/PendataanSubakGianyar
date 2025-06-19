@@ -256,7 +256,77 @@
             <div id="formTidakAda" style="display: none;">
                 <div id="formTidakAdaContainer">
                     <div class="mb-3">
-                        <div class="card mt-5">
+                        <div class="mt-5">
+                            <div class="mt-3">
+                                <label class="form-label">Nama Pura</label>
+                                <input type="text" class="form-control" name="nama_pura2">
+                            </div>
+                            <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung2" id="satuSubak2" value="Satu Subak">
+                                <label class="form-check-label" for="satuSubak">Satu Subak</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung_lain2" id="lebihSubak2" value="Lebih dari Satu Subak">
+                                <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
+                            </div>
+                            <div class="mt-3" id="form-subak-lainnya2"></div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Alamat Pura Bedugul</label>
+                                <input type="text" class="form-control" name="alamat_pura_bedugul2">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Piodalan/Wali dalam Setahun</label>
+                                <input type="number" class="form-control" name="piodalan_wali_pertahun2">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Hari Piodalan/Wali</label>
+                                <input type="text" class="form-control" name="hari_piodalan_wali2">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Upload 3 Foto</label>
+                                <input type="file" class="form-control" name="foto_pura2[]" multiple>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="mt-5">
+                            <div class="mt-3">
+                                <label class="form-label">Nama Pura</label>
+                                <input type="text" class="form-control" name="nama_pura2">
+                            </div>
+                            <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung2" id="satuSubak2" value="Satu Subak">
+                                <label class="form-check-label" for="satuSubak">Satu Subak</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung_lain2" id="lebihSubak2" value="Lebih dari Satu Subak">
+                                <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
+                            </div>
+                            <div class="mt-3" id="form-subak-lainnya2"></div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Alamat Pura Bedugul</label>
+                                <input type="text" class="form-control" name="alamat_pura_bedugul2">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Piodalan/Wali dalam Setahun</label>
+                                <input type="number" class="form-control" name="piodalan_wali_pertahun2">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Hari Piodalan/Wali</label>
+                                <input type="text" class="form-control" name="hari_piodalan_wali2">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Upload 3 Foto</label>
+                                <input type="file" class="form-control" name="foto_pura2[]" multiple>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="mt-5">
                             <div class="mt-3">
                                 <label class="form-label">Nama Pura</label>
                                 <input type="text" class="form-control" name="nama_pura2">
@@ -291,38 +361,49 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary mt-3" onclick="tambahFormTidakAda()">Tambah Form Baru</button>
             </div>
         </div>
     </div>
-
+    
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const radioButtons = document.getElementsByName("ketersediaan_pura_bedugul");
-            const formAda = document.getElementById("formAda");
-            const formTidakAda = document.getElementById("formTidakAda");
+    document.addEventListener("DOMContentLoaded", function () {
+        // Toggle Form Ada / Tidak Ada
+        const formAda = document.getElementById("formAda");
+        const formTidakAda = document.getElementById("formTidakAda");
+        const radioButtons = document.getElementsByName("ketersediaan_pura_bedugul");
 
-            radioButtons.forEach(radio => {
-                radio.addEventListener("change", function () {
-                    if (this.value === "Ada") {
-                        formAda.style.display = "block";
-                        formTidakAda.style.display = "none";
-                    } else if (this.value === "Tidak Ada") {
-                        formAda.style.display = "none";
-                        formTidakAda.style.display = "block";
-                    }
-                });
+        radioButtons.forEach(radio => {
+            radio.addEventListener("change", function () {
+                formAda.style.display = this.value === "Ada" ? "block" : "none";
+                formTidakAda.style.display = this.value === "Tidak Ada" ? "block" : "none";
             });
+        });
 
-            const checkboxLain = document.getElementById('inventaris-lain');
-            const formLain = document.getElementById('form-inventaris-lain');
-            checkboxLain.addEventListener('change', function () {
-                formLain.style.display = this.checked ? 'block' : 'none';
+        // Toggle Subak lainnya (formAda)
+        const satuSubak = document.getElementById('satuSubak');
+        const lebihSubak = document.getElementById('lebihSubak');
+        const container = document.getElementById('form-subak-lainnya');
+
+        if (satuSubak && lebihSubak && container) {
+            satuSubak.addEventListener('change', function () {
+                if (this.checked) container.innerHTML = '';
             });
+            lebihSubak.addEventListener('change', function () {
+                if (this.checked) {
+                    container.innerHTML = `
+                        <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
+                        <input type="text" name="pura_bedugul_disungsung_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
+                    `;
+                }
+            });
+        }
 
-            const satuSubak2 = document.getElementById('satuSubak2');
-            const lebihSubak2 = document.getElementById('lebihSubak2');
-            const container2 = document.getElementById('form-subak-lainnya2');
+        // Toggle Subak lainnya (formTidakAda)
+        const satuSubak2 = document.getElementById('satuSubak2');
+        const lebihSubak2 = document.getElementById('lebihSubak2');
+        const container2 = document.getElementById('form-subak-lainnya2');
+
+        if (satuSubak2 && lebihSubak2 && container2) {
             satuSubak2.addEventListener('change', function () {
                 if (this.checked) container2.innerHTML = '';
             });
@@ -334,35 +415,55 @@
                     `;
                 }
             });
+        }
+
+        // Toggle form inventaris lainnya
+        const checkboxLain = document.getElementById('inventaris-lain');
+        const formLain = document.getElementById('form-inventaris-lain');
+
+        if (checkboxLain && formLain) {
+            checkboxLain.addEventListener('change', function () {
+                formLain.style.display = this.checked ? 'block' : 'none';
+            });
+        }
+    });
+
+    // Tambah input aci-aci
+    function tambahPerahyangan() {
+        const wrapper = document.getElementById('perahyangan-wrapper');
+        if (!wrapper) return;
+        const newRow = document.createElement('div');
+        newRow.className = 'mb-2';
+        newRow.innerHTML = `<input type="text" class="form-control mb-2" name="aci_aci">`;
+        wrapper.appendChild(newRow);
+    }
+
+    // Tambah Form Tidak Ada Pura
+    function tambahFormTidakAda() {
+        const container = document.getElementById('formTidakAdaContainer');
+        if (!container) return;
+
+        const forms = container.querySelectorAll('.card');
+        const lastForm = forms[forms.length - 1];
+        const clonedForm = lastForm.cloneNode(true);
+
+        // Hapus ID yang duplikat
+        clonedForm.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+
+        // Reset nilai-nilai input di dalam clone
+        clonedForm.querySelectorAll('input').forEach(input => {
+            if (input.type === 'radio' || input.type === 'checkbox') {
+                input.checked = false;
+            } else {
+                input.value = '';
+            }
         });
 
-        function tambahPerahyangan() {
-            const wrapper = document.getElementById('perahyangan-wrapper');
-            const newRow = document.createElement('div');
-            newRow.className = 'mb-2';
-            newRow.innerHTML = `<input type="text" class="form-control mb-2" name="aci_aci">`;
-            wrapper.appendChild(newRow);
-        }
+        const subakLainnya = clonedForm.querySelector('.form-subak-lainnya2');
+        if (subakLainnya) subakLainnya.innerHTML = '';
 
-        function tambahFormTidakAda() {
-            const container = document.getElementById('formTidakAdaContainer');
-            const forms = container.querySelectorAll('.card');
-            const lastForm = forms[forms.length - 1];
-            const clonedForm = lastForm.cloneNode(true);
-            container.appendChild(clonedForm);
-
-            const inputs = clonedForm.querySelectorAll('input');
-            inputs.forEach(input => {
-                if (input.type === 'radio' || input.type === 'checkbox') {
-                    input.checked = false;
-                } else {
-                    input.value = '';
-                }
-            });
-
-            const subakLainnya = clonedForm.querySelector('#form-subak-lainnya2');
-            if (subakLainnya) subakLainnya.innerHTML = '';
-        }
+        container.appendChild(clonedForm);
+    }
     </script>
 
 

@@ -20,7 +20,7 @@
         <td><?php echo $row->kriteria_subak; ?></td>
         <td><?php echo $row->verifikasi; ?></td>
         <td>
-          <button type="button" class="btn btn-info">Detail</button>
+          <a href="<?php echo base_url('DashboardSubakTerdata/DashboardViewData/' . $row->id_subak); ?>" class="btn btn-info">Detail</a>
           <button type="button" class="btn btn-primary">Verifikasi</button>
         </td>
       <?php endforeach ?>
