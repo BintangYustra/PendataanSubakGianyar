@@ -27,14 +27,77 @@
 
 
 </head>
-<form action="<?= base_url('DataSubakTerdata/DashboardUpdateDataSubak') ?>" method="post">
-    <input type="hidden" name="id_subak" value="<?php  ?>">
+<form action="<?= base_url('DashboardSubakTerdata/DashboardUpdateDataSubak/' . $subak->id_subak) ?>" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id_subak" value="<?= $subak->id_subak ?>">
 
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label>Nama Subak</label>
-        <input type="text" class="form-control" name="nama_subak" value="<?php  ?>" required>
+        <input type="text" class="form-control" name="nama_subak" value="<?= $subak->nama_subak ?>">
     </div>
 
-        <a href="<?php echo base_url('DashboardSubakTerdata'); ?>" class="btn btn-primary">Kembali</a>
-    <button type="submit" class="btn btn-primary mt-3">Update</button>
+    <input type="hidden" name="id_subak" value="<?= $subak->verifikasi ?>">
+
+
+    <div class="mb-3">
+        <label class="form-label d-block">Kriteria Subak</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="kriteria_subak" value="Subak Basah"
+                <?= ($subak->kriteria_subak == 'Subak Basah') ? 'checked' : '' ?>>
+            <label class="form-check-label">Subak Basah</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="kriteria_subak" value="Subak Abian"
+                <?= ($subak->kriteria_subak == 'Subak Abian') ? 'checked' : '' ?>>
+            <label class="form-check-label">Subak Abian</label>
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Nomor Akte Notaris</label>
+        <input type="text" class="form-control" name="nomor_akte_notaris" value="<?= $subak->nomor_akte_notaris ?>">
+    </div>
+
+    <div class="form-group mb-3">
+        <label>NPWP</label>
+        <input type="text" class="form-control" name="npwp" value="<?= $subak->npwp ?>">
+    </div>
+
+
+<hr>
+
+    <div class="form-group mb-3">
+        <label>Br/Lingkungan</label>
+        <input type="text" class="form-control" name="br_lingkungan_subak" value="<?= $alamat_subak->br_lingkungan_subak ?>">
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Desa</label>
+        <input type="text" class="form-control" name="br_lingkungan_subak" value="<?= $alamat_subak->desa_subak ?>">
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Kecamatan</label>
+        <input type="text" class="form-control" name="br_lingkungan_subak" value="<?= $alamat_subak->kecamatan_subak ?>">
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Kabupaten</label>
+        <input type="text" class="form-control" name="br_lingkungan_subak" value="<?= $alamat_subak->kabupaten_subak ?>">
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Kode Pos</label>
+        <input type="text" class="form-control" name="br_lingkungan_subak" value="<?= $alamat_subak->kode_pos ?>">
+    </div>
+
+
+    
+    <div class="form-group mb-3">
+        <label>Kode Pos</label>
+        <input type="text" class="form-control" name="br_lingkungan_subak" value="<?= $alamat_subak->kode_pos ?>">
+    </div>
+
+    <!-- Tombol -->
+    <a href="<?= base_url('DashboardSubakTerdata'); ?>" class="btn btn-secondary">Kembali</a>
+    <button type="submit" class="btn btn-primary">Update</button>
 </form>

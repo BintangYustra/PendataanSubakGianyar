@@ -21,7 +21,7 @@
         <td><?php echo $row->verifikasi; ?></td>
         <td>
           <a href="<?php echo base_url('DashboardSubakTerdata/DashboardViewData/' . $row->id_subak); ?>" class="btn btn-info">Detail</a>
-          <a href="<?php echo base_url('DashboardSubakTerdata/DashboardUpdateDataSubak/' . $row->id_subak); ?>" class="btn btn-warning">Update</a>
+          <a href="<?php echo base_url('DashboardSubakTerdata/MasukHalaman/' . $row->id_subak); ?>" class="btn btn-warning">Update</a>
           <a href="<?php echo site_url('DashboardSubakTerdata/Subak_Delete/' . $row->id_subak); ?>" class="btn btn-danger" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini? (Data dengan ID: <?php echo $row->id_subak?>) Data yang telah terhapus tidak bisa dikembalikan.')">Delete</a>
         </td>
       <?php endforeach ?>

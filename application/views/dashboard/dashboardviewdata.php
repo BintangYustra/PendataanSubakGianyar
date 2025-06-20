@@ -51,6 +51,10 @@
                         <td><?php echo $subak->kriteria_subak; ?></td>
                     </tr>
                     <tr>
+                        <th>Kriteria Subak</th>
+                        <td><?php echo $subak->npwp; ?></td>
+                    </tr>
+                    <tr>
                         <th>Verifikasi</th>
                         <td><?php echo $subak->verifikasi; ?></td>
                     </tr>
