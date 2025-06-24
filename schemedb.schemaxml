@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8mb4" collation="utf8mb4_general_ci">db_subak_abian_kab_gianyar</database>
+</source>
+<canvas zoom="50">
+<tables>
+<table name="user" view="colnames">
+<left>19</left>
+<top>14</top>
+<width>71</width>
+<height>82</height>
+<sql_create_table>CREATE TABLE `user` (
+  `id_user` int(5) NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `role` enum('InputData','VerifikasiData') DEFAULT NULL,
+  `nama_username` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_subak" view="colnames">
+<left>7</left>
+<top>215</top>
+<width>81</width>
+<height>90</height>
+<sql_create_table>CREATE TABLE `tb_subak` (
+  `id_subak` int(5) NOT NULL AUTO_INCREMENT,
+  `nama_subak` varchar(50) DEFAULT NULL,
+  `kriteria_subak` enum('Subak Basah','Subak Abian') DEFAULT NULL,
+  `nomor_akte_notaris` int(11) DEFAULT NULL,
+  `npwp` int(11) DEFAULT NULL,
+  `verifikasi` enum('Terverifikasi','Belum Terverifikasi','Data Ditolak') DEFAULT 'Belum Terverifikasi',
+  PRIMARY KEY (`id_subak`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_alamat_subak" view="colnames">
+<left>116</left>
+<top>72</top>
+<width>84</width>
+<height>99</height>
+<sql_create_table>CREATE TABLE `tb_alamat_subak` (
+  `id_alamat` int(5) NOT NULL AUTO_INCREMENT,
+  `id_subak` int(5) DEFAULT NULL,
+  `br_lingkungan_subak` varchar(50) DEFAULT NULL,
+  `desa_subak` varchar(50) DEFAULT NULL,
+  `kecamatan_subak` varchar(50) DEFAULT NULL,
+  `kabupaten_subak` varchar(50) DEFAULT NULL,
+  `kode_pos` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id_alamat`),
+  KEY `fk_alamat_subak` (`id_subak`),
+  CONSTRAINT `fk_alamat_subak` FOREIGN KEY (`id_subak`) REFERENCES `tb_subak` (`id_subak`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_prajuru" view="colnames">
+<left>136</left>
+<top>262</top>
+<width>101</width>
+<height>150</height>
+<sql_create_table>CREATE TABLE `tb_prajuru` (
+  `id_prajuru` int(5) NOT NULL AUTO_INCREMENT,
+  `id_subak` int(5) DEFAULT NULL,
+  `masa_bhakti_ayahan_start` date DEFAULT NULL,
+  `masa_bhakti_ayahan_end` date DEFAULT NULL,
+  `pekaseh_nama` varchar(50) DEFAULT NULL,
+  `pekaseh_npwp` int(11) DEFAULT NULL,
+  `pekaseh_hp_wa` int(11) DEFAULT NULL,
+  `petajuh_nama` varchar(50) DEFAULT NULL,
+  `petajuh_npwp` int(11) DEFAULT NULL,
+  `petajuh_hp_wa` int(11) DEFAULT NULL,
+  `penyarikan_nama` varchar(50) DEFAULT NULL,
+  `penyarikan_npwp` int(11) DEFAULT NULL,
+  `penyarikan_hp_wa` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_prajuru`),
+  KEY `fk_prajuru_subak` (`id_subak`),
+  CONSTRAINT `fk_prajuru_subak` FOREIGN KEY (`id_subak`) REFERENCES `tb_subak` (`id_subak`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_perahyangan_pura_bedugul_ada" view="colnames">
+<left>424</left>
+<top>0</top>
+<width>126</width>
+<height>116</height>
+<sql_create_table>CREATE TABLE `tb_perahyangan_pura_bedugul_ada` (
+  `id_perahyangan_pura_bedugul_ada` int(5) NOT NULL AUTO_INCREMENT,
+  `id_perahyangan` int(5) DEFAULT NULL,
+  `nama_pura` varchar(100) DEFAULT NULL,
+  `pura_bedugul_disungsung` enum('Satu Subak','Lebih dari Satu Subak') DEFAULT NULL,
+  `pura_bedugul_disungsung_lain` varchar(100) DEFAULT NULL,
+  `alamat_pura_bedugul` varchar(100) DEFAULT NULL,
+  `piodalan_wali_pertahun` int(2) DEFAULT NULL,
+  `hari_piodalan_wali` varchar(100) DEFAULT NULL,
+  `jumlah_pelinggih` int(2) DEFAULT NULL,
+  PRIMARY KEY (`id_perahyangan_pura_bedugul_ada`),
+  KEY `fk_pura_bedugul_ada_perahyangan` (`id_perahyangan`),
+  CONSTRAINT `fk_pura_bedugul_ada_perahyangan` FOREIGN KEY (`id_perahyangan`) REFERENCES `tb_perahyangan` (`id_perahyangan`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_perahyangan" view="colnames">
+<left>254</left>
+<top>123</top>
+<width>103</width>
+<height>65</height>
+<sql_create_table>CREATE TABLE `tb_perahyangan` (
+  `id_perahyangan` int(5) NOT NULL AUTO_INCREMENT,
+  `id_subak` int(5) DEFAULT NULL,
+  `ketersediaan_pura_bedugul` enum('Ada','Tidak Ada') DEFAULT NULL,
+  PRIMARY KEY (`id_perahyangan`),
+  KEY `fk_perahyangan_subak` (`id_subak`),
+  CONSTRAINT `fk_perahyangan_subak` FOREIGN KEY (`id_subak`) REFERENCES `tb_subak` (`id_subak`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_perahyangan_pura_bedugul_tidakada" view="colnames">
+<left>408</left>
+<top>133</top>
+<width>140</width>
+<height>107</height>
+<sql_create_table>CREATE TABLE `tb_perahyangan_pura_bedugul_tidakada` (
+  `id_perahyangan_pura_bedugul_tidakada` int(5) NOT NULL AUTO_INCREMENT,
+  `id_perahyangan` int(5) DEFAULT NULL,
+  `nama_pura2` varchar(100) DEFAULT NULL,
+  `pura_bedugul_disungsung2` varchar(100) DEFAULT NULL,
+  `pura_bedugul_disungsung_lain2` varchar(100) DEFAULT NULL,
+  `alamat_pura_bedugul2` varchar(100) DEFAULT NULL,
+  `piodalan_wali_pertahun2` int(2) DEFAULT NULL,
+  `hari_piodalan_wali2` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_perahyangan_pura_bedugul_tidakada`),
+  KEY `fk_pura_bedugul_tidakada_perahyangan` (`id_perahyangan`),
+  CONSTRAINT `fk_pura_bedugul_tidakada_perahyangan` FOREIGN KEY (`id_perahyangan`) REFERENCES `tb_perahyangan` (`id_perahyangan`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_aci_aci" view="colnames">
+<left>587</left>
+<top>1</top>
+<width>85</width>
+<height>65</height>
+<sql_create_table>CREATE TABLE `tb_aci_aci` (
+  `id_aci_aci` int(5) NOT NULL AUTO_INCREMENT,
+  `id_pura_bedugul_ada` int(5) DEFAULT NULL,
+  `aci_aci_subak` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_aci_aci`),
+  KEY `fk_id_pura_bedugul_ada_aci_aci` (`id_pura_bedugul_ada`),
+  CONSTRAINT `fk_id_pura_bedugul_ada_aci_aci` FOREIGN KEY (`id_pura_bedugul_ada`) REFERENCES `tb_perahyangan_pura_bedugul_ada` (`id_perahyangan_pura_bedugul_ada`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_foto_pura" view="colnames">
+<left>589</left>
+<top>69</top>
+<width>85</width>
+<height>65</height>
+<sql_create_table>CREATE TABLE `tb_foto_pura` (
+  `id_foto_pura` int(5) NOT NULL AUTO_INCREMENT,
+  `id_pura_bedugul_ada` int(5) DEFAULT NULL,
+  `foto_pura` text DEFAULT NULL,
+  PRIMARY KEY (`id_foto_pura`),
+  KEY `fk_id_foto_pura` (`id_pura_bedugul_ada`),
+  CONSTRAINT `fk_id_foto_pura` FOREIGN KEY (`id_pura_bedugul_ada`) REFERENCES `tb_perahyangan_pura_bedugul_ada` (`id_perahyangan_pura_bedugul_ada`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_foto_pura2" view="colnames">
+<left>582</left>
+<top>232</top>
+<width>140</width>
+<height>65</height>
+<sql_create_table>CREATE TABLE `tb_foto_pura2` (
+  `id_foto_pura2` int(5) NOT NULL AUTO_INCREMENT,
+  `id_perahyangan_pura_bedugul_tidakada` int(5) DEFAULT NULL,
+  `foto_pura2` text DEFAULT NULL,
+  PRIMARY KEY (`id_foto_pura2`),
+  KEY `fk_id_foto_pura2` (`id_perahyangan_pura_bedugul_tidakada`),
+  CONSTRAINT `fk_id_foto_pura2` FOREIGN KEY (`id_perahyangan_pura_bedugul_tidakada`) REFERENCES `tb_perahyangan_pura_bedugul_tidakada` (`id_perahyangan_pura_bedugul_tidakada`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_inventaris" view="colnames">
+<left>586</left>
+<top>137</top>
+<width>85</width>
+<height>65</height>
+<sql_create_table>CREATE TABLE `tb_inventaris` (
+  `id_inventaris` int(5) NOT NULL AUTO_INCREMENT,
+  `id_pura_bedugul_ada` int(5) DEFAULT NULL,
+  `inventaris` text DEFAULT NULL,
+  PRIMARY KEY (`id_inventaris`),
+  KEY `fk_id_pura_bedugul_ada_inventaris` (`id_pura_bedugul_ada`),
+  CONSTRAINT `fk_id_pura_bedugul_ada_inventaris` FOREIGN KEY (`id_pura_bedugul_ada`) REFERENCES `tb_perahyangan_pura_bedugul_ada` (`id_perahyangan_pura_bedugul_ada`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_palemahan" view="colnames">
+<left>90</left>
+<top>422</top>
+<width>124</width>
+<height>156</height>
+<sql_create_table>CREATE TABLE `tb_palemahan` (
+  `id_palemahan` int(5) NOT NULL AUTO_INCREMENT,
+  `id_subak` int(5) DEFAULT NULL,
+  `luas_lahan_awal_ha` int(11) DEFAULT NULL,
+  `luas_lahan_sekarang_ha` int(11) DEFAULT NULL,
+  `panjang_saluran_irigasi_tersier_ml` int(11) DEFAULT NULL,
+  `panjang_jalan_usaha_tani_ml` int(11) DEFAULT NULL,
+  `bale_timbang` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `batas_wilayah_subak_utara` varchar(100) DEFAULT NULL,
+  `batas_wilayah_subak_timur` varchar(100) DEFAULT NULL,
+  `batas_wilayah_subak_selatan` varbinary(100) DEFAULT NULL,
+  `batas_wilayah_subak_barat` varchar(100) DEFAULT NULL,
+  `sumber_aliran_air_das` varchar(100) DEFAULT NULL,
+  `jumlah_dam` int(2) DEFAULT NULL,
+  `lokasi_dam` varchar(100) DEFAULT NULL,
+  `jumlah_temukuaya` int(2) DEFAULT NULL,
+  `lokasi_temukuaya` varchar(100) DEFAULT NULL,
+  `masa_musim_tanam_pertahun` int(2) DEFAULT NULL,
+  `tanaman_penyela` text DEFAULT NULL,
+  `nama_hama` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_palemahan`),
+  KEY `fk_id_subak` (`id_subak`),
+  CONSTRAINT `fk_id_subak` FOREIGN KEY (`id_subak`) REFERENCES `tb_subak` (`id_subak`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_jenis_tanaman_pokok" view="colnames">
+<left>261</left>
+<top>399</top>
+<width>95</width>
+<height>65</height>
+<sql_create_table>CREATE TABLE `tb_jenis_tanaman_pokok` (
+  `id_jenis_tanaman_pokok` int(5) NOT NULL AUTO_INCREMENT,
+  `id_palemahan` int(5) DEFAULT NULL,
+  `jenis_tanaman_pokok` text DEFAULT NULL,
+  PRIMARY KEY (`id_jenis_tanaman_pokok`),
+  KEY `fk_id_palemahan_jenis_tanaman_pokok` (`id_palemahan`),
+  CONSTRAINT `fk_id_palemahan_jenis_tanaman_pokok` FOREIGN KEY (`id_palemahan`) REFERENCES `tb_palemahan` (`id_palemahan`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_hama" view="colnames">
+<left>299</left>
+<top>481</top>
+<width>63</width>
+<height>65</height>
+<sql_create_table>CREATE TABLE `tb_hama` (
+  `id_hama` int(5) NOT NULL AUTO_INCREMENT,
+  `id_palemahan` int(5) DEFAULT NULL,
+  `nama_hama` text DEFAULT NULL,
+  PRIMARY KEY (`id_hama`),
+  KEY `fk_id_palemahan_hama` (`id_palemahan`),
+  CONSTRAINT `fk_id_palemahan_hama` FOREIGN KEY (`id_palemahan`) REFERENCES `tb_palemahan` (`id_palemahan`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_pawongan_nama_penyakap" view="colnames">
+<left>481</left>
+<top>440</top>
+<width>112</width>
+<height>73</height>
+<sql_create_table>CREATE TABLE `tb_pawongan_nama_penyakap` (
+  `id_pawongan_nama_penyakap` int(5) NOT NULL AUTO_INCREMENT,
+  `id_pawongan` int(5) DEFAULT NULL,
+  `nama_penyakap` varchar(100) DEFAULT NULL,
+  `tingkat_pendidikan_penyakap` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_pawongan_nama_penyakap`),
+  KEY `fk_id_pawongan_pawongan_nama_penyakap` (`id_pawongan`),
+  CONSTRAINT `fk_id_pawongan_pawongan_nama_penyakap` FOREIGN KEY (`id_pawongan`) REFERENCES `tb_pawongan` (`id_pawongan`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_pawongan_nama_perarem" view="colnames">
+<left>662</left>
+<top>366</top>
+<width>76</width>
+<height>65</height>
+<sql_create_table>CREATE TABLE `tb_pawongan_nama_perarem` (
+  `id_nama_perarem` int(5) NOT NULL AUTO_INCREMENT,
+  `id_pawongan` int(5) DEFAULT NULL,
+  `nama_perarem` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_nama_perarem`),
+  KEY `fk_id_pawongan_nama_perarem` (`id_pawongan`),
+  CONSTRAINT `fk_id_pawongan_nama_perarem` FOREIGN KEY (`id_pawongan`) REFERENCES `tb_pawongan` (`id_pawongan`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_pawongan" view="colnames">
+<left>250</left>
+<top>205</top>
+<width>108</width>
+<height>99</height>
+<sql_create_table>CREATE TABLE `tb_pawongan` (
+  `id_pawongan` int(5) NOT NULL AUTO_INCREMENT,
+  `id_subak` int(5) DEFAULT NULL,
+  `jumlah_krama_pemilik_lahan` int(2) DEFAULT NULL,
+  `jumlah_krama_penyakap` int(2) DEFAULT NULL,
+  `awig_awig` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `perarem` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `perarem_alih_fungsi` enum('Ada','Tidak Ada') DEFAULT NULL,
+  PRIMARY KEY (`id_pawongan`),
+  KEY `fk_pawongan_subak` (`id_subak`),
+  CONSTRAINT `fk_pawongan_subak` FOREIGN KEY (`id_subak`) REFERENCES `tb_subak` (`id_subak`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_tanaman_pokok" view="colnames">
+<left>293</left>
+<top>571</top>
+<width>78</width>
+<height>65</height>
+<sql_create_table>CREATE TABLE `tb_tanaman_pokok` (
+  `id_tanaman_pokok` int(5) NOT NULL AUTO_INCREMENT,
+  `id_palemahan` int(5) DEFAULT NULL,
+  `tanaman_pokok` text DEFAULT NULL,
+  PRIMARY KEY (`id_tanaman_pokok`),
+  KEY `fk_id_palemahan_tanaman_pokok` (`id_palemahan`),
+  CONSTRAINT `fk_id_palemahan_tanaman_pokok` FOREIGN KEY (`id_palemahan`) REFERENCES `tb_palemahan` (`id_palemahan`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="tb_bantuan_pemerintah" view="colnames">
+<left>278</left>
+<top>655</top>
+<width>91</width>
+<height>82</height>
+<sql_create_table>CREATE TABLE `tb_bantuan_pemerintah` (
+  `id_bantuan_pemerintah` int(5) NOT NULL AUTO_INCREMENT,
+  `id_palemahan` int(5) DEFAULT NULL,
+  `nama_bantuan` varchar(100) DEFAULT NULL,
+  `tahun_bantuan` date DEFAULT NULL,
+  `nilai_rp_bantuan` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id_bantuan_pemerintah`),
+  KEY `fk_id_palemahan_bantuan_pemerintah` (`id_palemahan`),
+  CONSTRAINT `fk_id_palemahan_bantuan_pemerintah` FOREIGN KEY (`id_palemahan`) REFERENCES `tb_palemahan` (`id_palemahan`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>

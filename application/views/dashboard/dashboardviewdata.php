@@ -51,7 +51,11 @@
                         <td><?php echo $subak->kriteria_subak; ?></td>
                     </tr>
                     <tr>
-                        <th>Kriteria Subak</th>
+                        <th>Nomor Akte Notaris Subak</th>
+                        <td><?php echo $subak->nomor_akte_notaris; ?></td>
+                    </tr>
+                    <tr>
+                        <th>NPWP Subak</th>
                         <td><?php echo $subak->npwp; ?></td>
                     </tr>
                     <tr>
@@ -210,6 +214,9 @@
         <div class="card-header text-white" style="background-color: #06D6A0;">
             <strong>Data Perahyangan (Pura Bedugul Tidak Ada)</strong>
         </div>
+        <div class="text-center mt-2">
+            <h5>Pura 1</h5>
+        </div>
         <div class="card-body">
             <table class="table table-bordered">
                 <tbody>
@@ -239,6 +246,78 @@
                     <tr>
                         <th>Hari Piodalan/Wali</th>
                         <td><?php echo $perahyanganpurabedugultidakada->hari_piodalan_wali2; ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center mt-2">
+            <h5>Pura 2</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Ketersediaan Pura Bedugul</th>
+                        <td><?php echo $perahyangan->ketersediaan_pura_bedugul; ?></td>
+                    </tr>
+                        <th>Nama Pura Bedugul</th>
+                        <td><?php echo $perahyanganpurabedugultidakada2->nama_pura23; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Pura Ini Disungsung Oleh</th>
+                        <td><?php echo $perahyanganpurabedugultidakada2->pura_bedugul_disungsung23; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Nama Subak Penyungsung Lain</th>
+                        <td><?php echo $perahyanganpurabedugultidakada2->pura_bedugul_disungsung_lain23; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Alamat Pura Bedugul</th>
+                        <td><?php echo $perahyanganpurabedugultidakada2->alamat_pura_bedugul23; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Piodalan/Wali dalam Setahun</th>
+                        <td><?php echo $perahyanganpurabedugultidakada2->piodalan_wali_pertahun23; ?> Kali</td>
+                    </tr>
+                    <tr>
+                        <th>Hari Piodalan/Wali</th>
+                        <td><?php echo $perahyanganpurabedugultidakada2->hari_piodalan_wali23; ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center mt-2">
+            <h5>Pura 3</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Ketersediaan Pura Bedugul</th>
+                        <td><?php echo $perahyangan->ketersediaan_pura_bedugul; ?></td>
+                    </tr>
+                        <th>Nama Pura Bedugul</th>
+                        <td><?php echo $perahyanganpurabedugultidakada3->nama_pura24; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Pura Ini Disungsung Oleh</th>
+                        <td><?php echo $perahyanganpurabedugultidakada3->pura_bedugul_disungsung24; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Nama Subak Penyungsung Lain</th>
+                        <td><?php echo $perahyanganpurabedugultidakada3->pura_bedugul_disungsung_lain24; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Alamat Pura Bedugul</th>
+                        <td><?php echo $perahyanganpurabedugultidakada3->alamat_pura_bedugul24; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Piodalan/Wali dalam Setahun</th>
+                        <td><?php echo $perahyanganpurabedugultidakada3->piodalan_wali_pertahun24; ?> Kali</td>
+                    </tr>
+                    <tr>
+                        <th>Hari Piodalan/Wali</th>
+                        <td><?php echo $perahyanganpurabedugultidakada3->hari_piodalan_wali24; ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -392,22 +471,6 @@
                 <td><?php echo $palemahan->lokasi_temukuaya; ?></td>
             </tr>
             <tr>
-                <th>Tanaman Pokok</th>
-                <td>
-                    <?php foreach ($palemahantanamanpokok as $row): ?>
-                        <?= $row->tanaman_pokok ?>,
-                    <?php endforeach; ?>
-                </td>
-            </tr>
-            <tr>
-                <th>Jenis Tanaman Pokok</th>
-                <td>
-                    <?php foreach ($palemahanjenistanamanpokok as $row): ?>
-                        <?= $row->jenis_tanaman_pokok ?>,
-                    <?php endforeach; ?>
-                </td>
-            </tr>
-            <tr>
                 <th>Masa Musim Tanam Setiap Tahun</th>
                 <td><?php echo $palemahan->masa_musim_tanam_pertahun; ?> Kali</td>
             </tr>
@@ -415,16 +478,82 @@
                 <th>Tanaman Penyela</th>
                 <td><?php echo $palemahan->tanaman_penyela; ?></td>
             </tr>
-            <tr>
-                <th>Hama</th>
-                <td>
-                    <?php foreach ($palemahanhama as $row): ?>
-                        <?= $row->nama_hama ?>,
-                    <?php endforeach; ?>
-                </td>
-            </tr>
         </table>
-                    <div class="mt-4">
+
+
+            <div class="mt-4">
+                <h6 class="mb-2"><strong>Tanaman Pokok</strong></h6>
+                <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Nama Tanaman Pokok</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <?php if (!empty($palemahantanamanpokok) && is_array($palemahantanamanpokok)): ?>
+                                <?php foreach ($palemahantanamanpokok as $tanaman_pokok): ?>
+                                    <tr>
+                                        <td><?= $tanaman_pokok->tanaman_pokok; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="3">Tidak ada data tanaman pokok</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4">
+                <h6 class="mb-2"><strong>Jenis Tanaman Pokok</strong></h6>
+                <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Nama Jenis Tanaman Pokok</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <?php if (!empty($palemahanjenistanamanpokok) && is_array($palemahanjenistanamanpokok)): ?>
+                                <?php foreach ($palemahanjenistanamanpokok as $jenis_tanaman_pokok): ?>
+                                    <tr>
+                                        <td><?= $jenis_tanaman_pokok->jenis_tanaman_pokok; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="3">Tidak ada data jenis tanaman pokok</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4">
+                <h6 class="mb-2"><strong>Nama Hama</strong></h6>
+                <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Nama Hama</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <?php if (!empty($palemahanhama) && is_array($palemahanhama)): ?>
+                                <?php foreach ($palemahanhama as $hama): ?>
+                                    <tr>
+                                        <td><?= $hama->nama_hama; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="3">Tidak ada data hama</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4">
                 <h6 class="mb-2"><strong>Bantuan Pemerintah</strong></h6>
                 <table class="table table-bordered">
                     <thead class="table-light">
@@ -454,8 +583,8 @@
             </div>
 
     </div>
+</div>
     <div class="container mb-4">
         <a href="<?php echo base_url('DashboardSubakTerdata'); ?>" class="btn btn-primary">Kembali</a>
         <a href="<?php  ?>" class="btn btn-success">Print Data</a>
     </div>
-</div>

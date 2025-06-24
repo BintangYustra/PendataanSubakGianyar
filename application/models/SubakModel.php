@@ -27,6 +27,14 @@ class SubakModel extends CI_Model {
         $this->db->insert('tb_perahyangan_pura_bedugul_tidakada', $data);
     }
 
+    public function insert_tb_perahyangan_pura_bedugul_tidakada2($data) {
+        $this->db->insert('tb_perahyangan_pura_bedugul_tidakada2', $data);
+    }
+
+    public function insert_tb_perahyangan_pura_bedugul_tidakada3($data) {
+        $this->db->insert('tb_perahyangan_pura_bedugul_tidakada23', $data);
+    }
+
     public function insert_tb_perahyangan_inventaris($data) {
         $this->db->insert('tb_inventaris', $data);
     }
@@ -97,18 +105,18 @@ class SubakModel extends CI_Model {
     public function update_tb_perahyangan($id_subak, $data)
     {
         $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_prajuru', $data);
+        return $this->db->update('tb_perahyangan', $data);
     }
 
-    public function update_tb_perahyangan_pura_bedugul_ada($id_subak, $data)
+    public function update_tb_perahyangan_pura_bedugul_ada($id_perahyangan, $data)
     {
-        $this->db->where('id_subak', $id_subak);
+        $this->db->where('id_perahyangan', $id_perahyangan);
         return $this->db->update('tb_perahyangan_pura_bedugul_ada', $data);
     }
 
-    public function update_tb_perahyangan_pura_bedugul_tidakada($id_subak, $data)
+    public function update_tb_perahyangan_pura_bedugul_tidakada($id_perahyangan, $data)
     {
-        $this->db->where('id_subak', $id_subak);
+        $this->db->where('id_perahyangan', $id_perahyangan);
         return $this->db->update('tb_perahyangan_pura_bedugul_tidakada', $data);
     }
 
@@ -175,7 +183,7 @@ class SubakModel extends CI_Model {
     public function update_tb_palemahan_hama($id_hama, $data)
     {
         $this->db->where('id_hama', $id_hama);
-        return $this->db->update('tb_palemahan_hama', $data);
+        return $this->db->update('tb_hama', $data);
     }
 
     public function update_tb_palemahan_bantuan_pemerintah($id_bantuan, $data)
@@ -222,6 +230,14 @@ class SubakModel extends CI_Model {
 
     public function get_perahyanganpurabedugultidakada_by_id($id_perahyangan_pura_bedugul_tidakada) {
         return $this->db->get_where('tb_perahyangan_pura_bedugul_tidakada', ['id_perahyangan_pura_bedugul_tidakada' => $id_perahyangan_pura_bedugul_tidakada])->row();
+    }
+
+    public function get_perahyanganpurabedugultidakada2_by_id($id_perahyangan_pura_bedugul_tidakada2) {
+        return $this->db->get_where('tb_perahyangan_pura_bedugul_tidakada2', ['id_perahyangan_pura_bedugul_tidakada2' => $id_perahyangan_pura_bedugul_tidakada2])->row();
+    }
+
+    public function get_perahyanganpurabedugultidakada3_by_id($id_perahyangan_pura_bedugul_tidakada3) {
+        return $this->db->get_where('tb_perahyangan_pura_bedugul_tidakada23', ['id_perahyangan_pura_bedugul_tidakada3' => $id_perahyangan_pura_bedugul_tidakada3])->row();
     }
 
     public function get_perahyangan_inventaris_by_id($id_pura_bedugul_ada)
