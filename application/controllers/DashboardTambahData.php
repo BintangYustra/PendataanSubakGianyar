@@ -143,6 +143,26 @@ class DashboardTambahData extends CI_Controller {
         }
 
         // PERAHYANGAN FOTO PURA2
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // $foto_pura2 = $this->input->post('foto_pura2');
         // if (!empty($foto_pura2)) {
         //     foreach ($foto_pura2 as $foto2) {

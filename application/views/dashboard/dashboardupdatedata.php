@@ -251,7 +251,7 @@
                 </div>                       
                 <div class="form-group mb-2">
                     <label>Foto Pura</label>
-                        <!-- <input type="file" class="form-control" name="foto_pura2" value="<?= $perahyanganpurabedugultidakadafotopura2->foto_pura2 ?>"> -->
+                    <!-- <input type="file" class="form-control" name="foto_pura2" value="<?= $perahyanganpurabedugultidakadafotopura2->foto_pura2 ?>"> -->
                 </div>                       
             </div>
             </div>

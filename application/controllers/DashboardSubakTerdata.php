@@ -182,17 +182,19 @@ class DashboardSubakTerdata	 extends CI_Controller {
 				$this->SubakModel->update_tb_palemahan_hama($id_palemahan, ['nama_hama' => $nama_hama]);
 			}
 		}
-
-
-
-
-
-
-
-
-
-
-
+ 
+		$nama_hama = $this->input->post('nama_hama');
+		if (!empty($nama_hama) && is_array($nama_hama)) {
+			foreach ($nama_hama as $hama) {
+				if (!empty($hama)) {
+					$data_hama = [
+						'id_palemahan' => $id_palemahan,
+						'nama_hama' => $hama
+					];
+					$this->SubakModel->insert_tb_palemahan_hama_if_not_exists($data_hama);
+				}
+			}
+		}
 
 		// JIKA SALAH SATU FIELD KOSONG, PAKAI INI UNTUK ADD DATA LANGSUNG KE DATABASE
 		// UPDATE SUBAK EMPTY
