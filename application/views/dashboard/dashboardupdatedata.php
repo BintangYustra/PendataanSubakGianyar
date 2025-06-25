@@ -45,7 +45,7 @@
                 <div class="mb-3">
                     <label class="form-label d-block">Kriteria Subak</label>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="kriteria_subak" value="Subak Basah" <?= ($subak->kriteria_subak == 'Subak Basah') ? 'checked' : '' ?>>
+                        <input class="form-check-input" type="radio" name="kriteria_subak" value="Subak Basah"  >
                         <label class="form-check-label">Subak Basah</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -173,6 +173,7 @@
                 </div>
             </div>
         </div>
+        <p><i>Note: Jika Anda Mengganti Ketersediaan Dari "Ada" ke "Tidak Ada" Harap Menghapus Data Pada Salah Satu Kotak Ada atau Tidak Ada</i></p>
         <!-- Pura Bedugul Ada -->
         <div class="card mb-4">
             <div class="card-header text-white" style="background-color: #06D6A0;">Perahyangan Pura Bedugul Ada</div>
@@ -210,7 +211,27 @@
                 <div class="form-group mb-2">
                     <label>Jumlah Pelinggih</label>
                     <input type="text" class="form-control" name="jumlah_pelinggih" value="<?= $perahyanganpurabedugulada->jumlah_pelinggih ?>">
-                </div>            
+                </div>      
+                <div class="mb-3">
+                    <label class="form-label">Aci-Aci yang Selalu Dilaksanakan di Pesubakan (Menurut Dresta)</label>
+                    <div id="aciAciWrapper">
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" name="aci_aci_subak[]">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="tambahAciAci()">Tambah Aci-Aci</button>
+                </div>   
+                <script>
+                function tambahAciAci() {
+                    const wrapper = document.getElementById('aciAciWrapper');
+                    const newRow = document.createElement('div');
+                    newRow.className = 'input-group mb-2';
+                    newRow.innerHTML = `
+                        <input type="text" class="form-control" name="aci_aci_subak[]">
+                    `;
+                    wrapper.appendChild(newRow);
+                }
+                </script>   
             </div>
             </div>
         </div>
@@ -221,7 +242,7 @@
                 <h4 class="text-center">Pura 1</h4>
                 <div class="form-group mb-2">
                     <label>Nama Pura</label>
-                    <input type="text" class="form-control" name="nama_pura" value="<?= $perahyanganpurabedugultidakada->nama_pura2 ?>">
+                    <input type="text" class="form-control" name="nama_pura2" value="<?= $perahyanganpurabedugultidakada->nama_pura2 ?>">
                 </div>
                 <div class="form-group mb-2">
                 <label class="form-label d-block">Pura Bedugul di Sungsung oleh</label>
@@ -346,7 +367,60 @@
                     <label>Jumlah Krama Penyakap</label>
                     <input type="number" class="form-control" name="jumlah_krama_penyakap" value="<?= $pawongan->jumlah_krama_penyakap ?>">
                 </div>
-
+                <label class="form-label d-block">Tingkat Pendidikan Krama Penyakap</label>
+                <div id="penyakap-wrapper">
+                    <div class="row g-2 align-items-center mb-2 penyakap-row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Nama Penyakap" name="nama_penyakap[]">
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-control" name="tingkat_pendidikan_penyakap[]">
+                                <option value="">Tingkat Pendidikan</option>
+                                <option value="tidak_sekolah">Tidak Sekolah</option>
+                                <option value="sd">SD</option>
+                                <option value="smp">SMP</option>
+                                <option value="sma">SMA/SMK Sederajat</option>
+                                <option value="d1">D1</option>
+                                <option value="d2">D2</option>
+                                <option value="d3">D3</option>
+                                <option value="d4">D4</option>
+                                <option value="s1">Sarjana (S1)</option>
+                                <option value="s2">Magister (S2)</option>
+                                <option value="s3">Doktor (S3)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm mb-3" onclick="tambahPenyakap()">+Tambah Penyakap</button>
+                <script>
+                        function tambahPenyakap() {
+                            const wrapper = document.getElementById('penyakap-wrapper');
+                            const newRow = document.createElement('div');
+                            newRow.className = 'row g-2 align-items-center mb-2 penyakap-row';
+                            newRow.innerHTML = `
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Nama Penyakap" name="nama_penyakap[]">
+                                </div>
+                                <div class="col-auto">
+                                    <select class="form-control" name="tingkat_pendidikan_penyakap[]">
+                                        <option value="">Tingkat Pendidikan</option>
+                                        <option value="tidak_sekolah">Tidak Sekolah</option>
+                                        <option value="sd">SD</option>
+                                        <option value="smp">SMP</option>
+                                        <option value="sma">SMA/SMK Sederajat</option>
+                                        <option value="d1">D1</option>
+                                        <option value="d2">D2</option>
+                                        <option value="d3">D3</option>
+                                        <option value="d4">D4</option>
+                                        <option value="s1">Sarjana (S1)</option>
+                                        <option value="s2">Magister (S2)</option>
+                                        <option value="s3">Doktor (S3)</option>
+                                    </select>
+                                </div>
+                            `;
+                            wrapper.appendChild(newRow);
+                        }s
+                </script>
                 <div class="mb-3">
                     <label class="form-label d-block">Awig-Awig</label>
                     <div class="form-check form-check-inline">
@@ -382,6 +456,24 @@
                         <label class="form-check-label">Tidak Ada</label>
                     </div>
                 </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">Nama Perarem (Jika Ada)</label>
+                    <div id="perarem-wrapper">
+                    <input type="text" class="form-control mb-2" name="nama_perarem[]">
+                </div>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="tambahPerarem()">+Tambah Perarem</button>
+                </div>
+                <script>
+                    function tambahPerarem() {
+                    const wrapper = document.getElementById('perarem-wrapper');
+                        const newInput = document.createElement('input');
+                        newInput.type = 'text';
+                        newInput.className = 'form-control mb-2';
+                        newInput.name = 'nama_perarem[]';
+                    wrapper.appendChild(newInput);
+                    }
+                </script>
             </div>
         </div>
 
@@ -450,6 +542,54 @@
                     <label>Lokasi Temukuaya</label>
                     <input type="text" class="form-control" name="lokasi_temukuaya" value="<?= $palemahan->lokasi_temukuaya ?>">
                 </div>
+
+
+                        
+                    <div id="tanaman-pokok-container">
+                    <div class="form-group mb-2 tanaman-pokok-row">
+                        <label>Nama Tanaman Pokok</label>
+                        <input type="text" class="form-control" name="tanaman_pokok[]" placeholder="Contoh: Padi">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm" id="btnTambahTanaman">+ Tambah Tanaman Pokok</button>
+                <script>
+                    document.getElementById('btnTambahTanaman').addEventListener('click', function () {
+                        const container = document.getElementById('tanaman-pokok-container');
+
+                        const newRow = document.createElement('div');
+                        newRow.classList.add('form-group', 'mb-2', 'tanaman-pokok-row');
+
+                        newRow.innerHTML = `
+                            <input type="text" class="form-control" name="tanaman_pokok[]" placeholder="Contoh: Jagung">
+                        `;
+                        container.appendChild(newRow);
+                    });
+                </script>
+
+
+
+                <div id="jenis_tanaman-pokok-container">
+                    <div class="form-group mb-2 jenis-tanaman-pokok-row">
+                        <label>Jenis Tanaman Pokok</label>
+                        <input type="text" class="form-control" name="jenis_tanaman_pokok[]" placeholder="Contoh: Biji-Bijian">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm" id="btnJenisTambahTanaman">+ Tambah Jenis Tanaman Pokok</button>
+
+                <script>
+                    document.getElementById('btnJenisTambahTanaman').addEventListener('click', function () {
+                        const container = document.getElementById('jenis_tanaman-pokok-container');
+
+                        const newRow = document.createElement('div');
+                        newRow.classList.add('form-group', 'mb-2', 'jenis_tanaman-pokok-row');
+
+                        newRow.innerHTML = `
+                            <input type="text" class="form-control" name="jenis_tanaman_pokok[]" placeholder="Contoh: Umbi">                    `;
+                        container.appendChild(newRow);
+                    });
+                </script>
+
+
                 <div class="form-group mb-2">
                     <label>Masa Musim Tanam Setiap Tahun</label>
                     <input type="number" class="form-control" name="masa_musim_tanam_pertahun" value="<?= $palemahan->masa_musim_tanam_pertahun ?>">
@@ -458,6 +598,78 @@
                     <label>Tanaman Penyela</label>
                     <input type="text" class="form-control" name="tanaman_penyela" value="<?= $palemahan->tanaman_penyela ?>">
                 </div>
+
+                
+                <div class="mb-3">
+                <label class="form-label d-block">Hama</label>
+                <div id="nama_hama-container">
+                    <div class="form-group mb-2 nama-hama-row">
+                        <input type="text" class="form-control" name="nama_hama[]" placeholder="Contoh: Burung">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm" id="btnTambahHama">+ Tambah Hama</button>
+
+                <script>
+                    document.getElementById('btnTambahHama').addEventListener('click', function () {
+                        const container = document.getElementById('nama_hama-container');
+
+                        const newRow = document.createElement('div');
+                        newRow.classList.add('form-group', 'mb-2', 'nama-hama-row');
+
+                        newRow.innerHTML = `
+                        <input type="text" class="form-control" name="nama_hama[]" placeholder="Contoh: Tikus">                    `;
+                        container.appendChild(newRow);
+                    });
+                </script>
+
+            <div class="mb-3">
+                <label class="form-label d-block">Bantuan yang Pernah Diterima</label>
+                <div id="bantuan-wrapper">
+                    <div class="row g-2 align-items-center mb-2 bantuan-row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="nama_bantuan[]" placeholder="Nama Bantuan">
+                        </div>
+                        <div class="col-auto">
+                            <input type="date" class="form-control" name="tahun_bantuan[]" placeholder="Tahun">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" name="nilai_rp_bantuan[]" placeholder="Nilai (Rp)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol tambah -->
+                <button type="button" class="btn btn-primary btn-sm" onclick="tambahBantuan()">+Tambah Bantuan</button>
+                </div>
+                <script>
+                    function tambahBantuan() {
+                        const wrapper = document.getElementById('bantuan-wrapper');
+
+                        const newRow = document.createElement('div');
+                        newRow.className = 'row g-2 align-items-center mb-2 bantuan-row';
+
+                        newRow.innerHTML = `
+                        <div class="col">
+                            <input type="text" class="form-control" name="nama_bantuan[]" placeholder="Nama Bantuan">
+                        </div>
+                        <div class="col-auto">
+                            <input type="date" class="form-control" name="tahun_bantuan[]" placeholder="Tahun">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" name="nilai_rp_bantuan[]" placeholder="Nilai (Rp)">
+                        </div>
+                        `;
+                        wrapper.appendChild(newRow);
+                    }
+                </script>
+        </div>    
+
+
+
+
+
+        </div>
+
 
 
 

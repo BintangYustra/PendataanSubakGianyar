@@ -1,7 +1,6 @@
 <div class="container mt-4">
   <div class="table" style="margin-left: 25px">
     <h1>Subak Gianyar Terdaftar</h1>
-  <?php echo $link?>
   <table class="table">
     <thead>
       <tr>
@@ -22,7 +21,7 @@
         <td>
           <a href="<?php echo base_url('DashboardSubakTerdata/DashboardViewData/' . $row->id_subak); ?>" class="btn btn-info">Detail</a>
           <a href="<?php echo base_url('DashboardSubakTerdata/MasukHalaman/' . $row->id_subak); ?>" class="btn btn-warning">Update</a>
-          <a href="<?php echo site_url('DashboardSubakTerdata/Subak_Delete/' . $row->id_subak); ?>" class="btn btn-danger" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini? (Data dengan ID: <?php echo $row->id_subak?>) Data yang telah terhapus tidak bisa dikembalikan.')">Delete</a>
+          <button type="button" class="btn btn-primary">Verifikasi</button>
         </td>
       <?php endforeach ?>
 

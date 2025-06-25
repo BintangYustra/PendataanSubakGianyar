@@ -47,11 +47,11 @@
                     <span>Tambah Data</span></a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="<?php base_url()?>DashboardVerifikasi">
                     <i class="fas fa-fw fa fa-check-square"></i>
                     <span>Verifikasi Data</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

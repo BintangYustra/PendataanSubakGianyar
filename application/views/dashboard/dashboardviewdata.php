@@ -203,8 +203,57 @@
                     </tr>
                 </tbody>
             </table>
+<hr>
+            <h6 class="mb-2"><strong>Aci-Aci Menurut Dresta</strong></h6>
+            <table class="table table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>Aci-Aci</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($perahyanganpurabeduguladaaciaci) && is_array($perahyanganpurabeduguladaaciaci)): ?>
+                        <?php foreach ($perahyanganpurabeduguladaaciaci as $aci_aci): ?>
+                            <?php if (is_object($aci_aci)): ?>
+                                <tr>
+                                    <td><?= $aci_aci->aci_aci_subak; ?></td>
+                                </tr>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="2">Tidak ada data aci-aci</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+<hr>
+            <h6 class="mb-2"><strong>Inventaris</strong></h6>
+            <table class="table table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>Inventaris</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($perahyanganpurabeduguladainventaris) && is_array($perahyanganpurabeduguladainventaris)): ?>
+                        <?php foreach ($perahyanganpurabeduguladainventaris as $inventaris): ?>
+                            <?php if (is_object($inventaris)): ?>
+                                <tr>
+                                    <td><?= $inventaris->inventaris; ?></td>
+                                </tr>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="2">Tidak ada data Inventaris</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+            <hr>
             <div>
-                <p><strong>Foto Pura</strong></p>
+            <p><strong>Foto Pura</strong></p>
             </div>
         </div>
     </div>
@@ -249,6 +298,8 @@
                     </tr>
                 </tbody>
             </table>
+        <p><strong>Foto Pura</strong></p>
+<hr>
         </div>
         <div class="text-center mt-2">
             <h5>Pura 2</h5>
@@ -285,6 +336,8 @@
                     </tr>
                 </tbody>
             </table>
+        <p><strong>Foto Pura</strong></p>
+<hr>
         </div>
         <div class="text-center mt-2">
             <h5>Pura 3</h5>
@@ -321,6 +374,8 @@
                     </tr>
                 </tbody>
             </table>
+        <p><strong>Foto Pura</strong></p>
+
         </div>
     </div>
 
@@ -586,5 +641,4 @@
 </div>
     <div class="container mb-4">
         <a href="<?php echo base_url('DashboardSubakTerdata'); ?>" class="btn btn-primary">Kembali</a>
-        <a href="<?php  ?>" class="btn btn-success">Print Data</a>
     </div>

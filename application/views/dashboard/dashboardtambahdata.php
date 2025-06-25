@@ -728,7 +728,6 @@
                 </div>
             </div>
             <button type="button" class="btn btn-primary btn-sm" id="btnTambahTanaman">+ Tambah Tanaman Pokok</button>
-
             <script>
                 document.getElementById('btnTambahTanaman').addEventListener('click', function () {
                     const container = document.getElementById('tanaman-pokok-container');
@@ -742,12 +741,28 @@
                     container.appendChild(newRow);
                 });
             </script>
-
-
-            <div class="mb-3">
-                <label class="form-label">Jenis Tanaman Pokok</label>
-                <input type="text" class="form-control mb-1" name="jenis_tanaman_pokok" placeholder="Contoh: Jenis Tanaman A, Jenis Tanaman B">
+<!--  -->
+            <div id="jenis_tanaman-pokok-container">
+                <div class="form-group mb-2 jenis-tanaman-pokok-row">
+                    <label>Jenis Tanaman Pokok</label>
+                    <input type="text" class="form-control" name="jenis_tanaman_pokok[]" placeholder="Contoh: Biji-Bijian">
+                </div>
             </div>
+            <button type="button" class="btn btn-primary btn-sm" id="btnJenisTambahTanaman">+ Tambah Jenis Tanaman Pokok</button>
+
+            <script>
+                document.getElementById('btnJenisTambahTanaman').addEventListener('click', function () {
+                    const container = document.getElementById('jenis_tanaman-pokok-container');
+
+                    const newRow = document.createElement('div');
+                    newRow.classList.add('form-group', 'mb-2', 'jenis_tanaman-pokok-row');
+
+                    newRow.innerHTML = `
+                        <input type="text" class="form-control" name="jenis_tanaman_pokok[]" placeholder="Contoh: Umbi">                    `;
+                    container.appendChild(newRow);
+                });
+            </script>
+
 
             <div class="mb-3">
                 <label class="form-label">Masa Musim Tanam Setiap Tahun</label>
@@ -760,7 +775,7 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label d-block">Hama</label>
+                <!-- <label class="form-label d-block">Hama</label>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="hama-burung" name="nama_hama[]" value="Burung">
@@ -782,23 +797,44 @@
                     <input class="form-check-input" type="checkbox" id="hama-lain" name="nama_hama[]" value="Lain-Lain">
                     <label class="form-check-label" for="hama-lain">Lain-Lain</label>
                 </div>
-
-                <!-- Input tambahan jika 'Lain-Lain' dicentang -->
-                <div class="mt-2" id="form-hama-lain" style="display: none;">
+                
+                Input tambahan jika 'Lain-Lain' dicentang -->
+                <!-- <div class="mt-2" id="form-hama-lain" style="display: none;">
                     <label class="form-label">Sebutkan Hama Lain</label>
                     <input type="text" class="form-control" name="hama_lain" placeholder="Contoh: Belalang, Kumbang">
-                </div>
+                </div> -->
 
-                <script>
+                <!-- <script>
                     const checkboxHamaLain = document.getElementById('hama-lain');
                     const formHamaLain = document.getElementById('form-hama-lain');
 
                     checkboxHamaLain.addEventListener('change', function () {
                         formHamaLain.style.display = this.checked ? 'block' : 'none';
                     });
-                </script>
+                </script> -->
             </div>
 
+            <div id="nama_hama-container">
+                <div class="form-group mb-2 nama-hama-row">
+                    <label>Hama</label>
+                    <input type="text" class="form-control" name="nama_hama[]" placeholder="Contoh: Burung ,Tikus ,Wereng ,Walang Sangit">
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="btnTambahHama">+ Tambah Hama</button>
+
+            <script>
+                document.getElementById('btnTambahHama').addEventListener('click', function () {
+                    const container = document.getElementById('nama_hama-container');
+
+                    const newRow = document.createElement('div');
+                    newRow.classList.add('form-group', 'mb-2', 'nama-hama-row');
+
+                    newRow.innerHTML = `
+                                            <input type="text" class="form-control" name="nama_hama[]" placeholder="Contoh: Burung ,Tikus ,Wereng ,Walang Sangit">                    `;
+                    container.appendChild(newRow);
+                });
+            </script>
+<!--  -->
             <div class="mb-3">
                 <label class="form-label d-block">Bantuan yang Pernah Diterima</label>
                 <div id="bantuan-wrapper">

@@ -143,7 +143,7 @@ class DashboardTambahData extends CI_Controller {
         }
 
         // PERAHYANGAN FOTO PURA2
-        
+
 
 
 
@@ -279,12 +279,15 @@ class DashboardTambahData extends CI_Controller {
         }
 
         // PALEMAHAN JENIS TANAMAN POKOK
-        $data_palemahan_jenis_tanaman_pokok = [
-            'id_palemahan' => $id_palemahan,
-            'jenis_tanaman_pokok' => $this->input->post('jenis_tanaman_pokok'),
-        ];
-        $this->SubakModel->insert_tb_palemahan_jenis_tanaman_pokok($data_palemahan_jenis_tanaman_pokok);
-
+        $jenis_tanaman_pokok = $this->input->post('jenis_tanaman_pokok');
+        if ($jenis_tanaman_pokok) {
+            foreach ($jenis_tanaman_pokok as $val) {
+                $this->SubakModel->insert_tb_palemahan_jenis_tanaman_pokok([
+                    'id_palemahan' => $id_palemahan,
+                    'jenis_tanaman_pokok' => $val,
+                ]);
+            }
+        }
         // PALEMAHAN HAMA
         $nama_hama = $this->input->post('nama_hama');
         if ($nama_hama) {
