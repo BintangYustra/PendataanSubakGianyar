@@ -223,6 +223,20 @@ class DashboardSubakTerdata	 extends CI_Controller {
 		$pura = $this->SubakModel->get_perahyanganpurabedugulada_by_id($id_perahyangan_pura_bedugul_ada);
 		$id_perahyangan_pura_bedugul_ada = $pura ? $pura->id_perahyangan_pura_bedugul_ada : null;
 
+		// update inventaris
+		$inventaris = $this->input->post('inventaris');
+		$data_inventaris = [];
+		if (!empty($inventaris)) {
+			foreach ($inventaris as $inventaris) {
+				if (!empty($inventaris)) {
+					$data_inventaris[] = [
+						'inventaris' => $inventaris
+					];
+				}
+			}
+		}
+		$this->SubakModel->update_inventaris($id_perahyangan_pura_bedugul_ada, $data_inventaris);
+
 		// update aci-aci
 		$aci_aci_subak = $this->input->post('aci_aci_subak');
 		$data_aci_aci_subak = [];
@@ -236,7 +250,6 @@ class DashboardSubakTerdata	 extends CI_Controller {
 			}
 		}
 		$this->SubakModel->update_aci_aci($id_perahyangan_pura_bedugul_ada, $data_aci_aci_subak);
-
 
 		// update nama penyakap + pendidikan
 		$nama_penyakap = $this->input->post('nama_penyakap');

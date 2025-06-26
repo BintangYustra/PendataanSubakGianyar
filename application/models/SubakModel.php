@@ -167,6 +167,22 @@ class SubakModel extends CI_Model {
 
 
     // array update
+    // update inventaris
+    public function update_inventaris($id_perahyangan_pura_bedugul_ada, $data_inventaris = [])
+    {
+        if (!empty($data_inventaris)) {
+            $this->db->where('id_perahyangan_pura_bedugul_ada', $id_perahyangan_pura_bedugul_ada);
+            $this->db->delete('tb_inventaris');
+
+            foreach ($data_inventaris as $inventaris) {
+                $this->db->insert('tb_inventaris', [
+                    'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
+                    'inventaris' => $inventaris['inventaris']
+                ]);
+            }
+        }
+    }
+
     // update aci-aci
     public function update_aci_aci($id_perahyangan_pura_bedugul_ada, $data_aci_aci_subak = [])
     {

@@ -141,66 +141,11 @@ class DashboardTambahData extends CI_Controller {
                 }
             }
         }
-
-        // PERAHYANGAN FOTO PURA2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // $foto_pura2 = $this->input->post('foto_pura2');
-        // if (!empty($foto_pura2)) {
-        //     foreach ($foto_pura2 as $foto2) {
-        //         $data_perahyangan_pura_bedugul_tidakada_foto_pura2 = [
-        //             'id_perahyangan_pura_bedugul_tidakada' => $id_perahyangan_pura_bedugul_tidakada,
-        //             'foto_pura2' => $foto2,
-        //         ];
-        //         $this->SubakModel->insert_tb_perahyangan_foto_pura2($data_perahyangan_pura_bedugul_tidakada_foto_pura2);
-        //     }
-        // }
-        // $files = $_FILES;
-        // $count = count($_FILES['foto_pura']['name']);
-
-        // $config['upload_path'] = 'application/images_upload/';
-        // $config['allowed_types'] = 'jpg|jpeg|png|gif';
-        // $this->load->library('upload');
-
-        // for ($i = 0; $i < $count; $i++) {
-        //     $_FILES['foto_pura']['name']     = $files['foto_pura']['name'][$i];
-        //     $_FILES['foto_pura']['type']     = $files['foto_pura']['type'][$i];
-        //     $_FILES['foto_pura']['tmp_name'] = $files['foto_pura']['tmp_name'][$i];
-        //     $_FILES['foto_pura']['error']    = $files['foto_pura']['error'][$i];
-        //     $_FILES['foto_pura']['size']     = $files['foto_pura']['size'][$i];
-
-        //     $this->upload->initialize($config);
-
-        //     if ($this->upload->do_upload('foto_pura')) {
-        //         $upload_data = $this->upload->data();
-        //         $file_name = $upload_data['file_name'];
-
-        //         $data = [
-        //             'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
-        //             'foto_pura' => $file_name
-        //         ];
-        //         $this->SubakModel->insert_tb_perahyangan_foto_pura($data);
-        //     }
-        // }
-
+        
+        // FOTO PURA
+        // FOTO PURA 2
+        // FOTO PURA 3
+        // FOTO PURA 4
 
         // PAWONGAN
         $data_pawongan = [

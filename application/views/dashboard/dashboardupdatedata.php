@@ -213,15 +213,37 @@
                     <label>Jumlah Pelinggih</label>
                     <input type="text" class="form-control" name="jumlah_pelinggih" value="<?= $perahyanganpurabedugulada->jumlah_pelinggih ?>">
                 </div>      
+                
                 <div class="mb-3">
-                    <!-- <input type="hidden" name="id_perahyangan_pura_bedugul_ada" value="<?= $pura_bedugul_ada->id_perahyangan_pura_bedugul_ada ?>"> -->
+                    <label class="form-label">Inventaris yang Dimiliki</label>
+                    <div id="inventarisWrapper">
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" name="inventaris[]">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="tambahInventaris()">+Tambah Inventaris</button>
+                </div>  
+                <script>
+                function tambahInventaris() {
+                    const wrapper = document.getElementById('inventarisWrapper');
+                    const newRow = document.createElement('div');
+                    newRow.className = 'input-group mb-2';
+                    newRow.innerHTML = `
+                        <input type="text" class="form-control" name="inventaris[]">
+                    `;
+                    wrapper.appendChild(newRow);
+                }
+                </script>   
+
+
+                <div class="mb-3">
                     <label class="form-label">Aci-Aci yang Selalu Dilaksanakan di Pesubakan (Menurut Dresta)</label>
                     <div id="aciAciWrapper">
                         <div class="input-group mb-2">
                             <input type="text" class="form-control" name="aci_aci_subak[]">
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary btn-sm" onclick="tambahAciAci()">Tambah Aci-Aci</button>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="tambahAciAci()">+Tambah Aci-Aci</button>
                 </div>   
                 <script>
                 function tambahAciAci() {
@@ -311,9 +333,9 @@
                     <input type="number" class="form-control" name="piodalan_wali_pertahun23" value="<?= $perahyanganpurabedugultidakada2->piodalan_wali_pertahun23 ?>">
                 </div>            
                 <div class="form-group mb-2">
-                    <label>Hari Pioadaln</label>
-                    <input type="text" class="form-control" name="hari_piodalan_wali23" value="<?= $perahyanganpurabedugultidakada2->hari_piodalan_wali23 ?>">
-                </div>                      
+                    <label>Foto Pura</label>
+                    <!-- <input type="file" class="form-control" name="foto_pura2" value="<?= $perahyanganpurabedugultidakadafotopura2->foto_pura2 ?>"> -->
+                </div>                    
             </div>
             </div>
         </div>
@@ -352,7 +374,10 @@
                     <label>Hari Pioadaln</label>
                     <input type="text" class="form-control" name="hari_piodalan_wali24" value="<?= $perahyanganpurabedugultidakada3->hari_piodalan_wali24 ?>">
                 </div>            
-        
+                <div class="form-group mb-2">
+                    <label>Foto Pura</label>
+                    <!-- <input type="file" class="form-control" name="foto_pura2" value="<?= $perahyanganpurabedugultidakadafotopura2->foto_pura2 ?>"> -->
+                </div>  
             </div>
             </div>
         </div>

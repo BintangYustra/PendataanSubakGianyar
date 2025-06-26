@@ -212,28 +212,25 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label d-block">Inventaris yang Dimiliki</label>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inventaris-angklung" name="inventaris[]" value="Angklung">
-                        <label class="form-check-label" for="inventaris-angklung">Angklung</label>
+                    <label class="form-label">Inventaris yang Dimiliki</label>
+                    <div id="inventarisWrapper">
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" name="inventaris[]">
+                        </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inventaris-gong" name="inventaris[]" value="Gong">
-                        <label class="form-check-label" for="inventaris-gong">Gong</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inventaris-baleganjur" name="inventaris[]" value="Baleganjur">
-                        <label class="form-check-label" for="inventaris-baleganjur">Baleganjur</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inventaris-lain" name="inventaris[]" value="">
-                        <label class="form-check-label" for="inventaris-lain">Lain-Lain</label>
-                    </div>
-                    <div class="mt-2" id="form-inventaris-lain" style="display: none;">
-                        <label class="form-label">Sebutkan Inventaris Lain</label>
-                        <input type="text" class="form-control" name="inventaris_lain" placeholder="Contoh: A, B, C">
-                    </div>
-                </div>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="tambahInventaris()">+Tambah Inventaris</button>
+                </div>  
+                <script>
+                function tambahInventaris() {
+                    const wrapper = document.getElementById('inventarisWrapper');
+                    const newRow = document.createElement('div');
+                    newRow.className = 'input-group mb-2';
+                    newRow.innerHTML = `
+                        <input type="text" class="form-control" name="inventaris[]">
+                    `;
+                    wrapper.appendChild(newRow);
+                }
+                </script>   
 
 
                 <div class="mb-3">
@@ -454,15 +451,6 @@
             });
         }
         
-        // Toggle form inventaris lainnya
-        const checkboxLain = document.getElementById('inventaris-lain');
-        const formLain = document.getElementById('form-inventaris-lain');
-
-        if (checkboxLain && formLain) {
-            checkboxLain.addEventListener('change', function () {
-                formLain.style.display = this.checked ? 'block' : 'none';
-            });
-        }
     });
 
     // Tambah input aci-aci
