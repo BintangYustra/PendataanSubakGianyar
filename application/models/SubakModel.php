@@ -183,7 +183,6 @@ class SubakModel extends CI_Model {
         }
     }
 
-
     // update nama penyakap + pendidikan
     public function update_nama_penyakap($id_pawongan, $data_nama_penyakap = [])
     {
@@ -326,19 +325,19 @@ class SubakModel extends CI_Model {
         return $this->db->get_where('tb_perahyangan_pura_bedugul_tidakada23', ['id_perahyangan_pura_bedugul_tidakada3' => $id_perahyangan_pura_bedugul_tidakada3])->row();
     }
 
-    public function get_perahyangan_inventaris_by_id($id_pura_bedugul_ada)
+    public function get_perahyangan_inventaris_by_id($id_perahyangan_pura_bedugul_ada)
     {
-        return $this->db->get_where('tb_inventaris', ['id_pura_bedugul_ada' => $id_pura_bedugul_ada])->result();
+        return $this->db->get_where('tb_inventaris', ['id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada])->result();
     }
 
-    public function get_perahyangan_aci_aci_by_id($id_pura_bedugul_ada)
+    public function get_perahyangan_aci_aci_by_id($id_perahyangan_pura_bedugul_ada)
     {
-        return $this->db->get_where('tb_aci_aci', ['id_pura_bedugul_ada' => $id_pura_bedugul_ada])->result();
+        return $this->db->get_where('tb_aci_aci', ['id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada])->result();
     }
 
-    public function get_perahyangan_foto_pura_by_id($id_pura_bedugul_ada)
+    public function get_perahyangan_foto_pura_by_id($id_perahyangan_pura_bedugul_ada)
     {
-        return $this->db->get_where('tb_foto_pura', ['id_pura_bedugul_ada' => $id_pura_bedugul_ada])->result();
+        return $this->db->get_where('tb_foto_pura', ['id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada])->result();
     }
 
     public function get_perahyangan_foto_pura_by_id2($id_perahyangan_pura_bedugul_tidakada)
@@ -387,117 +386,24 @@ class SubakModel extends CI_Model {
     {
         return $this -> db -> get('tb_subak', $limit, $start) -> result();
     }
+
+    public function count_belum_terverifikasi()
+    {
+        $this->db->where('verifikasi', 'Belum Terverifikasi');
+        return $this->db->count_all_results('tb_subak');
+    }
+
+    public function count_verifikasi_ditolak()
+    {
+        $this->db->where('verifikasi', 'Data Ditolak');
+        return $this->db->count_all_results('tb_subak');
+    }
+
+    public function count_verifikasi_sukses()
+    {
+        $this->db->where('verifikasi', 'Terverifikasi');
+        return $this->db->count_all_results('tb_subak');
+    }
+
 }
-
-
-    // HAPUS DATA DI DATABASE
-    // public function delete_tb_subak($id_subak, $data)
-    // {
-    //     $this->db->where('id_subak', $id_subak);
-    //     return $this->db->delete('tb_subak', $data);
-    // }
-
-    // public function delete_tb_alamat_subak($id_subak, $data)
-    // {
-    //     $this->db->where('id_subak', $id_subak);
-    //     return $this->db->delete('tb_alamat_subak', $data);
-    // }
-
-    // public function delete_tb_prajuru($id_subak, $data)
-    // {
-    //     $this->db->where('id_subak', $id_subak);
-    //     return $this->db->delete('tb_prajuru', $data);
-    // }
-
-    // public function delete_tb_perahyangan($id_subak, $data)
-    // {
-    //     $this->db->where('id_subak', $id_subak);
-    //     return $this->db->delete('tb_perahyangan', $data);
-    // }
-
-    // public function delete_tb_perahyangan_pura_bedugul_ada($id_perahyangan, $data)
-    // {
-    //     $this->db->where('id_perahyangan', $id_perahyangan);
-    //     return $this->db->delete('tb_perahyangan_pura_bedugul_ada', $data);
-    // }
-
-    // public function delete_tb_perahyangan_pura_bedugul_tidakada($id_perahyangan, $data)
-    // {
-    //     $this->db->where('id_perahyangan', $id_perahyangan);
-    //     return $this->db->delete('tb_perahyangan_pura_bedugul_tidakada', $data);
-    // }
-
-    // public function delete_tb_perahyangan_inventaris($id_subak, $data)
-    // {
-    //     $this->db->where('id_subak', $id_subak);
-    //     return $this->db->delete('tb_inventaris', $data);
-    // }
-
-    // public function delete_tb_perahyangan_aci_aci_subak($id_aci_subak, $data)
-    // {
-    //     $this->db->where('id_aci_subak', $id_aci_subak);
-    //     return $this->db->delete('tb_perahyangan_aci_aci_subak', $data);
-    // }
-
-    // public function delete_tb_perahyangan_foto_pura($id_foto_pura, $data)
-    // {
-    //     $this->db->where('id_foto_pura', $id_foto_pura);
-    //     return $this->db->delete('tb_perahyangan_foto_pura', $data);
-    // }
-
-    // public function delete_tb_perahyangan_foto_pura2($id_foto_pura2, $data)
-    // {
-    //     $this->db->where('id_foto_pura2', $id_foto_pura2);
-    //     return $this->db->delete('tb_perahyangan_foto_pura2', $data);
-    // }
-
-    // public function delete_tb_pawongan($id_subak, $data)
-    // {
-    //     $this->db->where('id_subak', $id_subak);
-    //     return $this->db->delete('tb_pawongan', $data);
-    // }
-
-    // public function delete_tb_pawongan_nama_perarem($id_nama_perarem, $data)
-    // {
-    //     $this->db->where('id_nama_perarem', $id_nama_perarem);
-    //     return $this->db->delete('tb_pawongan_nama_perarem', $data);
-    // }
-
-    // public function delete_tb_pawongan_nama_penyakap($id_nama_penyakap, $data)
-    // {
-    //     $this->db->where('id_nama_penyakap', $id_nama_penyakap);
-    //     return $this->db->delete('tb_pawongan_nama_penyakap', $data);
-    // }
-
-    // public function delete_tb_palemahan($id_subak, $data)
-    // {
-    //     $this->db->where('id_subak', $id_subak);
-    //     return $this->db->delete('tb_palemahan', $data);
-    // }
-
-    // public function delete_tb_palemahan_tanaman_pokok($id_subak, $data)
-    // {
-    //     $this->db->where('id_subak', $id_subak);
-    //     return $this->db->delete('tb_tanaman_pokok', $data);
-    // }
-
-    // public function delete_tb_palemahan_jenis_tanaman_pokok($id_subak, $data)
-    // {
-    //     $this->db->where('id_subak', $id_subak);
-    //     return $this->db->delete('tb_jenis_tanaman_pokok', $data);
-    // }
-
-    // public function delete_tb_palemahan_hama($id_hama, $data)
-    // {
-    //     $this->db->where('id_hama', $id_hama);
-    //     return $this->db->delete('tb_hama', $data);
-    // }
-
-    // public function delete_tb_palemahan_bantuan_pemerintah($id_bantuan, $data)
-    // {
-    //     $this->db->where('id_bantuan_pemerintah', $id_bantuan);
-    //     return $this->db->delete('tb_palemahan_bantuan_pemerintah', $data);
-    // }
-
-
 

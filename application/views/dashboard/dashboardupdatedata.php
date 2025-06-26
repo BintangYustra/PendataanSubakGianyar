@@ -178,6 +178,7 @@
         <div class="card mb-4">
             <div class="card-header text-white" style="background-color: #06D6A0;">Perahyangan Pura Bedugul Ada</div>
             <div class="card-body">
+                <input type="hidden" name="id_perahyangan_pura_bedugul_ada" value="<?= $perahyanganpurabedugulada->id_perahyangan_pura_bedugul_ada ?>">
                 <div class="form-group mb-2">
                     <label>Nama Pura</label>
                     <input type="text" class="form-control" name="nama_pura" value="<?= $perahyanganpurabedugulada->nama_pura ?>">
@@ -213,6 +214,7 @@
                     <input type="text" class="form-control" name="jumlah_pelinggih" value="<?= $perahyanganpurabedugulada->jumlah_pelinggih ?>">
                 </div>      
                 <div class="mb-3">
+                    <!-- <input type="hidden" name="id_perahyangan_pura_bedugul_ada" value="<?= $pura_bedugul_ada->id_perahyangan_pura_bedugul_ada ?>"> -->
                     <label class="form-label">Aci-Aci yang Selalu Dilaksanakan di Pesubakan (Menurut Dresta)</label>
                     <div id="aciAciWrapper">
                         <div class="input-group mb-2">

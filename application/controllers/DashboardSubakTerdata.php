@@ -54,6 +54,46 @@ class DashboardSubakTerdata	 extends CI_Controller {
 
         $this->load->view('/dashboard/dashboardviewdata', $data);
     }
+	
+    public function VerifikasiDataSubak($id_subak) {
+        $data['subak'] = $this->SubakModel->get_subak_by_id($id_subak);
+		$data['alamat'] = $this->SubakModel->get_alamat_by_id($id_subak);
+		$data['prajuru'] = $this->SubakModel->get_prajuru_by_id($id_subak);
+		$data['perahyangan'] = $this->SubakModel->get_perahyangan_by_id($id_subak);
+		$data['perahyanganpurabedugulada'] = $this->SubakModel->get_perahyanganpurabedugulada_by_id($id_subak);
+		$data['perahyanganpurabeduguladaaciaci'] = $this->SubakModel->get_perahyangan_aci_aci_by_id($id_subak);
+		$data['perahyanganpurabeduguladainventaris'] = $this->SubakModel->get_perahyangan_inventaris_by_id($id_subak);
+		$data['perahyanganpurabeduguladafotopura'] = $this->SubakModel->get_perahyangan_foto_pura_by_id($id_subak);
+		$data['perahyanganpurabedugultidakada'] = $this->SubakModel->get_perahyanganpurabedugultidakada_by_id($id_subak);
+		$data['perahyanganpurabedugultidakada2'] = $this->SubakModel->get_perahyanganpurabedugultidakada2_by_id($id_subak);
+		$data['perahyanganpurabedugultidakada3'] = $this->SubakModel->get_perahyanganpurabedugultidakada3_by_id($id_subak);
+		$data['perahyanganpurabedugultidakadafotopura2'] = $this->SubakModel->get_perahyangan_foto_pura_by_id2($id_subak);
+		$data['pawongan'] = $this->SubakModel->get_pawongan_by_id($id_subak);
+		$data['pawongannamapenyakap'] = $this->SubakModel->get_pawongan_nama_penyakap_by_id($id_subak);
+		$data['pawongannamaperarem'] = $this->SubakModel->get_pawongan_nama_perarem_by_id($id_subak);
+		$data['palemahan'] = $this->SubakModel->get_palemahan_by_id($id_subak);
+		$data['palemahantanamanpokok'] = $this->SubakModel->get_palemahan_tanaman_pokok_by_id($id_subak);
+		$data['palemahanjenistanamanpokok'] = $this->SubakModel->get_palemahan_jenis_tanaman_pokok_by_id($id_subak);
+		$data['palemahanhama'] = $this->SubakModel->get_palemahan_hama_by_id($id_subak);
+		$data['palemahanbantaunpemerintah'] = $this->SubakModel->get_palemahan_bantuan_pemerintah_by_id($id_subak);
+		
+        if (empty($data['subak'])) {
+            show_404();
+        }
+
+        $this->load->view('/dashboard/dashboardverifikasi', $data);
+    }
+
+	public function VerifikasiAccept()
+	{
+		$id_subak = $this->input->post('id_subak');
+		$status = $this->input->post('verifikasi');
+		if (!empty($id_subak) && !empty($status)) {
+			$data = ['verifikasi' => $status];
+			$this->SubakModel->update_tb_subak($id_subak, $data);
+		}
+		redirect(base_url('DashboardSubakTerdata'));
+	}
 
 	public function MasukHalaman($id_subak){
         $data['subak'] = $this->SubakModel->get_subak_by_id($id_subak);
@@ -86,9 +126,6 @@ class DashboardSubakTerdata	 extends CI_Controller {
     public function DashboardUpdateDataSubak($id_subak)
     {		
 		$id_subak = $this->input->post('id_subak');
-
-
-
 		$update_data_subak = [	
 			'id_subak' => $id_subak,
 			'nama_subak' => $this->input->post('nama_subak'),
@@ -136,7 +173,7 @@ class DashboardSubakTerdata	 extends CI_Controller {
 			'hari_piodalan_wali' => $this->input->post('hari_piodalan_wali'),
 			'jumlah_pelinggih' => $this->input->post('jumlah_pelinggih'),        
 		];
-		$this->SubakModel->update_tb_perahyangan_pura_bedugul_ada($id_perahyangan, $update_tb_perahyangan_pura_bedugul_ada);
+		$this->SubakModel->update_tb_perahyangan_pura_bedugul_ada($id_subak, $update_tb_perahyangan_pura_bedugul_ada);
 
 
 		$update_tb_pawongan = [
@@ -170,41 +207,36 @@ class DashboardSubakTerdata	 extends CI_Controller {
 
 
 		// CONTROLLER ARRAY UPDATE
-		$id_perahyangan = $this->input->post('id_perahyangan');
-		$perahyangan_row = $this->SubakModel->get_perahyangan_by_id($id_subak);
-		$id_perahyangan = $perahyangan_row ? $perahyangan_row->id_perahyangan : null;
-
 		$id_pawongan = $this->input->post('id_pawongan');
 		$pawongan_row = $this->SubakModel->get_pawongan_by_id($id_subak);
 		$id_pawongan = $pawongan_row ? $pawongan_row->id_pawongan : null;
 
-		$id_palemahan = $this->input->post('id_perahyangan');
+		$id_palemahan = $this->input->post('id_palemahan');
 		$palemahan_row = $this->SubakModel->get_palemahan_by_id($id_subak);
 		$id_palemahan = $palemahan_row ? $palemahan_row->id_palemahan : null;
 
-		// $id_perahyangan = $this->input->post('id_perahyangan');
-		// $perahyangan_row = $this->SubakModel->get_perahyangan_by_id($id_subak);
-		// $id_perahyangan = $perahyangan_row ? $perahyangan_row->id_perahyangan : null;
+		$id_perahyangan = $this->input->post('id_perahyangan');
+		$perahyangan_row = $this->SubakModel->get_perahyangan_by_id($id_subak);
+		$id_perahyangan = $perahyangan_row ? $perahyangan_row->id_perahyangan : null;
 
-		// $id_pura_bedugul_ada = $this->input->post('id_pura_bedugul_ada');
-		// $perahyangan_bedugul_ada_row = $this->SubakModel->get_perahyanganpurabedugulada_by_id($id_pura_bedugul_ada);
-		// $id_pura_bedugul_ada = $perahyangan_bedugul_ada_row ? $perahyangan_bedugul_ada_row->id_pura_bedugul_ada : null;
+		$id_perahyangan_pura_bedugul_ada = $this->input->post('id_perahyangan_pura_bedugul_ada');
+		$pura = $this->SubakModel->get_perahyanganpurabedugulada_by_id($id_perahyangan_pura_bedugul_ada);
+		$id_perahyangan_pura_bedugul_ada = $pura ? $pura->id_perahyangan_pura_bedugul_ada : null;
 
 		// update aci-aci
-		$id_perahyangan_pura_bedugul_ada = $this->input->post('id_perahyangan_pura_bedugul_ada'); // dari input hidden
 		$aci_aci_subak = $this->input->post('aci_aci_subak');
 		$data_aci_aci_subak = [];
 		if (!empty($aci_aci_subak)) {
 			foreach ($aci_aci_subak as $aci_aci) {
 				if (!empty($aci_aci)) {
-					$data_aci_aci_subak[] = ['aci_aci_subak' => $aci_aci];
+					$data_aci_aci_subak[] = [
+						'aci_aci_subak' => $aci_aci
+					];
 				}
 			}
-
-			if (!empty($id_perahyangan_pura_bedugul_ada)) {
-				$this->SubakModel->update_aci_aci($id_perahyangan_pura_bedugul_ada, $data_aci_aci_subak);
-			}
 		}
+		$this->SubakModel->update_aci_aci($id_perahyangan_pura_bedugul_ada, $data_aci_aci_subak);
+
 
 		// update nama penyakap + pendidikan
 		$nama_penyakap = $this->input->post('nama_penyakap');

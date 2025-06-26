@@ -21,7 +21,7 @@
         <td>
           <a href="<?php echo base_url('DashboardSubakTerdata/DashboardViewData/' . $row->id_subak); ?>" class="btn btn-info">Detail</a>
           <a href="<?php echo base_url('DashboardSubakTerdata/MasukHalaman/' . $row->id_subak); ?>" class="btn btn-warning">Update</a>
-          <button type="button" class="btn btn-primary">Verifikasi</button>
+          <a href="<?php echo base_url('DashboardSubakTerdata/VerifikasiDataSubak/' . $row->id_subak); ?>" class="btn btn-primary">Verifikasi</a>
         </td>
       <?php endforeach ?>
 

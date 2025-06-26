@@ -73,7 +73,7 @@ class DashboardTambahData extends CI_Controller {
             'jumlah_pelinggih' => $this->input->post('jumlah_pelinggih'),        
         ];
         $this->SubakModel->insert_tb_perahyangan_pura_bedugul_ada($data_perahyangan_pura_bedugul_ada);
-        $id_pura_bedugul_ada = $this->db->insert_id();
+        $id_perahyangan_pura_bedugul_ada = $this->db->insert_id();
 
         // PERAHYANGAN PURA BEDUGUL TIDAK ADA
         $data_perahyangan_pura_bedugul_tidakada = [
@@ -116,7 +116,7 @@ class DashboardTambahData extends CI_Controller {
             foreach ($inventaris_array as $val) {
                 if (!empty($val)) {
                     $this->SubakModel->insert_tb_perahyangan_inventaris([
-                        'id_pura_bedugul_ada' => $id_pura_bedugul_ada,
+                        'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
                         'inventaris' => $val
                     ]);
                 }
@@ -124,7 +124,7 @@ class DashboardTambahData extends CI_Controller {
         }
         if (!empty($inventaris_lain)) {
             $this->SubakModel->insert_tb_perahyangan_inventaris([
-                'id_pura_bedugul_ada' => $id_pura_bedugul_ada,
+                'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
                 'inventaris' => $inventaris_lain
             ]);
         }
@@ -135,7 +135,7 @@ class DashboardTambahData extends CI_Controller {
             foreach ($aci_aci_subak as $val) {
                 if (trim($val) !== '') {
                     $this->SubakModel->insert_tb_perahyangan_aci_aci_subak([
-                        'id_pura_bedugul_ada' => $id_pura_bedugul_ada,
+                        'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
                         'aci_aci_subak' => $val
                     ]);
                 }

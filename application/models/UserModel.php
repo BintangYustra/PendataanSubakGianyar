@@ -1,6 +1,6 @@
 <?php
 class UserModel extends CI_Model {
-    public function insert_batch($data) {
-        $this->db->insert_batch('tb_user', $data);
+    public function get_user_by_username($username) {
+        return $this->db->get_where('users', ['username' => $username])->row();
     }
 }

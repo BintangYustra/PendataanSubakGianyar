@@ -17,7 +17,7 @@
             <div class="card shadow-sm" style="width: 18rem; margin-left: 25px">
                 <div class="card-body">
                     <h5 class="card-title" style="font-family: Boldonse, system-ui;">Subak Terverifikasi</h5>
-                    <p class="card-text">Total: </p>
+                    <p class="card-text">Total: <?= $jumlah_verifikasi_sukses ?>  </p>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
             <div class="card shadow-sm" style="width: 18rem; margin-left: 25px">
                 <div class="card-body">
                     <h5 class="card-title" style="font-family: Boldonse, system-ui;">Subak Belum Terverifikasi</h5>
-                    <p class="card-text">Total: </p>
+                    <p class="card-text">Total: <?= $jumlah_belum_verifikasi ?> </p>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
             <div class="card shadow-sm" style="width: 18rem; margin-left: 25px">
                 <div class="card-body">
                     <h5 class="card-title" style="font-family: Boldonse, system-ui;">Verifikasi Ditolak</h5>
-                    <p class="card-text">Total: </p>
+                    <p class="card-text">Total: <?= $jumlah_verifikasi_ditolak?></p>
                 </div>
             </div>
         </div>        
