@@ -14,23 +14,28 @@
 </head>
 <body>
 <div class="container">
+    <form action="<?= site_url('login/login_action') ?>" method="post">
+
     <div class="position-absolute top-50 start-50 translate-middle">
             <div class="card container d-flex square-box text-center">
             <h2 class="m-4 text-center" style="font-family: Roboto, sans-serif;">Login Pendataan Subak</h2>
             <form action="" method="">
                 <div class="mb-3 mt-3">
-                    <label class="block text-gray-700">Username</label>
-                    <input type="text" name="" class="w-full p-2 border border-gray-300 rounded mt-1" >
+                    <label class="block text-gray-700" required>Username</label>
+                    <input type="text" name="username" class="w-full p-2 border border-gray-300 rounded mt-1" >
                 </div>
                 <div class="mb-3">
-                    <label class="block text-gray-700">Password</label>
-                    <input type="password" name="" class="w-full p-2 border border-gray-300 rounded mt-1">
+                    <label class="block text-gray-700" required>Password</label>
+                    <input type="password" name="password" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
-                <a href="<?php base_url()?>DashboardHome"><button type="button" class="btn btn-primary  mb-3">Login</button></a>
+                <button type="submit" class="btn btn-primary  mb-3">Login</button>
             </div>
         </div>
+        </form>
+
 </div>
-</body>
+
+
 </html>
 
 
