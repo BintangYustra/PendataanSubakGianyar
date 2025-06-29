@@ -29,7 +29,7 @@
 </head>
 <div class="container mt-5">
     <h2 class="mb-4 text-center">Verifikasi Detail Subak (Id: <?php echo $subak->nama_subak; ?>)</h2>
-        <form action="<?= base_url('DashboardSubakTerdata/VerifikasiAccept') ?>" method="post">
+        <form action="<?= base_url('DashboardVerifikasiList/VerifikasiListAccept') ?>" method="post">
             <label class="form-label d-block">Verifikasi Data Subak</label>
                 <div class="col-auto">
                     <input type="hidden" name="id_subak" value="<?= $subak->id_subak ?>">
@@ -651,5 +651,5 @@
     </div>
 </div>
     <div class="container mb-4">
-        <a href="<?php echo base_url('DashboardSubakTerdata'); ?>" class="btn btn-primary">Kembali</a>
+        <a href="<?php echo base_url('DashboardVerifikasiHome'); ?>" class="btn btn-primary">Kembali</a>
     </div>

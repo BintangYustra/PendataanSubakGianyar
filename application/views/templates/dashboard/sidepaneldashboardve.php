@@ -7,7 +7,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php base_url()?>DashboardHome">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php base_url()?>DashboardVerifikasiHome">
                 <div class="sidebar-brand-icon" style="">
                     <img src="assets/images/LogoSubakSmalll.png" alt="">
                 </div>
@@ -30,21 +30,15 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardHome">
+                <a class="nav-link" href="<?php base_url()?>DashboardVerifikasiHome">
                     <i class="fas fa-fw fa fa-home"></i>
                     <span>Home</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardSubakTerdata">
-                    <i class="fas fa-fw fa fa-table"></i>
-                    <span>Subak Terdata: <?=$data['jumlahsubak'] = $this->SubakModel->get_total_subak(); $jumlahsubak;?></span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardTambahData">
-                    <i class="fas fa-fw fa fa-plus-square"></i>
-                    <span>Tambah Data</span></a>
+                <a class="nav-link" href="<?php base_url()?>DashboardVerifikasiList">
+                    <i class="fas fa-fw fa fa-check-square"></i>
+                    <span>Verifikasi Data</span></a>
             </li>
 
             <li class="nav-item">

@@ -19,9 +19,7 @@
         <td><?php echo $row->kriteria_subak; ?></td>
         <td><?php echo $row->verifikasi; ?></td>
         <td>
-          <a href="<?php echo base_url('DashboardSubakTerdata/DashboardViewData/' . $row->id_subak); ?>" class="btn btn-info">Detail</a>
-          <a href="<?php echo base_url('DashboardSubakTerdata/MasukHalaman/' . $row->id_subak); ?>" class="btn btn-warning">Update</a>
-          <!-- <a href="<?php echo base_url('DashboardSubakTerdata/VerifikasiDataSubak/' . $row->id_subak); ?>" class="btn btn-primary">Verifikasi</a> -->
+          <a href="<?php echo base_url('DashboardVerifikasiList/VerifikasiDataSubak/' . $row->id_subak); ?>" class="btn btn-primary">Verifikasi</a>
         </td>
       <?php endforeach ?>
 
