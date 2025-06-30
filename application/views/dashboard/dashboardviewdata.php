@@ -257,12 +257,10 @@
                 <div class="row">
                     <?php foreach ($perahyanganpurabeduguladafotopura as $foto): ?>
                         <div class="col-md-3 mb-3">
-                            <div class="card">
                                 <img src="<?= base_url('./application/upload/foto_pura/' . $foto) ?>" class="card-img-top" alt="Foto Pura" style="height: 200px; object-fit: cover;">
                                 <div class="card-body p-2 text-center">
                                     <small><?= $foto ?></small>
                                 </div>
-                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
