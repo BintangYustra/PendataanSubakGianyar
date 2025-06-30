@@ -232,11 +232,31 @@
                 }
                 </script>   
 
-
                 <div class="mb-3">
-                    <label class="form-label">Upload/Lampirkan 3 Foto</label>
-                    <input type="file" name="foto_pura2[]" multiple>
-                </div>
+                    <label class="form-label">Upload Foto</label>
+                    <div id="fotoWrapper">
+                        <div class="input-group mb-2">
+                            <input type="file" class="form-control" name="foto_pura[]">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="tambahFotoPura()">+Tambah File Foto</button>
+                </div>  
+                <script>
+                function tambahFotoPura() {
+                    const wrapper = document.getElementById('fotoWrapper');
+                    const newRow = document.createElement('div');
+                    newRow.className = 'input-group mb-2';
+                    newRow.innerHTML = `
+                            <input type="file" class="form-control" name="foto_pura[]">                    `;
+                    wrapper.appendChild(newRow);
+                }
+                </script>   
+
+                <!-- <div class="mb-3">
+                    <label class="form-label">Upload Foto Pura</label>
+                    <input type="file" name="foto_pura[]" class="form-control" multiple>
+                </div> -->
+
 
                 <div class="mb-3 d-flex flex-wrap gap-2" id="preview_foto"></div>
 
@@ -283,9 +303,25 @@
                                 <input type="text" class="form-control" name="hari_piodalan_wali2">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Upload 3 Foto</label>
-                                <input type="file" class="form-control" name="foto_pura2[]" multiple>
-                            </div>
+                                <label class="form-label">Upload Foto</label>
+                                <div id="fotoWrapper2">
+                                    <div class="input-group mb-2">
+                                        <input type="file" class="form-control" name="foto_pura2[]">
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="tambahFotoPura2()">+Tambah File Foto</button>
+                            </div>  
+                            <script>
+                            function tambahFotoPura2() {
+                                const wrapper = document.getElementById('fotoWrapper2');
+                                const newRow = document.createElement('div');
+                                newRow.className = 'input-group mb-2';
+                                newRow.innerHTML = `
+                                        <input type="file" class="form-control" name="foto_pura2[]">                    `;
+                                wrapper.appendChild(newRow);
+                            }
+                            </script>   
+
                         </div>
                     </div>
                     <div class="mb-3">
@@ -318,9 +354,24 @@
                                 <input type="text" class="form-control" name="hari_piodalan_wali23">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Upload 3 Foto</label>
-                                <input type="file" class="form-control" name="foto_pura2[]" multiple>
-                            </div>
+                                <label class="form-label">Upload Foto</label>
+                                <div id="fotoWrapper3">
+                                    <div class="input-group mb-2">
+                                        <input type="file" class="form-control" name="foto_pura3[]">
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="tambahFotoPura3()">+Tambah File Foto</button>
+                            </div>  
+                            <script>
+                            function tambahFotoPura3() {
+                                const wrapper = document.getElementById('fotoWrapper3');
+                                const newRow = document.createElement('div');
+                                newRow.className = 'input-group mb-2';
+                                newRow.innerHTML = `
+                                        <input type="file" class="form-control" name="foto_pura3[]">                    `;
+                                wrapper.appendChild(newRow);
+                            }
+                            </script>  
                         </div>
                     </div>
                     <div class="mb-3">
@@ -353,9 +404,24 @@
                                 <input type="text" class="form-control" name="hari_piodalan_wali24">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Upload 3 Foto</label>
-                                <input type="file" class="form-control" name="foto_pura2[]" multiple>
-                            </div>
+                                <label class="form-label">Upload Foto</label>
+                                <div id="fotoWrapper4">
+                                    <div class="input-group mb-2">
+                                        <input type="file" class="form-control" name="foto_pura4[]">
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="tambahFotoPura3()">+Tambah File Foto</button>
+                            </div>  
+                            <script>
+                            function tambahFotoPura3() {
+                                const wrapper = document.getElementById('fotoWrapper4');
+                                const newRow = document.createElement('div');
+                                newRow.className = 'input-group mb-2';
+                                newRow.innerHTML = `
+                                        <input type="file" class="form-control" name="foto_pura4[]">                    `;
+                                wrapper.appendChild(newRow);
+                            }
+                            </script>  
                         </div>
                     </div>
                 </div>

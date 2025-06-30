@@ -142,10 +142,60 @@ class DashboardTambahData extends CI_Controller {
             }
         }
         
-        // FOTO PURA
-        // FOTO PURA 2
-        // FOTO PURA 3
-        // FOTO PURA 4
+        // UPLOAD FOTO PURA
+        $files = $_FILES;
+        $count = count($_FILES['foto_pura']['name']);
+        $config['upload_path'] = './application/upload/foto_pura/';
+        $config['allowed_types'] = 'jpg|jpeg|png';
+        $config['max_size'] = 10000;
+        $this->load->library('upload');
+        for ($i = 0; $i < $count; $i++) {
+            if (!empty($_FILES['foto_pura']['name'][$i])) {
+            // Set file untuk diupload satu per satu
+                $_FILES['file']['name']     = $files['foto_pura']['name'][$i];
+                $_FILES['file']['type']     = $files['foto_pura']['type'][$i];
+                $_FILES['file']['tmp_name'] = $files['foto_pura']['tmp_name'][$i];
+                $_FILES['file']['error']    = $files['foto_pura']['error'][$i];
+                $_FILES['file']['size']     = $files['foto_pura']['size'][$i];
+
+                $this->upload->initialize($config);
+
+                if ($this->upload->do_upload('file')) {
+                    $uploaded_data = $this->upload->data();
+                    $nama_file = $uploaded_data['file_name'];
+
+                // Simpan ke database
+                    $this->SubakModel->insert_tb_perahyangan_foto_pura([
+                        'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
+                        'foto_pura' => $nama_file
+                    ]);
+                } else {
+                    // Jika gagal upload, tampilkan error (bisa juga disimpan ke log)
+                    echo $this->upload->display_errors();
+                }
+            }
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // PAWONGAN
         $data_pawongan = [

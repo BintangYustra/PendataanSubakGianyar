@@ -47,6 +47,14 @@ class SubakModel extends CI_Model {
         $this->db->insert('tb_foto_pura2', $data);
     }
 
+    public function insert_tb_perahyangan_foto_pura3($data) {
+        $this->db->insert('tb_foto_pura3', $data);
+    }
+
+    public function insert_tb_perahyangan_foto_pura4($data) {
+        $this->db->insert('tb_foto_pura4', $data);
+    }
+
     public function insert_tb_perahyangan_aci_aci_subak($data) {
         $this->db->insert('tb_aci_aci', $data);
     }
