@@ -429,5 +429,10 @@ class SubakModel extends CI_Model {
         return $this->db->count_all_results('tb_subak');
     }
 
+
+    public function count_all_subak() {
+    return $this->db->count_all('tb_subak');
+}
+
 }
 
