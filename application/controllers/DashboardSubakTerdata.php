@@ -77,11 +77,17 @@ class DashboardSubakTerdata extends CI_Controller {
         $this->db->trans_start();
         
         try {
+            // Cek status verifikasi sebelum update
+            $current_status = $this->_get_current_verification_status($id_subak);
+            
             // Update tabel-tabel utama
             $this->_update_main_tables($id_subak);
             
             // Update tabel-tabel relasi (array data)
             $this->_update_relation_tables($id_subak);
+            
+            // Reset verifikasi jika data yang terverifikasi diubah
+            $this->_reset_verification_if_needed($id_subak, $current_status);
             
             // Complete transaction
             $this->db->trans_complete();
@@ -90,7 +96,12 @@ class DashboardSubakTerdata extends CI_Controller {
                 throw new Exception('Transaction failed');
             }
             
-            $this->session->set_flashdata('success', 'Data berhasil diupdate');
+            // Pesan berbeda jika verifikasi direset
+            if ($current_status == 'Terverifikasi') {
+                $this->session->set_flashdata('success', 'Data berhasil diupdate. Status verifikasi telah direset ke "Belum Terverifikasi".');
+            } else {
+                $this->session->set_flashdata('success', 'Data berhasil diupdate');
+            }
             
         } catch (Exception $e) {
             log_message('error', 'Update failed: ' . $e->getMessage());
@@ -326,6 +337,33 @@ class DashboardSubakTerdata extends CI_Controller {
     private function _get_pura_bedugul_ada_id($id_subak) {
         $row = $this->SubakModel->get_perahyanganpurabedugulada_by_id($id_subak);
         return $row ? $row->id_perahyangan_pura_bedugul_ada : null;
+    }
+    
+    /**
+     * Get current verification status
+     */
+    private function _get_current_verification_status($id_subak) {
+        $subak = $this->SubakModel->get_subak_by_id($id_subak);
+        return $subak ? $subak->verifikasi : null;
+    }
+    
+    /**
+     * Reset verifikasi ke "Belum Terverifikasi" jika data sudah terverifikasi diubah
+     */
+    private function _reset_verification_if_needed($id_subak, $current_status) {
+        // Hanya reset jika status saat ini adalah "Terverifikasi"
+        if (in_array($current_status, ['Terverifikasi', 'terverifikasi', 'Diterima', 'diterima'])) {
+            
+            // Cek apakah user mengubah status verifikasi secara manual
+            $manual_verification = $this->input->post('verifikasi');
+            
+            // Jika user tidak mengubah verifikasi secara manual, auto-reset
+            if (empty($manual_verification) || $manual_verification == $current_status) {
+                $this->SubakModel->update_tb_subak($id_subak, [
+                    'verifikasi' => 'Belum Terverifikasi'
+                ]);
+            }
+        }
     }
     
     /**
