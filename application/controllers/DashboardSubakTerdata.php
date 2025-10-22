@@ -15,28 +15,19 @@ class DashboardSubakTerdata extends CI_Controller {
         // }
     }
     
-    /**
-     * Halaman index dengan pagination
-     */
     public function index() {
         $data['judul'] = 'Dashboard';
-        
-        // Konfigurasi pagination
         $config = $this->_get_pagination_config();
         $this->pagination->initialize($config);
         
-        // Ambil data
         $data['start'] = $this->uri->segment(3) ?? 0;
         $data['totalsubak'] = $this->SubakModel->pagination($config['per_page'], $data['start']);
         $data['link'] = $this->pagination->create_links();
         
-        // Load views
         $this->_load_dashboard_views('dashboard/dashboardsubakterdata', $data);
     }
     
-    /**
-     * View detail data subak
-     */
+    // View semua data subak pada satu halaman
     public function DashboardViewData($id_subak) {
         $data = $this->_get_complete_subak_data($id_subak);
         

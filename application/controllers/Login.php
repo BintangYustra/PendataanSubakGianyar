@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 
     public function index() {
-        $this->load->view('landing/login'); // Form login
+        $this->load->view('landing/login');
     }
 
     public function login_action() {
