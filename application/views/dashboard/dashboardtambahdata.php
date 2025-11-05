@@ -236,7 +236,7 @@
                     <label class="form-label">Upload Foto</label>
                     <div id="fotoWrapper">
                         <div class="input-group mb-2">
-                            <input type="file" class="form-control" name="foto_pura[]">
+                            <input type="file" class="form-control" name="foto_pura[]" multiple>
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary btn-sm" onclick="tambahFotoPura()">+Tambah File Foto</button>
@@ -251,12 +251,6 @@
                     wrapper.appendChild(newRow);
                 }
                 </script>   
-
-                <!-- <div class="mb-3">
-                    <label class="form-label">Upload Foto Pura</label>
-                    <input type="file" name="foto_pura[]" class="form-control" multiple>
-                </div> -->
-
 
                 <div class="mb-3 d-flex flex-wrap gap-2" id="preview_foto"></div>
 

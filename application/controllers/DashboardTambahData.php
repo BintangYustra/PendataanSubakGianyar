@@ -179,24 +179,7 @@ class DashboardTambahData extends CI_Controller {
         
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
         // PAWONGAN
         $data_pawongan = [
             'id_subak' => $id_subak,
