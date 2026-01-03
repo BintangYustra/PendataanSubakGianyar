@@ -29,7 +29,9 @@
 </head>
 <form action="<?= base_url('DashboardSubakTerdata/DashboardUpdateDataSubak/' . $subak->id_subak) ?>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id_subak" value="<?= $subak->id_subak ?>">
-
+    </div>
+        <input type="hidden" name="verifikasi" value="Data Diperbarui"> <!--Memberi atribut 'Data Diperbarui' pada database saat pertama kali mengirim data  -->
+    <div class="mb-3">
     <div class="container mt-5">
         <h2 class="mb-4 text-center">Update Subak (<?= $subak->nama_subak ?>)</h2>
 

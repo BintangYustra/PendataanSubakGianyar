@@ -37,6 +37,8 @@
                         <option value="Belum Terverifikasi">Belum Terverifikasi</option>
                         <option value="Terverifikasi">Terverifikasi</option>
                         <option value="Data Ditolak">Data Ditolak</option>
+                        <option value="Data Diperbarui">Data Diperbarui</option>
+                        <option value="Data Tidak Valid">Data Tidak Valid</option>
                     </select>
                 </div>
             <button type="submit" class="btn btn-primary mt-2">Simpan</button>

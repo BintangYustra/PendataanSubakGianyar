@@ -1,545 +1,500 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+class DashboardSubakTerdata	 extends CI_Controller {
 
-class DashboardSubakTerdata extends CI_Controller {
-
-    public function __construct() {
+	public function __construct() {
         parent::__construct();
         $this->load->model('SubakModel');
-        $this->load->library(['pagination', 'form_validation', 'session']);
-        $this->load->helper(['url', 'security']);
-        
-        // Uncomment untuk proteksi login
-        // if (!$this->session->userdata('logged_in')) {
-        //     redirect('login');
-        // }
     }
-    
-    public function index() {
-        $data['judul'] = 'Dashboard';
-        $config = $this->_get_pagination_config();
+	
+	public function index()
+	{
+		$data['judul'] = 'List Data';
+		$data['totalsubak'] = $this->SubakModel-> get_all_subak();
+	
+		$this -> load -> library('pagination');
+		$config['base_url'] = 'http://localhost/PendataanSubakGianyar/DashboardSubakTerdata/index';
+		$config['per_page'] = 50;
+		$data['start'] = $this -> uri -> segment(3);
         $this->pagination->initialize($config);
-        
-        $data['start'] = $this->uri->segment(3) ?? 0;
-        $data['totalsubak'] = $this->SubakModel->pagination($config['per_page'], $data['start']);
-        $data['link'] = $this->pagination->create_links();
-        
-        $this->_load_dashboard_views('dashboard/dashboardsubakterdata', $data);
-    }
-    
-    // View semua data subak pada satu halaman
+        $data['totalsubak'] = $this-> SubakModel -> pagination($config['per_page'] ,$data['start']);
+		$data['link'] =  $this->pagination->create_links();
+		echo $this->pagination->create_links();
+
+		$this->load->view('templates/dashboard/headerdashboard', $data);
+		$this->load->view('templates/dashboard/sidepaneldashboard');
+		$this->load->view('dashboard/dashboardsubakterdata',$data);
+		$this->load->view('templates/dashboard/footerdashboard');
+	}
+	
     public function DashboardViewData($id_subak) {
-        $data = $this->_get_complete_subak_data($id_subak);
-        
+        $data['subak'] = $this->SubakModel->get_subak_by_id($id_subak);
+		$data['alamat'] = $this->SubakModel->get_alamat_by_id($id_subak);
+		$data['prajuru'] = $this->SubakModel->get_prajuru_by_id($id_subak);
+		// $data['perahyangan'] = $this->SubakModel->get_perahyangan_by_id($id_subak);
+		// $data['perahyanganpurabedugulada'] = $this->SubakModel->get_perahyanganpurabedugulada_by_id($id_subak);
+		// $data['perahyanganpurabeduguladaaciaci'] = $this->SubakModel->get_perahyangan_aci_aci_by_id($id_subak);
+		// $data['perahyanganpurabeduguladainventaris'] = $this->SubakModel->get_perahyangan_inventaris_by_id($id_subak);
+		// $data['perahyanganpurabeduguladafotopura'] = $this->SubakModel->get_perahyangan_foto_pura_by_id($id_subak);
+		// $data['perahyanganpurabedugultidakada'] = $this->SubakModel->get_perahyanganpurabedugultidakada_by_id($id_subak);
+		// $data['perahyanganpurabedugultidakada2'] = $this->SubakModel->get_perahyanganpurabedugultidakada2_by_id($id_subak);
+		// $data['perahyanganpurabedugultidakada3'] = $this->SubakModel->get_perahyanganpurabedugultidakada3_by_id($id_subak);
+		// $data['perahyanganpurabedugultidakadafotopura2'] = $this->SubakModel->get_perahyangan_foto_pura_by_id2($id_subak);
+		$data['pawongan'] = $this->SubakModel->get_pawongan_by_id($id_subak);
+		$data['pawongannamapenyakap'] = $this->SubakModel->get_pawongan_nama_penyakap_by_id($id_subak);
+		$data['pawongannamaperarem'] = $this->SubakModel->get_pawongan_nama_perarem_by_id($id_subak);
+		$data['palemahan'] = $this->SubakModel->get_palemahan_by_id($id_subak);
+		$data['palemahantanamanpokok'] = $this->SubakModel->get_palemahan_tanaman_pokok_by_id($id_subak);
+		$data['palemahanjenistanamanpokok'] = $this->SubakModel->get_palemahan_jenis_tanaman_pokok_by_id($id_subak);
+		$data['palemahanhama'] = $this->SubakModel->get_palemahan_hama_by_id($id_subak);
+		$data['palemahanbantaunpemerintah'] = $this->SubakModel->get_palemahan_bantuan_pemerintah_by_id($id_subak);
+		
         if (empty($data['subak'])) {
             show_404();
         }
-        
-        $this->load->view('dashboard/dashboardviewdata', $data);
+
+        $this->load->view('/dashboard/dashboardviewdata', $data);
     }
-    
-    /**
-     * Halaman update data
-     */
-    public function MasukHalaman($id_subak) {
-        $data = $this->_get_complete_subak_data($id_subak);
+	
+
+	public function MasukHalaman($id_subak){
+        $data['subak'] = $this->SubakModel->get_subak_by_id($id_subak);
+		$data['alamat'] = $this->SubakModel->get_alamat_by_id($id_subak);
+		$data['prajuru'] = $this->SubakModel->get_prajuru_by_id($id_subak);
+		$data['perahyangan'] = $this->SubakModel->get_perahyangan_by_id($id_subak);
+		// $data['perahyanganpurabedugulada'] = $this->SubakModel->get_perahyanganpurabedugulada_by_id($id_subak);
+		// $data['perahyanganpurabeduguladaaciaci'] = $this->SubakModel->get_perahyangan_aci_aci_by_id($id_subak);
+		// $data['perahyanganpurabeduguladainventaris'] = $this->SubakModel->get_perahyangan_inventaris_by_id($id_subak);
+		// $data['perahyanganpurabeduguladafotopura'] = $this->SubakModel->get_perahyangan_foto_pura_by_id($id_subak);
+		// $data['perahyanganpurabedugultidakada'] = $this->SubakModel->get_perahyanganpurabedugultidakada_by_id($id_subak);
+		// $data['perahyanganpurabedugultidakada2'] = $this->SubakModel->get_perahyanganpurabedugultidakada2_by_id($id_subak);
+		// $data['perahyanganpurabedugultidakada3'] = $this->SubakModel->get_perahyanganpurabedugultidakada3_by_id($id_subak);
+		// $data['perahyanganpurabedugultidakadafotopura2'] = $this->SubakModel->get_perahyangan_foto_pura_by_id2($id_subak);
+		$data['pawongan'] = $this->SubakModel->get_pawongan_by_id($id_subak);
+		$data['pawongannamapenyakap'] = $this->SubakModel->get_pawongan_nama_penyakap_by_id($id_subak);
+		$data['pawongannamaperarem'] = $this->SubakModel->get_pawongan_nama_perarem_by_id($id_subak);
+		$data['palemahan'] = $this->SubakModel->get_palemahan_by_id($id_subak);
+		$data['palemahantanamanpokok'] = $this->SubakModel->get_palemahan_tanaman_pokok_by_id($id_subak);
+		$data['palemahanjenistanamanpokok'] = $this->SubakModel->get_palemahan_jenis_tanaman_pokok_by_id($id_subak);
+		$data['palemahanhama'] = $this->SubakModel->get_palemahan_hama_by_id($id_subak);
+		$data['palemahanbantaunpemerintah'] = $this->SubakModel->get_palemahan_bantuan_pemerintah_by_id($id_subak);
+		$this->load->view('/dashboard/dashboardupdatedata', $data);	
+	}
+
+	public function MultiTable($id_perahyangan){
+
+	}
+	
+    public function DashboardUpdateDataSubak($id_subak)
+    {		
+		$id_subak = $this->input->post('id_subak');
+		$update_data_subak = [	
+			'id_subak' => $id_subak,
+			'nama_subak' => $this->input->post('nama_subak'),
+			'kriteria_subak' => $this->input->post('kriteria_subak'),
+			'nomor_akte_notaris' => $this->input->post('nomor_akte_notaris'),
+			'npwp' => $this->input->post('npwp'),
+		];
+		$this->SubakModel->update_tb_subak($id_subak, $update_data_subak);
+
+		$update_tb_alamat_subak = [
+			'br_lingkungan_subak' => $this->input->post('br_lingkungan_subak'),
+			'desa_subak' => $this->input->post('desa_subak'),
+			'kecamatan_subak' => $this->input->post('kecamatan_subak'),
+			'kabupaten_subak' => $this->input->post('kabupaten_subak'),
+			'kode_pos' => $this->input->post('kode_pos'),
+		];
+		$this->SubakModel->update_tb_alamat_subak($id_subak, $update_tb_alamat_subak);
         
-        if (empty($data['subak'])) {
-            show_404();
-        }
-        
-        $this->load->view('dashboard/dashboardupdatedata', $data);    
-    }
-    
-    /**
-     * Proses update data subak
-     */
-    public function DashboardUpdateDataSubak() {
-        $id_subak = $this->input->post('id_subak');
-        
-        // Validasi
-        if (!$this->_validate_update_form()) {
-            $this->session->set_flashdata('error', validation_errors());
-            redirect('DashboardSubakTerdata/MasukHalaman/' . $id_subak);
-            return;
-        }
-        
-        // Mulai transaction
-        $this->db->trans_start();
-        
-        try {
-            // Cek status verifikasi sebelum update
-            $current_status = $this->_get_current_verification_status($id_subak);
-            
-            // Update tabel-tabel utama
-            $this->_update_main_tables($id_subak);
-            
-            // Update tabel-tabel relasi (array data)
-            $this->_update_relation_tables($id_subak);
-            
-            // Reset verifikasi jika data yang terverifikasi diubah
-            $this->_reset_verification_if_needed($id_subak, $current_status);
-            
-            // Complete transaction
-            $this->db->trans_complete();
-            
-            if ($this->db->trans_status() === FALSE) {
-                throw new Exception('Transaction failed');
-            }
-            
-            // Pesan berbeda jika verifikasi direset
-            if ($current_status == 'Terverifikasi') {
-                $this->session->set_flashdata('success', 'Data berhasil diupdate. Status verifikasi telah direset ke "Belum Terverifikasi".');
-            } else {
-                $this->session->set_flashdata('success', 'Data berhasil diupdate');
-            }
-            
-        } catch (Exception $e) {
-            log_message('error', 'Update failed: ' . $e->getMessage());
-            $this->session->set_flashdata('error', 'Gagal update data: ' . $e->getMessage());
-        }
-        
-        redirect('DashboardSubakTerdata');
-    }
-    
-    // ========================================================================
-    // PRIVATE HELPER METHODS
-    // ========================================================================
-    
-    /**
-     * Ambil semua data subak lengkap
-     */
-    private function _get_complete_subak_data($id_subak) {
-        return [
-            'subak' => $this->SubakModel->get_subak_by_id($id_subak),
-            'alamat' => $this->SubakModel->get_alamat_by_id($id_subak),
-            'prajuru' => $this->SubakModel->get_prajuru_by_id($id_subak),
-            'perahyangan' => $this->SubakModel->get_perahyangan_by_id($id_subak),
-            'perahyanganpurabedugulada' => $this->SubakModel->get_perahyanganpurabedugulada_by_id($id_subak),
-            'perahyanganpurabeduguladaaciaci' => $this->SubakModel->get_perahyangan_aci_aci_by_id($id_subak),
-            'perahyanganpurabeduguladainventaris' => $this->SubakModel->get_perahyangan_inventaris_by_id($id_subak),
-            'perahyanganpurabeduguladafotopura' => $this->SubakModel->get_perahyangan_foto_pura_by_id($id_subak),
-            'perahyanganpurabedugultidakada' => $this->SubakModel->get_perahyanganpurabedugultidakada_by_id($id_subak),
-            'perahyanganpurabedugultidakada2' => $this->SubakModel->get_perahyanganpurabedugultidakada2_by_id($id_subak),
-            'perahyanganpurabedugultidakada3' => $this->SubakModel->get_perahyanganpurabedugultidakada3_by_id($id_subak),
-            'perahyanganpurabedugultidakadafotopura2' => $this->SubakModel->get_perahyangan_foto_pura_by_id2($id_subak),
-            'pawongan' => $this->SubakModel->get_pawongan_by_id($id_subak),
-            'pawongannamapenyakap' => $this->SubakModel->get_pawongan_nama_penyakap_by_id($id_subak),
-            'pawongannamaperarem' => $this->SubakModel->get_pawongan_nama_perarem_by_id($id_subak),
-            'palemahan' => $this->SubakModel->get_palemahan_by_id($id_subak),
-            'palemahantanamanpokok' => $this->SubakModel->get_palemahan_tanaman_pokok_by_id($id_subak),
-            'palemahanjenistanamanpokok' => $this->SubakModel->get_palemahan_jenis_tanaman_pokok_by_id($id_subak),
-            'palemahanhama' => $this->SubakModel->get_palemahan_hama_by_id($id_subak),
-            'palemahanbantaunpemerintah' => $this->SubakModel->get_palemahan_bantuan_pemerintah_by_id($id_subak),
-        ];
-    }
-    
-    /**
-     * Konfigurasi pagination
-     */
-    private function _get_pagination_config() {
-        $total_rows = $this->SubakModel->count_all_subak(); // Method ini harus ditambahkan di model
-        
-        $config['base_url'] = base_url('DashboardSubakTerdata/index');
-        $config['total_rows'] = $total_rows;
-        $config['per_page'] = 50;
-        $config['uri_segment'] = 3;
-        
-        // Styling pagination (Bootstrap 4/5)
-        $config['full_tag_open'] = '<ul class="pagination">';
-        $config['full_tag_close'] = '</ul>';
-        $config['first_link'] = 'First';
-        $config['last_link'] = 'Last';
-        $config['first_tag_open'] = '<li class="page-item">';
-        $config['first_tag_close'] = '</li>';
-        $config['prev_link'] = '&laquo';
-        $config['prev_tag_open'] = '<li class="page-item">';
-        $config['prev_tag_close'] = '</li>';
-        $config['next_link'] = '&raquo';
-        $config['next_tag_open'] = '<li class="page-item">';
-        $config['next_tag_close'] = '</li>';
-        $config['last_tag_open'] = '<li class="page-item">';
-        $config['last_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
-        $config['cur_tag_close'] = '</a></li>';
-        $config['num_tag_open'] = '<li class="page-item">';
-        $config['num_tag_close'] = '</li>';
-        $config['attributes'] = ['class' => 'page-link'];
-        
-        return $config;
-    }
-    
-    /**
-     * Load dashboard views
-     */
-    private function _load_dashboard_views($content_view, $data = []) {
-        $this->load->view('templates/dashboard/headerdashboard', $data);
-        $this->load->view('templates/dashboard/sidepaneldashboard');
-        $this->load->view($content_view, $data);
-        $this->load->view('templates/dashboard/footerdashboard');
-    }
-    
-    /**
-     * Validasi form update
-     */
-    private function _validate_update_form() {
-        $this->form_validation->set_rules('id_subak', 'ID Subak', 'required|trim');
-        $this->form_validation->set_rules('nama_subak', 'Nama Subak', 'trim');
-        $this->form_validation->set_rules('pekaseh_hp_wa', 'No HP Pekaseh', 'trim|numeric');
-        $this->form_validation->set_rules('petajuh_hp_wa', 'No HP Petajuh', 'trim|numeric');
-        $this->form_validation->set_rules('penyarikan_hp_wa', 'No HP Penyarikan', 'trim|numeric');
-        
-        return $this->form_validation->run();
-    }
-    
-    /**
-     * Helper untuk prepare data update (hanya field yang diisi)
-     */
-    private function _prepare_update_data($fields) {
-        $data = [];
-        foreach ($fields as $field) {
-            $value = $this->input->post($field);
-            if (!empty($value) || $value === '0') {
-                $data[$field] = $this->security->xss_clean($value);
-            }
-        }
-        return $data;
-    }
-    
-    /**
-     * Update semua tabel utama
-     */
-    private function _update_main_tables($id_subak) {
-        // Update tb_subak
-        $subak_fields = ['nama_subak', 'kriteria_subak', 'nomor_akte_notaris', 'npwp', 'verifikasi'];
-        $update_subak = $this->_prepare_update_data($subak_fields);
-        if (!empty($update_subak)) {
-            $this->SubakModel->update_tb_subak($id_subak, $update_subak);
-        }
-        
-        // Update tb_alamat_subak
-        $alamat_fields = ['br_lingkungan_subak', 'desa_subak', 'kecamatan_subak', 'kabupaten_subak', 'kode_pos'];
-        $update_alamat = $this->_prepare_update_data($alamat_fields);
-        if (!empty($update_alamat)) {
-            $this->SubakModel->update_tb_alamat_subak($id_subak, $update_alamat);
-        }
-        
-        // Update tb_prajuru
-        $prajuru_fields = [
-            'masa_bhakti_ayahan_start', 'masa_bhakti_ayahan_end',
-            'pekaseh_nama', 'pekaseh_npwp', 'pekaseh_hp_wa',
-            'petajuh_nama', 'petajuh_npwp', 'petajuh_hp_wa',
-            'penyarikan_nama', 'penyarikan_npwp', 'penyarikan_hp_wa'
-        ];
-        $update_prajuru = $this->_prepare_update_data($prajuru_fields);
-        if (!empty($update_prajuru)) {
-            $this->SubakModel->update_tb_prajuru($id_subak, $update_prajuru);
-        }
-        
-        // Update tb_perahyangan
-        $perahyangan_fields = ['ketersediaan_pura_bedugul'];
-        $update_perahyangan = $this->_prepare_update_data($perahyangan_fields);
-        if (!empty($update_perahyangan)) {
-            $this->SubakModel->update_tb_perahyangan($id_subak, $update_perahyangan);
-        }
-        
-        // Update tb_perahyangan_pura_bedugul_ada
-        $pura_fields = [
-            'nama_pura', 'pura_bedugul_disungsung', 'pura_bedugul_disungsung_lain',
-            'alamat_pura_bedugul', 'piodalan_wali_pertahun', 'hari_piodalan_wali', 'jumlah_pelinggih'
-        ];
-        $update_pura = $this->_prepare_update_data($pura_fields);
-        if (!empty($update_pura)) {
-            $this->SubakModel->update_tb_perahyangan_pura_bedugul_ada($id_subak, $update_pura);
-        }
-        
-        // Update tb_pawongan
-        $pawongan_fields = [
-            'jumlah_krama_pemilik_lahan', 'jumlah_krama_penyakap',
-            'awig_awig', 'perarem', 'perarem_alih_fungsi'
-        ];
-        $update_pawongan = $this->_prepare_update_data($pawongan_fields);
-        if (!empty($update_pawongan)) {
-            $this->SubakModel->update_tb_pawongan($id_subak, $update_pawongan);
-        }
-        
-        // Update tb_palemahan
-        $palemahan_fields = [
-            'luas_lahan_awal_ha', 'luas_lahan_sekarang_ha',
-            'panjang_saluran_irigasi_tersier_ml', 'panjang_jalan_usaha_tani_ml',
-            'bale_timbang', 'batas_wilayah_subak_utara', 'batas_wilayah_subak_timur',
-            'batas_wilayah_subak_selatan', 'batas_wilayah_subak_barat',
-            'sumber_aliran_air_das', 'jumlah_dam', 'lokasi_dam',
-            'jumlah_temukuaya', 'lokasi_temukuaya', 'masa_musim_tanam_pertahun', 'tanaman_penyela'
-        ];
-        $update_palemahan = $this->_prepare_update_data($palemahan_fields);
-        if (!empty($update_palemahan)) {
-            $this->SubakModel->update_tb_palemahan($id_subak, $update_palemahan);
-        }
-    }
-    
-    /**
-     * Update tabel-tabel relasi (one-to-many)
-     */
-    private function _update_relation_tables($id_subak) {
-        // Ambil foreign keys
-        $id_pawongan = $this->_get_pawongan_id($id_subak);
-        $id_palemahan = $this->_get_palemahan_id($id_subak);
-        $id_perahyangan_pura_bedugul_ada = $this->_get_pura_bedugul_ada_id($id_subak);
-        
-        // Update inventaris pura
-        $this->_update_inventaris($id_perahyangan_pura_bedugul_ada);
-        
-        // Update aci-aci
-        $this->_update_aci_aci($id_perahyangan_pura_bedugul_ada);
-        
-        // Update nama penyakap
-        $this->_update_nama_penyakap($id_pawongan);
-        
-        // Update nama perarem
-        $this->_update_nama_perarem($id_pawongan);
-        
-        // Update tanaman pokok
-        $this->_update_tanaman_pokok($id_palemahan);
-        
-        // Update jenis tanaman pokok
-        $this->_update_jenis_tanaman_pokok($id_palemahan);
-        
-        // Update hama
-        $this->_update_hama($id_palemahan);
-        
-        // Update bantuan pemerintah
-        $this->_update_bantuan_pemerintah($id_palemahan);
-    }
-    
-    /**
-     * Get ID helper methods
-     */
-    private function _get_pawongan_id($id_subak) {
-        $row = $this->SubakModel->get_pawongan_by_id($id_subak);
-        return $row ? $row->id_pawongan : null;
-    }
-    
-    private function _get_palemahan_id($id_subak) {
-        $row = $this->SubakModel->get_palemahan_by_id($id_subak);
-        return $row ? $row->id_palemahan : null;
-    }
-    
-    private function _get_pura_bedugul_ada_id($id_subak) {
-        $row = $this->SubakModel->get_perahyanganpurabedugulada_by_id($id_subak);
-        return $row ? $row->id_perahyangan_pura_bedugul_ada : null;
-    }
-    
-    /**
-     * Get current verification status
-     */
-    private function _get_current_verification_status($id_subak) {
-        $subak = $this->SubakModel->get_subak_by_id($id_subak);
-        return $subak ? $subak->verifikasi : null;
-    }
-    
-    /**
-     * Reset verifikasi ke "Belum Terverifikasi" jika data sudah terverifikasi diubah
-     */
-    private function _reset_verification_if_needed($id_subak, $current_status) {
-        // Hanya reset jika status saat ini adalah "Terverifikasi"
-        if (in_array($current_status, ['Terverifikasi', 'terverifikasi', 'Diterima', 'diterima'])) {
-            
-            // Cek apakah user mengubah status verifikasi secara manual
-            $manual_verification = $this->input->post('verifikasi');
-            
-            // Jika user tidak mengubah verifikasi secara manual, auto-reset
-            if (empty($manual_verification) || $manual_verification == $current_status) {
-                $this->SubakModel->update_tb_subak($id_subak, [
-                    'verifikasi' => 'Belum Terverifikasi'
-                ]);
-            }
-        }
-    }
-    
-    /**
-     * Update inventaris
-     */
-    private function _update_inventaris($id_perahyangan_pura_bedugul_ada) {
-        if (!$id_perahyangan_pura_bedugul_ada) return;
-        
-        $inventaris = $this->input->post('inventaris');
-        $data_inventaris = [];
-        
-        if (!empty($inventaris) && is_array($inventaris)) {
-            foreach ($inventaris as $item) {
-                if (!empty(trim($item))) {
-                    $data_inventaris[] = ['inventaris' => $this->security->xss_clean($item)];
-                }
-            }
-        }
-        
-        if (!empty($data_inventaris)) {
-            $this->SubakModel->update_inventaris($id_perahyangan_pura_bedugul_ada, $data_inventaris);
-        }
-    }
-    
-    /**
-     * Update aci-aci
-     */
-    private function _update_aci_aci($id_perahyangan_pura_bedugul_ada) {
-        if (!$id_perahyangan_pura_bedugul_ada) return;
-        
-        $aci_aci_subak = $this->input->post('aci_aci_subak');
-        $data_aci_aci = [];
-        
-        if (!empty($aci_aci_subak) && is_array($aci_aci_subak)) {
-            foreach ($aci_aci_subak as $item) {
-                if (!empty(trim($item))) {
-                    $data_aci_aci[] = ['aci_aci_subak' => $this->security->xss_clean($item)];
-                }
-            }
-        }
-        
-        if (!empty($data_aci_aci)) {
-            $this->SubakModel->update_aci_aci($id_perahyangan_pura_bedugul_ada, $data_aci_aci);
-        }
-    }
-    
-    /**
-     * Update nama penyakap
-     */
-    private function _update_nama_penyakap($id_pawongan) {
-        if (!$id_pawongan) return;
-        
-        $nama_penyakap = $this->input->post('nama_penyakap');
-        $tingkat_pendidikan = $this->input->post('tingkat_pendidikan_penyakap');
-        $data_penyakap = [];
-        
-        if (!empty($nama_penyakap) && is_array($nama_penyakap)) {
-            foreach ($nama_penyakap as $i => $nama) {
-                if (!empty(trim($nama)) || !empty($tingkat_pendidikan[$i])) {
-                    $data_penyakap[] = [
-                        'nama_penyakap' => $this->security->xss_clean($nama),
-                        'tingkat_pendidikan_penyakap' => $this->security->xss_clean($tingkat_pendidikan[$i] ?? '')
-                    ];
-                }
-            }
-        }
-        
-        if (!empty($data_penyakap)) {
-            $this->SubakModel->update_nama_penyakap($id_pawongan, $data_penyakap);
-        }
-    }
-    
-    /**
-     * Update nama perarem
-     */
-    private function _update_nama_perarem($id_pawongan) {
-        if (!$id_pawongan) return;
-        
-        $nama_perarem = $this->input->post('nama_perarem');
-        $data_perarem = [];
-        
-        if (!empty($nama_perarem) && is_array($nama_perarem)) {
-            foreach ($nama_perarem as $item) {
-                if (!empty(trim($item))) {
-                    $data_perarem[] = ['nama_perarem' => $this->security->xss_clean($item)];
-                }
-            }
-        }
-        
-        if (!empty($data_perarem)) {
-            $this->SubakModel->update_nama_perarem($id_pawongan, $data_perarem);
-        }
-    }
-    
-    /**
-     * Update tanaman pokok
-     */
-    private function _update_tanaman_pokok($id_palemahan) {
-        if (!$id_palemahan) return;
-        
-        $tanaman_pokok = $this->input->post('tanaman_pokok');
-        $data_tanaman = [];
-        
-        if (!empty($tanaman_pokok) && is_array($tanaman_pokok)) {
-            foreach ($tanaman_pokok as $item) {
-                if (!empty(trim($item))) {
-                    $data_tanaman[] = ['tanaman_pokok' => $this->security->xss_clean($item)];
-                }
-            }
-        }
-        
-        if (!empty($data_tanaman)) {
-            $this->SubakModel->update_tanaman_pokok($id_palemahan, $data_tanaman);
-        }
-    }
-    
-    /**
-     * Update jenis tanaman pokok
-     */
-    private function _update_jenis_tanaman_pokok($id_palemahan) {
-        if (!$id_palemahan) return;
-        
-        $jenis_tanaman = $this->input->post('jenis_tanaman_pokok');
-        $data_jenis = [];
-        
-        if (!empty($jenis_tanaman) && is_array($jenis_tanaman)) {
-            foreach ($jenis_tanaman as $item) {
-                if (!empty(trim($item))) {
-                    $data_jenis[] = ['jenis_tanaman_pokok' => $this->security->xss_clean($item)];
-                }
-            }
-        }
-        
-        if (!empty($data_jenis)) {
-            $this->SubakModel->update_jenis_tanaman_pokok($id_palemahan, $data_jenis);
-        }
-    }
-    
-    /**
-     * Update hama
-     */
-    private function _update_hama($id_palemahan) {
-        if (!$id_palemahan) return;
-        
-        $hama = $this->input->post('nama_hama');
-        $data_hama = [];
-        
-        if (!empty($hama) && is_array($hama)) {
-            foreach ($hama as $item) {
-                if (!empty(trim($item))) {
-                    $data_hama[] = ['nama_hama' => $this->security->xss_clean($item)];
-                }
-            }
-        }
-        
-        if (!empty($data_hama)) {
-            $this->SubakModel->update_hama($id_palemahan, $data_hama);
-        }
-    }
-    
-    /**
-     * Update bantuan pemerintah
-     */
-    private function _update_bantuan_pemerintah($id_palemahan) {
-        if (!$id_palemahan) return;
-        
-        $nama_bantuan = $this->input->post('nama_bantuan');
-        $tahun_bantuan = $this->input->post('tahun_bantuan');
-        $nilai_bantuan = $this->input->post('nilai_rp_bantuan');
-        $data_bantuan = [];
-        
-        if (!empty($nama_bantuan) && is_array($nama_bantuan)) {
-            foreach ($nama_bantuan as $i => $nama) {
-                if (!empty(trim($nama)) || !empty($tahun_bantuan[$i]) || !empty($nilai_bantuan[$i])) {
-                    $data_bantuan[] = [
-                        'nama_bantuan' => $this->security->xss_clean($nama),
-                        'tahun_bantuan' => $this->security->xss_clean($tahun_bantuan[$i] ?? ''),
-                        'nilai_rp_bantuan' => $this->security->xss_clean($nilai_bantuan[$i] ?? '')
-                    ];
-                }
-            }
-        }
-        
-        if (!empty($data_bantuan)) {
-            $this->SubakModel->update_bantuan_pemerintah($id_palemahan, $data_bantuan);
-        }
+		$update_tb_prajuru = [
+			'masa_bhakti_ayahan_start' => $this->input->post('masa_bhakti_ayahan_start'),
+			'masa_bhakti_ayahan_end' => $this->input->post('masa_bhakti_ayahan_end'),
+			'pekaseh_nama' => $this->input->post('pekaseh_nama'),
+			'pekaseh_npwp' => $this->input->post('pekaseh_npwp'),
+			'pekaseh_hp_wa' => $this->input->post('pekaseh_hp_wa'),
+			'petajuh_nama' => $this->input->post('petajuh_nama'),
+			'petajuh_npwp' => $this->input->post('petajuh_npwp'),
+			'petajuh_hp_wa' => $this->input->post('petajuh_hp_wa'),
+			'penyarikan_nama' => $this->input->post('penyarikan_nama'),
+			'penyarikan_npwp' => $this->input->post('penyarikan_npwp'),
+			'penyarikan_hp_wa' => $this->input->post('penyarikan_hp_wa'),
+		];
+		$this->SubakModel->update_tb_prajuru($id_subak, $update_tb_prajuru);
+
+		$update_tb_perahyangan = [
+            'ketersediaan_pura_bedugul' => $this->input->post('ketersediaan_pura_bedugul'),
+		];
+		$this->SubakModel->update_tb_perahyangan($id_subak, $update_tb_perahyangan);
+                
+		// $update_tb_perahyangan_pura_bedugul_ada = [
+		// 	'nama_pura' => $this->input->post('nama_pura'),
+		// 	'pura_bedugul_disungsung' => $this->input->post('pura_bedugul_disungsung'),
+		// 	'pura_bedugul_disungsung_lain' => $this->input->post('pura_bedugul_disungsung_lain'),
+		// 	'alamat_pura_bedugul' => $this->input->post('alamat_pura_bedugul'),
+		// 	'piodalan_wali_pertahun' => $this->input->post('piodalan_wali_pertahun'),
+		// 	'hari_piodalan_wali' => $this->input->post('hari_piodalan_wali'),
+		// 	'jumlah_pelinggih' => $this->input->post('jumlah_pelinggih'),        
+		// ];
+		// $this->SubakModel->update_tb_perahyangan_pura_bedugul_ada($id_subak, $update_tb_perahyangan_pura_bedugul_ada);
+
+
+		$update_tb_pawongan = [
+            'jumlah_krama_pemilik_lahan'=> $this->input->post('jumlah_krama_pemilik_lahan'),
+            'jumlah_krama_penyakap' => $this->input->post('jumlah_krama_penyakap'),
+            'awig_awig' => $this->input->post('awig_awig'),
+            'perarem' => $this->input->post('perarem'),
+            'perarem_alih_fungsi' => $this->input->post('perarem_alih_fungsi'),
+		];
+		$this->SubakModel->update_tb_pawongan($id_subak, $update_tb_pawongan);
+
+		$update_tb_palemahan = [
+            'luas_lahan_awal_ha' => $this->input->post('luas_lahan_awal_ha'),
+            'luas_lahan_sekarang_ha' => $this->input->post('luas_lahan_sekarang_ha'),
+            'panjang_saluran_irigasi_tersier_ml' => $this->input->post('panjang_saluran_irigasi_tersier_ml'),
+            'panjang_jalan_usaha_tani_ml' => $this->input->post('panjang_jalan_usaha_tani_ml'),
+            'bale_timbang' => $this->input->post('bale_timbang'),
+            'batas_wilayah_subak_utara' => $this->input->post('batas_wilayah_subak_utara'),
+            'batas_wilayah_subak_timur' => $this->input->post('batas_wilayah_subak_timur'),
+            'batas_wilayah_subak_selatan' => $this->input->post('batas_wilayah_subak_selatan'),
+            'batas_wilayah_subak_barat' => $this->input->post('batas_wilayah_subak_barat'),
+            'sumber_aliran_air_das' => $this->input->post('sumber_aliran_air_das'),
+            'jumlah_dam' => $this->input->post('jumlah_dam'),
+            'lokasi_dam' => $this->input->post('lokasi_dam'),
+            'jumlah_temukuaya' => $this->input->post('jumlah_temukuaya'),
+            'lokasi_temukuaya' => $this->input->post('lokasi_temukuaya'),
+            'masa_musim_tanam_pertahun' => $this->input->post('masa_musim_tanam_pertahun'),
+            'tanaman_penyela' => $this->input->post('tanaman_penyela'),
+		];
+		$this->SubakModel->update_tb_palemahan($id_subak, $update_tb_palemahan);
+
+
+		// CONTROLLER ARRAY UPDATE
+		$id_pawongan = $this->input->post('id_pawongan');
+		$pawongan_row = $this->SubakModel->get_pawongan_by_id($id_subak);
+		$id_pawongan = $pawongan_row ? $pawongan_row->id_pawongan : null;
+
+		$id_palemahan = $this->input->post('id_palemahan');
+		$palemahan_row = $this->SubakModel->get_palemahan_by_id($id_subak);
+		$id_palemahan = $palemahan_row ? $palemahan_row->id_palemahan : null;
+
+		// $id_perahyangan = $this->input->post('id_perahyangan');
+		// $perahyangan_row = $this->SubakModel->get_perahyangan_by_id($id_subak);
+		// $id_perahyangan = $perahyangan_row ? $perahyangan_row->id_perahyangan : null;
+
+		// $id_perahyangan_pura_bedugul_ada = $this->input->post('id_perahyangan_pura_bedugul_ada');
+		// $pura = $this->SubakModel->get_perahyanganpurabedugulada_by_id($id_perahyangan_pura_bedugul_ada);
+		// $id_perahyangan_pura_bedugul_ada = $pura ? $pura->id_perahyangan_pura_bedugul_ada : null;
+
+		// update inventaris
+		// $inventaris = $this->input->post('inventaris');
+		// $data_inventaris = [];
+		// if (!empty($inventaris)) {
+		// 	foreach ($inventaris as $inventaris) {
+		// 		if (!empty($inventaris)) {
+		// 			$data_inventaris[] = [
+		// 				'inventaris' => $inventaris
+		// 			];
+		// 		}
+		// 	}
+		// }
+		// $this->SubakModel->update_inventaris($id_perahyangan_pura_bedugul_ada, $data_inventaris);
+
+		// update aci-aci
+		// $aci_aci_subak = $this->input->post('aci_aci_subak');
+		// $data_aci_aci_subak = [];
+		// if (!empty($aci_aci_subak)) {
+		// 	foreach ($aci_aci_subak as $aci_aci) {
+		// 		if (!empty($aci_aci)) {
+		// 			$data_aci_aci_subak[] = [
+		// 				'aci_aci_subak' => $aci_aci
+		// 			];
+		// 		}
+		// 	}
+		// }
+		// $this->SubakModel->update_aci_aci($id_perahyangan_pura_bedugul_ada, $data_aci_aci_subak);
+
+		// update nama penyakap + pendidikan
+		$nama_penyakap = $this->input->post('nama_penyakap');
+		$tingkat_pendidikan_penyakap = $this->input->post('tingkat_pendidikan_penyakap');
+		$data_nama_penyakap = [];
+		if (!empty($nama_penyakap)) {
+			foreach ($nama_penyakap as $i => $nama_penyakap) {
+				if (!empty($nama_penyakap) || !empty($tingkat_pendidikan_penyakap[$i])) {
+					$data_nama_penyakap[] = [
+						'nama_penyakap' => $nama_penyakap,
+						'tingkat_pendidikan_penyakap' => $tingkat_pendidikan_penyakap[$i],
+					];
+				}
+			}
+			$this->SubakModel->update_nama_penyakap($id_pawongan, $data_nama_penyakap);
+		}
+
+		// update nama perarem
+		$nama_perarem = $this->input->post('nama_perarem');
+		$data_nama_perarem = [];
+		if (!empty($nama_perarem)) {
+			foreach ($nama_perarem as $perarem) {
+				if (!empty($perarem)) {
+					$data_nama_perarem[] = [
+						'nama_perarem' => $perarem
+					];
+				}
+			}
+			$this->SubakModel->update_nama_perarem($id_pawongan, $data_nama_perarem);
+		}
+
+		// update tanaman pokok
+		$tanaman_pokok = $this->input->post('tanaman_pokok');
+		$data_tanaman_pokok = [];
+		if (!empty($tanaman_pokok)) {
+			foreach ($tanaman_pokok as $tanaman) {
+				if (!empty($tanaman)) {
+					$data_tanaman_pokok[] = [
+						'tanaman_pokok' => $tanaman
+					];
+				}
+			}
+			$this->SubakModel->update_tanaman_pokok($id_palemahan, $data_tanaman_pokok);
+		}
+
+		// update jenis tanaman pokok
+		$jenis_tanaman_pokok = $this->input->post('jenis_tanaman_pokok');
+		$data_jenis_tanaman = [];
+		if (!empty($jenis_tanaman_pokok)) {
+			foreach ($jenis_tanaman_pokok as $jenis) {
+				if (!empty($jenis)) {
+					$data_jenis_tanaman[] = [
+						'jenis_tanaman_pokok' => $jenis
+					];
+				}
+			}
+			$this->SubakModel->update_jenis_tanaman_pokok($id_palemahan, $data_jenis_tanaman);
+		}
+
+		// update hama
+		$hama = $this->input->post('nama_hama');
+		$data_hama = [];
+		if (!empty($hama)) {
+			foreach ($hama as $nama_hama) {
+				if (!empty($nama_hama)) {
+					$data_hama[] = [
+						'nama_hama' => $nama_hama
+					];
+				}
+			}
+			$this->SubakModel->update_hama($id_palemahan, $data_hama);
+		}
+
+		// update bantuan pemerintah
+		$nama_bantuan = $this->input->post('nama_bantuan');
+		$tahun_bantuan = $this->input->post('tahun_bantuan');
+		$nilai_rp_bantuan = $this->input->post('nilai_rp_bantuan');
+		$data_bantuan = [];
+		if (!empty($nama_bantuan)) {
+			foreach ($nama_bantuan as $i => $nama) {
+				if (!empty($nama) || !empty($tahun_bantuan[$i]) || !empty($nilai_rp_bantuan[$i])) {
+					$data_bantuan[] = [
+						'nama_bantuan' => $nama,
+						'tahun_bantuan' => $tahun_bantuan[$i],
+						'nilai_rp_bantuan' => $nilai_rp_bantuan[$i]
+					];
+				}
+			}
+			$this->SubakModel->update_bantuan_pemerintah($id_palemahan, $data_bantuan);
+		}
+
+
+
+		// JIKA SALAH SATU FIELD KOSONG, PAKAI INI UNTUK ADD DATA LANGSUNG KE DATABASE
+		// UPDATE SUBAK EMPTY
+		$update_data_subak = [];
+		if ($this->input->post('nama_subak') != '') {
+			$update_data_subak['nama_subak'] = $this->input->post('nama_subak');
+		}
+		if ($this->input->post('kriteria_subak') != '') {
+			$update_data_subak['kriteria_subak'] = $this->input->post('kriteria_subak');
+		}
+		if ($this->input->post('nomor_akte_notaris') != '') {
+			$update_data_subak['nomor_akte_notaris'] = $this->input->post('nomor_akte_notaris');
+		}
+		if ($this->input->post('npwp') != '') {
+			$update_data_subak['npwp'] = $this->input->post('npwp');
+		}
+		if ($this->input->post('verifikasi') != '') {
+			$update_data_subak['verifikasi'] = $this->input->post('verifikasi');
+		}
+		if (!empty($update_data_subak)) {
+			$this->SubakModel->update_tb_subak($id_subak, $update_data_subak);
+		}
+
+		// UPDATE ALAMAT SUBAK EMPTY
+		$update_tb_alamat_subak = [];
+		if (!empty($this->input->post('br_lingkungan_subak'))) {
+			$update_tb_alamat_subak['br_lingkungan_subak'] = $this->input->post('br_lingkungan_subak');
+		}
+		if (!empty($this->input->post('desa_subak'))) {
+			$update_tb_alamat_subak['desa_subak'] = $this->input->post('desa_subak');
+		}
+		if (!empty($this->input->post('kecamatan_subak'))) {
+			$update_tb_alamat_subak['kecamatan_subak'] = $this->input->post('kecamatan_subak');
+		}
+		if (!empty($this->input->post('kabupaten_subak'))) {
+			$update_tb_alamat_subak['kabupaten_subak'] = $this->input->post('kabupaten_subak');
+		}
+		if (!empty($this->input->post('kode_pos'))) {
+			$update_tb_alamat_subak['kode_pos'] = $this->input->post('kode_pos');
+		}
+		if (!empty($update_tb_alamat_subak)) {
+			$this->SubakModel->update_tb_alamat_subak($id_subak, $update_tb_alamat_subak);
+		}
+
+		// UPDATE PRAJURU SUBAK EMPTY
+		$update_tb_prajuru = [];
+		if (!empty($this->input->post('masa_bhakti_ayahan_start'))) {
+			$update_tb_prajuru['masa_bhakti_ayahan_start'] = $this->input->post('masa_bhakti_ayahan_start');
+		}
+		if (!empty($this->input->post('masa_bhakti_ayahan_end'))) {
+			$update_tb_prajuru['masa_bhakti_ayahan_end'] = $this->input->post('masa_bhakti_ayahan_end');
+		}
+		if (!empty($this->input->post('pekaseh_nama'))) {
+			$update_tb_prajuru['pekaseh_nama'] = $this->input->post('pekaseh_nama');
+		}
+		if (!empty($this->input->post('pekaseh_npwp'))) {
+			$update_tb_prajuru['pekaseh_npwp'] = $this->input->post('pekaseh_npwp');
+		}
+		if (!empty($this->input->post('pekaseh_hp_wa'))) {
+			$update_tb_prajuru['pekaseh_hp_wa'] = $this->input->post('pekaseh_hp_wa');
+		}
+		if (!empty($this->input->post('petajuh_nama'))) {
+			$update_tb_prajuru['petajuh_nama'] = $this->input->post('petajuh_nama');
+		}
+		if (!empty($this->input->post('petajuh_npwp'))) {
+			$update_tb_prajuru['petajuh_npwp'] = $this->input->post('petajuh_npwp');
+		}
+		if (!empty($this->input->post('petajuh_hp_wa'))) {
+			$update_tb_prajuru['petajuh_hp_wa'] = $this->input->post('petajuh_hp_wa');
+		}
+		if (!empty($this->input->post('penyarikan_nama'))) {
+			$update_tb_prajuru['penyarikan_nama'] = $this->input->post('penyarikan_nama');
+		}
+		if (!empty($this->input->post('penyarikan_npwp'))) {
+			$update_tb_prajuru['penyarikan_npwp'] = $this->input->post('penyarikan_npwp');
+		}
+		if (!empty($this->input->post('penyarikan_hp_wa'))) {
+			$update_tb_prajuru['penyarikan_hp_wa'] = $this->input->post('penyarikan_hp_wa');
+		}
+		if (!empty($update_tb_prajuru)) {
+			$this->SubakModel->update_tb_prajuru($id_subak, $update_tb_prajuru);
+		}
+
+		// // UPDATE PERAHYANGAN SUBAK EMPTY
+		// $update_tb_prajuru = [];
+		// if (!empty($this->input->post('ketersediaan_pura_bedugul'))) {
+		// 	$update_tb_prajuru['ketersediaan_pura_bedugul'] = $this->input->post('ketersediaan_pura_bedugul');
+		// }
+		// if (!empty($update_tb_perahyangan)) {
+		// 	$this->SubakModel->update_tb_perahyangan($id_subak, $update_tb_perahyangan);
+		// }
+
+		// // UPDATE PERAHYANGAN PURA BEDUGUL ADA SUBAK EMPTY
+		// $update_tb_perahyangan_pura_bedugul_ada = [];
+		// if (!empty($this->input->post('nama_pura'))) {
+		// 	$nama_pura['ketersediaan_pura_bedugul'] = $this->input->post('nama_pura');
+		// }
+		// if (!empty($update_tb_perahyangan_pura_bedugul_ada)) {
+		// 	$this->SubakModel->update_tb_perahyangan_pura_bedugul_ada($id_perahyangan, $update_tb_perahyangan_pura_bedugul_ada);
+		// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// UPDATE PAWONNGAN SUBAK EMPTY
+		$update_tb_pawongan = [];
+		if (!empty($this->input->post('jumlah_krama_pemilik_lahan'))) {
+			$update_tb_pawongan['jumlah_krama_pemilik_lahan'] = $this->input->post('jumlah_krama_pemilik_lahan');
+		}
+		if (!empty($this->input->post('jumlah_krama_penyakap'))) {
+			$update_tb_pawongan['jumlah_krama_penyakap'] = $this->input->post('jumlah_krama_penyakap');
+		}
+		if (!empty($this->input->post('awig_awig'))) {
+			$update_tb_pawongan['awig_awig'] = $this->input->post('awig_awig');
+		}
+		if (!empty($this->input->post('perarem'))) {
+			$update_tb_pawongan['perarem'] = $this->input->post('perarem');
+		}
+		if (!empty($this->input->post('perarem_alih_fungsi'))) {
+			$update_tb_pawongan['perarem_alih_fungsi'] = $this->input->post('perarem_alih_fungsi');
+		}
+		if (!empty($update_tb_pawongan)) {
+			$this->SubakModel->update_tb_pawongan($id_subak, $update_tb_pawongan);
+		}
+
+		// UPDATE PALEMAHAN SUBAK EMPTY
+		$update_tb_palemahan = [];
+		if (!empty($this->input->post('luas_lahan_awal_ha'))) {
+			$update_tb_palemahan['luas_lahan_awal_ha'] = $this->input->post('luas_lahan_awal_ha');
+		}
+		if (!empty($this->input->post('luas_lahan_sekarang_ha'))) {
+			$update_tb_palemahan['luas_lahan_sekarang_ha'] = $this->input->post('luas_lahan_sekarang_ha');
+		}
+		if (!empty($this->input->post('panjang_saluran_irigasi_tersier_ml'))) {
+			$update_tb_palemahan['panjang_saluran_irigasi_tersier_ml'] = $this->input->post('panjang_saluran_irigasi_tersier_ml');
+		}
+		if (!empty($this->input->post('panjang_jalan_usaha_tani_ml'))) {
+			$update_tb_palemahan['panjang_jalan_usaha_tani_ml'] = $this->input->post('panjang_jalan_usaha_tani_ml');
+		}
+		if (!empty($this->input->post('bale_timbang'))) {
+			$update_tb_palemahan['bale_timbang'] = $this->input->post('bale_timbang');
+		}
+		if (!empty($this->input->post('batas_wilayah_subak_utara'))) {
+			$update_tb_palemahan['batas_wilayah_subak_utara'] = $this->input->post('batas_wilayah_subak_utara');
+		}
+		if (!empty($this->input->post('batas_wilayah_subak_timur'))) {
+			$update_tb_palemahan['batas_wilayah_subak_timur'] = $this->input->post('batas_wilayah_subak_timur');
+		}
+		if (!empty($this->input->post('batas_wilayah_subak_selatan'))) {
+			$update_tb_palemahan['batas_wilayah_subak_selatan'] = $this->input->post('batas_wilayah_subak_selatan');
+		}
+		if (!empty($this->input->post('batas_wilayah_subak_barat'))) {
+			$update_tb_palemahan['batas_wilayah_subak_barat'] = $this->input->post('batas_wilayah_subak_barat');
+		}
+		if (!empty($this->input->post('sumber_aliran_air_das'))) {
+			$update_tb_palemahan['sumber_aliran_air_das'] = $this->input->post('sumber_aliran_air_das');
+		}
+		if (!empty($this->input->post('jumlah_dam'))) {
+			$update_tb_palemahan['jumlah_dam'] = $this->input->post('jumlah_dam');
+		}
+		if (!empty($this->input->post('lokasi_dam'))) {
+			$update_tb_palemahan['lokasi_dam'] = $this->input->post('lokasi_dam');
+		}
+		if (!empty($this->input->post('jumlah_temukuaya'))) {
+			$update_tb_palemahan['jumlah_temukuaya'] = $this->input->post('jumlah_temukuaya');
+		}
+		if (!empty($this->input->post('lokasi_temukuaya'))) {
+			$update_tb_palemahan['lokasi_temukuaya'] = $this->input->post('lokasi_temukuaya');
+		}
+		if (!empty($this->input->post('masa_musim_tanam_pertahun'))) {
+			$update_tb_palemahan['masa_musim_tanam_pertahun'] = $this->input->post('masa_musim_tanam_pertahun');
+		}
+		if (!empty($this->input->post('tanaman_penyela'))) {
+			$update_tb_palemahan['tanaman_penyela'] = $this->input->post('tanaman_penyela');
+		}
+		if (!empty($update_tb_palemahan)) {
+			$this->SubakModel->update_tb_palemahan($id_subak, $update_tb_palemahan);
+		}
+
+		redirect(base_url('DashboardSubakTerdata'));
     }
 }

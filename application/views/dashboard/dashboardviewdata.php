@@ -255,7 +255,14 @@
             <div class="container mt-4">
                 <h6>Daftar Foto Pura</h6>
                 <div class="row">
-
+                    <?php foreach ($perahyanganpurabeduguladafotopura as $foto): ?>
+                        <div class="col-md-3 mb-3">
+                                <img src="<?= base_url('./application/upload/foto_pura/' . $foto) ?>" class="card-img-top" alt="Foto Pura" style="height: 200px; object-fit: cover;">
+                                <div class="card-body p-2 text-center">
+                                    <small><?= $foto ?></small>
+                                </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
@@ -641,8 +648,18 @@
             </div>
 
     </div>
-</div>
+    </div>
+    <hr>
+
+    <div class="card mb-4">
+        <div class="card-header text-white" style="background-color: #3BEBFF;">
+            <h5 class="mb-0"><strong>Komentar Tambahan</strong></h5>
+        </div>
+            <div class="card-body">
+                <p class="card-body border"><?php echo $subak->usul_saran_komentar; ?></p>
+            </div>
+    </div>
+
     <div class="container mb-4">
         <a href="<?php echo base_url('DashboardSubakTerdata'); ?>" class="btn btn-primary">Kembali</a>
     </div>
-    

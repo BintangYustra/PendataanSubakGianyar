@@ -8,7 +8,7 @@ class DashboardViewData extends CI_Controller {
 	
 	public function index()
 	{
-		$data['judul'] = 'Dashboard';
+		$data['judul'] = 'List Data';
 		$this->load->view('templates/dashboard/headerdashboard', $data);
 		$this->load->view('templates/dashboard/sidepaneldashboard');
 		$this->load->view('dashboard/dashboardviewdata');

@@ -7,7 +7,7 @@ class DashboardTambahData extends CI_Controller {
     }
 
     public function index() {
-        $data['judul'] = 'Dashboard';
+        $data['judul'] = 'Tambah Data';
         $this->load->view('templates/dashboard/headerdashboard', $data);
         $this->load->view('templates/dashboard/sidepaneldashboard');
         $this->load->view('dashboard/dashboardtambahdata');
@@ -22,6 +22,10 @@ class DashboardTambahData extends CI_Controller {
             'nomor_akte_notaris' => $this->input->post('nomor_akte_notaris'),
             'npwp' => $this->input->post('npwp'),
             'verifikasi' => $this->input->post('verifikasi'),
+            'usul_saran_komentar' => $this->input->post('usul_saran_komentar'),
+            'komentar_verifikator' => $this->input->post('komentar_verifikator'),
+            'tgl_ditambahkan' => $this->input->post('tgl_ditambahkan'),
+            'tgl_diupdate' => $this->input->post('tgl_diupdate'),
         ];
         $id_subak = $this->SubakModel->insert_tb_subak($data_subak);
 
@@ -53,133 +57,150 @@ class DashboardTambahData extends CI_Controller {
         ];
         $this->SubakModel->insert_tb_prajuru($data_prajuru);
                 
-        // PERAHYANGAN
-        $data_perahyangan = [
-            'id_subak' => $id_subak,
-            'ketersediaan_pura_bedugul' => $this->input->post('ketersediaan_pura_bedugul'),
-        ];
-        $this->SubakModel->insert_tb_perahyangan($data_perahyangan);
-        $id_perahyangan = $this->db->insert_id();
+        // // PERAHYANGAN
+        // $data_perahyangan = [
+        //     'id_subak' => $id_subak,
+        //     'ketersediaan_pura_bedugul' => $this->input->post('ketersediaan_pura_bedugul'),
+        // ];
+        // $this->SubakModel->insert_tb_perahyangan($data_perahyangan);
+        // $id_perahyangan = $this->db->insert_id();
 
-        // PERAHYANGAN PURA BEDUGUL ADA
-        $data_perahyangan_pura_bedugul_ada = [
-            'id_perahyangan' => $id_perahyangan,
-            'nama_pura' => $this->input->post('nama_pura'),
-            'pura_bedugul_disungsung' => $this->input->post('pura_bedugul_disungsung'),
-            'pura_bedugul_disungsung_lain' => $this->input->post('pura_bedugul_disungsung_lain'),
-            'alamat_pura_bedugul' => $this->input->post('alamat_pura_bedugul'),
-            'piodalan_wali_pertahun' => $this->input->post('piodalan_wali_pertahun'),
-            'hari_piodalan_wali' => $this->input->post('hari_piodalan_wali'),
-            'jumlah_pelinggih' => $this->input->post('jumlah_pelinggih'),        
-        ];
-        $this->SubakModel->insert_tb_perahyangan_pura_bedugul_ada($data_perahyangan_pura_bedugul_ada);
-        $id_perahyangan_pura_bedugul_ada = $this->db->insert_id();
+        // // PERAHYANGAN PURA BEDUGUL ADA
+        // $data_perahyangan_pura_bedugul_ada = [
+        //     'id_perahyangan' => $id_perahyangan,
+        //     'nama_pura' => $this->input->post('nama_pura'),
+        //     'pura_bedugul_disungsung' => $this->input->post('pura_bedugul_disungsung'),
+        //     'pura_bedugul_disungsung_lain' => $this->input->post('pura_bedugul_disungsung_lain'),
+        //     'alamat_pura_bedugul' => $this->input->post('alamat_pura_bedugul'),
+        //     'piodalan_wali_pertahun' => $this->input->post('piodalan_wali_pertahun'),
+        //     'hari_piodalan_wali' => $this->input->post('hari_piodalan_wali'),
+        //     'jumlah_pelinggih' => $this->input->post('jumlah_pelinggih'),        
+        // ];
+        // $this->SubakModel->insert_tb_perahyangan_pura_bedugul_ada($data_perahyangan_pura_bedugul_ada);
+        // $id_perahyangan_pura_bedugul_ada = $this->db->insert_id();
 
-        // PERAHYANGAN PURA BEDUGUL TIDAK ADA
-        $data_perahyangan_pura_bedugul_tidakada = [
-            'id_perahyangan' => $id_perahyangan,
-            'nama_pura2' => $this->input->post('nama_pura2'),
-            'pura_bedugul_disungsung2' => $this->input->post('pura_bedugul_disungsung2'),
-            'pura_bedugul_disungsung_lain2' => $this->input->post('pura_bedugul_disungsung_lain2'),
-            'alamat_pura_bedugul2' => $this->input->post('alamat_pura_bedugul2'),
-            'piodalan_wali_pertahun2' => $this->input->post('piodalan_wali_pertahun2'),
-            'hari_piodalan_wali2' => $this->input->post('hari_piodalan_wali2'),        
-        ];
-        $this->SubakModel->insert_tb_perahyangan_pura_bedugul_tidakada($data_perahyangan_pura_bedugul_tidakada);
-        // PERAHYANGAN PURA BEDUGUL TIDAK ADA
-        $data_perahyangan_pura_bedugul_tidakada2 = [
-            'id_perahyangan' => $id_perahyangan,
-            'nama_pura23' => $this->input->post('nama_pura23'),
-            'pura_bedugul_disungsung23' => $this->input->post('pura_bedugul_disungsung23'),
-            'pura_bedugul_disungsung_lain23' => $this->input->post('pura_bedugul_disungsung_lain23'),
-            'alamat_pura_bedugul23' => $this->input->post('alamat_pura_bedugul23'),
-            'piodalan_wali_pertahun23' => $this->input->post('piodalan_wali_pertahun23'),
-            'hari_piodalan_wali23' => $this->input->post('hari_piodalan_wali23'),        
-        ];
-        $this->SubakModel->insert_tb_perahyangan_pura_bedugul_tidakada2($data_perahyangan_pura_bedugul_tidakada2);
-        // PERAHYANGAN PURA BEDUGUL TIDAK ADA
-        $data_perahyangan_pura_bedugul_tidakada3 = [
-            'id_perahyangan' => $id_perahyangan,
-            'nama_pura24' => $this->input->post('nama_pura24'),
-            'pura_bedugul_disungsung24' => $this->input->post('pura_bedugul_disungsung24'),
-            'pura_bedugul_disungsung_lain24' => $this->input->post('pura_bedugul_disungsung_lain24'),
-            'alamat_pura_bedugul24' => $this->input->post('alamat_pura_bedugul24'),
-            'piodalan_wali_pertahun24' => $this->input->post('piodalan_wali_pertahun24'),
-            'hari_piodalan_wali24' => $this->input->post('hari_piodalan_wali24'),        
-        ];
-        $this->SubakModel->insert_tb_perahyangan_pura_bedugul_tidakada3($data_perahyangan_pura_bedugul_tidakada3);
+        // // PERAHYANGAN PURA BEDUGUL TIDAK ADA
+        // $data_perahyangan_pura_bedugul_tidakada = [
+        //     'id_perahyangan' => $id_perahyangan,
+        //     'nama_pura2' => $this->input->post('nama_pura2'),
+        //     'pura_bedugul_disungsung2' => $this->input->post('pura_bedugul_disungsung2'),
+        //     'pura_bedugul_disungsung_lain2' => $this->input->post('pura_bedugul_disungsung_lain2'),
+        //     'alamat_pura_bedugul2' => $this->input->post('alamat_pura_bedugul2'),
+        //     'piodalan_wali_pertahun2' => $this->input->post('piodalan_wali_pertahun2'),
+        //     'hari_piodalan_wali2' => $this->input->post('hari_piodalan_wali2'),        
+        // ];
+        // $this->SubakModel->insert_tb_perahyangan_pura_bedugul_tidakada($data_perahyangan_pura_bedugul_tidakada);
+        // // PERAHYANGAN PURA BEDUGUL TIDAK ADA
+        // $data_perahyangan_pura_bedugul_tidakada2 = [
+        //     'id_perahyangan' => $id_perahyangan,
+        //     'nama_pura23' => $this->input->post('nama_pura23'),
+        //     'pura_bedugul_disungsung23' => $this->input->post('pura_bedugul_disungsung23'),
+        //     'pura_bedugul_disungsung_lain23' => $this->input->post('pura_bedugul_disungsung_lain23'),
+        //     'alamat_pura_bedugul23' => $this->input->post('alamat_pura_bedugul23'),
+        //     'piodalan_wali_pertahun23' => $this->input->post('piodalan_wali_pertahun23'),
+        //     'hari_piodalan_wali23' => $this->input->post('hari_piodalan_wali23'),        
+        // ];
+        // $this->SubakModel->insert_tb_perahyangan_pura_bedugul_tidakada2($data_perahyangan_pura_bedugul_tidakada2);
+        // // PERAHYANGAN PURA BEDUGUL TIDAK ADA
+        // $data_perahyangan_pura_bedugul_tidakada3 = [
+        //     'id_perahyangan' => $id_perahyangan,
+        //     'nama_pura24' => $this->input->post('nama_pura24'),
+        //     'pura_bedugul_disungsung24' => $this->input->post('pura_bedugul_disungsung24'),
+        //     'pura_bedugul_disungsung_lain24' => $this->input->post('pura_bedugul_disungsung_lain24'),
+        //     'alamat_pura_bedugul24' => $this->input->post('alamat_pura_bedugul24'),
+        //     'piodalan_wali_pertahun24' => $this->input->post('piodalan_wali_pertahun24'),
+        //     'hari_piodalan_wali24' => $this->input->post('hari_piodalan_wali24'),        
+        // ];
+        // $this->SubakModel->insert_tb_perahyangan_pura_bedugul_tidakada3($data_perahyangan_pura_bedugul_tidakada3);
 
-        // PERAHYANGAN INVENTARIS
-        $inventaris_array = $this->input->post('inventaris');
-        $inventaris_lain = $this->input->post('inventaris_lain');
-        if ($inventaris_array) {
-            foreach ($inventaris_array as $val) {
-                if (!empty($val)) {
-                    $this->SubakModel->insert_tb_perahyangan_inventaris([
-                        'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
-                        'inventaris' => $val
-                    ]);
-                }
-            }
-        }
-        if (!empty($inventaris_lain)) {
-            $this->SubakModel->insert_tb_perahyangan_inventaris([
-                'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
-                'inventaris' => $inventaris_lain
-            ]);
-        }
+        // // PERAHYANGAN INVENTARIS
+        // $inventaris_array = $this->input->post('inventaris');
+        // $inventaris_lain = $this->input->post('inventaris_lain');
+        // if ($inventaris_array) {
+        //     foreach ($inventaris_array as $val) {
+        //         if (!empty($val)) {
+        //             $this->SubakModel->insert_tb_perahyangan_inventaris([
+        //                 'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
+        //                 'inventaris' => $val
+        //             ]);
+        //         }
+        //     }
+        // }
+        // if (!empty($inventaris_lain)) {
+        //     $this->SubakModel->insert_tb_perahyangan_inventaris([
+        //         'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
+        //         'inventaris' => $inventaris_lain
+        //     ]);
+        // }
 
-        // PERAHYANGAN ACI-ACI
-        $aci_aci_subak = $this->input->post('aci_aci_subak');
-        if (!empty($aci_aci_subak) && is_array($aci_aci_subak)) {
-            foreach ($aci_aci_subak as $val) {
-                if (trim($val) !== '') {
-                    $this->SubakModel->insert_tb_perahyangan_aci_aci_subak([
-                        'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
-                        'aci_aci_subak' => $val
-                    ]);
-                }
-            }
-        }
+        // // PERAHYANGAN ACI-ACI
+        // $aci_aci_subak = $this->input->post('aci_aci_subak');
+        // if (!empty($aci_aci_subak) && is_array($aci_aci_subak)) {
+        //     foreach ($aci_aci_subak as $val) {
+        //         if (trim($val) !== '') {
+        //             $this->SubakModel->insert_tb_perahyangan_aci_aci_subak([
+        //                 'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
+        //                 'aci_aci_subak' => $val
+        //             ]);
+        //         }
+        //     }
+        // }
         
-        // UPLOAD FOTO PURA
-        $files = $_FILES;
-        $count = count($_FILES['foto_pura']['name']);
-        $config['upload_path'] = './application/upload/foto_pura/';
-        $config['allowed_types'] = 'jpg|jpeg|png';
-        $config['max_size'] = 10000;
-        $this->load->library('upload');
-        for ($i = 0; $i < $count; $i++) {
-            if (!empty($_FILES['foto_pura']['name'][$i])) {
-            // Set file untuk diupload satu per satu
-                $_FILES['file']['name']     = $files['foto_pura']['name'][$i];
-                $_FILES['file']['type']     = $files['foto_pura']['type'][$i];
-                $_FILES['file']['tmp_name'] = $files['foto_pura']['tmp_name'][$i];
-                $_FILES['file']['error']    = $files['foto_pura']['error'][$i];
-                $_FILES['file']['size']     = $files['foto_pura']['size'][$i];
+        // // UPLOAD FOTO PURA
+        // $files = $_FILES;
+        // $count = count($_FILES['foto_pura']['name']);
+        // $config['upload_path'] = './application/upload/foto_pura/';
+        // $config['allowed_types'] = 'jpg|jpeg|png';
+        // $config['max_size'] = 10000;
+        // $this->load->library('upload');
+        // for ($i = 0; $i < $count; $i++) {
+        //     if (!empty($_FILES['foto_pura']['name'][$i])) {
+        //     // Set file untuk diupload satu per satu
+        //         $_FILES['file']['name']     = $files['foto_pura']['name'][$i];
+        //         $_FILES['file']['type']     = $files['foto_pura']['type'][$i];
+        //         $_FILES['file']['tmp_name'] = $files['foto_pura']['tmp_name'][$i];
+        //         $_FILES['file']['error']    = $files['foto_pura']['error'][$i];
+        //         $_FILES['file']['size']     = $files['foto_pura']['size'][$i];
 
-                $this->upload->initialize($config);
+        //         $this->upload->initialize($config);
 
-                if ($this->upload->do_upload('file')) {
-                    $uploaded_data = $this->upload->data();
-                    $nama_file = $uploaded_data['file_name'];
+        //         if ($this->upload->do_upload('file')) {
+        //             $uploaded_data = $this->upload->data();
+        //             $nama_file = $uploaded_data['file_name'];
 
-                // Simpan ke database
-                    $this->SubakModel->insert_tb_perahyangan_foto_pura([
-                        'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
-                        'foto_pura' => $nama_file
-                    ]);
-                } else {
-                    // Jika gagal upload, tampilkan error (bisa juga disimpan ke log)
-                    echo $this->upload->display_errors();
-                }
-            }
-        }
-
-        
-
+        //         // Simpan ke database
+        //             $this->SubakModel->insert_tb_perahyangan_foto_pura([
+        //                 'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
+        //                 'foto_pura' => $nama_file
+        //             ]);
+        //         } else {
+        //             // Jika gagal upload, tampilkan error (bisa juga disimpan ke log)
+        //             echo $this->upload->display_errors();
+        //         }
+        //     }
+        // }
 
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // PAWONGAN
         $data_pawongan = [
             'id_subak' => $id_subak,

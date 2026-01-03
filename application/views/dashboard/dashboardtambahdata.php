@@ -1,5 +1,5 @@
 <div class="container mt-4">
-    <h1 class="mb-4"><b>Tambah Data Baru</b></h1>
+    <h1 class=""><b>Tambah Data Baru</b></h1>
     <hr>
 
     <form action="<?= base_url('DashboardTambahData/add_data') ?>" method="post" enctype="multipart/form-data">
@@ -236,7 +236,7 @@
                     <label class="form-label">Upload Foto</label>
                     <div id="fotoWrapper">
                         <div class="input-group mb-2">
-                            <input type="file" class="form-control" name="foto_pura[]" multiple>
+                            <input type="file" class="form-control" name="foto_pura[]">
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary btn-sm" onclick="tambahFotoPura()">+Tambah File Foto</button>
@@ -251,6 +251,12 @@
                     wrapper.appendChild(newRow);
                 }
                 </script>   
+
+                <!-- <div class="mb-3">
+                    <label class="form-label">Upload Foto Pura</label>
+                    <input type="file" name="foto_pura[]" class="form-control" multiple>
+                </div> -->
+
 
                 <div class="mb-3 d-flex flex-wrap gap-2" id="preview_foto"></div>
 
@@ -925,8 +931,18 @@
                 </script>
         </div>    
     </div>
+    <hr>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h2 class="mt-4"><b>Komentar Tambahan</b></h2>
+                <div class="col">
+                    <input type="text" class="form-control" name="usul_saran_komentar" placeholder="Usul, Saran, dan Informasi Tambahan">
+            </div>
+        </div>
+     </div>
+
     <button type="submit" class="btn btn-primary mt-2">Simpan</button>
-    </form>
+</form>
 
 </div>
 

@@ -30,21 +30,33 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardHome">
+                <a class="nav-link" href="<?php base_url()?>DashboardAdmin">
                     <i class="fas fa-fw fa fa-home"></i>
                     <span>Home</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardSubakTerdata">
+                <a class="nav-link" href="<?php base_url()?>DashboardSubakTerdataAdmin">
                     <i class="fas fa-fw fa fa-table"></i>
                     <span>Subak Terdata: <?=$data['jumlahsubak'] = $this->SubakModel->get_total_subak(); $jumlahsubak;?></span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardTambahData">
+                <a class="nav-link" href="<?php base_url()?>DashboardTambahDataAdmin">
                     <i class="fas fa-fw fa fa-plus-square"></i>
                     <span>Tambah Data</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?php base_url()?>DashboardVerifikasiAdmin">
+                    <i class="fas fa-fw fa fa-check-square"></i>
+                    <span>Verifikasi Data</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?php base_url()?>DashboardAdminKelolaAdmin">
+                    <i class="fas fa-fw fa fa-plus-square"></i>
+                    <span>Tambah Operator</span></a>
             </li>
 
             <li class="nav-item">

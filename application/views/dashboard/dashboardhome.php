@@ -1,5 +1,6 @@
 <div class="" style="margin-left: 25px">
     <h1>Welcome to Dashboard Add & Update Data</h1>
+    <h3>Halo, <?php echo $username?>!</h3>
 </div>
 
 <div class="">

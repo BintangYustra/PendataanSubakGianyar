@@ -42,9 +42,9 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>Login">
-                <i class="fa-solid fa-right-from-bracket"></i>                    
-                <span>Log Out</span></a>
+                <a class="nav-link" href="<?php echo base_url('login/logout'); ?>">
+                    <i class="fa-solid fa-right-from-bracket"></i>                    
+                    <span>Log Out</span></a>
             </li>
 
             <!-- Divider -->

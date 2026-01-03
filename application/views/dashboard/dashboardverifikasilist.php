@@ -19,12 +19,10 @@
         <td><?php echo $row->kriteria_subak; ?></td>
             <td>
               <?php 
-                // Memberi warna pada masing-masing tipe verifikasi
                 $verifikasi = strtolower(trim($row->verifikasi));
                 $badge_class = '';
                 $icon = '';
                 $text = '';
-                
                 switch($verifikasi) {
                   case 'terverifikasi':
                   case 'diterima':
@@ -38,6 +36,18 @@
                     $icon = '<i class="bi bi-x-circle-fill me-1"></i>';
                     $text = 'Data Ditolak';
                     break;
+                  case 'data tidak valid':
+                  case 'tidak valid':
+                    $badge_class = 'badge bg-secondary text-light ';
+                    $icon = '<i class="bi bi-clock-fill me-1"></i>';
+                    $text = 'Data Tidak Valid';
+                    break;
+                  case 'data diperbarui':
+                  case 'diperbarui':
+                    $badge_class = 'badge bg-info text-light ';
+                    $icon = '<i class="bi bi-clock-fill me-1"></i>';
+                    $text = 'Data Diperbarui';
+                    break;
                   case 'belum terverifikasi':
                   case 'belum':
                   default:
@@ -45,6 +55,7 @@
                     $icon = '<i class="bi bi-clock-fill me-1"></i>';
                     $text = 'Belum Terverifikasi';
                     break;
+
                 }
               ?>
               <span class="<?php echo $badge_class; ?>">
@@ -56,9 +67,9 @@
         </td>
       <?php endforeach ?>
 
+
       </tr>
     </tbody>
-
   </table>
 
   </div>

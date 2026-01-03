@@ -1,5 +1,9 @@
 <?php
 class FunctionModel extends CI_Model {
+    public function get_all_subak() {
+        return $this->db->get('tb_subak')->result();
+    } // ===KHUSUS AGAR TAMPIL DAFTARNYA DI WEB (JANGAN DIHAPUS(ENTAH DIMANA BAGIAN INI DIPAKAI, KALAU DIHAPUS SEMUA SISTEM AKAN EROR))===
+
     // FUNGSI LAIN-LAIN
     public function get_total_subak() {
     return $this->db->count_all('tb_subak');
