@@ -3,7 +3,7 @@ class DashboardTambahData extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('SubakModel');
+        $this->load->model('Addmodel');
     }
 
     public function index() {

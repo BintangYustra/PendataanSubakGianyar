@@ -10,7 +10,7 @@
             <h2 class="mt-4"><b>Data Subak</b></h2>
             <div class="mb-3">
                 <label class="form-label">Nama Subak</label>
-                <input type="text" class="form-control" name="nama_subak">
+                <input type="text" class="form-control" name="nama_subak" required>
             </div>
                 <input type="hidden" name="verifikasi" value="Belum Terverifikasi"> <!--Memberi atribut 'Belum Terverifikasi' pada database saat pertama kali mengirim data  -->
             <div class="mb-3">

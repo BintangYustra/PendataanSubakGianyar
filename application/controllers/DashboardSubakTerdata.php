@@ -3,13 +3,13 @@ class DashboardSubakTerdata	 extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-        $this->load->model('SubakModel');
+        $this->load->model('ViewModel');
     }
 	
 	public function index()
 	{
 		$data['judul'] = 'List Data';
-		$data['totalsubak'] = $this->SubakModel-> get_all_subak();
+		$data['totalsubak'] = $this->ViewModel-> get_all_subak();
 	
 		$this -> load -> library('pagination');
 		$config['base_url'] = 'http://localhost/PendataanSubakGianyar/DashboardSubakTerdata/index';

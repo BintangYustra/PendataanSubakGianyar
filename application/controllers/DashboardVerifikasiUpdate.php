@@ -3,7 +3,8 @@
 class DashboardVerifikasiUpdate extends CI_Controller {
 	public function index()
 	{
-		$this->load->view('templates/dashboard/headerdashboard');
+		$data['judul'] = 'Dashboard Verifikasi';
+		$this->load->view('templates/dashboard/headerdashboard', $data);
 		$this->load->view('templates/dashboard/sidepaneldashboardve');
 		$this->load->view('dashboard/dashboardverifikasi');
 		$this->load->view('templates/dashboard/footerdashboard');

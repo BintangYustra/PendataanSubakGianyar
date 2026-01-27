@@ -1,6 +1,6 @@
 <?php
 class ViewModel extends CI_Model {
-        // MELIHAT DATA DI DATABASE
+     // MELIHAT DATA DI DATABASE
     public function get_all_subak() {
         return $this->db->get('tb_subak')->result();
     } // ===KHUSUS AGAR TAMPIL DAFTARNYA DI WEB (JANGAN DIHAPUS(ENTAH DIMANA BAGIAN INI DIPAKAI, KALAU DIHAPUS SEMUA SISTEM AKAN EROR))===
