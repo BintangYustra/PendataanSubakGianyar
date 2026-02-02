@@ -1,16 +1,16 @@
 <?php
 
-class DashboardVerifikasiHome extends CI_Controller {
+class DashboardOperatorHome	 extends CI_Controller {
 	public function __construct() {
         parent::__construct();
-        $this->load->model('ViewModel');
+        $this->load->model('SubakModel');
+        $this->load->model('UserModel');
         $this->load->model('FunctionModel');
-        $this->load->model('UpdateModel');
     }
 
 	public function index()
 	{
-		$data['judul'] = 'Dashboard Verifikasi';
+		$data['judul'] = 'Dashboard Add Update';
 		$data['jumlahsubak'] = $this->FunctionModel->get_total_subak();
 		$data['jumlah_belum_verifikasi'] = $this->FunctionModel->count_belum_terverifikasi();
 		$data['jumlah_verifikasi_ditolak'] = $this->FunctionModel->count_verifikasi_ditolak();
@@ -29,10 +29,10 @@ class DashboardVerifikasiHome extends CI_Controller {
 		} else {
 			$data['foto_profil'] = base_url('assets/images/Empty.png');
 		}
+
 		$this->load->view('templates/dashboard/headerdashboard', $data);
-		$this->load->view('templates/dashboard/sidepaneldashboardve');
-		$this->load->view('dashboard/dashboardhomeve', $data);
+		$this->load->view('templates/dashboard/sidepaneldashboard');
+		$this->load->view('dashboard/dashboardhome' , $data);
 		$this->load->view('templates/dashboard/footerdashboard');
 	}
-
 }

@@ -2,7 +2,7 @@
     <h1 class=""><b>Tambah Data Baru</b></h1>
     <hr>
 
-    <form action="<?= base_url('DashboardTambahData/add_data') ?>" method="post" enctype="multipart/form-data">
+    <form action="<?= base_url('DashboardOperatorTambahData/add_data') ?>" method="post" enctype="multipart/form-data">
 
     <!-- SUBAK -->
     <div class="card mt-4">

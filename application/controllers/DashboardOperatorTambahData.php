@@ -1,5 +1,5 @@
 <?php
-class DashboardTambahData extends CI_Controller {
+class DashboardOperatorTambahData extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -314,6 +314,6 @@ class DashboardTambahData extends CI_Controller {
             }
         }
 
-        redirect(base_url('DashboardHome'));
+        redirect(base_url('DashboardOperatorHome'));
     }
 }

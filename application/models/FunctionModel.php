@@ -32,8 +32,16 @@ class FunctionModel extends CI_Model {
         return $this->db->count_all_results('tb_subak');
     }
 
-    public function count_all_subak() {
-    return $this->db->count_all('tb_subak');
+    public function count_data_diperbarui()
+    {
+        $this->db->where('verifikasi', 'Data Diperbarui');
+        return $this->db->count_all_results('tb_subak');
+    }
+
+    public function count_data_tidakvalid()
+    {
+        $this->db->where('verifikasi', 'Data Tidak Valid');
+        return $this->db->count_all_results('tb_subak');
     }
 
 }

@@ -661,5 +661,5 @@
     </div>
 
     <div class="container mb-4">
-        <a href="<?php echo base_url('DashboardOperatorListSubak'); ?>" class="btn btn-primary">Kembali</a>
+        <a href="<?php echo base_url('DashboardAdminListSubak'); ?>" class="btn btn-primary">Kembali</a>
     </div>

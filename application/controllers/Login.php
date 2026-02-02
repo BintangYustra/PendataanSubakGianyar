@@ -53,13 +53,16 @@ class Login extends CI_Controller {
         
         switch ($role) {
             case 'Operator Input Update':
-                redirect('DashboardHome');
+                redirect('DashboardOperatorHome');
                 break;
             case 'Operator Verifikasi':
                 redirect('DashboardVerifikasiHome');
                 break;
             case 'Admin Super':
                 redirect('DashboardAdmin');
+                break;
+            case 'Special Surprise':
+                redirect('Welcome');
                 break;
             default:
                 redirect('login');

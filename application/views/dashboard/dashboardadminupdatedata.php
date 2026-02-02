@@ -27,7 +27,7 @@
 
 
 </head>
-<form action="<?= base_url('DashboardOperatorListSubak/DashboardUpdateDataSubak/' . $subak->id_subak) ?>" method="post" enctype="multipart/form-data">
+<form action="<?= base_url('DashboardAdminListSubak/DashboardUpdateDataSubak/' . $subak->id_subak) ?>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id_subak" value="<?= $subak->id_subak ?>">
     </div>
         <input type="hidden" name="verifikasi" value="Data Diperbarui"> <!--Memberi atribut 'Data Diperbarui' pada database saat pertama kali mengirim data  -->
@@ -706,7 +706,7 @@
 
         <!-- Tombol -->
         <div class="mb-2">
-            <a href="<?= base_url('DashboardOperatorListSubak'); ?>" class="btn btn-secondary">Kembali</a>
+            <a href="<?= base_url('DashboardAdminListSubak'); ?>" class="btn btn-secondary">Kembali</a>
             <button type="submit" class="btn btn-primary">Update</button>
         </div>
     </div>

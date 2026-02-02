@@ -7,7 +7,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php base_url()?>DashboardHome">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php base_url()?>DashboardAdmin">
                 <div class="sidebar-brand-icon" style="">
                     <img src="assets/images/LogoSubakSmalll.png" alt="">
                 </div>
@@ -30,40 +30,46 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardHome">
+                <a class="nav-link" href="<?php base_url()?>DashboardAdmin">
                     <i class="fas fa-fw fa fa-home"></i>
                     <span>Home</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>">
-                    <i class="fas fa-fw fa fa-check-square"></i>
-                    <span>Daftar Operator</span></a>
+                <a class="nav-link" href="<?php base_url()?>DashboardAdminOperatorList">
+                    <i class="fas fa-fw fa fa-list "></i>
+                    <span>Daftar Operator: <?=$data['jumlahoperator'] = $this->UserModel->get_total_operator(); $jumlahoperator;?></span></a>
             </li>
             
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>">
-                    <i class="fas fa-fw fa fa-check-square"></i>
+                <a class="nav-link" href="<?php base_url()?>DashboardAdminTambahOperator">
+                    <i class="fas fa-fw fa fa-plus"></i>
                     <span>Tambah Operator</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardSubakTerdata">
+                <a class="nav-link" href="<?php base_url()?>DashboardAdminTambahRefrensi">
+                    <i class="fas fa-fw fa fa-map"></i>
+                    <span>Tambah Refrensi</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?php base_url()?>DashboardAdminListSubak">
                     <i class="fas fa-fw fa fa-table"></i>
                     <span>Subak Terdata: <?=$data['jumlahsubak'] = $this->SubakModel->get_total_subak(); $jumlahsubak;?></span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardTambahData">
+                <a class="nav-link" href="<?php base_url()?>DashboardAdminTambahDataSubak">
                     <i class="fas fa-fw fa fa-plus-square"></i>
-                    <span>Tambah Data</span></a>
+                    <span>Tambah Data Subak</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardVerifikasiList">
-                    <i class="fas fa-fw fa fa-check-square"></i>
-                    <span>Verifikasi Data</span></a>
+                <a class="nav-link" href="<?php base_url()?>DashboardAdminTambahDataSubak">
+                    <i class="fas fa-fw fa fa-check-double"></i>
+                    <span>Verifikasi Data Subak</span></a>
             </li>
 
             <li class="nav-item">

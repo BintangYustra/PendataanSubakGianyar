@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>You Have Found The Easter Egg</title>
 
 	<style type="text/css">
 
@@ -66,24 +66,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</style>
 </head>
 <body>
+	<div class="container">
+		<div class="body">
+			<div class="card">
+				<div class="card-header">
+					<h1>Kenapa Kau Ada Disini?</h1>
+				</div>
+				<div class="card-body">
+					<p>Nggak aku sangka kamu bisa nemuin ini halaman</p>
+					<p>Selagi kamu disini, follow aku dulu ga sih di sosmed aku</p>
+					<a href="https://www.behance.net/primeabin" target="_blank" rel="noopener noreferrer"><p>Behance</p></a>
+					<a href="https://www.instagram.com/bintang_yustra/" target="_blank" rel="noopener noreferrer"><p>Instagram</p></a>
+					<a href="https://www.facebook.com/gede.b.wartana" target="_blank" rel="noopener noreferrer"><p>Facebook</p></a>
+					<a href="https://github.com/BintangYustra" target="_blank" rel="noopener noreferrer"><p>Github</p></a>
+					<p>Sudah selesai liat sosmed aku, sekarang saatnya balik kerja. Silahkan logout terlebih dahulu⬇️</p>
 
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
-
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+					<a href="login/logout"><button>Logout</button></a>
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
-
 </body>
 </html>

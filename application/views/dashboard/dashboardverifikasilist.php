@@ -51,6 +51,12 @@
                                             $icon = '<i class="bi bi-arrow-repeat me-1"></i>';
                                             $text = 'Data Diperbarui';
                                             break;
+                                        case 'verifikasi menunggu':
+                                        case 'menunggu':
+                                            $badge_class = 'bg-dark text-light';
+                                            $icon = '<i class="bi bi-clock-fill me-1"></i>';
+                                            $text = 'Verifikasi Menunggu';
+                                            break;
                                         case 'belum terverifikasi':
                                         case 'belum':
                                         default:
@@ -66,12 +72,12 @@
                                 </td>
                                 <td>
                                     <div class="btn-group-action">
-                                        <a href="<?php echo base_url('DashboardSubakTerdata/DashboardViewData/' . $row->id_subak); ?>" 
+                                        <a href="<?php echo base_url('DashboardOperatorListSubak/DashboardViewData/' . $row->id_subak); ?>" 
                                         class="btn btn-info btn-sm" 
                                         title="Lihat Detail">
                                             <i class="bi bi-eye"></i> Detail
                                         </a>
-                                        <a href="<?php echo base_url('Verifikasi/DashboardVerifikasiList/VerifikasiDataSubak/' . $row->id_subak); ?>"
+                                        <a href="<?php echo base_url('DashboardVerifikasiList/VerifikasiDataSubak/' . $row->id_subak); ?>"
                                         class="btn btn-primary btn-sm" 
                                         title="Verifikasi">
                                             <i class="bi bi-eye"></i> Verifikasi

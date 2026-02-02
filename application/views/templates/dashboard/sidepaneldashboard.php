@@ -11,38 +11,39 @@
                 <div class="sidebar-brand-icon" style="">
                     <img src="assets/images/LogoSubakSmalll.png" alt="">
                 </div>
+                
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-
+                
             </div>
 
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardHome">
+                <a class="nav-link" href="<?php base_url()?>DashboardOperatorHome">
                     <i class="fas fa-fw fa fa-home"></i>
                     <span>Home</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardSubakTerdata">
+                <a class="nav-link" href="<?php base_url()?>DashboardOperatorListSubak">
                     <i class="fas fa-fw fa fa-table"></i>
                     <span>Subak Terdata: <?=$data['jumlahsubak'] = $this->SubakModel->get_total_subak(); $jumlahsubak;?></span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardTambahData">
+                <a class="nav-link" href="<?php base_url()?>DashboardOperatorTambahData">
                     <i class="fas fa-fw fa fa-plus-square"></i>
                     <span>Tambah Data</span></a>
             </li>

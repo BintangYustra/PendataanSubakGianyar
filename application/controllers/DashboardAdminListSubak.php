@@ -1,15 +1,22 @@
 <?php
-class DashboardSubakTerdata	 extends CI_Controller {
 
+class DashboardAdminListSubak extends CI_Controller {
 	public function __construct() {
         parent::__construct();
         $this->load->model('ViewModel');
+        $this->load->model('UserModel');
     }
-	
+
 	public function index()
 	{
-		$data['judul'] = 'List Data';
-		$data['totalsubak'] = $this->ViewModel-> get_all_subak();
+		$data['judul'] = 'Dashboard Admin List Subak';
+		$data['nama_user'] = $this->session->userdata('nama') ? 
+                             $this->session->userdata('nama') : 
+                             $this->session->userdata('username'); // Fallback ke username
+        $data['username'] = $this->session->userdata('username');
+        $data['role'] = $this->session->userdata('role');
+
+        $data['totalsubak'] = $this->ViewModel->get_all_subak();
 	
 		$this -> load -> library('pagination');
 		$config['base_url'] = 'http://localhost/PendataanSubakGianyar/DashboardSubakTerdata/index';
@@ -19,13 +26,14 @@ class DashboardSubakTerdata	 extends CI_Controller {
         $data['totalsubak'] = $this-> SubakModel -> pagination($config['per_page'] ,$data['start']);
 		$data['link'] =  $this->pagination->create_links();
 		echo $this->pagination->create_links();
-
+		
 		$this->load->view('templates/dashboard/headerdashboard', $data);
-		$this->load->view('templates/dashboard/sidepaneldashboard');
-		$this->load->view('dashboard/dashboardsubakterdata',$data);
+		$this->load->view('templates/dashboard/sidepaneldashboardadmin');
+		$this->load->view('dashboard/dashboardadminlistsubak' , $data);
 		$this->load->view('templates/dashboard/footerdashboard');
+
 	}
-	
+
     public function DashboardViewData($id_subak) {
         $data['subak'] = $this->SubakModel->get_subak_by_id($id_subak);
 		$data['alamat'] = $this->SubakModel->get_alamat_by_id($id_subak);
@@ -52,7 +60,7 @@ class DashboardSubakTerdata	 extends CI_Controller {
             show_404();
         }
 
-        $this->load->view('/dashboard/dashboardviewdata', $data);
+        $this->load->view('/dashboard/dashboardadminviewdata', $data);
     }
 	
 
@@ -77,7 +85,7 @@ class DashboardSubakTerdata	 extends CI_Controller {
 		$data['palemahanjenistanamanpokok'] = $this->SubakModel->get_palemahan_jenis_tanaman_pokok_by_id($id_subak);
 		$data['palemahanhama'] = $this->SubakModel->get_palemahan_hama_by_id($id_subak);
 		$data['palemahanbantaunpemerintah'] = $this->SubakModel->get_palemahan_bantuan_pemerintah_by_id($id_subak);
-		$this->load->view('/dashboard/dashboardupdatedata', $data);	
+		$this->load->view('/dashboard/dashboardadminupdatedata', $data);	
 	}
 
 	public function MultiTable($id_perahyangan){
@@ -495,6 +503,6 @@ class DashboardSubakTerdata	 extends CI_Controller {
 			$this->SubakModel->update_tb_palemahan($id_subak, $update_tb_palemahan);
 		}
 
-		redirect(base_url('DashboardSubakTerdata'));
+		redirect(base_url('DashboardAdminListSubak'));
     }
 }

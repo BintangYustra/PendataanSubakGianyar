@@ -1,3 +1,4 @@
+
 <div class="container mt-4">
     <h1 class=""><b>Subak Terdata</b></h1>
     <hr>
@@ -66,17 +67,22 @@
                                 </td>
                                 <td>
                                     <div class="btn-group-action">
-                                        <a href="<?php echo base_url('DashboardOperatorListSubak/DashboardViewData/' . $row->id_subak); ?>" 
+                                        <a href="<?php echo base_url('DashboardAdminListSubak/DashboardViewData/' . $row->id_subak); ?>" 
                                         class="btn btn-info btn-sm" 
                                         title="Lihat Detail">
                                             <i class="bi bi-eye"></i> Detail
                                         </a>
-                                        <a href="<?php echo base_url('DashboardOperatorListSubak/MasukHalaman/' . $row->id_subak); ?>" 
+                                        <a href="<?php echo base_url('DashboardAdminListSubak/MasukHalaman/' . $row->id_subak); ?>" 
                                         class="btn btn-warning btn-sm" 
                                         title="Update Data">
                                             <i class="bi bi-pencil"></i> Update
                                         </a>
-                                        <a href="<?php echo base_url('DashboardSubakTerdata/ExportExcel/' . $row->id_subak); ?>" 
+                                        <a href="<?php echo base_url('DashboardAdminListSubak/Verifikasi/' . $row->id_subak); ?>" 
+                                        class="btn btn-primary btn-sm" 
+                                        title="Export Excel">
+                                            <i class="bi bi-file-earmark-excel"></i> Verifikasi
+                                        </a>
+                                        <a href="<?php echo base_url('DashboardAdminListSubak/ExportExcel/' . $row->id_subak); ?>" 
                                         class="btn btn-success btn-sm" 
                                         title="Export Excel">
                                             <i class="bi bi-file-earmark-excel"></i> Export
