@@ -51,10 +51,6 @@
                         <input type="text" class="form-control" name="kecamatan_subak">
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Kabupaten/ Kota</label>
-                        <input type="text" class="form-control" name="kabupaten_subak">
-                    </div>
-                    <div class="col-md-6">
                         <label class="form-label">Kode Pos</label>
                         <input type="number" class="form-control" name="kode_pos">
                     </div>
