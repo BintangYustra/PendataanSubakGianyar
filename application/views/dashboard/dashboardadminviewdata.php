@@ -62,6 +62,14 @@
                         <th>Verifikasi</th>
                         <td><?php echo $subak->verifikasi; ?></td>
                     </tr>
+                    <tr>
+                        <th>Tanggal Dibuat</th>
+                        <td><?php echo $subak->dibuat_pada; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Tanggal Diperbaharui</th>
+                        <td><?php echo $subak->diperbaharui; ?></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -88,10 +96,6 @@
                         <td><?php echo $alamat->kecamatan_subak; ?></td>
                     </tr>
                     <tr>
-                        <th>Kabupaten</th>
-                        <td><?php echo $alamat->kabupaten_subak; ?></td>
-                    </tr>
-                    <tr>
                         <th>Kode Pos</th>
                         <td><?php echo $alamat->kode_pos; ?></td>
                     </tr>
@@ -114,9 +118,9 @@
                     </tr>
                 </tbody>
             </table>
-
             <h6 class="mt-4"><strong>Pekaseh</strong></h6>
-            <table class="table table-bordered table-sm">
+            
+            <table class="table table-bordered">
                 <tbody>
                     <tr><th>Nama</th><td><?php echo $prajuru->pekaseh_nama; ?></td></tr>
                     <tr><th>NPWP</th><td><?php echo $prajuru->pekaseh_npwp; ?></td></tr>
@@ -125,7 +129,7 @@
             </table>
 
             <h6 class="mt-4"><strong>Petajuh</strong></h6>
-            <table class="table table-bordered table-sm">
+            <table class="table table-bordered">
                 <tbody>
                     <tr><th>Nama</th><td><?php echo $prajuru->petajuh_nama; ?></td></tr>
                     <tr><th>NPWP</th><td><?php echo $prajuru->petajuh_npwp; ?></td></tr>
@@ -134,7 +138,7 @@
             </table>
 
             <h6 class="mt-4"><strong>Penyarikan</strong></h6>
-            <table class="table table-bordered table-sm">
+            <table class="table table-bordered">
                 <tbody>
                     <tr><th>Nama</th><td><?php echo $prajuru->penyarikan_nama; ?></td></tr>
                     <tr><th>NPWP</th><td><?php echo $prajuru->penyarikan_npwp; ?></td></tr>
@@ -144,12 +148,12 @@
         </div>
     </div>
 
-    <!-- Data Perahyangan -->
+    Data Perahyangan
     <div class="card mb-4">
         <div class="card-header text-white" style="background-color: #06D6A0;">
             <strong>Data Perahyangan</strong>
         </div>
-        <div class="card-body">
+        <!-- <div class="card-body">
             <table class="table table-bordered">
                 <tbody>
                     <tr>
@@ -158,10 +162,9 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div> -->
     </div>
-
-    <!-- Pura Bedugul Ada -->
+<!-- 
     <div class="card mb-4">
         <div class="card-header text-white" style="background-color: #06D6A0;">
             <strong>Data Perahyangan (Pura Bedugul Ada)</strong>
@@ -268,7 +271,6 @@
         </div>
     </div>
 
-    <!-- Pura Bedugul Tidak Ada -->
     <div class="card mb-4" >
         <div class="card-header text-white" style="background-color: #06D6A0;">
             <strong>Data Perahyangan (Pura Bedugul Tidak Ada)</strong>
@@ -388,7 +390,7 @@
 
         </div>
     </div>
-
+ -->
 
     <div class="card mb-4">
         <div class="card-header text-white" style="background-color: #9D4EDD;">

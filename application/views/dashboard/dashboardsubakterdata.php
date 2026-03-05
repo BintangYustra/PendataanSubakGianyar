@@ -76,7 +76,7 @@
                                         title="Update Data">
                                             <i class="bi bi-pencil"></i> Update
                                         </a>
-                                        <a href="<?php echo base_url('DashboardSubakTerdata/ExportExcel/' . $row->id_subak); ?>" 
+                                        <a href="<?php  base_url('ExportCSV/csv_export' . $row->id_subak); ?>" 
                                         class="btn btn-success btn-sm" 
                                         title="Export Excel">
                                             <i class="bi bi-file-earmark-excel"></i> Export

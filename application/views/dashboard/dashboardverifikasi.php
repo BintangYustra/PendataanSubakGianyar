@@ -34,8 +34,8 @@
                 <div class="col-auto">
                     <input type="hidden" name="id_subak" value="<?= $subak->id_subak ?>">
                     <select class="form-control" name="verifikasi">
-                        <option value="Belum Terverifikasi">Belum Terverifikasi</option>
-                        <option value="Verifikasi Menunggu">Terverifikasi</option>                
+                        <option value="belum_terverifikasi">Belum Terverifikasi</option>
+                        <option value="Terverifikasi">Terverifikasi</option>                
                         <option value="Data Ditolak">Data Ditolak</option>
                         <option value="Data Diperbarui">Data Diperbarui</option>
                         <option value="Data Tidak Valid">Data Tidak Valid</option>

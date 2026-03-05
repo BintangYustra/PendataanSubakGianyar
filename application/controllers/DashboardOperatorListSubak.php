@@ -102,7 +102,6 @@ class DashboardOperatorListSubak extends CI_Controller {
 			'br_lingkungan_subak' => $this->input->post('br_lingkungan_subak'),
 			'desa_subak' => $this->input->post('desa_subak'),
 			'kecamatan_subak' => $this->input->post('kecamatan_subak'),
-			'kabupaten_subak' => $this->input->post('kabupaten_subak'),
 			'kode_pos' => $this->input->post('kode_pos'),
 		];
 		$this->UpdateModel->update_tb_alamat_subak($id_subak, $update_tb_alamat_subak);
@@ -339,9 +338,9 @@ class DashboardOperatorListSubak extends CI_Controller {
 		if (!empty($this->input->post('kecamatan_subak'))) {
 			$update_tb_alamat_subak['kecamatan_subak'] = $this->input->post('kecamatan_subak');
 		}
-		if (!empty($this->input->post('kabupaten_subak'))) {
-			$update_tb_alamat_subak['kabupaten_subak'] = $this->input->post('kabupaten_subak');
-		}
+		// if (!empty($this->input->post('kabupaten_subak'))) {
+		// 	$update_tb_alamat_subak['kabupaten_subak'] = $this->input->post('kabupaten_subak');
+		// }
 		if (!empty($this->input->post('kode_pos'))) {
 			$update_tb_alamat_subak['kode_pos'] = $this->input->post('kode_pos');
 		}

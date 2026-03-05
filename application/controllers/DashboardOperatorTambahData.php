@@ -24,8 +24,6 @@ class DashboardOperatorTambahData extends CI_Controller {
             'verifikasi' => $this->input->post('verifikasi'),
             'usul_saran_komentar' => $this->input->post('usul_saran_komentar'),
             'komentar_verifikator' => $this->input->post('komentar_verifikator'),
-            'tgl_ditambahkan' => $this->input->post('tgl_ditambahkan'),
-            'tgl_diupdate' => $this->input->post('tgl_diupdate'),
         ];
         $id_subak = $this->SubakModel->insert_tb_subak($data_subak);
 
@@ -35,7 +33,7 @@ class DashboardOperatorTambahData extends CI_Controller {
             'br_lingkungan_subak' => $this->input->post('br_lingkungan_subak'),
             'desa_subak' => $this->input->post('desa_subak'),
             'kecamatan_subak' => $this->input->post('kecamatan_subak'),
-            'kabupaten_subak' => $this->input->post('kabupaten_subak'),
+            // 'kabupaten_subak' => $this->input->post('kabupaten_subak'),
             'kode_pos' => $this->input->post('kode_pos')
         ];
         $this->SubakModel->insert_tb_alamat_subak($data_alamat);

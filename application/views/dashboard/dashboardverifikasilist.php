@@ -72,7 +72,7 @@
                                 </td>
                                 <td>
                                     <div class="btn-group-action">
-                                        <a href="<?php echo base_url('DashboardOperatorListSubak/DashboardViewData/' . $row->id_subak); ?>" 
+                                        <a href="<?php echo base_url('DashboardVerifikasiList/DashboardViewData/' . $row->id_subak); ?>" 
                                         class="btn btn-info btn-sm" 
                                         title="Lihat Detail">
                                             <i class="bi bi-eye"></i> Detail
