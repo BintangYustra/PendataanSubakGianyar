@@ -63,12 +63,28 @@
                         <td><?php echo $subak->verifikasi; ?></td>
                     </tr>
                     <tr>
+                        <th>Dibuat Oleh</th>
+                        <td><?php echo $subak->dibuat_oleh; ?></td>
+                    </tr>
+                    <tr>
                         <th>Tanggal Dibuat</th>
                         <td><?php echo $subak->dibuat_pada; ?></td>
                     </tr>
                     <tr>
+                        <th>Diperbaharui oleh</th>
+                        <td><?php echo $subak->diperbaharui_oleh; ?></td>
+                    </tr>
+                    <tr>
                         <th>Tanggal Diperbaharui</th>
-                        <td><?php echo $subak->diperbaharui; ?></td>
+                        <td><?php echo $subak->diperbaharui_pada; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Diverifikasi oleh</th>
+                        <td><?php echo $subak->diperbaharui_oleh; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Tanggal Diverifikasi</th>
+                        <td><?php echo $subak->diverifikasi_pada; ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -657,9 +673,9 @@
         <div class="card-header text-white" style="background-color: #3BEBFF;">
             <h5 class="mb-0"><strong>Komentar Tambahan</strong></h5>
         </div>
-            <div class="card-body">
-                <p class="card-body border"><?php echo $subak->usul_saran_komentar; ?></p>
-            </div>
+        <div class="card-body">
+            <p class="card-body border"><?php echo $subak->usul_saran_komentar; ?></p>
+        </div>
     </div>
 
     <div class="container mb-4">

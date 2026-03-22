@@ -23,11 +23,11 @@
                             <form action="" method="">
                                 <div class="mb-3">
                                     <label class="block text-gray-700" required>Username</label>
-                                    <input type="text" name="username" class="w-full p-2 border border-gray-300 rounded mt-1" >
+                                    <input type="text" name="username" class="w-full p-2 border border-gray-300 rounded mt-1" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="block text-gray-700" required>Password</label>
-                                    <input type="password" name="password" class="w-full p-2 border border-gray-300 rounded mt-1">
+                                    <input type="password" name="password" class="w-full p-2 border border-gray-300 rounded mt-1" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary  mb-3">Login</button>
                                 </div>

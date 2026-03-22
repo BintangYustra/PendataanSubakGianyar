@@ -699,7 +699,14 @@
 
         </div>
 
-
+    <div class="card mt-4">
+        <div class="card-body">
+            <h2 class="mt-4"><b>Komentar Tambahan</b></h2>
+            <div class="col">
+                <input type="text" class="form-control" name="usul_saran_komentar" placeholder="Sebutkan apa saja yang anda rubah" required>
+            </div>
+        </div>
+    </div>
 
 
         

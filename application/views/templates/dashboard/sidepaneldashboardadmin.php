@@ -49,12 +49,6 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url()?>DashboardAdminTambahRefrensi">
-                    <i class="fas fa-fw fa fa-map"></i>
-                    <span>Tambah Refrensi</span></a>
-            </li>
-
-            <li class="nav-item">
                 <a class="nav-link" href="<?php base_url()?>DashboardAdminListSubak">
                     <i class="fas fa-fw fa fa-table"></i>
                     <span>Subak Terdata: <?=$data['jumlahsubak'] = $this->SubakModel->get_total_subak(); $jumlahsubak;?></span></a>

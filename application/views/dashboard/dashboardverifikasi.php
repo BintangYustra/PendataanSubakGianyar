@@ -29,20 +29,6 @@
 </head>
 <div class="container mt-5">
     <h2 class="mb-4 text-center">Verifikasi Detail Subak (Id: <?php echo $subak->nama_subak; ?>)</h2>
-        <form action="<?= base_url('DashboardVerifikasiList/VerifikasiListAccept') ?>" method="post">
-            <label class="form-label d-block">Verifikasi Data Subak</label>
-                <div class="col-auto">
-                    <input type="hidden" name="id_subak" value="<?= $subak->id_subak ?>">
-                    <select class="form-control" name="verifikasi">
-                        <option value="belum_terverifikasi">Belum Terverifikasi</option>
-                        <option value="Terverifikasi">Terverifikasi</option>                
-                        <option value="Data Ditolak">Data Ditolak</option>
-                        <option value="Data Diperbarui">Data Diperbarui</option>
-                        <option value="Data Tidak Valid">Data Tidak Valid</option>
-                    </select>
-                </div>
-            <button type="submit" class="btn btn-primary mt-2">Simpan</button>
-        </form>
     <!-- Informasi Umum Subak -->
     <div class="card mb-4">
         <div class="card-header text-white" style="background-color: #FF6B6B;">
@@ -651,7 +637,43 @@
             </div>
 
     </div>
+    
 </div>
+
+    <div class="card mb-4">
+        <div class="card-header text-white" style="background-color: #3BEBFF;">
+            <h5 class="mb-0"><strong>Komentar Tambahan</strong></h5>
+        </div>
+        <div class="card-body">
+            <p class="card-body border"><?php echo $subak->usul_saran_komentar; ?></p>
+        </div>
+    </div> 
+    
+    <div class="card mb-4">
+        <div class="card-body">
+        <form action="<?= base_url('DashboardVerifikasiList/VerifikasiListAccept') ?>" method="post">
+            <h6 class="mb-2"><strong>Verifikasi</strong></h6>
+                <div class="col-auto">
+                    <input type="hidden" name="id_subak" value="<?= $subak->id_subak ?>">
+                    <select class="form-control" name="verifikasi">
+                        <option value="belum_terverifikasi">Belum Terverifikasi</option>
+                        <option value="Terverifikasi">Terverifikasi</option>                
+                        <option value="Data Ditolak">Data Ditolak</option>
+                        <option value="Data Diperbarui">Data Diperbarui</option>
+                        <option value="Data Tidak Valid">Data Tidak Valid</option>
+                    </select>
+                </div>
+            <h6 class="mb-2"><strong>Komentar</strong></h6>
+            <div class="col">
+                <input type="text" class="form-control" name="komentar_verifikator" placeholder="Mengapa Anda Memilih Tipe Verifikasi?" required>
+                <button type="submit" class="btn btn-primary mt-2">Simpan</button>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    
+
     <div class="container mb-4">
         <a href="<?php echo base_url('DashboardVerifikasiHome'); ?>" class="btn btn-primary">Kembali</a>
     </div>

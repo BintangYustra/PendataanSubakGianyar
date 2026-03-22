@@ -23,44 +23,44 @@ class AddModel extends CI_Model {
         $this->db->insert('tb_perahyangan', $data);
     }
 
-    public function insert_tb_perahyangan_pura_bedugul_ada($data) {
-        $this->db->insert('tb_perahyangan_pura_bedugul_ada', $data);
-    }
+    // public function insert_tb_perahyangan_pura_bedugul_ada($data) {
+    //     $this->db->insert('tb_perahyangan_pura_bedugul_ada', $data);
+    // }
 
-    public function insert_tb_perahyangan_pura_bedugul_tidakada($data) {
-        $this->db->insert('tb_perahyangan_pura_bedugul_tidakada', $data);
-    }
+    // public function insert_tb_perahyangan_pura_bedugul_tidakada($data) {
+    //     $this->db->insert('tb_perahyangan_pura_bedugul_tidakada', $data);
+    // }
 
-    public function insert_tb_perahyangan_pura_bedugul_tidakada2($data) {
-        $this->db->insert('tb_perahyangan_pura_bedugul_tidakada2', $data);
-    }
+    // public function insert_tb_perahyangan_pura_bedugul_tidakada2($data) {
+    //     $this->db->insert('tb_perahyangan_pura_bedugul_tidakada2', $data);
+    // }
 
-    public function insert_tb_perahyangan_pura_bedugul_tidakada3($data) {
-        $this->db->insert('tb_perahyangan_pura_bedugul_tidakada23', $data);
-    }
+    // public function insert_tb_perahyangan_pura_bedugul_tidakada3($data) {
+    //     $this->db->insert('tb_perahyangan_pura_bedugul_tidakada23', $data);
+    // }
 
     public function insert_tb_perahyangan_inventaris($data) {
-        $this->db->insert('tb_inventaris', $data);
+        $this->db->insert('tb_perahyangan_inventaris', $data);
     }
 
     public function insert_tb_perahyangan_foto_pura($data) {
-        $this->db->insert('tb_foto_pura', $data);
+        $this->db->insert('tb_perahyangan_foto', $data);
     }
 
-    public function insert_tb_perahyangan_foto_pura2($data) {
-        $this->db->insert('tb_foto_pura2', $data);
-    }
+    // public function insert_tb_perahyangan_foto_pura2($data) {
+    //     $this->db->insert('tb_foto_pura2', $data);
+    // }
 
-    public function insert_tb_perahyangan_foto_pura3($data) {
-        $this->db->insert('tb_foto_pura3', $data);
-    }
+    // public function insert_tb_perahyangan_foto_pura3($data) {
+    //     $this->db->insert('tb_foto_pura3', $data);
+    // }
 
-    public function insert_tb_perahyangan_foto_pura4($data) {
-        $this->db->insert('tb_foto_pura4', $data);
-    }
+    // public function insert_tb_perahyangan_foto_pura4($data) {
+    //     $this->db->insert('tb_foto_pura4', $data);
+    // }
 
     public function insert_tb_perahyangan_aci_aci_subak($data) {
-        $this->db->insert('tb_aci_aci', $data);
+        $this->db->insert('tb_perahyangan_aci', $data);
     }
 
     public function insert_tb_pawongan($data) {

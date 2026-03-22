@@ -10,7 +10,7 @@
                                 <th>ID Operator</th>
                                 <th>Nama Operator</th>
                                 <th>Role Operator</th>  
-                                <th>Action</th>  
+                                <th>Password</th>  
                             </tr>
                         </thead>
                         <tbody>
@@ -19,9 +19,7 @@
                                 <td><?php echo $row->id_user; ?></td>
                                 <td><?php echo $row->username; ?></td>
                                 <td><?php echo $row->role; ?></td>
-                                <td>
-                                    Action123
-                                </td>
+                                <td><?php echo $row->password; ?></td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

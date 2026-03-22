@@ -83,12 +83,13 @@ class DashboardVerifikasiList extends CI_Controller {
 		$id_subak = $this->input->post('id_subak');
 		$status = $this->input->post('verifikasi');
 		if (!empty($id_subak) && !empty($status)) {
-			$data = ['verifikasi' => $status];
+			$data = [
+				'verifikasi' => $status,
+				'diverifikasi_oleh' => $this->session->userdata('username')
+				];
 			$this->UpdateModel->update_tb_subak($id_subak, $data);
 		}
 		redirect(base_url('DashboardVerifikasiList'));
 	}
-
-
 }
 
