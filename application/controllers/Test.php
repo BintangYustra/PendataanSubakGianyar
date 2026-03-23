@@ -1,6 +1,6 @@
 <?php
 
-class DashboardAdminTambahOperator extends CI_Controller {
+class Test extends CI_Controller {
 	public function __construct() {
         parent::__construct();
         $this->load->model('ViewModel');
@@ -18,7 +18,7 @@ class DashboardAdminTambahOperator extends CI_Controller {
 		
 		$this->load->view('templates/dashboard/headerdashboard', $data);
 		$this->load->view('templates/dashboard/sidepaneldashboardadmin');
-		$this->load->view('dashboard/dashboardadmintambahoperator' , $data);
+		$this->load->view('templates/dashboard/test' , $data);
 		$this->load->view('templates/dashboard/footerdashboard');
 
 	}

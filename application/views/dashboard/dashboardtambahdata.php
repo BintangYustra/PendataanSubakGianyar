@@ -48,7 +48,16 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Kecamatan</label>
-                        <input type="text" class="form-control" name="kecamatan_subak">
+                            <select class="form-control" name="kecamatan_subak">
+                                <option value="----">----</option>
+                                <option value="Blahbatuh">Blahbatuh</option>
+                                <option value="Gianyar">Gianyar</option>
+                                <option value="Payangan">Payangan</option>
+                                <option value="Sukawati">Sukawati</option>
+                                <option value="Tampaksiring">Tampaksiring</option>
+                                <option value="Tegallalang">Tegallalang</option>
+                                <option value="Ubud">Ubud</option>
+                            </select>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Kode Pos</label>

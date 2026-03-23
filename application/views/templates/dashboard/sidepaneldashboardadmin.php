@@ -67,6 +67,12 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="<?php base_url()?>Test">
+                    <i class="fas fa-fw fa fa-check-double"></i>
+                    <span>Testing Page</span></a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('login/logout'); ?>">
                     <i class="fa-solid fa-right-from-bracket"></i>                    
                     <span>Log Out</span></a>
