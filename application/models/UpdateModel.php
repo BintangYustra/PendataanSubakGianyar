@@ -21,45 +21,45 @@ class UpdateModel extends CI_Model {
         return $this -> db -> get('tb_prajuru') -> result();
     }
 
-    public function get_perahyangan_by_id($id_subak) {
-        return $this->db->get_where('tb_perahyangan', ['id_subak' => $id_subak])->row();
-    }
+    // public function get_perahyangan_by_id($id_subak) {
+    //     return $this->db->get_where('tb_perahyangan', ['id_subak' => $id_subak])->row();
+    // }
 
-    public function get_perahyanganpurabedugulada_by_id($id_perahyangan_pura_bedugul_ada) {
-        return $this->db->get_where('tb_perahyangan_pura_bedugul_ada', ['id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada])->row();
-    }
+    // public function get_perahyanganpurabedugulada_by_id($id_perahyangan_pura_bedugul_ada) {
+    //     return $this->db->get_where('tb_perahyangan_pura_bedugul_ada', ['id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada])->row();
+    // }
 
-    public function get_perahyanganpurabedugultidakada_by_id($id_perahyangan_pura_bedugul_tidakada) {
-        return $this->db->get_where('tb_perahyangan_pura_bedugul_tidakada', ['id_perahyangan_pura_bedugul_tidakada' => $id_perahyangan_pura_bedugul_tidakada])->row();
-    }
+    // public function get_perahyanganpurabedugultidakada_by_id($id_perahyangan_pura_bedugul_tidakada) {
+    //     return $this->db->get_where('tb_perahyangan_pura_bedugul_tidakada', ['id_perahyangan_pura_bedugul_tidakada' => $id_perahyangan_pura_bedugul_tidakada])->row();
+    // }
 
-    public function get_perahyanganpurabedugultidakada2_by_id($id_perahyangan_pura_bedugul_tidakada2) {
-        return $this->db->get_where('tb_perahyangan_pura_bedugul_tidakada2', ['id_perahyangan_pura_bedugul_tidakada2' => $id_perahyangan_pura_bedugul_tidakada2])->row();
-    }
+    // public function get_perahyanganpurabedugultidakada2_by_id($id_perahyangan_pura_bedugul_tidakada2) {
+    //     return $this->db->get_where('tb_perahyangan_pura_bedugul_tidakada2', ['id_perahyangan_pura_bedugul_tidakada2' => $id_perahyangan_pura_bedugul_tidakada2])->row();
+    // }
 
-    public function get_perahyanganpurabedugultidakada3_by_id($id_perahyangan_pura_bedugul_tidakada3) {
-        return $this->db->get_where('tb_perahyangan_pura_bedugul_tidakada23', ['id_perahyangan_pura_bedugul_tidakada3' => $id_perahyangan_pura_bedugul_tidakada3])->row();
-    }
+    // public function get_perahyanganpurabedugultidakada3_by_id($id_perahyangan_pura_bedugul_tidakada3) {
+    //     return $this->db->get_where('tb_perahyangan_pura_bedugul_tidakada23', ['id_perahyangan_pura_bedugul_tidakada3' => $id_perahyangan_pura_bedugul_tidakada3])->row();
+    // }
 
-    public function get_perahyangan_inventaris_by_id($id_perahyangan_pura_bedugul_ada)
-    {
-        return $this->db->get_where('tb_inventaris', ['id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada])->result();
-    }
+    // public function get_perahyangan_inventaris_by_id($id_perahyangan_pura_bedugul_ada)
+    // {
+    //     return $this->db->get_where('tb_inventaris', ['id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada])->result();
+    // }
 
-    public function get_perahyangan_aci_aci_by_id($id_perahyangan_pura_bedugul_ada)
-    {
-        return $this->db->get_where('tb_aci_aci', ['id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada])->result();
-    }
+    // public function get_perahyangan_aci_aci_by_id($id_perahyangan_pura_bedugul_ada)
+    // {
+    //     return $this->db->get_where('tb_aci_aci', ['id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada])->result();
+    // }
 
-    public function get_perahyangan_foto_pura_by_id($id_perahyangan_pura_bedugul_ada)
-    {
-        return $this->db->get_where('tb_foto_pura', ['id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada])->result();
-    }
+    // public function get_perahyangan_foto_pura_by_id($id_perahyangan_pura_bedugul_ada)
+    // {
+    //     return $this->db->get_where('tb_foto_pura', ['id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada])->result();
+    // }
 
-    public function get_perahyangan_foto_pura_by_id2($id_perahyangan_pura_bedugul_tidakada)
-    {
-        return $this->db->get_where('tb_foto_pura2', ['id_perahyangan_pura_bedugul_tidakada' => $id_perahyangan_pura_bedugul_tidakada])->result();
-    }
+    // public function get_perahyangan_foto_pura_by_id2($id_perahyangan_pura_bedugul_tidakada)
+    // {
+    //     return $this->db->get_where('tb_foto_pura2', ['id_perahyangan_pura_bedugul_tidakada' => $id_perahyangan_pura_bedugul_tidakada])->result();
+    // }
 
     public function get_pawongan_by_id($id_subak) {
         return $this->db->get_where('tb_pawongan', ['id_subak' => $id_subak])->row();
@@ -112,47 +112,47 @@ class UpdateModel extends CI_Model {
         return $this->db->update('tb_prajuru', $data);
     }
 
-    public function update_tb_perahyangan($id_subak, $data)
-    {
-        $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_perahyangan', $data);
-    }
+    // public function update_tb_perahyangan($id_subak, $data)
+    // {
+    //     $this->db->where('id_subak', $id_subak);
+    //     return $this->db->update('tb_perahyangan', $data);
+    // }
 
-    public function update_tb_perahyangan_pura_bedugul_ada($id_perahyangan, $data)
-    {
-        $this->db->where('id_perahyangan', $id_perahyangan);
-        return $this->db->update('tb_perahyangan_pura_bedugul_ada', $data);
-    }
+    // public function update_tb_perahyangan_pura_bedugul_ada($id_perahyangan, $data)
+    // {
+    //     $this->db->where('id_perahyangan', $id_perahyangan);
+    //     return $this->db->update('tb_perahyangan_pura_bedugul_ada', $data);
+    // }
 
-    public function update_tb_perahyangan_pura_bedugul_tidakada($id_perahyangan, $data)
-    {
-        $this->db->where('id_perahyangan', $id_perahyangan);
-        return $this->db->update('tb_perahyangan_pura_bedugul_tidakada', $data);
-    }
+    // public function update_tb_perahyangan_pura_bedugul_tidakada($id_perahyangan, $data)
+    // {
+    //     $this->db->where('id_perahyangan', $id_perahyangan);
+    //     return $this->db->update('tb_perahyangan_pura_bedugul_tidakada', $data);
+    // }
 
-    public function update_tb_perahyangan_inventaris($id_subak, $data)
-    {
-        $this->db->where('id_subak', $id_subak);
-        return $this->db->update('tb_inventaris', $data);
-    }
+    // public function update_tb_perahyangan_inventaris($id_subak, $data)
+    // {
+    //     $this->db->where('id_subak', $id_subak);
+    //     return $this->db->update('tb_inventaris', $data);
+    // }
 
-    public function update_tb_perahyangan_aci_aci_subak($id_aci_subak, $data)
-    {
-        $this->db->where('id_aci_subak', $id_aci_subak);
-        return $this->db->update('tb_perahyangan_aci_aci_subak', $data);
-    }
+    // public function update_tb_perahyangan_aci_aci_subak($id_aci_subak, $data)
+    // {
+    //     $this->db->where('id_aci_subak', $id_aci_subak);
+    //     return $this->db->update('tb_perahyangan_aci_aci_subak', $data);
+    // }
 
-    public function update_tb_perahyangan_foto_pura($id_foto_pura, $data)
-    {
-        $this->db->where('id_foto_pura', $id_foto_pura);
-        return $this->db->update('tb_perahyangan_foto_pura', $data);
-    }
+    // public function update_tb_perahyangan_foto_pura($id_foto_pura, $data)
+    // {
+    //     $this->db->where('id_foto_pura', $id_foto_pura);
+    //     return $this->db->update('tb_perahyangan_foto_pura', $data);
+    // }
 
-    public function update_tb_perahyangan_foto_pura2($id_foto_pura2, $data)
-    {
-        $this->db->where('id_foto_pura2', $id_foto_pura2);
-        return $this->db->update('tb_perahyangan_foto_pura2', $data);
-    }
+    // public function update_tb_perahyangan_foto_pura2($id_foto_pura2, $data)
+    // {
+    //     $this->db->where('id_foto_pura2', $id_foto_pura2);
+    //     return $this->db->update('tb_perahyangan_foto_pura2', $data);
+    // }
 
     public function update_tb_pawongan($id_subak, $data)
     {
@@ -167,37 +167,37 @@ class UpdateModel extends CI_Model {
     }
 
     // array update
-    // update inventaris
-    public function update_inventaris($id_perahyangan_pura_bedugul_ada, $data_inventaris = [])
-    {
-        if (!empty($data_inventaris)) {
-            $this->db->where('id_perahyangan_pura_bedugul_ada', $id_perahyangan_pura_bedugul_ada);
-            $this->db->delete('tb_inventaris');
+    // // update inventaris
+    // public function update_inventaris($id_perahyangan_pura_bedugul_ada, $data_inventaris = [])
+    // {
+    //     if (!empty($data_inventaris)) {
+    //         $this->db->where('id_perahyangan_pura_bedugul_ada', $id_perahyangan_pura_bedugul_ada);
+    //         $this->db->delete('tb_inventaris');
 
-            foreach ($data_inventaris as $inventaris) {
-                $this->db->insert('tb_inventaris', [
-                    'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
-                    'inventaris' => $inventaris['inventaris']
-                ]);
-            }
-        }
-    }
+    //         foreach ($data_inventaris as $inventaris) {
+    //             $this->db->insert('tb_inventaris', [
+    //                 'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
+    //                 'inventaris' => $inventaris['inventaris']
+    //             ]);
+    //         }
+    //     }
+    // }
 
-    // update aci-aci
-    public function update_aci_aci($id_perahyangan_pura_bedugul_ada, $data_aci_aci_subak = [])
-    {
-        if (!empty($data_aci_aci_subak)) {
-            $this->db->where('id_perahyangan_pura_bedugul_ada', $id_perahyangan_pura_bedugul_ada);
-            $this->db->delete('tb_aci_aci');
+    // // update aci-aci
+    // public function update_aci_aci($id_perahyangan_pura_bedugul_ada, $data_aci_aci_subak = [])
+    // {
+    //     if (!empty($data_aci_aci_subak)) {
+    //         $this->db->where('id_perahyangan_pura_bedugul_ada', $id_perahyangan_pura_bedugul_ada);
+    //         $this->db->delete('tb_aci_aci');
 
-            foreach ($data_aci_aci_subak as $aci_aci) {
-                $this->db->insert('tb_aci_aci', [
-                    'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
-                    'aci_aci_subak' => $aci_aci['aci_aci_subak']
-                ]);
-            }
-        }
-    }
+    //         foreach ($data_aci_aci_subak as $aci_aci) {
+    //             $this->db->insert('tb_aci_aci', [
+    //                 'id_perahyangan_pura_bedugul_ada' => $id_perahyangan_pura_bedugul_ada,
+    //                 'aci_aci_subak' => $aci_aci['aci_aci_subak']
+    //             ]);
+    //         }
+    //     }
+    // }
 
     // update nama penyakap + pendidikan
     public function update_nama_penyakap($id_pawongan, $data_nama_penyakap = [])

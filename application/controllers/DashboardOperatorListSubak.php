@@ -81,14 +81,10 @@ class DashboardOperatorListSubak extends CI_Controller {
 		$data['palemahanbantaunpemerintah'] = $this->ViewModel->get_palemahan_bantuan_pemerintah_by_id($id_subak);
 		$this->load->view('/dashboard/dashboardupdatedata', $data);	
 	}
-
-	public function MultiTable($id_perahyangan){
-
-	}
 	
     public function DashboardUpdateDataSubak($id_subak)
     {		
-		$id_subak = $this->input->post('id_subak');
+
 		$update_data_subak = [	
 			'id_subak' => $id_subak,
 			'nama_subak' => $this->input->post('nama_subak'),
@@ -121,10 +117,10 @@ class DashboardOperatorListSubak extends CI_Controller {
 		];
 		$this->UpdateModel->update_tb_prajuru($id_subak, $update_tb_prajuru);
 
-		$update_tb_perahyangan = [
-            'ketersediaan_pura_bedugul' => $this->input->post('ketersediaan_pura_bedugul'),
-		];
-		$this->UpdateModel->update_tb_perahyangan($id_subak, $update_tb_perahyangan);
+		// $update_tb_perahyangan = [
+        //     'ketersediaan_pura_bedugul' => $this->input->post('ketersediaan_pura_bedugul'),
+		// ];
+		// $this->UpdateModel->update_tb_perahyangan($id_subak, $update_tb_perahyangan);
                 
 		// $update_tb_perahyangan_pura_bedugul_ada = [
 		// 	'nama_pura' => $this->input->post('nama_pura'),

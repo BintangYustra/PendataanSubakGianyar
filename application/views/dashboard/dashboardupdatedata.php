@@ -82,12 +82,17 @@
                         <input type="text" class="form-control" name="desa_subak" value="<?= $alamat->desa_subak ?>">
                     </div>
                     <div class="form-group mb-3">
-                        <label>Kecamatan</label>
-                        <input type="text" class="form-control" name="kecamatan_subak" value="<?= $alamat->kecamatan_subak ?>">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label>Kabupaten</label>
-                        <input type="text" class="form-control" name="kabupaten_subak" value="<?= $alamat->kabupaten_subak ?>">
+                        <label class="form-label">Kecamatan</label>
+                        <select class="form-control" name="kecamatan_subak">
+                            <option value="----" <?= ($alamat->kecamatan_subak == '----') ? 'selected' : '' ?>>----</option>
+                            <option value="Blahbatuh" <?= ($alamat->kecamatan_subak == 'Blahbatuh') ? 'selected' : '' ?>>Blahbatuh</option>
+                            <option value="Gianyar" <?= ($alamat->kecamatan_subak == 'Gianyar') ? 'selected' : '' ?>>Gianyar</option>
+                            <option value="Payangan" <?= ($alamat->kecamatan_subak == 'Payangan') ? 'selected' : '' ?>>Payangan</option>
+                            <option value="Sukawati" <?= ($alamat->kecamatan_subak == 'Sukawati') ? 'selected' : '' ?>>Sukawati</option>
+                            <option value="Tampaksiring" <?= ($alamat->kecamatan_subak == 'Tampaksiring') ? 'selected' : '' ?>>Tampaksiring</option>
+                            <option value="Tegallalang" <?= ($alamat->kecamatan_subak == 'Tegallalang') ? 'selected' : '' ?>>Tegallalang</option>
+                            <option value="Ubud" <?= ($alamat->kecamatan_subak == 'Ubud') ? 'selected' : '' ?>>Ubud</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Kode Pos</label>
@@ -160,7 +165,7 @@
             </div>
         </div>
 
-        <!-- Perahyangan -->
+        <!-- Perahyangan
         <div class="card mb-4">
             <div class="card-header text-white" style="background-color: #06D6A0;">Perahyangan</div>
             <div class="card-body">
@@ -177,7 +182,7 @@
         </div>
         <p><i>Note: Jika Anda Mengganti Ketersediaan Dari "Ada" ke "Tidak Ada" Harap Menghapus Data Pada Salah Satu Kotak Ada atau Tidak Ada</i></p>
         <!-- Pura Bedugul Ada -->
-        <div class="card mb-4">
+        <!-- <div class="card mb-4">
             <div class="card-header text-white" style="background-color: #06D6A0;">Perahyangan Pura Bedugul Ada</div>
             <div class="card-body">
                 <input type="hidden" name="id_perahyangan_pura_bedugul_ada" value="<?= $perahyanganpurabedugulada->id_perahyangan_pura_bedugul_ada ?>">
@@ -260,9 +265,9 @@
                 </script>   
             </div>
             </div>
-        </div>
+        </div> -->
         <!-- Pura Bedugul Tidak Tidak Ada -->
-        <div class="card mb-4">
+        <!-- <div class="card mb-4">
             <div class="card-header text-white" style="background-color: #06D6A0;">Perahyangan Pura Bedugul Tidak Ada</div>
             <div class="card-body">
                 <h4 class="text-center">Pura 1</h4>
@@ -298,13 +303,13 @@
                 </div>                       
                 <div class="form-group mb-2">
                     <label>Foto Pura</label>
-                    <!-- <input type="file" class="form-control" name="foto_pura2" value="<?= $perahyanganpurabedugultidakadafotopura2->foto_pura2 ?>"> -->
+                    <!-- <input type="file" class="form-control" name="foto_pura2" value="<?= $perahyanganpurabedugultidakadafotopura2->foto_pura2 ?>">
                 </div>                       
             </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="card mb-4">
+        <!-- <div class="card mb-4">
             <div class="card-header text-white" style="background-color: #06D6A0;">Perahyangan Pura Bedugul Tidak Ada</div>
             <div class="card-body">
                 <h4 class="text-center">Pura 2</h4>
@@ -335,9 +340,9 @@
                     <input type="number" class="form-control" name="piodalan_wali_pertahun23" value="<?= $perahyanganpurabedugultidakada2->piodalan_wali_pertahun23 ?>">
                 </div>            
                 <div class="form-group mb-2">
-                    <label>Foto Pura</label>
+                    <label>Foto Pura</label> -->
                     <!-- <input type="file" class="form-control" name="foto_pura2" value="<?= $perahyanganpurabedugultidakadafotopura2->foto_pura2 ?>"> -->
-                </div>                    
+                <!-- </div>                    
             </div>
             </div>
         </div>
@@ -378,11 +383,11 @@
                 </div>            
                 <div class="form-group mb-2">
                     <label>Foto Pura</label>
-                    <!-- <input type="file" class="form-control" name="foto_pura2" value="<?= $perahyanganpurabedugultidakadafotopura2->foto_pura2 ?>"> -->
+                    <input type="file" class="form-control" name="foto_pura2" value="<?= $perahyanganpurabedugultidakadafotopura2->foto_pura2 ?>">
                 </div>  
             </div>
             </div>
-        </div>
+        </div>  -->
 
         <!-- Pawongan -->
         <div class="card mb-4">
