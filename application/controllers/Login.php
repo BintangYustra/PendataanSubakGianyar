@@ -58,10 +58,10 @@ class Login extends CI_Controller {
             case 'Operator Verifikasi':
                 redirect('DashboardVerifikasiHome');
                 break;
-            case 'Admin Super':
+            case 'Admin':
                 redirect('DashboardAdmin');
                 break;
-            case 'Special Surprise':
+            case 'Tester':
                 redirect('Welcome');
                 break;
             default:

@@ -1,6 +1,10 @@
 <?php
 class SubakModel extends CI_Model {
 
+
+    // SUDAH TIDAK DIPAKAI LAGI
+
+
     // DATA MASUK KE DATABASE
     public function insert_tb_subak($data) {
         $this->db->insert('tb_subak', $data);
