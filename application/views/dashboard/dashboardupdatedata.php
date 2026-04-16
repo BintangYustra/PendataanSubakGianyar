@@ -623,7 +623,6 @@
                     });
                 </script>
 
-
                 <div class="form-group mb-2">
                     <label>Masa Musim Tanam Setiap Tahun</label>
                     <input type="number" class="form-control" name="masa_musim_tanam_pertahun" value="<?= $palemahan->masa_musim_tanam_pertahun ?>">
@@ -697,12 +696,8 @@
                     }
                 </script>
         </div>    
-
-
-
-
-
-        </div>
+    </div>
+</div>
 
     <div class="card mt-4">
         <div class="card-body">
@@ -711,13 +706,23 @@
                 <input type="text" class="form-control" name="usul_saran_komentar" placeholder="Sebutkan apa saja yang anda rubah" required>
             </div>
         </div>
-    </div>
+    </div>        
 
 
-        
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- Tombol -->
-        <div class="mb-2">
+        <div class="container mt-4">
             <a href="<?= base_url('DashboardOperatorListSubak'); ?>" class="btn btn-secondary">Kembali</a>
             <button type="submit" class="btn btn-primary">Update</button>
         </div>

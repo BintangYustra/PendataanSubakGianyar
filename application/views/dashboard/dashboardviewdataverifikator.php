@@ -63,12 +63,20 @@
                         <td><?php echo $subak->verifikasi; ?></td>
                     </tr>
                     <tr>
+                        <th>Dibuat Oleh</th>
+                        <td><?php echo $subak->dibuat_oleh; ?></td>
+                    </tr>
+                    <tr>
                         <th>Tanggal Dibuat</th>
                         <td><?php echo $subak->dibuat_pada; ?></td>
                     </tr>
                     <tr>
+                        <th>Diperbaharui Oleh</th>
+                        <td><?php echo $subak->diperbaharui_oleh; ?></td>
+                    </tr>
+                    <tr>
                         <th>Tanggal Diperbaharui</th>
-                        <td><?php echo $subak->diperbaharui; ?></td>
+                        <td><?php echo $subak->diperbaharui_pada; ?></td>
                     </tr>
                 </tbody>
             </table>

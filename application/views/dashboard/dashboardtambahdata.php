@@ -159,410 +159,19 @@
                     <label class="form-check-label" for="puraTidakAda">Tidak Ada</label>
                 </div>
             </div>
+            <script>
 
-            <!-- Form jika "Ada" -->
-            <div id="formAda" style="display: none;">
-                <div class="mb-3">
-                    <div class="mt-3">
-                        <label class="form-label">Nama Pura</label>
-                        <input type="text" class="form-control" name="nama_pura">
-                    </div>
+            </script>
 
-                    <label class="form-label d-block">Pura Bedugul Ini Disungsung Oleh</label>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="satuSubak" value="Satu Subak">
-                        <label class="form-check-label" for="satuSubak">Satu Subak</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="pura_bedugul_disungsung" id="lebihSubak" value="Lebih dari Satu Subak">
-                        <label class="form-check-label" for="lebihSubak">Lebih Dari Satu Subak</label>
-                    </div>
-                    <div class="mt-3" id="form-subak-lainnya"></div>
-                    <script>
-                        const satuSubak = document.getElementById('satuSubak');
-                        const lebihSubak = document.getElementById('lebihSubak');
-                        const container = document.getElementById('form-subak-lainnya');
-                        satuSubak.addEventListener('change', function () {
-                            if (this.checked) container.innerHTML = '';
-                        });
-                        lebihSubak.addEventListener('change', function () {
-                            if (this.checked) {
-                                container.innerHTML = `
-                                    <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
-                                    <input type="text" name="pura_bedugul_disungsung_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
-                                `;
-                            }
-                        });
-                    </script>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Alamat Pura Bedugul</label>
-                    <input type="text" class="form-control" name="alamat_pura_bedugul">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Piodalan/Wali dalam Setahun</label>
-                    <input type="number" class="form-control" name="piodalan_wali_pertahun">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Hari Piodalan/Wali</label>
-                    <input type="text" class="form-control" name="hari_piodalan_wali">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Jumlah Pelinggih</label>
-                    <input type="number" class="form-control" name="jumlah_pelinggih">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Inventaris yang Dimiliki</label>
-                    <div id="inventarisWrapper">
-                        <div class="input-group mb-2">
-                            <input type="text" class="form-control" name="inventaris[]">
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-sm" onclick="tambahInventaris()">+Tambah Inventaris</button>
-                </div>  
-                <script>
-                function tambahInventaris() {
-                    const wrapper = document.getElementById('inventarisWrapper');
-                    const newRow = document.createElement('div');
-                    newRow.className = 'input-group mb-2';
-                    newRow.innerHTML = `
-                        <input type="text" class="form-control" name="inventaris[]">
-                    `;
-                    wrapper.appendChild(newRow);
-                }
-                </script>   
-
-                <div class="mb-3">
-                    <label class="form-label">Upload Foto</label>
-                    <div id="fotoWrapper">
-                        <div class="input-group mb-2">
-                            <input type="file" class="form-control" name="foto_pura[]">
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-sm" onclick="tambahFotoPura()">+Tambah File Foto</button>
-                </div>  
-                <script>
-                function tambahFotoPura() {
-                    const wrapper = document.getElementById('fotoWrapper');
-                    const newRow = document.createElement('div');
-                    newRow.className = 'input-group mb-2';
-                    newRow.innerHTML = `
-                            <input type="file" class="form-control" name="foto_pura[]">                    `;
-                    wrapper.appendChild(newRow);
-                }
-                </script>   
-
-                <!-- <div class="mb-3">
-                    <label class="form-label">Upload Foto Pura</label>
-                    <input type="file" name="foto_pura[]" class="form-control" multiple>
-                </div> -->
-
-
-                <div class="mb-3 d-flex flex-wrap gap-2" id="preview_foto"></div>
-
-                <div class="mb-3">
-                    <label class="form-label">Aci-Aci yang Selalu Dilaksanakan di Pesubakan (Menurut Dresta)</label>
-                    <div id="aciAciWrapper">
-                        <div class="input-group mb-2">
-                            <input type="text" class="form-control" name="aci_aci_subak[]">
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-sm" onclick="tambahAciAci()">Tambah Aci-Aci</button>
-                </div>
+            <div id="formAda" class="mb-3">
+<h4>fsdf</h4>
             </div>
-            <!-- Form jika "Tidak Ada" -->
-            <div id="formTidakAda" style="display: none;">
-                <div id="formTidakAdaContainer">
-                    <div class="mb-3">
-                        <div class="mt-5">
-                            <h4>Pura 1</h4>
-                            <div class="mb-3">
-                                <label class="form-label">Nama Pura</label>
-                                <input type="text" class="form-control" name="nama_pura2">
-                            </div>
-                            <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung2" id="satuSubak2" value="Satu Subak">
-                                <label class="form-check-label" for="satuSubak2">Satu Subak</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung2" id="lebihSubak2" value="Lebih dari Satu Subak">
-                                <label class="form-check-label" for="lebihSubak2">Lebih dari Satu Subak</label>
-                            </div>
-                            <div class="mt-3" id="form-subak-lainnya2"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Alamat Pura Bedugul</label>
-                                <input type="text" class="form-control" name="alamat_pura_bedugul2">
-                            <div class="mb-3">
-                                <label class="form-label">Piodalan/Wali dalam Setahun</label>
-                                <input type="number" class="form-control" name="piodalan_wali_pertahun2">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Hari Piodalan/Wali</label>
-                                <input type="text" class="form-control" name="hari_piodalan_wali2">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Upload Foto</label>
-                                <div id="fotoWrapper2">
-                                    <div class="input-group mb-2">
-                                        <input type="file" class="form-control" name="foto_pura2[]">
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-primary btn-sm" onclick="tambahFotoPura2()">+Tambah File Foto</button>
-                            </div>  
-                            <script>
-                            function tambahFotoPura2() {
-                                const wrapper = document.getElementById('fotoWrapper2');
-                                const newRow = document.createElement('div');
-                                newRow.className = 'input-group mb-2';
-                                newRow.innerHTML = `
-                                        <input type="file" class="form-control" name="foto_pura2[]">                    `;
-                                wrapper.appendChild(newRow);
-                            }
-                            </script>   
 
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="mt-5">
-                            <h4>Pura 2</h4>
-                            <div class="mb-3">
-                                <label class="form-label">Nama Pura</label>
-                                <input type="text" class="form-control" name="nama_pura23">
-                            </div>
-                            <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung23" id="satuSubak23" value="Satu Subak">
-                                <label class="form-check-label" for="satuSubak23">Satu Subak</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung23" id="lebihSubak23" value="Lebih dari Satu Subak">
-                                <label class="form-check-label" for="lebihSubak23">Lebih dari Satu Subak</label>
-                            </div>
-                            <div class="mt-3" id="form-subak-lainnya23"></div>
-                            <div class="mb-3">
-                                <label class="form-label">Alamat Pura Bedugul</label>
-                                <input type="text" class="form-control" name="alamat_pura_bedugul23">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Piodalan/Wali dalam Setahun</label>
-                                <input type="number" class="form-control" name="piodalan_wali_pertahun23">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Hari Piodalan/Wali</label>
-                                <input type="text" class="form-control" name="hari_piodalan_wali23">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Upload Foto</label>
-                                <div id="fotoWrapper3">
-                                    <div class="input-group mb-2">
-                                        <input type="file" class="form-control" name="foto_pura3[]">
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-primary btn-sm" onclick="tambahFotoPura3()">+Tambah File Foto</button>
-                            </div>  
-                            <script>
-                            function tambahFotoPura3() {
-                                const wrapper = document.getElementById('fotoWrapper3');
-                                const newRow = document.createElement('div');
-                                newRow.className = 'input-group mb-2';
-                                newRow.innerHTML = `
-                                        <input type="file" class="form-control" name="foto_pura3[]">                    `;
-                                wrapper.appendChild(newRow);
-                            }
-                            </script>  
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="mt-5">
-                            <h4>Pura 3</h4>
-                            <div class="mb-3">
-                                <label class="form-label">Nama Pura</label>
-                                <input type="text" class="form-control" name="nama_pura24">
-                            </div>
-                            <label class="form-label d-block">Pura Ini Disungsung Oleh</label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung24" id="satuSubak24" value="Satu Subak">
-                                <label class="form-check-label" for="satuSubak24">Satu Subak</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="pura_bedugul_disungsung24" id="lebihSubak24" value="Lebih dari Satu Subak">
-                                <label class="form-check-label" for="lebihSubak24">Lebih dari Satu Subak</label>
-                            </div>
-                            <div class="mt-3" id="form-subak-lainnya24"></div>
-                            <div class="mb-3">
-                                <label class="form-label">Alamat Pura Bedugul</label>
-                                <input type="text" class="form-control" name="alamat_pura_bedugul24">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Piodalan/Wali dalam Setahun</label>
-                                <input type="number" class="form-control" name="piodalan_wali_pertahun24">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Hari Piodalan/Wali</label>
-                                <input type="text" class="form-control" name="hari_piodalan_wali24">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Upload Foto</label>
-                                <div id="fotoWrapper4">
-                                    <div class="input-group mb-2">
-                                        <input type="file" class="form-control" name="foto_pura4[]">
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-primary btn-sm" onclick="tambahFotoPura3()">+Tambah File Foto</button>
-                            </div>  
-                            <script>
-                            function tambahFotoPura3() {
-                                const wrapper = document.getElementById('fotoWrapper4');
-                                const newRow = document.createElement('div');
-                                newRow.className = 'input-group mb-2';
-                                newRow.innerHTML = `
-                                        <input type="file" class="form-control" name="foto_pura4[]">                    `;
-                                wrapper.appendChild(newRow);
-                            }
-                            </script>  
-                        </div>
-                    </div>
-                </div>
+            <div id="formTidakAda" class="mb-3">
+<h4>sdgsdg</h4>
             </div>
         </div>
     </div>
-    
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Toggle Form Ada / Tidak Ada
-        const formAda = document.getElementById("formAda");
-        const formTidakAda = document.getElementById("formTidakAda");
-        const radioButtons = document.getElementsByName("ketersediaan_pura_bedugul");
-
-        radioButtons.forEach(radio => {
-            radio.addEventListener("change", function () {
-                formAda.style.display = this.value === "Ada" ? "block" : "none";
-                formTidakAda.style.display = this.value === "Tidak Ada" ? "block" : "none";
-            });
-        });
-
-        // Toggle Subak lainnya (formAda)
-        const satuSubak = document.getElementById('satuSubak');
-        const lebihSubak = document.getElementById('lebihSubak');
-        const container = document.getElementById('form-subak-lainnya');
-
-        if (satuSubak && lebihSubak && container) {
-            satuSubak.addEventListener('change', function () {
-                if (this.checked) container.innerHTML = '';
-            });
-            lebihSubak.addEventListener('change', function () {
-                if (this.checked) {
-                    container.innerHTML = `
-                        <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
-                        <input type="text" name="pura_bedugul_disungsung_lain" class="form-control" placeholder="Contoh: Subak A, Subak B">
-                    `;
-                }
-            });
-        }
-
-        // Toggle Subak lainnya (formTidakAda)
-        const satuSubak2 = document.getElementById('satuSubak2');
-        const lebihSubak2 = document.getElementById('lebihSubak2');
-        const container2 = document.getElementById('form-subak-lainnya2');
-
-        if (satuSubak2 && lebihSubak2 && container2) {
-            satuSubak2.addEventListener('change', function () {
-                if (this.checked) container2.innerHTML = '';
-            });
-            lebihSubak2.addEventListener('change', function () {
-                if (this.checked) {
-                    container2.innerHTML = `
-                        <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
-                        <input type="text" name="pura_bedugul_disungsung_lain2" class="form-control" placeholder="Contoh: Subak A, Subak B">
-                    `;
-                }
-            });
-        }
-        // Toggle Subak lainnya (formTidakAda)
-        const satuSubak23 = document.getElementById('satuSubak23');
-        const lebihSubak23 = document.getElementById('lebihSubak23');
-        const container23 = document.getElementById('form-subak-lainnya23');
-
-        if (satuSubak23 && lebihSubak23 && container23) {
-            satuSubak23.addEventListener('change', function () {
-                if (this.checked) container23.innerHTML = '';
-            });
-            lebihSubak23.addEventListener('change', function () {
-                if (this.checked) {
-                    container23.innerHTML = `
-                        <label class="form-label mt-3">Sebutkan Nama Subak Lainnya</label>
-                        <input type="text" name="pura_bedugul_disungsung_lain23" class="form-control" placeholder="Contoh: Subak A, Subak B">
-                    `;
-                }
-            });
-        }
-        // Toggle Subak lainnya (formTidakAda)
-        const satuSubak24 = document.getElementById('satuSubak24');
-        const lebihSubak24 = document.getElementById('lebihSubak24');
-        const container24 = document.getElementById('form-subak-lainnya24');
-
-        if (satuSubak24 && lebihSubak24 && container24) {
-            satuSubak24.addEventListener('change', function () {
-                if (this.checked) container24.innerHTML = '';
-            });
-            lebihSubak24.addEventListener('change', function () {
-                if (this.checked) {
-                    container24.innerHTML = `
-                        <label class="form-label mt-4">Sebutkan Nama Subak Lainnya</label>
-                        <input type="text" name="pura_bedugul_disungsung_lain24" class="form-control" placeholder="Contoh: Subak A, Subak B">
-                    `;
-                }
-            });
-        }
-        
-    });
-
-    // Tambah input aci-aci
-    function tambahAciAci() {
-        const wrapper = document.getElementById('aciAciWrapper');
-        const newRow = document.createElement('div');
-        newRow.className = 'input-group mb-2';
-        newRow.innerHTML = `
-            <input type="text" class="form-control" name="aci_aci_subak[]">
-        `;
-        wrapper.appendChild(newRow);
-    }
-
-    // Tambah Form Tidak Ada Pura
-    function tambahFormTidakAda() {
-        const container = document.getElementById('formTidakAdaContainer');
-        if (!container) return;
-
-        const forms = container.querySelectorAll('.card');
-        const lastForm = forms[forms.length - 1];
-        const clonedForm = lastForm.cloneNode(true);
-
-        // Hapus ID yang duplikat
-        clonedForm.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
-
-        // Reset nilai-nilai input di dalam clone
-        clonedForm.querySelectorAll('input').forEach(input => {
-            if (input.type === 'radio' || input.type === 'checkbox') {
-                input.checked = false;
-            } else {
-                input.value = '';
-            }
-        });
-
-        const subakLainnya = clonedForm.querySelector('.form-subak-lainnya2');
-        if (subakLainnya) subakLainnya.innerHTML = '';
-
-        container.appendChild(clonedForm);
-    }
-    </script>
-
 
 <hr>
 
@@ -581,31 +190,76 @@
                 <input type="number" class="form-control" name="jumlah_krama_penyakap">
             </div>
 
-            <label class="form-label d-block">Tingkat Pendidikan Krama Penyakap</label>
-            <div id="penyakap-wrapper">
-                <div class="row g-2 align-items-center mb-2 penyakap-row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Nama Penyakap" name="nama_penyakap[]">
-                    </div>
-                    <div class="col-auto">
-                        <select class="form-control" name="tingkat_pendidikan_penyakap[]">
-                            <option value="">Tingkat Pendidikan</option>
-                            <option value="tidak_sekolah">Tidak Sekolah</option>
-                            <option value="sd">SD</option>
-                            <option value="smp">SMP</option>
-                            <option value="sma">SMA/SMK Sederajat</option>
-                            <option value="d1">D1</option>
-                            <option value="d2">D2</option>
-                            <option value="d3">D3</option>
-                            <option value="d4">D4</option>
-                            <option value="s1">Sarjana (S1)</option>
-                            <option value="s2">Magister (S2)</option>
-                            <option value="s3">Doktor (S3)</option>
-                        </select>
+            <div class="mb-3">
+                <label class="form-label d-block">Tingkat Pendidikan Krama Penyakap</label>
+                <div id="penyakap-wrapper">
+                    <div class="row g-2 align-items-center mb-2 penyakap-row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Nama Penyakap" name="nama_penyakap[]">
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-control" name="tingkat_pendidikan_penyakap[]">
+                                <option value="">Tingkat Pendidikan</option>
+                                <option value="tidak_sekolah">Tidak Sekolah</option>
+                                <option value="sd">SD</option>
+                                <option value="smp">SMP</option>
+                                <option value="sma">SMA/SMK Sederajat</option>
+                                <option value="d1">D1</option>
+                                <option value="d2">D2</option>
+                                <option value="d3">D3</option>
+                                <option value="d4">D4</option>
+                                <option value="s1">Sarjana (S1)</option>
+                                <option value="s2">Magister (S2)</option>
+                                <option value="s3">Doktor (S3)</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusPenyakap(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
                 </div>
+                <!-- Tombol tambah -->
+                <button type="button" class="btn btn-primary btn-sm" onclick="tambahPenyakap()">+Tambah Penyakap</button>
             </div>
-            <button type="button" class="btn btn-primary btn-sm mb-3" onclick="tambahPenyakap()">+Tambah Penyakap</button>
+                <script>
+                    function tambahPenyakap() {
+                        const wrapper = document.getElementById('penyakap-wrapper');
+
+                        const newRow = document.createElement('div');
+                        newRow.className = 'row g-2 align-items-center mb-2 penyakap-row';
+
+                        newRow.innerHTML = `
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Nama Penyakap" name="nama_penyakap[]">
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-control" name="tingkat_pendidikan_penyakap[]">
+                                <option value="">Tingkat Pendidikan</option>
+                                <option value="tidak_sekolah">Tidak Sekolah</option>
+                                <option value="sd">SD</option>
+                                <option value="smp">SMP</option>
+                                <option value="sma">SMA/SMK Sederajat</option>
+                                <option value="d1">D1</option>
+                                <option value="d2">D2</option>
+                                <option value="d3">D3</option>
+                                <option value="d4">D4</option>
+                                <option value="s1">Sarjana (S1)</option>
+                                <option value="s2">Magister (S2)</option>
+                                <option value="s3">Doktor (S3)</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusPenyakap(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        `;
+                        wrapper.appendChild(newRow);
+                    }
+
+                    function hapusPenyakap(button) {
+                        const row = button.closest('.penyakap-row');
+                        row.remove();
+                    }
+                </script>
 
             <div class="mb-3">
                 <label class="form-label d-block">Awig-Awig</label>
@@ -644,55 +298,46 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Nama Perarem (Jika Ada)</label>
+                <label class="form-label d-block">Nama Perarem (Jika Ada)</label>
                 <div id="perarem-wrapper">
-                    <input type="text" class="form-control mb-2" name="nama_perarem[]">
+                    <div class="row g-2 align-items-center mb-2 perarem-row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="nama_perarem[]">
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusPerarem(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
                 </div>
+                <!-- Tombol tambah -->
                 <button type="button" class="btn btn-primary btn-sm" onclick="tambahPerarem()">+Tambah Perarem</button>
             </div>
+                <script>
+                    function tambahPerarem() {
+                        const wrapper = document.getElementById('perarem-wrapper');
+
+                        const newRow = document.createElement('div');
+                        newRow.className = 'row g-2 align-items-center mb-2 perarem-row';
+
+                        newRow.innerHTML = `
+                        <div class="col">
+                            <input type="text" class="form-control" name="nama_perarem[]">
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusPerarem(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        `;
+                        wrapper.appendChild(newRow);
+                    }
+
+                    function hapusPerarem(button) {
+                        const row = button.closest('.perarem-row');
+                        row.remove();
+                    }
+                </script>
         </div>
     </div>
-
-    <!-- SCRIPT -->
-    <script>
-        function tambahPenyakap() {
-            const wrapper = document.getElementById('penyakap-wrapper');
-            const newRow = document.createElement('div');
-            newRow.className = 'row g-2 align-items-center mb-2 penyakap-row';
-            newRow.innerHTML = `
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Nama Penyakap" name="nama_penyakap[]">
-                </div>
-                <div class="col-auto">
-                    <select class="form-control" name="tingkat_pendidikan_penyakap[]">
-                        <option value="">Tingkat Pendidikan</option>
-                        <option value="tidak_sekolah">Tidak Sekolah</option>
-                        <option value="sd">SD</option>
-                        <option value="smp">SMP</option>
-                        <option value="sma">SMA/SMK Sederajat</option>
-                        <option value="d1">D1</option>
-                        <option value="d2">D2</option>
-                        <option value="d3">D3</option>
-                        <option value="d4">D4</option>
-                        <option value="s1">Sarjana (S1)</option>
-                        <option value="s2">Magister (S2)</option>
-                        <option value="s3">Doktor (S3)</option>
-                    </select>
-                </div>
-            `;
-            wrapper.appendChild(newRow);
-        }
-
-        function tambahPerarem() {
-            const wrapper = document.getElementById('perarem-wrapper');
-            const newInput = document.createElement('input');
-            newInput.type = 'text';
-            newInput.className = 'form-control mb-2';
-            newInput.name = 'nama_perarem[]';
-            wrapper.appendChild(newInput);
-        }
-    </script>
-
+        
 
 <hr>
 
@@ -780,47 +425,83 @@
                 <input type="text" class="form-control" name="lokasi_temukuaya">
             </div>
 
-            <div id="tanaman-pokok-container">
-                <div class="form-group mb-2 tanaman-pokok-row">
-                    <label>Nama Tanaman Pokok</label>
-                    <input type="text" class="form-control" name="tanaman_pokok[]" placeholder="Contoh: Padi">
+            <div class="mb-3">
+                <label class="form-label d-block">Tanaman Pokok</label>
+                <div id="tanaman-pokok-wrapper">
+                    <div class="row g-2 align-items-center mb-2 tanaman-pokok-row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="tanaman_pokok[]" placeholder="Contoh: Padi">
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusTanamanPokok(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
                 </div>
+                <!-- Tombol tambah -->
+                <button type="button" class="btn btn-primary btn-sm" onclick="tambahTanamanPokok()">+Tambah Tanaman Pokok</button>
             </div>
-            <button type="button" class="btn btn-primary btn-sm" id="btnTambahTanaman">+ Tambah Tanaman Pokok</button>
-            <script>
-                document.getElementById('btnTambahTanaman').addEventListener('click', function () {
-                    const container = document.getElementById('tanaman-pokok-container');
+                <script>
+                    function tambahTanamanPokok() {
+                        const wrapper = document.getElementById('tanaman-pokok-wrapper');
 
-                    const newRow = document.createElement('div');
-                    newRow.classList.add('form-group', 'mb-2', 'tanaman-pokok-row');
+                        const newRow = document.createElement('div');
+                        newRow.className = 'row g-2 align-items-center mb-2 tanaman-pokok-row';
 
-                    newRow.innerHTML = `
-                        <input type="text" class="form-control" name="tanaman_pokok[]" placeholder="Contoh: Jagung">
-                    `;
-                    container.appendChild(newRow);
-                });
-            </script>
-<!--  -->
-            <div id="jenis_tanaman-pokok-container">
-                <div class="form-group mb-2 jenis-tanaman-pokok-row">
-                    <label>Jenis Tanaman Pokok</label>
-                    <input type="text" class="form-control" name="jenis_tanaman_pokok[]" placeholder="Contoh: Biji-Bijian">
+                        newRow.innerHTML = `
+                        <div class="col">
+                            <input type="text" class="form-control" name="tanaman_pokok[]" placeholder="Contoh: Padi">
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusTanamanPokok(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        `;
+                        wrapper.appendChild(newRow);
+                    }
+
+                    function hapusTanamanPokok(button) {
+                        const row = button.closest('.tanaman-pokok-row');
+                        row.remove();
+                    }
+                </script>
+
+            <div class="mb-3">
+                <label class="form-label d-block">Jenis Tanaman Pokok</label>
+                <div id="jenis-tanaman-pokok-wrapper">
+                    <div class="row g-2 align-items-center mb-2 jenis-tanaman-pokok-row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="jenis_tanaman_pokok[]" placeholder="Contoh: Umbi">
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusJenisTanamanPokok(this)"">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
                 </div>
+                <!-- Tombol tambah -->
+                <button type="button" class="btn btn-primary btn-sm" onclick="tambahJenisTanamanPokok()">+Tambah Jenis Tanaman Pokok</button>
             </div>
-            <button type="button" class="btn btn-primary btn-sm" id="btnJenisTambahTanaman">+ Tambah Jenis Tanaman Pokok</button>
+                <script>
+                    function tambahJenisTanamanPokok() {
+                        const wrapper = document.getElementById('jenis-tanaman-pokok-wrapper');
 
-            <script>
-                document.getElementById('btnJenisTambahTanaman').addEventListener('click', function () {
-                    const container = document.getElementById('jenis_tanaman-pokok-container');
+                        const newRow = document.createElement('div');
+                        newRow.className = 'row g-2 align-items-center mb-2 jenis-tanaman-pokok-row';
 
-                    const newRow = document.createElement('div');
-                    newRow.classList.add('form-group', 'mb-2', 'jenis_tanaman-pokok-row');
+                        newRow.innerHTML = `
+                        <div class="col">
+                            <input type="text" class="form-control" name="jenis_tanaman_pokok[]" placeholder="Contoh: Umbi">
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusJenisTanamanPokok(this)"">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        `;
+                        wrapper.appendChild(newRow);
+                    }
 
-                    newRow.innerHTML = `
-                        <input type="text" class="form-control" name="jenis_tanaman_pokok[]" placeholder="Contoh: Umbi">                    `;
-                    container.appendChild(newRow);
-                });
-            </script>
+                    function hapusJenisTanamanPokok(button) {
+                        const row = button.closest('.jenis-tanaman-pokok-row');
+                        row.remove();
+                    }
+                </script>
 
 
             <div class="mb-3">
@@ -834,66 +515,44 @@
             </div>
 
             <div class="mb-3">
-                <!-- <label class="form-label d-block">Hama</label>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-burung" name="nama_hama[]" value="Burung">
-                    <label class="form-check-label" for="hama-burung">Burung</label>
+                <label class="form-label d-block">Hama</label>
+                <div id="hama-wrapper">
+                    <div class="row g-2 align-items-center mb-2 hama-row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="nama_hama[]" placeholder="Contoh: Burung ,Tikus ,Wereng ,Walang Sangit">
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusHama(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-tikus" name="nama_hama[]" value="Tikus">
-                    <label class="form-check-label" for="hama-tikus">Tikus</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-wereng" name="nama_hama[]" value="Wereng">
-                    <label class="form-check-label" for="hama-wereng">Wereng</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-walang" name="nama_hama[]" value="Walang Sangit">
-                    <label class="form-check-label" for="hama-walang">Walang Sangit</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="hama-lain" name="nama_hama[]" value="Lain-Lain">
-                    <label class="form-check-label" for="hama-lain">Lain-Lain</label>
-                </div>
-                
-                Input tambahan jika 'Lain-Lain' dicentang -->
-                <!-- <div class="mt-2" id="form-hama-lain" style="display: none;">
-                    <label class="form-label">Sebutkan Hama Lain</label>
-                    <input type="text" class="form-control" name="hama_lain" placeholder="Contoh: Belalang, Kumbang">
-                </div> -->
-
-                <!-- <script>
-                    const checkboxHamaLain = document.getElementById('hama-lain');
-                    const formHamaLain = document.getElementById('form-hama-lain');
-
-                    checkboxHamaLain.addEventListener('change', function () {
-                        formHamaLain.style.display = this.checked ? 'block' : 'none';
-                    });
-                </script> -->
+                <!-- Tombol tambah -->
+                <button type="button" class="btn btn-primary btn-sm" onclick="tambahHama()">+Tambah Hama</button>
             </div>
+                <script>
+                    function tambahHama() {
+                        const wrapper = document.getElementById('hama-wrapper');
 
-            <div id="nama_hama-container">
-                <div class="form-group mb-2 nama-hama-row">
-                    <label>Hama</label>
-                    <input type="text" class="form-control" name="nama_hama[]" placeholder="Contoh: Burung ,Tikus ,Wereng ,Walang Sangit">
-                </div>
-            </div>
-            <button type="button" class="btn btn-primary btn-sm" id="btnTambahHama">+ Tambah Hama</button>
+                        const newRow = document.createElement('div');
+                        newRow.className = 'row g-2 align-items-center mb-2 hama-row';
 
-            <script>
-                document.getElementById('btnTambahHama').addEventListener('click', function () {
-                    const container = document.getElementById('nama_hama-container');
+                        newRow.innerHTML = `
+                        <div class="col">
+                                <input type="text" class="form-control" name="nama_hama[]" placeholder="Contoh: Burung ,Tikus ,Wereng ,Walang Sangit">
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusHama(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        `;
+                        wrapper.appendChild(newRow);
+                    }
 
-                    const newRow = document.createElement('div');
-                    newRow.classList.add('form-group', 'mb-2', 'nama-hama-row');
+                    function hapusHama(button) {
+                        const row = button.closest('.hama-row');
+                        row.remove();
+                    }
+                </script>
 
-                    newRow.innerHTML = `
-                                            <input type="text" class="form-control" name="nama_hama[]" placeholder="Contoh: Burung ,Tikus ,Wereng ,Walang Sangit">                    `;
-                    container.appendChild(newRow);
-                });
-            </script>
-<!--  -->
             <div class="mb-3">
                 <label class="form-label d-block">Bantuan yang Pernah Diterima</label>
                 <div id="bantuan-wrapper">
@@ -907,12 +566,14 @@
                         <div class="col">
                             <input type="number" class="form-control" name="nilai_rp_bantuan[]" placeholder="Nilai (Rp)">
                         </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusBantuan(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
                 </div>
-
                 <!-- Tombol tambah -->
                 <button type="button" class="btn btn-primary btn-sm" onclick="tambahBantuan()">+Tambah Bantuan</button>
-                </div>
+            </div>
                 <script>
                     function tambahBantuan() {
                         const wrapper = document.getElementById('bantuan-wrapper');
@@ -930,8 +591,16 @@
                         <div class="col">
                             <input type="number" class="form-control" name="nilai_rp_bantuan[]" placeholder="Nilai (Rp)">
                         </div>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="hapusBantuan(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
                         `;
                         wrapper.appendChild(newRow);
+                    }
+
+                    function hapusBantuan(button) {
+                        const row = button.closest('.bantuan-row');
+                        row.remove();
                     }
                 </script>
         </div>    

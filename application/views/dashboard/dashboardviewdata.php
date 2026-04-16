@@ -80,7 +80,7 @@
                     </tr>
                     <tr>
                         <th>Diverifikasi oleh</th>
-                        <td><?php echo $subak->diperbaharui_oleh; ?></td>
+                        <td><?php echo $subak->diverifikasi_oleh; ?></td>
                     </tr>
                     <tr>
                         <th>Tanggal Diverifikasi</th>

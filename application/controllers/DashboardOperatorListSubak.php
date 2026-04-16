@@ -91,6 +91,8 @@ class DashboardOperatorListSubak extends CI_Controller {
 			'kriteria_subak' => $this->input->post('kriteria_subak'),
 			'nomor_akte_notaris' => $this->input->post('nomor_akte_notaris'),
 			'npwp' => $this->input->post('npwp'),
+
+			'diperbaharui_oleh' => $this->session->userdata('username')
 		];
 		$this->UpdateModel->update_tb_subak($id_subak, $update_data_subak);
 

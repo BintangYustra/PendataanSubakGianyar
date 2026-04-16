@@ -86,7 +86,6 @@ class DashboardOperatorTambahData extends CI_Controller {
  
         // PERAHYANGAN INVENTARIS
         $inventaris_array = $this->input->post('inventaris');
-        $inventaris_lain = $this->input->post('inventaris_lain');
         if ($inventaris_array) {
             foreach ($inventaris_array as $val) {
                 if (!empty($val)) {
@@ -168,7 +167,6 @@ class DashboardOperatorTambahData extends CI_Controller {
             'perarem' => $this->input->post('perarem'),
             'perarem_alih_fungsi' => $this->input->post('perarem_alih_fungsi'),
         ];
-
         $this->Addmodel->insert_tb_pawongan($data_pawongan);
         $id_pawongan = $this->db->insert_id();
 
