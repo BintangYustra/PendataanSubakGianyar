@@ -10,7 +10,7 @@
                 <label class="form-label">Username Operator</label>
                 <input type="text" class="form-control" name="username" required>
             </div>
-            <!-- <div class="mb-3">
+            <div class="mb-3">
                 <label class="form-label">Password Operator</label>
                 <input type="text" class="form-control" name="password" required>
             </div>
@@ -29,14 +29,10 @@
             <div class="mb-3">
                 <label class="form-label">Email</label>
                 <input type="text" class="form-control" name="email" required>
-            </div> -->
-            <div class="mb-3">
-                <label class="form-label">Upload Foto Profil</label>
-                <input type="file" class="form-control" name="foto_profil">
             </div>
+            <button type="submit" class="btn btn-primary mt-2">Simpan</button>
         </div>
-    <button type="submit" class="btn btn-primary mt-2">Simpan</button>
-</form>
+    </form>
 
 </div>
 
