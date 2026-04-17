@@ -5,6 +5,11 @@ class AddModel extends CI_Model {
         return $this->db->get('tb_subak')->result();
     } // ===KHUSUS AGAR TAMPIL DAFTARNYA DI WEB (JANGAN DIHAPUS(ENTAH DIMANA BAGIAN INI DIPAKAI, KALAU DIHAPUS SEMUA SISTEM AKAN EROR))===
 
+    public function insert_tb_user($user) {
+        $this->db->insert('user', $user);
+        return $this->db->insert_id();
+    }
+
     public function insert_tb_subak($subak) {
         $this->db->insert('tb_subak', $subak);
         return $this->db->insert_id();

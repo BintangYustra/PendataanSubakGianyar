@@ -46,7 +46,7 @@ class DashboardVerifikasiList extends CI_Controller {
             show_404();
         }
 
-        $this->load->view('/dashboard/dashboardviewdataverifikator', $data);
+        $this->load->view('/dashboard/dashboardverifikasiviewdata', $data);
     }
 	
     public function VerifikasiDataSubak($id_subak) {

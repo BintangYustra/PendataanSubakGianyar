@@ -24,7 +24,7 @@ class DashboardOperatorListSubak extends CI_Controller {
 
 		$this->load->view('templates/dashboard/headerdashboard', $data);
 		$this->load->view('templates/dashboard/sidepaneldashboard');
-		$this->load->view('dashboard/dashboardsubakterdata',$data);
+		$this->load->view('dashboard/dashboardoperatorsubakterdata.php',$data);
 		$this->load->view('templates/dashboard/footerdashboard');
 	}
 	
@@ -54,7 +54,7 @@ class DashboardOperatorListSubak extends CI_Controller {
             show_404();
         }
 
-        $this->load->view('/dashboard/dashboardviewdata', $data);
+        $this->load->view('/dashboard/dashboardoperatorviewdata', $data);
     }
 	
 
@@ -79,7 +79,7 @@ class DashboardOperatorListSubak extends CI_Controller {
 		$data['palemahanjenistanamanpokok'] = $this->ViewModel->get_palemahan_jenis_tanaman_pokok_by_id($id_subak);
 		$data['palemahanhama'] = $this->ViewModel->get_palemahan_hama_by_id($id_subak);
 		$data['palemahanbantaunpemerintah'] = $this->ViewModel->get_palemahan_bantuan_pemerintah_by_id($id_subak);
-		$this->load->view('/dashboard/dashboardupdatedata', $data);	
+		$this->load->view('/dashboard/dashboardoperatorupdatedata', $data);	
 	}
 	
     public function DashboardUpdateDataSubak($id_subak)

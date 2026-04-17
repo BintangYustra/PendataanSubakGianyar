@@ -31,7 +31,7 @@ class DashboardVerifikasiHome extends CI_Controller {
 		}
 		$this->load->view('templates/dashboard/headerdashboard', $data);
 		$this->load->view('templates/dashboard/sidepaneldashboardve');
-		$this->load->view('dashboard/dashboardhomeve', $data);
+		$this->load->view('dashboard/dashboardverifikasihome', $data);
 		$this->load->view('templates/dashboard/footerdashboard');
 	}
 

@@ -32,7 +32,7 @@ class DashboardAdmin extends CI_Controller {
 		}
 		$this->load->view('templates/dashboard/headerdashboard', $data);
 		$this->load->view('templates/dashboard/sidepaneldashboardadmin');
-		$this->load->view('dashboard/dashboardadmin' , $data);
+		$this->load->view('dashboard/dashboardadminhome' , $data);
 		$this->load->view('templates/dashboard/footerdashboard');
 
 	}

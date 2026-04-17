@@ -32,7 +32,7 @@ class DashboardOperatorHome	 extends CI_Controller {
 
 		$this->load->view('templates/dashboard/headerdashboard', $data);
 		$this->load->view('templates/dashboard/sidepaneldashboard');
-		$this->load->view('dashboard/dashboardhome' , $data);
+		$this->load->view('dashboard/dashboardoperatorhome' , $data);
 		$this->load->view('templates/dashboard/footerdashboard');
 	}
 }

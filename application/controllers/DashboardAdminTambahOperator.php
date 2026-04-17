@@ -1,10 +1,12 @@
 <?php
 
 class DashboardAdminTambahOperator extends CI_Controller {
+
 	public function __construct() {
         parent::__construct();
-        $this->load->model('ViewModel');
+        $this->load->model('AddModel');
         $this->load->model('UserModel');
+        $this->load->model('ViewModel');
     }
 	
 	public function index()
@@ -22,4 +24,22 @@ class DashboardAdminTambahOperator extends CI_Controller {
 		$this->load->view('templates/dashboard/footerdashboard');
 
 	}
-}
+
+	public function TambahOperator() {
+		$data_user = [
+        'username' => $this->input->post('username'),
+        'password' => $this->input->post('password'),
+        'role' => $this->input->post('role'),
+        'no_telp' => $this->input->post('no_telp'),
+        'email' => $this->input->post('email'),
+	];
+	$id_user = $this->AddModel->insert_tb_user($data_user);
+
+
+
+
+	redirect(base_url('DashboardAdmin'));
+	}
+		
+}	
+	

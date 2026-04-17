@@ -10,7 +10,7 @@ class DashboardOperatorTambahData extends CI_Controller {
         $data['judul'] = 'Tambah Data';
         $this->load->view('templates/dashboard/headerdashboard', $data);
         $this->load->view('templates/dashboard/sidepaneldashboard');
-        $this->load->view('dashboard/dashboardtambahdata');
+        $this->load->view('dashboard/dashboardoperatortambahdata.php');
         $this->load->view('templates/dashboard/footerdashboard');
     }
 
