@@ -44,4 +44,22 @@ class FunctionModel extends CI_Model {
         return $this->db->count_all_results('tb_subak');
     }
 
+    public function get_latest_subak($limit = 5)
+    {
+        return $this->db
+            ->order_by('dibuat_pada', 'DESC')
+            ->limit($limit)
+            ->get('tb_subak')
+            ->result();
+    }
+
+    public function get_latest_subak_update($limit = 5)
+    {
+        return $this->db
+            ->order_by('diperbaharui_pada', 'DESC')
+            ->limit($limit)
+            ->get('tb_subak')
+            ->result();
+    }
+
 }

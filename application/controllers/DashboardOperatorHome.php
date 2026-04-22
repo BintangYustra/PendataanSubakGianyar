@@ -17,6 +17,8 @@ class DashboardOperatorHome	 extends CI_Controller {
 		$data['jumlah_verifikasi_sukses'] = $this->FunctionModel->count_verifikasi_sukses();
 		$data['jumlah_data_diperbarui'] = $this->FunctionModel->count_data_diperbarui();
 		$data['jumlah__data_tidakvalid'] = $this->FunctionModel->count_data_tidakvalid();
+		$data['subak_terbaru'] = $this->FunctionModel->get_latest_subak(5);
+		$data['subak_update'] = $this->FunctionModel->get_latest_subak_update(5);
 
 		$data['nama_user'] = $this->session->userdata('nama') ? 
                              $this->session->userdata('nama') : 
@@ -35,4 +37,6 @@ class DashboardOperatorHome	 extends CI_Controller {
 		$this->load->view('dashboard/dashboardoperatorhome' , $data);
 		$this->load->view('templates/dashboard/footerdashboard');
 	}
+
+
 }

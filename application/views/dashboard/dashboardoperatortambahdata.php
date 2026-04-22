@@ -164,12 +164,35 @@
             </script>
 
             <div id="formAda" class="mb-3">
-<h4>fsdf</h4>
+                <h4>fsdf</h4>
             </div>
 
             <div id="formTidakAda" class="mb-3">
-<h4>sdgsdg</h4>
+                <h4>sdgsdg</h4>
             </div>
+
+            <div id="foto" class="mb-3">
+                <input type="file" name="foto[]" id="foto">
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" onclick="tambahFoto()">+Tambah Foto</button>
+
+            <script>
+                function tambahFoto() {
+                    const wrapper = document.getElementById('foto');
+
+                    const newRow = document.createElement('div');
+                    newRow.className = 'row g-2 align-items-center mb-2 penyakap-row';
+
+                    newRow.innerHTML = `
+                <input type="file" name="foto[]" id="foto">
+
+                    `;
+                    wrapper.appendChild(newRow);
+                }
+
+
+            </script>
+
         </div>
     </div>
 

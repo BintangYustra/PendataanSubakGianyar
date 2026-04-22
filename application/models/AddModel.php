@@ -47,9 +47,9 @@ class AddModel extends CI_Model {
     //     $this->db->insert('tb_perahyangan_inventaris', $data);
     // }
 
-    // public function insert_tb_perahyangan_foto_pura($data) {
-    //     $this->db->insert('tb_perahyangan_foto', $data);
-    // }
+    public function insert_tb_perahyangan_foto_pura($data) {
+        $this->db->insert('tb_perahyangan_foto', $data);
+    }
 
     // public function insert_tb_perahyangan_foto_pura2($data) {
     //     $this->db->insert('tb_foto_pura2', $data);
