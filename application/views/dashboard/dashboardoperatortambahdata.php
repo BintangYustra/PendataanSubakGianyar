@@ -49,7 +49,7 @@
                     <div class="col-md-6">
                         <label class="form-label">Kecamatan</label>
                             <select class="form-control" name="kecamatan_subak">
-                                <option value="----">----</option>
+                                <option value="">----</option>
                                 <option value="Blahbatuh">Blahbatuh</option>
                                 <option value="Gianyar">Gianyar</option>
                                 <option value="Payangan">Payangan</option>

@@ -28,97 +28,117 @@
 
 </head>
 <div class="container mt-5">
-    <h2 class="mb-4 text-center">Detail Subak (<?php echo $subak->nama_subak; ?>)</h2>
+    <strong><h2 class="mb-4 text-center">Detail Subak (<?php echo $subak->nama_subak; ?>)</h2></strong>
 
     <!-- Informasi Umum Subak -->
-    <div class="card mb-4">
-        <div class="card-header text-white" style="background-color: #FF6B6B;">
-            <strong>Informasi Umum Subak</strong>
+    <div class="card shadow-sm mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center" style="background: linear-gradient(45deg, #FF6B6B, #ff8e8e); color: white;">
+            <h5 class="mb-0 ">Informasi Subak <i class="fas fa-info-circle "></i>    </h5>
+
+            <!-- Badge status -->
+            <span class ="badge 
+                <?= $subak->verifikasi == 'Terverifikasi' ? 'bg-success' : 
+                ($subak->verifikasi == 'Ditolak' ? 'bg-danger' : 'bg-warning') ?>">
+                <?= $subak->verifikasi ?>
+            </span>
         </div>
+
         <div class="card-body">
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <th>ID Subak</th>
-                        <td><?php echo $subak->id_subak; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Nama Subak</th>
-                        <td><?php echo $subak->nama_subak; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Kriteria Subak</th>
-                        <td><?php echo $subak->kriteria_subak; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Nomor Akte Notaris Subak</th>
-                        <td><?php echo $subak->nomor_akte_notaris; ?></td>
-                    </tr>
-                    <tr>
-                        <th>NPWP Subak</th>
-                        <td><?php echo $subak->npwp; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Verifikasi</th>
-                        <td><?php echo $subak->verifikasi; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Dibuat Oleh</th>
-                        <td><?php echo $subak->dibuat_oleh; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Tanggal Dibuat</th>
-                        <td><?php echo $subak->dibuat_pada; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Diperbaharui oleh</th>
-                        <td><?php echo $subak->diperbaharui_oleh; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Tanggal Diperbaharui</th>
-                        <td><?php echo $subak->diperbaharui_pada; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Diverifikasi oleh</th>
-                        <td><?php echo $subak->diverifikasi_oleh; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Tanggal Diverifikasi</th>
-                        <td><?php echo $subak->diverifikasi_pada; ?></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label class="text-muted small">ID Subak</label>
+                    <div class="fw-bold"><?= $subak->id_subak; ?></div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="text-muted small">Nama Subak</label>
+                    <div class="fw-bold"><?= $subak->nama_subak; ?></div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="text-muted small">Kriteria</label>
+                    <div><?= $subak->kriteria_subak; ?></div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="text-muted small">No Akte</label>
+                    <div><?= $subak->nomor_akte_notaris; ?></div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="text-muted small">NPWP</label>
+                    <div><?= $subak->npwp; ?></div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row text-muted small">
+                <div class="col-md-4">
+                    <strong>Dibuat</strong><br>
+                    <?= $subak->dibuat_oleh ?><br>
+                    <?= date('d M Y H:i', strtotime($subak->dibuat_pada)) ?>
+                </div>
+
+                <div class="col-md-4">
+                    <strong>Diperbarui</strong><br>
+                    <?= $subak->diperbaharui_oleh ?><br>
+                    <?= date('d M Y H:i', strtotime($subak->diperbaharui_pada)) ?>
+                </div>
+
+                <div class="col-md-4">
+                    <strong>Diverifikasi</strong><br>
+                    <?= $subak->diverifikasi_oleh ?><br>
+                    <?= $subak->diverifikasi_pada ? date('d M Y H:i', strtotime($subak->diverifikasi_pada)) : '-' ?>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Alamat Subak -->
-    <div class="card mb-4">
-        <div class="card-header text-white" style="background-color: #3A86FF;">
-            <strong>Alamat Subak</strong>
+    <div class="card shadow-sm mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center" style="background: linear-gradient(45deg, #5998fc, #74a8fb); color: white;">
+            <h5 class="mb-0">Alamat Subak <i class="fas fa-map"></i></h5>
         </div>
+
         <div class="card-body">
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <th>Br/Lingkungan</th>
-                        <td><?php echo $alamat->br_lingkungan_subak; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Desa</th>
-                        <td><?php echo $alamat->desa_subak; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Kecamatan</th>
-                        <td><?php echo $alamat->kecamatan_subak; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Kode Pos</th>
-                        <td><?php echo $alamat->kode_pos; ?></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <strong><label class="">Br/Lingkungan</label></strong>
+                    <div class="fw-bold"><?php echo $alamat->br_lingkungan_subak; ?></div>
+                </div>    
+
+                <div class="col-md-3 mb-3">
+                    <strong><label class="">Desa</label></strong>
+                    <div class="fw-bold"><?php echo $alamat->desa_subak; ?></div>
+                </div>    
+
+                <div class="col-md-3 mb-3">
+                    <strong><label class="">Kecamatan</label></strong>
+                    <div class="fw-bold"><?php echo $alamat->kecamatan_subak; ?></div>
+                </div>    
+
+                <div class="col-md-3 mb-3">
+                    <strong><label class="">Kode Pos</label></strong>
+                    <div class="fw-bold"><?php echo $alamat->kode_pos; ?></div>
+                </div> 
+            </div>
         </div>
     </div>
+ 
+
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center" style="background: linear-gradient(45deg, #FFB703, #ffdd86); color: white;">
+            <h5 class="mb-0">Prajuru Subak <i class="fas fa-users"></i></h5>
+        </div>
+
+        <div class="card-body">
+            
+        </div>
+    </div>
+
 
     <!-- Data Prajuru Subak -->
     <div class="card mb-4">
@@ -164,7 +184,6 @@
         </div>
     </div>
 
-    Data Perahyangan
     <div class="card mb-4">
         <div class="card-header text-white" style="background-color: #06D6A0;">
             <strong>Data Perahyangan</strong>

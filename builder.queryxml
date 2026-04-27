@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querybuilder version="8.3">
+<source>
+<database charset="utf8mb4" collation="utf8mb4_general_ci">db_subak_abian_kab_gianyar</database>
+</source>
+<canvas>
+<table tablename="tb_subak" alias="" left="162" top="24" width="150" height="113" />
+<table tablename="tb_alamat_subak" alias="" left="154" top="177" width="150" height="113" />
+<table tablename="tb_prajuru" alias="" left="343" top="18" width="150" height="113" />
+<table tablename="tb_perahyangan" alias="" left="442" top="203" width="150" height="113" />
+<table tablename="tb_perahyangan_aci" alias="" left="642" top="126" width="150" height="113" />
+<table tablename="tb_perahyangan_foto" alias="" left="787" top="195" width="150" height="113" />
+<table tablename="tb_perahyangan_inventaris" alias="" left="644" top="319" width="150" height="113" />
+<table tablename="tb_pawongan" alias="" left="421" top="438" width="150" height="113" />
+<table tablename="tb_pawongan_nama_perarem" alias="" left="642" top="584" width="150" height="113" />
+<table tablename="tb_pawongan_nama_penyakap" alias="" left="683" top="463" width="150" height="113" />
+<table tablename="tb_palemahan" alias="" left="164" top="588" width="150" height="113" />
+<table tablename="tb_jenis_tanaman_pokok" alias="" left="336" top="750" width="150" height="113" />
+<table tablename="tb_hama" alias="" left="233" top="779" width="150" height="113" />
+<table tablename="tb_tanaman_pokok" alias="" left="518" top="760" width="150" height="113" />
+<table tablename="tb_bantuan_pemerintah" alias="" left="389" top="630" width="150" height="113" />
+<join type = "Inner Join">
+<from tablename = "tb_alamat_subak" alias = "">id_subak</from>
+<to tablename = "tb_subak" alias = "">id_subak</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_prajuru" alias = "">id_subak</from>
+<to tablename = "tb_subak" alias = "">id_subak</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_perahyangan" alias = "">id_subak</from>
+<to tablename = "tb_subak" alias = "">id_subak</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_perahyangan_aci" alias = "">id_perahyangan</from>
+<to tablename = "tb_perahyangan" alias = "">id_perahyangan</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_perahyangan_foto" alias = "">id_perahyangan</from>
+<to tablename = "tb_perahyangan" alias = "">id_perahyangan</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_perahyangan_inventaris" alias = "">id_perahyangan</from>
+<to tablename = "tb_perahyangan" alias = "">id_perahyangan</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_pawongan" alias = "">id_subak</from>
+<to tablename = "tb_subak" alias = "">id_subak</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_pawongan_nama_perarem" alias = "">id_pawongan</from>
+<to tablename = "tb_pawongan" alias = "">id_pawongan</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_pawongan_nama_penyakap" alias = "">id_pawongan</from>
+<to tablename = "tb_pawongan" alias = "">id_pawongan</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_palemahan" alias = "">id_subak</from>
+<to tablename = "tb_subak" alias = "">id_subak</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_jenis_tanaman_pokok" alias = "">id_palemahan</from>
+<to tablename = "tb_palemahan" alias = "">id_palemahan</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_hama" alias = "">id_palemahan</from>
+<to tablename = "tb_palemahan" alias = "">id_palemahan</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_tanaman_pokok" alias = "">id_palemahan</from>
+<to tablename = "tb_palemahan" alias = "">id_palemahan</to>
+</join>
+<join type = "Inner Join">
+<from tablename = "tb_bantuan_pemerintah" alias = "">id_palemahan</from>
+<to tablename = "tb_palemahan" alias = "">id_palemahan</to>
+</join>
+</canvas>
+<grid>
+<column id="1">
+<table tablename="tb_subak"></table>
+<field>id_subak</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="2">
+<table tablename="tb_alamat_subak"></table>
+<field>id_alamat</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="3">
+<table tablename="tb_prajuru"></table>
+<field>id_prajuru</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="4">
+<table tablename="tb_perahyangan"></table>
+<field>id_perahyangan</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="5">
+<table tablename="tb_perahyangan_aci"></table>
+<field>id_aci_aci</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="6">
+<table tablename="tb_perahyangan_foto"></table>
+<field>id_foto</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="7">
+<table tablename="tb_perahyangan_inventaris"></table>
+<field>id_inventaris</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="8">
+<table tablename="tb_pawongan"></table>
+<field>id_pawongan</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="9">
+<table tablename="tb_pawongan_nama_penyakap"></table>
+<field>id_pawongan_nama_penyakap</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="10">
+<table tablename="tb_pawongan_nama_perarem"></table>
+<field>id_nama_perarem</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="11">
+<table tablename="tb_palemahan"></table>
+<field>id_palemahan</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="12">
+<table tablename="tb_hama"></table>
+<field>id_hama</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="13">
+<table tablename="tb_jenis_tanaman_pokok"></table>
+<field>id_jenis_tanaman_pokok</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="14">
+<table tablename="tb_tanaman_pokok"></table>
+<field>id_tanaman_pokok</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+<column id="15">
+<table tablename="tb_bantuan_pemerintah"></table>
+<field>id_bantuan_pemerintah</field>
+<alias></alias>
+<show>true</show>
+<sortorder></sortorder>
+<sort></sort>
+<groupby>false</groupby>
+<aggfunct></aggfunct>
+<criteria></criteria>
+<or1></or1>
+<or2></or2>
+<or3></or3>
+<or4></or4>
+</column>
+</grid>
+</querybuilder>

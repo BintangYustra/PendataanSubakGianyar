@@ -19,6 +19,7 @@ class DashboardOperatorHome	 extends CI_Controller {
 		$data['jumlah__data_tidakvalid'] = $this->FunctionModel->count_data_tidakvalid();
 		$data['subak_terbaru'] = $this->FunctionModel->get_latest_subak(5);
 		$data['subak_update'] = $this->FunctionModel->get_latest_subak_update(5);
+		$data['persen_verifikasi'] = $this->FunctionModel->get_persentase_verifikasi();
 
 		$data['nama_user'] = $this->session->userdata('nama') ? 
                              $this->session->userdata('nama') : 

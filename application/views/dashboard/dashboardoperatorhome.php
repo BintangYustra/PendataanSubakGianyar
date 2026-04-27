@@ -81,12 +81,22 @@
                             <h6 class="card-title mb-2">Data Diperbaharui</h6>
                             <h3 class="mb-1 text-info fw-bold"><?php echo $jumlah_data_diperbarui; ?></h3>
                             <hr>
+                            <h6 class="card-title mb-2">Data Tidak Valid</h6>
+                            <h3 class="mb-1 fw-bold"><?php echo $jumlah__data_tidakvalid; ?></h3>
                         </div>
                     </div>
                 </div>
-
 
             </div>
         </div>
     </div>
 </div>
+                    <?php foreach ($persen_verifikasi as $item): ?>
+                        <?php 
+                            $persen = ($item->total / $jumlahsubak) * 100;
+                        ?>
+                        <p>
+                            <?= $item->verifikasi ?> :
+                            <?= number_format($persen, 2) ?>%
+                        </p>
+                    <?php endforeach; ?>

@@ -17,7 +17,7 @@
         <form action="<?= site_url('login/login_action') ?>" method="post">
             <div class="position-absolute top-50 start-50 translate-middle shadow">
                     <div class="card container d-flex square-box text-center">
-                    <img class="card-img-top mt-4 w-75  mx-auto d-block" src="assets/images/LogoSubak.png" alt="">
+                    <img class="card-img-top mt-4 w-75  mx-auto d-block" src="assets/images/LogoSubakNew.png" alt="">
                         <div class="card-body">
                             <h2 class=" text-center" style="font-family: Roboto, sans-serif;">Login Pendataan Subak</h2>
                             <form action="" method="">

@@ -62,4 +62,12 @@ class FunctionModel extends CI_Model {
             ->result();
     }
 
+    public function get_persentase_verifikasi()
+    {
+        return $this->db
+            ->select('verifikasi, COUNT(*) as total')
+            ->group_by('verifikasi')
+            ->get('tb_subak')
+            ->result();
+    }
 }

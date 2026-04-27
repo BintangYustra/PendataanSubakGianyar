@@ -9,7 +9,7 @@ class DashboardAdminTambahDataSubak extends CI_Controller {
 	
 	public function index()
 	{
-		$data['judul'] = 'Dashboard Admin';
+		$data['judul'] = 'Dashboard Admin Tambah Subak';
 		$data['nama_user'] = $this->session->userdata('nama') ? 
                              $this->session->userdata('nama') : 
                              $this->session->userdata('username'); // Fallback ke username
