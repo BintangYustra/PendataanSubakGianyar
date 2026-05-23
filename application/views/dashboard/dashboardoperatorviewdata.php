@@ -29,52 +29,95 @@
 </head>
 <div class="container mt-5">
     <strong><h2 class="mb-4 text-center">Detail Subak (<?php echo $subak->nama_subak; ?>)</h2></strong>
-
-    <!-- Informasi Umum Subak -->
+    <hr>
     <div class="card shadow-sm mb-4">
         <div class="card-header d-flex justify-content-between align-items-center" style="background: linear-gradient(45deg, #FF6B6B, #ff8e8e); color: white;">
             <h5 class="mb-0 ">Informasi Subak <i class="fas fa-info-circle "></i>    </h5>
-
-            <!-- Badge status -->
-            <span class ="badge 
-                <?= $subak->verifikasi == 'Terverifikasi' ? 'bg-success' : 
-                ($subak->verifikasi == 'Ditolak' ? 'bg-danger' : 'bg-warning') ?>">
-                <?= $subak->verifikasi ?>
-            </span>
         </div>
 
-        <div class="card-body">
+        <div class="card-body text-center">
             <div class="row">
+                <?php
+                $verifikasi = strtolower(trim($subak->verifikasi));
 
+                $badge_class = '';
+                $icon = '';
+                $text = '';
+
+                switch($verifikasi) {
+                    case 'terverifikasi':
+                    case 'diterima':
+                        $badge_class = 'bg-success text-light';
+                        $icon = '<i class="bi bi-check-circle-fill me-1"></i>';
+                        $text = 'Terverifikasi';
+                        break;
+
+                    case 'data ditolak':
+                    case 'ditolak':
+                        $badge_class = 'bg-danger text-light';
+                        $icon = '<i class="bi bi-x-circle-fill me-1"></i>';
+                        $text = 'Data Ditolak';
+                        break;
+
+                    case 'data tidak valid':
+                    case 'tidak valid':
+                        $badge_class = 'bg-secondary text-light';
+                        $icon = '<i class="bi bi-exclamation-circle-fill me-1"></i>';
+                        $text = 'Data Tidak Valid';
+                        break;
+
+                    case 'data diperbarui':
+                    case 'diperbarui':
+                        $badge_class = 'bg-info text-light';
+                        $icon = '<i class="bi bi-arrow-repeat me-1"></i>';
+                        $text = 'Data Diperbarui';
+                        break;
+
+                    default:
+                        $badge_class = 'bg-warning text-dark';
+                        $icon = '<i class="bi bi-clock-fill me-1"></i>';
+                        $text = 'Belum Terverifikasi';
+                        break;
+                }
+                ?>
                 <div class="col-md-6 mb-3">
-                    <label class="text-muted small">ID Subak</label>
+                    <label><strong>Status Verifikasi</strong></label>
+                    <div class="">
+                        <span class="badge <?= $badge_class ?>">
+                            <?= $icon ?> <?= $text ?>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <label class=""><strong>ID Subak</strong></label>
                     <div class="fw-bold"><?= $subak->id_subak; ?></div>
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label class="text-muted small">Nama Subak</label>
+                    <label class=""><strong>Nama Subak</strong></label>
                     <div class="fw-bold"><?= $subak->nama_subak; ?></div>
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label class="text-muted small">Kriteria</label>
-                    <div><?= $subak->kriteria_subak; ?></div>
+                    <label class=""><strong>Kriteria</strong></label>
+                    <div><?= !empty ($subak->kriteria_subak) ? $subak->kriteria_subak: '-' ?></div>
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label class="text-muted small">No Akte</label>
+                    <label class=""><strong>No Akte</strong></label>
                     <div><?= $subak->nomor_akte_notaris; ?></div>
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label class="text-muted small">NPWP</label>
+                    <label class=""><strong>NPWP</strong></label>
                     <div><?= $subak->npwp; ?></div>
                 </div>
             </div>
 
             <hr>
 
-            <div class="row text-muted small">
+            <div class="row text-center">
                 <div class="col-md-4">
                     <strong>Dibuat</strong><br>
                     <?= $subak->dibuat_oleh ?><br>
@@ -102,7 +145,7 @@
             <h5 class="mb-0">Alamat Subak <i class="fas fa-map"></i></h5>
         </div>
 
-        <div class="card-body">
+        <div class="card-body text-center">
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <strong><label class="">Br/Lingkungan</label></strong>
@@ -135,52 +178,55 @@
         </div>
 
         <div class="card-body">
+            <div class="text-center">
+                <i class="fas fa-calendar fa-lg text-success"></i>
+                <strong><label class="">Masa Bakti Ayahan</label></strong>
+                <div class="fw-bold"><?php echo $prajuru->masa_bhakti_ayahan_start; ?> sampai <?php echo $prajuru->masa_bhakti_ayahan_end; ?></div>
+            </div>  
+
+            <hr>    
             
-        </div>
-    </div>
-
-
-    <!-- Data Prajuru Subak -->
-    <div class="card mb-4">
-        <div class="card-header text-white" style="background-color: #FFB703;">
-            <strong>Data Prajuru Subak</strong>
-        </div>
-        <div class="card-body">
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <th>Masa Bhakti Ayahan</th>
-                        <td><?php echo $prajuru->masa_bhakti_ayahan_start; ?> sampai <?php echo $prajuru->masa_bhakti_ayahan_end; ?></td>
-                    </tr>
-                </tbody>
-            </table>
-            <h6 class="mt-4"><strong>Pekaseh</strong></h6>
-            
-            <table class="table table-bordered">
-                <tbody>
-                    <tr><th>Nama</th><td><?php echo $prajuru->pekaseh_nama; ?></td></tr>
-                    <tr><th>NPWP</th><td><?php echo $prajuru->pekaseh_npwp; ?></td></tr>
-                    <tr><th>HP/WA</th><td><?php echo $prajuru->pekaseh_hp_wa; ?></td></tr>
-                </tbody>
-            </table>
-
-            <h6 class="mt-4"><strong>Petajuh</strong></h6>
-            <table class="table table-bordered">
-                <tbody>
-                    <tr><th>Nama</th><td><?php echo $prajuru->petajuh_nama; ?></td></tr>
-                    <tr><th>NPWP</th><td><?php echo $prajuru->petajuh_npwp; ?></td></tr>
-                    <tr><th>HP/WA</th><td><?php echo $prajuru->petajuh_hp_wa; ?></td></tr>
-                </tbody>
-            </table>
-
-            <h6 class="mt-4"><strong>Penyarikan</strong></h6>
-            <table class="table table-bordered">
-                <tbody>
-                    <tr><th>Nama</th><td><?php echo $prajuru->penyarikan_nama; ?></td></tr>
-                    <tr><th>NPWP</th><td><?php echo $prajuru->penyarikan_npwp; ?></td></tr>
-                    <tr><th>HP/WA</th><td><?php echo $prajuru->penyarikan_hp_wa; ?></td></tr>
-                </tbody>
-            </table>
+            <div class="row g-3 text-center">
+                <div class="col-md-4 mb-3">
+                    <div class="border rounded-5">
+                        <i class="fas fa-user-tie fa-lg text-warning mt-3"></i>
+                        <h3 class="">Pekaseh</h3>
+                        <hr>
+                        <div class="fw-bold">Nama:</div>
+                        <div class="fw-bold mb-3"><?= !empty($prajuru->pekaseh_nama) ? $prajuru->pekaseh_nama : '-' ?></div>
+                        <div class="fw-bold">NPWP:</div>
+                        <div class="fw-bold mb-3"><?php echo $prajuru->pekaseh_npwp; ?></div>
+                        <div class="fw-bold">HP/Wa:</div>
+                        <div class="fw-bold mb-3"><?php echo $prajuru->pekaseh_hp_wa; ?></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="border rounded">
+                        <i class="fas fa-user fa-lg text-primary mt-3"></i>
+                        <h3 class="">Petajuh</h3>
+                        <hr>
+                        <div class="fw-bold">Nama:</div>
+                        <div class="fw-bold mb-3"><?= !empty($prajuru->petajuh_nama) ? $prajuru->petajuh_nama : '-' ?></div>
+                        <div class="fw-bold">NPWP:</div>
+                        <div class="fw-bold mb-3"><?php echo $prajuru->petajuh_npwp; ?></div>
+                        <div class="fw-bold">HP/Wa:</div>
+                        <div class="fw-bold mb-3"><?php echo $prajuru->petajuh_hp_wa; ?></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="border rounded">
+                        <i class="fas fa-file-alt fa-lg text-success mt-3"></i>
+                        <h3 class="">Penyarikan</h3>
+                        <hr>
+                        <div class="fw-bold">Nama:</div>
+                        <div class="fw-bold mb-3"><?= !empty($prajuru->penyarikan_nama) ? $prajuru->penyarikan_nama : '-' ?></div>
+                        <div class="fw-bold">NPWP:</div>
+                        <div class="fw-bold mb-3"><?php echo $prajuru->penyarikan_npwp; ?></div>
+                        <div class="fw-bold">HP/Wa:</div>
+                        <div class="fw-bold mb-3"><?php echo $prajuru->penyarikan_hp_wa; ?></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -188,279 +234,59 @@
         <div class="card-header text-white" style="background-color: #06D6A0;">
             <strong>Data Perahyangan</strong>
         </div>
-        <!-- <div class="card-body">
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <th>Ketersediaan Pura Bedugul</th>
-                        <td><?php echo $perahyangan->ketersediaan_pura_bedugul; ?></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div> -->
     </div>
-<!-- 
-    <div class="card mb-4">
-        <div class="card-header text-white" style="background-color: #06D6A0;">
-            <strong>Data Perahyangan (Pura Bedugul Ada)</strong>
-        </div>
-        <div class="card-body">
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <th>Ketersediaan Pura Bedugul</th>
-                        <td><?php echo $perahyangan->ketersediaan_pura_bedugul; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Nama Pura Bedugul</th>
-                        <td><?php echo $perahyanganpurabedugulada->nama_pura; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Pura Ini Disungsung Oleh</th>
-                        <td><?php echo $perahyanganpurabedugulada->pura_bedugul_disungsung; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Nama Subak Penyungsung Lain</th>
-                        <td><?php echo $perahyanganpurabedugulada->pura_bedugul_disungsung_lain; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Alamat Pura Bedugul</th>
-                        <td><?php echo $perahyanganpurabedugulada->alamat_pura_bedugul; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Piodalan/Wali dalam Setahun</th>
-                        <td><?php echo $perahyanganpurabedugulada->piodalan_wali_pertahun; ?> Kali</td>
-                    </tr>
-                    <tr>
-                        <th>Hari Piodalan/Wali</th>
-                        <td><?php echo $perahyanganpurabedugulada->hari_piodalan_wali; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Jumlah Pelinggih</th>
-                        <td><?php echo $perahyanganpurabedugulada->jumlah_pelinggih; ?></td>
-                    </tr>
-                </tbody>
-            </table>
-<hr>
-            <h6 class="mb-2"><strong>Aci-Aci Menurut Dresta</strong></h6>
-            <table class="table table-bordered">
-                <thead class="table-light">
-                    <tr>
-                        <th>Aci-Aci</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (!empty($perahyanganpurabeduguladaaciaci) && is_array($perahyanganpurabeduguladaaciaci)): ?>
-                        <?php foreach ($perahyanganpurabeduguladaaciaci as $aci_aci): ?>
-                            <?php if (is_object($aci_aci)): ?>
-                                <tr>
-                                    <td><?= $aci_aci->aci_aci_subak; ?></td>
-                                </tr>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <tr>
-                            <td colspan="2">Tidak ada data aci-aci</td>
-                        </tr>
-                    <?php endif; ?>
-                </tbody>
-            </table>
-<hr>
-            <h6 class="mb-2"><strong>Inventaris</strong></h6>
-            <table class="table table-bordered">
-                <thead class="table-light">
-                    <tr>
-                        <th>Inventaris</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (!empty($perahyanganpurabeduguladainventaris) && is_array($perahyanganpurabeduguladainventaris)): ?>
-                        <?php foreach ($perahyanganpurabeduguladainventaris as $inventaris): ?>
-                            <?php if (is_object($inventaris)): ?>
-                                <tr>
-                                    <td><?= $inventaris->inventaris; ?></td>
-                                </tr>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <tr>
-                            <td colspan="2">Tidak ada data Inventaris</td>
-                        </tr>
-                    <?php endif; ?>
-                </tbody>
-            </table>
-            <hr>
-            <div class="container mt-4">
-                <h6>Daftar Foto Pura</h6>
-                <div class="row">
-                    <?php foreach ($perahyanganpurabeduguladafotopura as $foto): ?>
-                        <div class="col-md-3 mb-3">
-                                <img src="<?= base_url('./application/upload/foto_pura/' . $foto) ?>" class="card-img-top" alt="Foto Pura" style="height: 200px; object-fit: cover;">
-                                <div class="card-body p-2 text-center">
-                                    <small><?= $foto ?></small>
-                                </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card mb-4" >
-        <div class="card-header text-white" style="background-color: #06D6A0;">
-            <strong>Data Perahyangan (Pura Bedugul Tidak Ada)</strong>
-        </div>
-        <div class="text-center mt-2">
-            <h5>Pura 1</h5>
-        </div>
-        <div class="card-body">
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <th>Ketersediaan Pura Bedugul</th>
-                        <td><?php echo $perahyangan->ketersediaan_pura_bedugul; ?></td>
-                    </tr>
-                        <th>Nama Pura Bedugul</th>
-                        <td><?php echo $perahyanganpurabedugultidakada->nama_pura2; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Pura Ini Disungsung Oleh</th>
-                        <td><?php echo $perahyanganpurabedugultidakada->pura_bedugul_disungsung2; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Nama Subak Penyungsung Lain</th>
-                        <td><?php echo $perahyanganpurabedugultidakada->pura_bedugul_disungsung_lain2; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Alamat Pura Bedugul</th>
-                        <td><?php echo $perahyanganpurabedugultidakada->alamat_pura_bedugul2; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Piodalan/Wali dalam Setahun</th>
-                        <td><?php echo $perahyanganpurabedugultidakada->piodalan_wali_pertahun2; ?> Kali</td>
-                    </tr>
-                    <tr>
-                        <th>Hari Piodalan/Wali</th>
-                        <td><?php echo $perahyanganpurabedugultidakada->hari_piodalan_wali2; ?></td>
-                    </tr>
-                </tbody>
-            </table>
-        <p><strong>Foto Pura</strong></p>
-<hr>
-        </div>
-        <div class="text-center mt-2">
-            <h5>Pura 2</h5>
-        </div>
-        <div class="card-body">
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <th>Ketersediaan Pura Bedugul</th>
-                        <td><?php echo $perahyangan->ketersediaan_pura_bedugul; ?></td>
-                    </tr>
-                        <th>Nama Pura Bedugul</th>
-                        <td><?php echo $perahyanganpurabedugultidakada2->nama_pura23; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Pura Ini Disungsung Oleh</th>
-                        <td><?php echo $perahyanganpurabedugultidakada2->pura_bedugul_disungsung23; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Nama Subak Penyungsung Lain</th>
-                        <td><?php echo $perahyanganpurabedugultidakada2->pura_bedugul_disungsung_lain23; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Alamat Pura Bedugul</th>
-                        <td><?php echo $perahyanganpurabedugultidakada2->alamat_pura_bedugul23; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Piodalan/Wali dalam Setahun</th>
-                        <td><?php echo $perahyanganpurabedugultidakada2->piodalan_wali_pertahun23; ?> Kali</td>
-                    </tr>
-                    <tr>
-                        <th>Hari Piodalan/Wali</th>
-                        <td><?php echo $perahyanganpurabedugultidakada2->hari_piodalan_wali23; ?></td>
-                    </tr>
-                </tbody>
-            </table>
-        <p><strong>Foto Pura</strong></p>
-<hr>
-        </div>
-        <div class="text-center mt-2">
-            <h5>Pura 3</h5>
-        </div>
-        <div class="card-body">
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <th>Ketersediaan Pura Bedugul</th>
-                        <td><?php echo $perahyangan->ketersediaan_pura_bedugul; ?></td>
-                    </tr>
-                        <th>Nama Pura Bedugul</th>
-                        <td><?php echo $perahyanganpurabedugultidakada3->nama_pura24; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Pura Ini Disungsung Oleh</th>
-                        <td><?php echo $perahyanganpurabedugultidakada3->pura_bedugul_disungsung24; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Nama Subak Penyungsung Lain</th>
-                        <td><?php echo $perahyanganpurabedugultidakada3->pura_bedugul_disungsung_lain24; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Alamat Pura Bedugul</th>
-                        <td><?php echo $perahyanganpurabedugultidakada3->alamat_pura_bedugul24; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Piodalan/Wali dalam Setahun</th>
-                        <td><?php echo $perahyanganpurabedugultidakada3->piodalan_wali_pertahun24; ?> Kali</td>
-                    </tr>
-                    <tr>
-                        <th>Hari Piodalan/Wali</th>
-                        <td><?php echo $perahyanganpurabedugultidakada3->hari_piodalan_wali24; ?></td>
-                    </tr>
-                </tbody>
-            </table>
-        <p><strong>Foto Pura</strong></p>
-
-        </div>
-    </div>
- -->
 
     <div class="card mb-4">
         <div class="card-header text-white" style="background-color: #9D4EDD;">
             <strong>Data Pawongan</strong>
         </div>
         <div class="card-body">
+            <div class="row g-3 text-center">
+                <div class="col-md-6 mb-3">
+                    <div class="border rounded">
+                        <i class="fas fa-user fa-lg  text-success mt-3"></i>
+                        <div class="fw-bold mt-3">Jumlah Krama Pemilik Lahan</div>
+                        <div class="w-bold mb-3"><?php echo $pawongan->jumlah_krama_pemilik_lahan; ?></div>
+                    </div>
+                </div>
 
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <th>Jumlah Krama Pemilik Lahan</th>
-                        <td><?php echo $pawongan->jumlah_krama_pemilik_lahan; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Jumlah Krama Penyakap</th>
-                        <td><?php echo $pawongan->jumlah_krama_penyakap; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Awig-Awig</th>
-                        <td><?php echo $pawongan->awig_awig; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Perarem</th>
-                        <td><?php echo $pawongan->perarem; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Perarem Alih Fungsi</th>
-                        <td><?php echo $pawongan->perarem_alih_fungsi; ?></td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="col-md-6 mb-3">
+                    <div class="border rounded">
+                        <i class="fas fa-user fa-lg text-success mt-3"></i>
+                        <div class="fw-bold mt-3">Jumlah Krama Pemilik Lahan</div>
+                        <div class="w-bold mb-3"><?php echo $pawongan->jumlah_krama_pemilik_lahan; ?></div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="row g-3 text-center">
+                <div class="col-md-4">
+                    <div class="border rounded">
+                        <i class="fas fa-user fa-lg text-success mt-3"></i>
+                        <div class="fw-bold mt-3">Awig-Awig</div>
+                        <div class="w-bold mb-3"><?php echo !empty($pawongan->awig_awig) ? $pawongan->awig_awig : '-'; ?></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="border rounded">
+                        <i class="fas fa-user fa-lg text-success mt-3"></i>
+                        <div class="fw-bold mt-3">Perarem</div>
+                        <div class="w-bold mb-3"><?php echo !empty($pawongan->perarem) ? $pawongan->perarem : '-'; ?></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="border rounded">
+                        <i class="fas fa-user fa-lg text-success mt-3"></i>
+                        <div class="fw-bold mt-3">Perarem Alih Fungsi</div>
+                        <div class="w-bold mb-3"><?php echo !empty($pawongan->perarem_alih_fungsi) ? $pawongan->perarem_alih_fungsi : '-'; ?></div>
+                    </div>
+                </div>
+            </div>
+            <hr>
             <div class="mt-4">
-                <h6 class="mb-2"><strong>Nama Penyakap & Tingkat Pendidikan</strong></h6>
-                <table class="table table-bordered">
+                <h6 class="mb-2"><i class="fa fa-graduation-cap" aria-hidden="true"></i><strong> Informasi Penyakap & Tingkat Pendidikan</strong></h6>
+                <div class="border rounded">
+                <table class="table ">
                     <thead class="table-light">
                         <tr>
                             <th>Nama Penyakap</th>
@@ -487,30 +313,32 @@
             </div>
 
             <div class="mt-4">
-                <h6 class="mb-2"><strong>Nama Perarem</strong></h6>
-                <table class="table table-bordered">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Nama Perarem (Jika Ada)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if (!empty($pawongannamaperarem) && is_array($pawongannamaperarem)): ?>
-                            <?php foreach ($pawongannamaperarem as $perarem): ?>
-                                <?php if (is_object($perarem)): ?>
+                <h6 class="mb-2"><strong><i class="fa fa-table" aria-hidden="true"></i> Informasi Perarem</strong></h6>
+                    <div class="border rounded">
+                        <table class="table">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Nama Perarem (Jika Ada)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if (!empty($pawongannamaperarem) && is_array($pawongannamaperarem)): ?>
+                                    <?php foreach ($pawongannamaperarem as $perarem): ?>
+                                        <?php if (is_object($perarem)): ?>
+                                            <tr>
+                                                <td><?= $perarem->nama_perarem; ?></td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
                                     <tr>
-                                        <td><?= $perarem->nama_perarem; ?></td>
+                                        <td colspan="2">Tidak ada data perarem</td>
                                     </tr>
                                 <?php endif; ?>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr>
-                                <td colspan="2">Tidak ada data penyakap</td>
-                            </tr>
-                        <?php endif; ?>
-                    
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
