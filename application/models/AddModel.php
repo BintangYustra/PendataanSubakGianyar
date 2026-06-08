@@ -15,6 +15,11 @@ class AddModel extends CI_Model {
         return $this->db->insert_id();
     }
 
+    public function insert_metadata($metadata) {
+        $this->db->insert('metadata', $metadata);
+        return $this->db->insert_id();
+    }
+
     public function insert_tb_alamat_subak($alamat) {
         $this->db->insert('tb_alamat_subak', $alamat);
     }
@@ -83,8 +88,8 @@ class AddModel extends CI_Model {
         $this->db->insert('tb_palemahan', $palemahan);
     }
 
-    public function insert_tb_palemahan_tanaman_pokok($tanamanaPokok) {
-        $this->db->insert('tb_tanaman_pokok', $tanamanaPokok);
+    public function insert_tb_palemahan_tanaman_pokok($tanamanPokok) {
+        $this->db->insert('tb_tanaman_pokok', $tanamanPokok);
     }
 
     public function insert_tb_palemahan_jenis_tanaman_pokok($jenisTanaman) {

@@ -182,7 +182,6 @@ class DashboardOperatorTambahData extends CI_Controller {
         // PAWONGAN NAMA PENYAKAP
         $nama_penyakap_list = $this->input->post('nama_penyakap');
         $pendidikan_penyakap_list = $this->input->post('tingkat_pendidikan_penyakap');
-
         if (!empty($nama_penyakap_list) && is_array($nama_penyakap_list)) {
             foreach ($nama_penyakap_list as $i => $nama_penyakap) {
                 if (!empty($nama_penyakap)) {
@@ -220,33 +219,40 @@ class DashboardOperatorTambahData extends CI_Controller {
         
         // PALEMAHAN TANAMAN POKOK
         $tanaman_pokok = $this->input->post('tanaman_pokok');
-        if ($tanaman_pokok) {
+        if (!empty($tanaman_pokok)) {
             foreach ($tanaman_pokok as $val) {
-                $this->Addmodel->insert_tb_palemahan_tanaman_pokok([
+                if (!empty($val)) {
+                    $this->Addmodel->insert_tb_palemahan_tanaman_pokok([
                     'id_palemahan' => $id_palemahan,
                     'tanaman_pokok' => $val
-                ]);
+                    ]);
+                }
             }
         }
 
         // PALEMAHAN JENIS TANAMAN POKOK
         $jenis_tanaman_pokok = $this->input->post('jenis_tanaman_pokok');
-        if ($jenis_tanaman_pokok) {
+        if (!empty($jenis_tanaman_pokok)) {
             foreach ($jenis_tanaman_pokok as $val) {
-                $this->Addmodel->insert_tb_palemahan_jenis_tanaman_pokok([
+                if (!empty($val)) {
+                    $this->Addmodel->insert_tb_palemahan_jenis_tanaman_pokok([
                     'id_palemahan' => $id_palemahan,
                     'jenis_tanaman_pokok' => $val,
                 ]);
+                }
             }
         }
         // PALEMAHAN HAMA
         $nama_hama = $this->input->post('nama_hama');
-        if ($nama_hama) {
+        if (!empty($nama_hama)) {
             foreach ($nama_hama as $val) {
-                $this->Addmodel->insert_tb_palemahan_hama([
+                if (!empty($val)) {
+                    $this->Addmodel->insert_tb_palemahan_hama([
                     'id_palemahan' => $id_palemahan,
                     'nama_hama' => $val
                 ]);
+                }
+
             }
         }
 
